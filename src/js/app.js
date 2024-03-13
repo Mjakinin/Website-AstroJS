@@ -16,10 +16,8 @@ class PageHandler {
 
       if (localStorage.getItem("theme") == "dark") {
         localStorage.setItem("theme", "");
-
       } else {
         localStorage.setItem("theme", "dark");
-
       }
 
       this.setThemeIcon();
@@ -87,12 +85,56 @@ class PageHandler {
     typeWriter();
   }
 
+  // Hier werden die dynamischen Texteffekte auf die entsprechenden Elemente angewendet.
+  applyTextEffects() {
+    const divs = document.querySelectorAll("[id^='dynamic-text']");
+
+    divs.forEach(div => {
+      let text = "";
+      
+      if (div.id === "dynamic-text1") {
+        text = "Wer bin ich?";
+      }
+      if (div.id === "dynamic-text2") {
+        text = "Der Schritt in die Selbstständigkeit neben dem Studium";
+      }
+      if (div.id === "dynamic-text3") {
+        text = "Studium in Berlin und gleichzeitig selbständig in Naumburg?";
+      }
+      if (div.id === "dynamic-text4") {
+        text = "Warum die Selbstständigkeit?";
+      }
+      if (div.id === "dynamic-text5") {
+        text = "Menschliche Verbindung im Fokus";
+      }
+      if (div.id === "dynamic-text6") {
+        text = "Was biete ich an?";
+      }
+      if (div.id === "dynamic-text7") {
+        text = "Was mache ich?";
+      }
+      if (div.id === "dynamic-text8") {
+        text = "Was spricht für mich?";
+      }
+
+      function textTypingEffect(element, text, i=0) {
+        element.textContent += text[i];
+        if (i === text.length - 1) {
+          return;
+        }
+        setTimeout(() => textTypingEffect(element, text, i + 1), 50);
+      }
+
+      textTypingEffect(div, text);
+    });
+  }
 }
 
 // Diese Funktion erstellt eine neue Instanz der Klasse PageHandler.
 const init = () => {
   const pageHandler = new PageHandler();
   pageHandler.typeWriterManager('dynamic-header-text', ["Maxim", "Informatiker"]);
+  pageHandler.applyTextEffects(); // Hier werden die Texteffekte angewendet
 };
 
 // Die Funktion init() wird ausgeführt, wenn der DOM geladen wurde.

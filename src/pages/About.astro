@@ -28,48 +28,7 @@ import Layout from "../layouts/Layout.astro";
 
   <h2 id="dynamic-text5" class="mt-20"></h2>
   <p>
-    Neben den technischen Aspekten ist mir der Umgang mit Menschen besonders wichtig. Neue Menschen kennenzulernen und ihnen bei ihren technischen Problemen zu helfen, bereitet mir Freude und erweitert meinen Horizont. Ich freue mich darauf, egal ob Privatpersonen oder kleines Unternehmen, meinen Kunden in Naumburg und Umgebung bei ihren Computerproblemen zu unterstützen.  </p>
+    Neben den technischen Aspekten ist mir der Umgang mit Menschen besonders wichtig. Neue Menschen kennenzulernen und ihnen bei ihren technischen Problemen zu helfen, bereitet mir Freude und erweitert meinen Horizont. Ich freue mich darauf, egal ob Privatpersonen oder kleines Unternehmen, meinen Kunden in Naumburg und Umgebung bei ihren Computerproblemen zu unterstützen.
+  </p>
   
-  <script>
-    const divs = document.querySelectorAll("[id^='dynamic-text']");
-
-divs.forEach(div => {
-  let text = "";
-  
-  if (div.id === "dynamic-text1") {
-    text = "Wer bin ich?";
-  }
-  if (div.id === "dynamic-text2") {
-    text = "Der Schritt in die Selbstständigkeit neben dem Studium";
-  }
-  if (div.id === "dynamic-text3") {
-    text = "Studium in Berlin und gleichzeitig selbständig in Naumburg?";
-  }
-  if (div.id === "dynamic-text4") {
-    text = "Warum die Selbstständigkeit?";
-  }
-  if (div.id === "dynamic-text5") {
-    text = "Menschliche Verbindung im Fokus";
-  }
-  if (div.id === "dynamic-text6") {
-    text = "Was biete ich an?";
-  }
-  if (div.id === "dynamic-text7") {
-    text = "Was mache ich?";
-  }
-  if (div.id === "dynamic-text8") {
-    text = "Was spricht für mich?";
-  }
-
-    function textTypingEffect(element, text, i=0) {
-      element.textContent += text[i];
-      if (i === text.length - 1) {
-        return;
-      }
-      setTimeout(() => textTypingEffect(element, text, i + 1), 50);
-    }
-
-    textTypingEffect(div, text);
-    });
-  </script>
 </Layout>
