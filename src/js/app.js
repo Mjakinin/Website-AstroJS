@@ -1,16 +1,13 @@
-// pageHandler ist die Klasse, die alle Funktionen enthält, die auf der Seite ausgeführt werden sollen.
+let dark = true; // or false, depending on your needs
+
 class PageHandler {
   constructor() {
-    // Wenn im localStorage der Wert "theme" auf "dark" gesetzt ist, wird der Klasse "dark" auf dem HTML-Element hinzugefügt.
     if (localStorage.getItem("theme") == "dark") {
       document.documentElement.classList.add("dark");
     }
 
-    // Initiale Funktionen welche beim Laden der Seite ausgeführt werden sollen.
     this.setThemeIcon();
 
-    // Event-Listener für den Dark-Mode-Switch
-    // Bei Klick auf den Switch wird die Klasse "dark" auf dem HTML-Element hinzugefügt oder entfernt.
     document.querySelector("#colorSwitch").addEventListener("click", () => {
       document.documentElement.classList.toggle("dark");
 
@@ -21,10 +18,10 @@ class PageHandler {
       }
 
       this.setThemeIcon();
+      this.setLogo();
     });
   }
 
-  // Diese Funktion setzt das Icon für den Dark-Mode-Switch.
   setThemeIcon() {
     let colorSwitch = document.querySelector("#colorSwitch");
     if (colorSwitch === null) return;
@@ -35,7 +32,22 @@ class PageHandler {
       `;
     } else {
       colorSwitch.innerHTML = `
-        <img src="/icons/sun.svg?a=${Math.random()}" alt="moon" class="w-6 h-6" />
+        <img src="/icons/sun.svg?a=${Math.random()}" alt="sun" class="w-6 h-6" />
+      `;
+    }
+  }
+
+  setLogo() {
+    const logoImage = document.querySelector("#logotest");
+    if (logoImage === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      logoImage.innerHTML = `
+        <img src="/icons/logo.svg?a=${Math.random()}" alt="logo" class="w-96 h-96" />
+      `;
+    } else {
+      logoImage.innerHTML = `
+        <img src="/icons/logo.svg?a=${Math.random()}" alt="logo" class="w-6 h-6" />
       `;
     }
   }
@@ -84,6 +96,7 @@ class PageHandler {
 
     typeWriter();
   }
+  
 
   // Hier werden die dynamischen Texteffekte auf die entsprechenden Elemente angewendet.
   applyTextEffects() {
@@ -128,19 +141,20 @@ class PageHandler {
       textTypingEffect(div, text);
     });
   }
+
+  
 }
 
 // Diese Funktion erstellt eine neue Instanz der Klasse PageHandler.
 const init = () => {
   const pageHandler = new PageHandler();
   pageHandler.typeWriterManager('dynamic-header-text', ["Maxim", "Informatiker"]);
-  pageHandler.applyTextEffects(); // Hier werden die Texteffekte angewendet
+  pageHandler.applyTextEffects();
+  pageHandler.setLogo(); // Set logo based on initial theme
 };
 
-// Die Funktion init() wird ausgeführt, wenn der DOM geladen wurde.
 document.addEventListener("DOMContentLoaded", () => init());
 
-// Swup Page Transition
 const swup = new Swup({
   animationSelector: '[class*="swuptransition-"]',
   plugins: [new SwupA11yPlugin(), new SwupHeadPlugin(), new SwupScrollPlugin()],
