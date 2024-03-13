@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
+import Button from "../components/Button.astro";
+
+import logo from "../images/5.png"
+import logo1 from "../images/Logo.png";
+
+---
+
+<Layout title="Startseite">
+  <div class="flex flex-col xl:flex-row justify-between items-center">
+    <div class="w-full xl:w-1/2 flex flex-col justify-between items-center xl:items-start">
+      <div class="text-4xl md:text-6xl text-center xl:text-start mb-4 transition-transform duration-300 transform hover:scale-105">
+        Hey, ich bin<br />
+        <span id="dynamic-header-text" class="dark:text-blue-500 text-blue-500">Maxim</span><br />
+      </div>
+      <div class="mb-6 text-center xl:text-start leading-relaxed py-8 transition-transform duration-300 transform hover:scale-105">
+        Ich bin derzeit Student in Berlin und studiere Computer Engineering. Mein Bachelor-Abschluss steht kurz bevor, und ich habe ein starkes Interesse an allem rund um Computer. Es macht mir Freude, anderen bei ihren Computerproblemen zu helfen, da ich aus eigener Erfahrung weiß, wie frustrierend das sein kann.
+      </div>
+      <div class="flex items-center">
+        <Button url="/Angebote" title="Angebote" external={true} />
+        <a href="mailto:maxim.mjakinin@gmail.com" class="ml-10 font-medium dark:text-dark text-light underline transition-transform duration-300 transform hover:scale-105">Kontakt</a>
+      </div>
+    </div>
+    <div class="w-3/4 sm:w-3/5 xl:w-1/2 flex justify-center items-center -py-10">
+      <div  class="relative">
+        <Image id="logotest"
+          src={logo1}
+          width={700}
+          height={700}
+          quality={100}
+          format="webp"
+          alt="logo"
+          class="transition-transform duration-300 transform hover:scale-105"
+        />
+      </div>
+    </div>
+  </div>
+</Layout>

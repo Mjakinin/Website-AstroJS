@@ -1,0 +1,15 @@
+---
+import { Icon } from "astro-icon";
+import NavigationLink from "./NavigationLink.astro";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.split("/");
+---
+
+<NavigationLink title="Home" url="" currentpath={currentPath[1]} />
+<NavigationLink title="About" url="About" currentpath={currentPath[1]} />
+<NavigationLink title="Unternehmen" url="Unternehmen" currentpath={currentPath[1]} />
+<NavigationLink title="Angebote" url="Angebote" currentpath={currentPath[1]} />
+
+
+
