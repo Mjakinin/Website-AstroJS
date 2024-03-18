@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "@astrojs/image/components";
 import Button from "../components/Button.astro";
+import Footer from "../components/Footer.astro";
+
 
 import dark from "../images/darkfin.png";
 import light from "../images/lightfin.png";
@@ -10,7 +12,7 @@ import light from "../images/lightfin.png";
 ---
 
 <Layout title="Startseite">
-  <div class="flex flex-col xl:flex-row justify-between items-center">
+  <div class="flex flex-col xl:flex-row justify-between items-center -mb-96">
     <div class="w-full  flex flex-col justify-between items-center xl:items-start">
       <div class="text-4xl md:text-6xl mt-32 text-center xl:text-start mb-4 transition-transform duration-300 transform hover:scale-105">
         Hey, ich bin<br />
@@ -24,28 +26,6 @@ import light from "../images/lightfin.png";
         <a href="mailto:maxim.mjakinin@gmail.com" class="ml-10 font-medium dark:text-dark text-light underline transition-transform duration-300 transform hover:scale-105">Kontakt</a>
       </div>
     </div>
-     <!-- 
-    <div class="w-3/4 sm:w-3/5 xl:w-1/2 flex justify-center items-center -py-10">
-      <div  class="relative">
-        <Image id="logotest"
-          src={dark}
-          width={500}
-          height={500}
-          quality={100}
-          format="webp"
-          alt="logo"
-          class="transition-transform duration-300 transform hover:scale-105 scale-90 md:scale-95 lg:scale-100"
-        />
-      </div>
-    </div>
-    -->
   </div>
-
-  <!-- 
-<div class="w-3/4 sm:w-3/5 xl:w-1/2 flex justify-center items-center -py-10">
-  <div id="logotest" class="hover:cursor-pointer">
-    <img src="/icons/logo.svg" alt="logo" class="w-96 h-96" />
-  </div>
-</div>
--->
 </Layout>
+<Footer />

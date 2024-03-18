@@ -13,16 +13,33 @@
   }
 
   h1::before,
-  h2::before,
-  h3::before {
+  h2::before{
     @apply mr-4 dark:text-blue-400 text-blue-400;
     content: "#";
+  }
+
+  h3::before {
+    @apply mr-4 dark:text-blue-400 text-blue-400;
+    content: "<>";
   }
 
   .task::before {
     @apply ml-2 dark:text-blue-400 text-blue-400;
     content: "<> ";
   }
+
+  #eigenschaften::before {
+    content: "<> ";
+    @apply dark:text-blue-400 text-blue-400;
+    font-size: 1.2rem;; /* Hier die gewünschte Schriftgröße in Pixeln oder anderen Einheiten einfügen */
+}
+
+#eigenschaften {
+  font-size: 1.2rem; /* Hier die gewünschte Schriftgröße eintragen */
+  /* Weitere Stile für das Element mit der ID "eigenschaften" */
+}
+
+
 
   p {
     @apply my-4 leading-relaxed;
@@ -52,7 +69,7 @@
   #toc li {
     @apply my-2 mx-4 list-disc;
   }
-
+  
   p > a,
   li > a {
     @apply text-blue-700 dark:text-blue-400 hover:underline;

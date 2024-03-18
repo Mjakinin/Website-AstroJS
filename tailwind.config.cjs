@@ -7,6 +7,10 @@ module.exports = {
   // Mit theme.extent kann das Standard-Theme von Tailwind erweitert werden. z.B. um eigene Farben. Tailwind generiert dann automatisch alle passenden Klassen (z.B. text-light, bg-light, border-light usw...).
   theme: {
     extend: {
+
+      screens: {
+        'ssm': '410px',
+      },
       
       colors: {
         light: "#D1D1D1",

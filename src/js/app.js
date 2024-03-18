@@ -56,44 +56,52 @@ class PageHandler {
   typeWriterManager(elementId, textArray) {
     let dynamicHeaderElement = document.querySelector(`#${elementId}`);
     if (dynamicHeaderElement === null || !Array.isArray(textArray) || textArray.length === 0) return;
-
+  
     let i = 0;
     let currentText = '';
     let currentWord = '';
     let isDeleting = false;
-
-    // Nach jedem Durchlauf wird die Funktion erneut aufgerufen. Bei einem Durchlauf wird ein Buchstabe hinzugefügt oder gelöscht.
-    // Je nach Situation wird die Funktion nach einem bestimmten Timeout erneut aufgerufen.
+    let cursorVisible = true;
+  
+    // Function to toggle cursor visibility
+    let toggleCursor = () => {
+      cursorVisible = !cursorVisible;
+      if (cursorVisible) {
+        dynamicHeaderElement.innerHTML = currentText + '<span style="color: #D1D1D1;">|</span>';
+      } else {
+        dynamicHeaderElement.innerHTML = currentText + '<span style="color: #1b1b1b;">|</span>';
+      }
+    };
+  
+    // Call toggleCursor every 500ms to blink the cursor when there's no activity
+    setInterval(toggleCursor, 500);
+  
     let typeWriter = () => {
       currentWord = textArray[i];
-
+  
       if (isDeleting) {
         currentText = currentWord.substring(0, currentText.length - 1);
-      }
-
-      if (!isDeleting) {
+      } else {
         currentText = currentWord.substring(0, currentText.length + 1);
       }
-
-      dynamicHeaderElement.innerHTML = currentText;
-
+  
+      dynamicHeaderElement.innerHTML = currentText + (cursorVisible && !isDeleting ? '<span style="color: #D1D1D1;">|</span>' : '');
+  
       if (!isDeleting && currentText === currentWord) {
         isDeleting = true;
         setTimeout(typeWriter, 3000);
       } else if (isDeleting && currentText === "") {
         isDeleting = false;
         i++;
-
         if (i === textArray.length) {
           i = 0;
         }
-
         setTimeout(typeWriter, 500);
       } else {
         setTimeout(typeWriter, 100);
       }
     };
-
+  
     typeWriter();
   }
   

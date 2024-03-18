@@ -2,9 +2,9 @@
 import NavigationLinks from "./NavigationLinks.astro";
 ---
 
-<div class="fixed md:hidden bottom-0 w-screen">
+<div id="scrollable" class="fixed md:hidden bottom-0 w-screen h-20 overflow-x-scroll overflow-y-hidden whitespace-nowrap">
   <nav
-    class="dark:bg-light bg-dark border-t-2 dark:border-dark border-light w-screen h-20 flex items-center justify-center gap-x-4 sm:gap-x-8 text-lg"
+    class="dark:bg-light bg-dark border-t-2 dark:border-dark border-light w-fit ssm:w-screen h-20 flex items-center justify-center gap-x-4 sm:gap-x-8 text-lg"
   >
     <NavigationLinks />
   </nav>
