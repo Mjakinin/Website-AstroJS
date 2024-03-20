@@ -38,16 +38,81 @@ class PageHandler {
   }
 
   setLogo() {
-    const logoImage = document.querySelector("#logotest");
-    if (logoImage === null) return;
+    const icon1 = document.querySelector("#icon1");
+    if (icon1 === null) return;
 
     if (localStorage.getItem("theme") == "dark") {
-      logoImage.innerHTML = `
-        <img src="/icons/logo.svg?a=${Math.random()}" alt="logo" class="w-96 h-96" />
+      icon1.innerHTML = `
+        <img src="/icons/rocket-dark.svg?a=${Math.random()}" alt="icon1" class="w-10 h-10" />
       `;
     } else {
-      logoImage.innerHTML = `
-        <img src="/icons/logo.svg?a=${Math.random()}" alt="logo" class="w-6 h-6" />
+      icon1.innerHTML = `
+        <img src="/icons/rocket.svg?a=${Math.random()}" alt="icon1" class="w-10 h-10" />
+      `;
+    }
+
+    const icon2 = document.querySelector("#icon2");
+    if (icon2 === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      icon2.innerHTML = `
+        <img src="/icons/money-dark.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
+      `;
+    } else {
+      icon2.innerHTML = `
+        <img src="/icons/money.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
+      `;
+    }
+
+    const icon3 = document.querySelector("#icon3");
+    if (icon3 === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      icon3.innerHTML = `
+        <img src="/icons/tools-dark.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
+      `;
+    } else {
+      icon3.innerHTML = `
+        <img src="/icons/tools.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
+      `;
+    }
+
+    const icon4 = document.querySelector("#icon4");
+    if (icon4 === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      icon4.innerHTML = `
+        <img src="/icons/arrow-dark.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
+      `;
+    } else {
+      icon4.innerHTML = `
+        <img src="/icons/arrow.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
+      `;
+    }
+
+    const icon5 = document.querySelector("#icon5");
+    if (icon5 === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      icon5.innerHTML = `
+        <img src="/icons/person-dark.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
+      `;
+    } else {
+      icon5.innerHTML = `
+        <img src="/icons/person.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
+      `;
+    }
+
+    const icon6 = document.querySelector("#icon6");
+    if (icon6 === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      icon6.innerHTML = `
+        <img src="/icons/pc-dark.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
+      `;
+    } else {
+      icon6.innerHTML = `
+        <img src="/icons/pc.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
       `;
     }
   }

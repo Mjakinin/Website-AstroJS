@@ -35,22 +35,26 @@
 }
 
 #eigenschaften {
-  font-size: 1.2rem; /* Hier die gewünschte Schriftgröße eintragen */
-  /* Weitere Stile für das Element mit der ID "eigenschaften" */
+  font-size: 1.2rem;
+  @apply text-sm sm:text-xl md:text-2xl
 }
 
 
 
   p {
     @apply my-4 leading-relaxed;
+    text-align: justify;
   }
 
   u:hover {
     text-decoration: none;
   }
-  
 
   h1 + p {
+    @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold;
+  }
+
+  #erste{
     @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold;
   }
 

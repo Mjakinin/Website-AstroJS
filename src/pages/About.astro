@@ -2,40 +2,68 @@
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
 
-import picture from "../images/bild.png";
 
 ---
 
-<Layout title="About">
-  <h1 id="dynamic-text1"></h1>
-  <p>
-    Hi! Ich bin Maxim, 20 Jahre alt und studiere Computer Engineering an der Technischen Universität Berlin. Derzeit befinde ich mich im vierten Semester und stehe kurz vor meinem Bachelor-Abschluss. Schon seit meiner Jugend habe ich mich intensiv mit Technologie beschäftigt, insbesondere mit Computern. Das Zusammenstellen von Computern für Freunde, Bekannte und mich selbst ermöglichte es mir, umfangreiche praktische Erfahrungen zu sammeln. Diese Leidenschaft für Technik hat mich dazu inspiriert, mein Hobby zum Beruf zu machen.
-  </p>
-  <p>
-    Was mich an der Informatik fasziniert, ist ihre kontinuierliche Weiterentwicklung und ihre Vielfältigkeit. Informatik ist nie langweilig, da es immer etwas Neues zu entdecken gibt. Diese Breite des Fachgebietes führte mich dazu, Computer Engineering zu studieren und meinen Weg in die IT-Branche zu suchen.
-  </p>
+<Layout title="Maxim - About">
 
-  <h2 id="dynamic-text2" class="mt-20"></h2>
-  <p>
-    Nach drei sehr theoretischen Semestern meines Studiums in Berlin habe ich mich dazu entschlossen, in meiner Heimatstadt Naumburg einen Computer-Reparaturdienst anzubieten. Neben dem Studium möchte ich praktische Erfahrungen sammeln, die mir sowohl beruflich als auch persönlich weiterhelfen. Mein Schwerpunkt im Studium liegt neben Informatik auch auf Elektrotechnik. Diese Kombination ermöglicht es mir, mein theoretisches Wissen direkt in der Praxis anzuwenden und meine Fähigkeiten weiter zu entwickeln.
-  </p>
+  <div style={`position: relative; height: 800px;`}>
+    <div id="logoSwitch">
+      <img src={'/icons/brandenburger-tor-dark.svg'} class="rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-10" />
+    </div>
 
-  <h2 id="dynamic-text3" class="mt-20"></h2>
-  <p>
-    Ja, dank der Digitalisierung ist es mir möglich, von zuhause aus zu arbeiten und meine Aufgaben online zu erledigen. Somit habe ich als Student die Flexibilität, meine Zeit selbst zu managen und sowohl meinem Studium in Berlin als auch meinem Computer-Service in Naumburg gerecht zu werden.
-  </p>
 
-  <h2 id="dynamic-text4" class="mt-20"></h2>
+      <h1 id="dynamic-text1" ></h1>
+      <p>
+        Hi! Ich bin Maxim, 20 Jahre alt und studiere Computer Engineering an der Technischen Universität Berlin. Derzeit befinde ich mich im vierten Semester und stehe kurz vor meinem Bachelor-Abschluss. Schon seit meiner Jugend habe ich mich intensiv mit Technologie beschäftigt, insbesondere mit Computern. Das Zusammenstellen von Computern für Freunde, Bekannte und mich selbst ermöglichte es mir, umfangreiche praktische Erfahrungen zu sammeln. Diese Leidenschaft für Technik hat mich dazu inspiriert, mein Hobby zum Beruf zu machen.
+      </p>
+      <p>
+        Was mich an der Informatik fasziniert, ist ihre kontinuierliche Weiterentwicklung und ihre Vielfältigkeit. Informatik ist nie langweilig, da es immer etwas Neues zu entdecken gibt. Diese Breite des Fachgebietes führte mich dazu, Computer Engineering zu studieren und meinen Weg in die IT-Branche zu suchen.
+      </p>
+    </div>
+
+
+      <h2 id="dynamic-text2" class="-mt-40 ssm:-mt-96 sm:-mt-14 md:mt-40 lg:mt-0" ></h2>
+      <p class="mb-20 xl:mb-32">
+        Nach drei sehr theoretischen Semestern meines Studiums in Berlin habe ich mich dazu entschlossen, in meiner Heimatstadt Naumburg einen Computer-Reparaturdienst anzubieten. Neben dem Studium möchte ich praktische Erfahrungen sammeln, die mir sowohl beruflich als auch persönlich weiterhelfen. Mein Schwerpunkt im Studium liegt neben Informatik auch auf Elektrotechnik. Diese Kombination ermöglicht es mir, mein theoretisches Wissen direkt in der Praxis anzuwenden und meine Fähigkeiten weiter zu entwickeln.
+      </p>
+
+
+
+
+
+
+
+    <div style={`position: relative; height: 400px;`}>
+    <div id="logoSwitch1">
+      <img src={'/icons/fernsehturm-dark.svg'} class="-rotate-12 absolute hidden lg:block lg:w-48 lg:h-48 lg:left-20 lg:-bottom-28 xl:w-56 xl:h-56 xl:-bottom-32 xl:left-44 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
+    </div>
+  
+      <h2 id="dynamic-text3" class="mt-40 ssm:-mt-0 sm:mt-32 md:mt-40"></h2>
+      <p class="2xl:mb-60">
+        Ja, dank der Digitalisierung ist es mir möglich, von zuhause aus zu arbeiten und meine Aufgaben online zu erledigen. Somit habe ich als Student die Flexibilität, meine Zeit selbst zu managen und sowohl meinem Studium in Berlin als auch meinem Computer-Service in Naumburg gerecht zu werden.
+      </p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="dynamic-text4" class="mt-0 ssm:-mt-32 sm:-mt-10 md:mt-24 lg:text-right"></h2>
   <p>
     Anstatt bei einem Systemintegrator anzufangen, entschied ich mich für die Selbstständigkeit. Naumburg fehlt es an modernen Reparatur-Services, und die Selbstständigkeit ermöglicht es mir, mein eigener Arbeitsgeber zu sein und meine Arbeitsweise selbst zu bestimmen. Zudem schätze ich den direkten Kontakt mit Kunden und die Herausforderungen, die jeder Fall mit sich bringt.
   </p>
 
-  <h2 id="dynamic-text5" class="mt-20"></h2>
+  <h2 id="dynamic-text5" class="mt-40 ssm:mt-20 sm:mt-32 md:mt-40"></h2>
   <p>
     Neben den technischen Aspekten ist mir der Umgang mit Menschen besonders wichtig. Neue Menschen kennenzulernen und ihnen bei ihren technischen Problemen zu helfen, bereitet mir Freude und erweitert meinen Horizont. Ich freue mich darauf, egal ob Privatpersonen oder kleines Unternehmen, meinen Kunden in Naumburg und Umgebung bei ihren Computerproblemen zu unterstützen.
   </p>
-  <img src="/images/bild.png" alt="Bildbeschreibung" />
-
 </Layout>
 <br/><br/><br/><br/><br/><br/>
 <Footer />

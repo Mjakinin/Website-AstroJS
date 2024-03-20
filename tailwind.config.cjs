@@ -11,6 +11,13 @@ module.exports = {
       screens: {
         'ssm': '410px',
       },
+
+      margin: {
+        '120': '30rem',
+        '144': '36rem',
+        '168': '42rem',
+        '192': '48rem',
+      },
       
       colors: {
         light: "#D1D1D1",

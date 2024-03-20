@@ -1,31 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "@astrojs/image/components";
 import Button from "../components/Button.astro";
 import Footer from "../components/Footer.astro";
-
-
-import dark from "../images/darkfin.png";
-import light from "../images/lightfin.png";
-
-
 ---
 
-<Layout title="Startseite">
-  <div class="flex flex-col xl:flex-row justify-between items-center -mb-96">
+<Layout title="Maxim">
+  <div class="flex flex-col xl:flex-row justify-between items-center">
     <div class="w-full  flex flex-col justify-between items-center xl:items-start">
-      <div class="text-4xl md:text-6xl mt-32 text-center xl:text-start mb-4 transition-transform duration-300 transform hover:scale-105">
+      <div class="text-4xl md:text-6xl mt-10 ssm:mt-32 text-center xl:text-start mb-4 transition-transform duration-300 transform hover:scale-105">
         Hey, ich bin<br />
         <span id="dynamic-header-text" class="dark:text-blue-500 text-blue-500">Maxim</span><br />
       </div>
-      <div class="mb-6 mt-12 text-centser xl:text-start leading-relaxed py-8 transition-transform duration-300 transform hover:scale-105">
-        Ich bin derzeit Student in Berlin und studiere Computer Engineering. Mein Bachelor-Abschluss steht kurz bevor, und ich habe ein starkes Interesse an allem rund um Computer. Es macht mir Freude, anderen bei ihren Computerproblemen zu helfen, da ich aus eigener Erfahrung weiß, wie frustrierend das sein kann.
+      <div class="text-align: justify;mb-6 mt-12 text-centser xl:text-start leading-relaxed py-8 transition-transform duration-300 transform hover:scale-105">
+        Ich bin derzeit Student in Berlin und studiere Computer Engineering. Mein Bachelor-Abschluss steht kurz bevor, und ich habe ein starkes Interesse an allem rund um Computer. Ich helfe gerne anderen, ihre Computerprobleme zu lösen, da ich aus eigener Erfahrung die Schwierigkeiten nachvollziehen kann.
       </div>
-      <div class="flex items-center">
+      <div class="flex items-center mb-56">
         <Button url="/Angebote" title="Angebote" external={true} />
         <a href="mailto:maxim.mjakinin@gmail.com" class="ml-10 font-medium dark:text-dark text-light underline transition-transform duration-300 transform hover:scale-105">Kontakt</a>
       </div>
     </div>
   </div>
+  <Footer />
 </Layout>
-<Footer />
+
