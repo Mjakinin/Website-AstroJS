@@ -56,6 +56,7 @@
 
   #erste{
     @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold;
+    line-height: 2.5rem;
   }
 
   pre {
