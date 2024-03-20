@@ -1,3 +1,5 @@
+![image](https://github.com/Mjakinin/Website-AstroJS/assets/125746805/7b4d0fec-c877-4c5b-91e9-8b43cc5efc90)
+
 # Astro Starter Kit: Basics
 
 ```
