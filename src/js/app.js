@@ -18,7 +18,9 @@ class PageHandler {
       }
 
       this.setThemeIcon();
+      this.setIcon();
       this.setLogo();
+      this.setImg();
     });
   }
 
@@ -37,7 +39,51 @@ class PageHandler {
     }
   }
 
+  setImg()
+  {
+    const img2 = document.querySelector("#img2");
+    if (img2 === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      img2.innerHTML = `
+        <img src="/icons/fernsehturm.svg?a=${Math.random()}" alt="img2" class="-rotate-12 absolute hidden lg:block lg:w-48 lg:h-48 lg:left-20 lg:-bottom-28 xl:w-56 xl:h-56 xl:-bottom-32 xl:left-44 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
+      `;
+    } else {
+      img2.innerHTML = `
+        <img src="/icons/fernsehturm-dark.svg?a=${Math.random()}" alt="img2" class="-rotate-12 absolute hidden lg:block lg:w-48 lg:h-48 lg:left-20 lg:-bottom-28 xl:w-56 xl:h-56 xl:-bottom-32 xl:left-44 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
+      `;
+    }
+
+    const img = document.querySelector("#img");
+    if (img === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      img.innerHTML = `
+        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-10" />
+      `;
+    } else {
+      img.innerHTML = `
+        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img" class="rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-10" />
+      `;
+    }
+  }
+
   setLogo() {
+    const logo = document.querySelector("#logoSwitch");
+    if (logo === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      logo.innerHTML = `
+        <img src="/images/DunkelLogo.png?a=${Math.random()}" alt="icon1" class="xl:w-100 xl:h-100 xl:ml-20" />
+      `;
+    } else {
+      logo.innerHTML = `
+        <img src="/images/HellLogo.png?a=${Math.random()}" alt="logo1" class="xl:w-100 xl:h-100 xl:ml-20" />
+      `;
+    }
+  }
+
+  setIcon() {
     const icon1 = document.querySelector("#icon1");
     if (icon1 === null) return;
 
@@ -116,6 +162,8 @@ class PageHandler {
       `;
     }
   }
+
+  
 
   // Es werden die Wörter aus dem Array "dynamicHeaderTextArray" nacheinander in das Element geschrieben.
   typeWriterManager(elementId, textArray) {
@@ -223,7 +271,9 @@ const init = () => {
   const pageHandler = new PageHandler();
   pageHandler.typeWriterManager('dynamic-header-text', ["Maxim", "Informatiker"]);
   pageHandler.applyTextEffects();
-  pageHandler.setLogo(); // Set logo based on initial theme
+  pageHandler.setIcon(); // Set logo based on initial theme
+  pageHandler.setLogo();
+  pageHandler.setImg();
 };
 
 document.addEventListener("DOMContentLoaded", () => init());
