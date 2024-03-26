@@ -6,10 +6,24 @@ import Footer from "../components/Footer.astro";
 
 <Layout title="Maxim - Kontakt">
   <h2 id="Kontakt">Kontakt</h2>
-  <p class="mb-80">
+  <p>Für eine unkomplizierte und einfache Kontaktaufnahme stehe ich Ihnen gerne zur Verfügung. Sie können mich auf dem Weg kontaktieren, der für Sie am besten passt, sei es per E-Mail, Telefon oder über soziale Medien. Ihre Anliegen sind mir wichtig, und ich werde schnellstmöglich darauf antworten, um sicherzustellen, dass wir Ihre Anliegen rasch und effizient lösen können. Zögern Sie nicht, mich zu kontaktieren – ich freue mich darauf, Ihnen weiterzuhelfen.</p>
+  <br/>
+  <p class="mb-40">
     <span style="font-weight:bold; float: left;">Email:</span> <u><span class="ml-20"><a href="mailto:maxim.mjakinin@gmail.com">maxim.mjakinin@gmail.com</a></span></u><br><br>
-    <span style=" font-weight:bold; float: left;">Telefon:<u></span><span class="ml-20"><a href="tel:+4917650478236"> +49 176 504 78 236</a></span></u>
-</p>
+    <span style=" font-weight:bold; float: left;">Telefon:<u></span><span class="ml-20"><a href="tel:+4917650478236"> +49 176 504 78 236</a></span></u><br><br>
+    <span style="font-weight:bold;">WhatsApp:</span> <a id="whatsapplink" aria-label="Chat on WhatsApp" href="https://wa.me/17650478236?text=Hallo%2C%20ich%20habe%20folgendes%20Problem%20mit%20meinem%20Computer%3A" style="display: inline-block; vertical-align: middle;" class="ml-20" ><img alt="Chat on WhatsApp" src={'/icons/whatsapp.svg'} style="margin-top: 0;" /></a>
+  </p>
+
+  <form action="https://formspree.io/f/xnqegnaq" method="POST">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+    <label for="email">E-Mail:</label><br>
+    <input type="email" id="email" name="_replyto" required><br>
+    <label for="message">Nachricht:</label><br>
+    <textarea id="message" name="message" rows="4" required></textarea><br>
+    <input type="submit" value="Senden">
+  </form>
+  
 <br/><br/><br/><br/><br/><br/>
 <Footer />
 </Layout>

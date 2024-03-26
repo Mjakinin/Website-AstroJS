@@ -55,7 +55,7 @@
   }
 
   #erste{
-    @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold;
+    @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold font-mono dark:text-dark text-light md:container md:mx-auto w-full swuptransition-fade text-half-sm px-4 py-8 sm:text-xl md:text-2xl -mt-10;
   }
 
   pre {
@@ -94,3 +94,25 @@ html.is-animating .swuptransition-fade {
   opacity: 0;
   transform: translateY(20px);
 }
+
+@media (max-width: 630px) {
+  /* CSS, der angezeigt werden soll, wenn die Breite gleich oder kleiner als 800px ist, geht hier hin */
+  #whatsapplink {
+    width: 100px;
+  }
+}
+
+@media (min-width: 800px) {
+  /* CSS, der angezeigt werden soll, wenn die Breite gleich oder kleiner als 800px ist, geht hier hin */
+  #whatsapplink {
+    width: 150px;
+  }
+}
+
+@media (min-width: 801px) {
+  /* CSS, der angezeigt werden soll, wenn die Breite größer als 800px ist, geht hier hin */
+  #whatsapplink {
+    width: 300px;
+  }
+}
+
