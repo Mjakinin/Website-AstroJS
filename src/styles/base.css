@@ -95,24 +95,29 @@ html.is-animating .swuptransition-fade {
   transform: translateY(20px);
 }
 
-@media (max-width: 630px) {
-  /* CSS, der angezeigt werden soll, wenn die Breite gleich oder kleiner als 800px ist, geht hier hin */
+
+@media (max-width: 768px) {
+  /* CSS, der angezeigt werden soll, wenn die Breite gleich oder kleiner als 768px ist, geht hier hin */
+  #whatsapplink {
+    width: 250px;
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 640px) {
+  /* CSS, der angezeigt werden soll, wenn die Breite gleich oder kleiner als 640px ist, geht hier hin */
   #whatsapplink {
     width: 100px;
+    transform: translateY(-10px);
   }
 }
 
-@media (min-width: 800px) {
-  /* CSS, der angezeigt werden soll, wenn die Breite gleich oder kleiner als 800px ist, geht hier hin */
-  #whatsapplink {
-    width: 150px;
-  }
-}
-
-@media (min-width: 801px) {
-  /* CSS, der angezeigt werden soll, wenn die Breite größer als 800px ist, geht hier hin */
+@media (min-width: 768px) {
+  /* CSS, der angezeigt werden soll, wenn die Breite größer als 768px ist, geht hier hin */
   #whatsapplink {
     width: 300px;
+    transform: translateY(-17px);
   }
 }
+
 
