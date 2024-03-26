@@ -21,6 +21,7 @@ class PageHandler {
       this.setIcon();
       this.setLogo();
       this.setImg();
+      this.setWhatsapp();
     });
   }
 
@@ -64,6 +65,22 @@ class PageHandler {
     } else {
       img.innerHTML = `
         <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img" class="rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-10" />
+      `;
+    }
+  }
+
+  setWhatsapp()
+  {
+    const logo = document.querySelector("#whatsapplink");
+    if (logo === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      logo.innerHTML = `
+        <img src="/images/whatsappdark.png?a=${Math.random()}" alt="icon1" class="" />
+      `;
+    } else {
+      logo.innerHTML = `
+        <img src="/images/whatsapplight.png?a=${Math.random()}" alt="logo1" class="" />
       `;
     }
   }
@@ -274,6 +291,7 @@ const init = () => {
   pageHandler.setIcon(); // Set logo based on initial theme
   pageHandler.setLogo();
   pageHandler.setImg();
+  pageHandler.setWhatsapp();
 };
 
 document.addEventListener("DOMContentLoaded", () => init());
