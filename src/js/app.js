@@ -91,11 +91,11 @@ class PageHandler {
 
     if (localStorage.getItem("theme") == "dark") {
       logo.innerHTML = `
-        <img src="/images/DunkelLogo.png?a=${Math.random()}" alt="icon1" class="xl:w-100 xl:h-100 xl:ml-20" />
+        <img src="/images/DunkelLogo.png?a=${Math.random()}" alt="icon1"  />
       `;
     } else {
       logo.innerHTML = `
-        <img src="/images/HellLogo.png?a=${Math.random()}" alt="logo1" class="xl:w-100 xl:h-100 xl:ml-20" />
+        <img src="/images/HellLogo.png?a=${Math.random()}" alt="logo1"  />
       `;
     }
   }

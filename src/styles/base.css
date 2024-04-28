@@ -13,7 +13,7 @@
   }
 
   h1::before,
-  h2::before{
+  h2::before {
     @apply mr-4 dark:text-blue-400 text-blue-400;
     content: "#";
   }
@@ -31,13 +31,41 @@
   #eigenschaften::before {
     content: "<> ";
     @apply dark:text-blue-400 text-blue-400;
-    font-size: 1.2rem;; /* Hier die gewünschte Schriftgröße in Pixeln oder anderen Einheiten einfügen */
-}
+    font-size: 1.2rem;
+    ;
+    /* Hier die gewünschte Schriftgröße in Pixeln oder anderen Einheiten einfügen */
+  }
 
-#eigenschaften {
-  font-size: 1.2rem;
-  @apply text-sm sm:text-xl md:text-2xl
-}
+  #eigenschaften {
+    font-size: 1.2rem;
+    @apply text-sm sm:text-xl md:text-2xl
+  }
+
+
+
+
+
+
+
+
+  /* CSS-Stile für das Leaderboard */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -50,11 +78,11 @@
     text-decoration: none;
   }
 
-  h1 + p {
+  h1+p {
     @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold;
   }
 
-  #erste{
+  #erste {
     @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold font-mono dark:text-dark text-light md:container md:mx-auto w-full swuptransition-fade text-half-sm px-4 py-8 sm:text-xl md:text-2xl -mt-10;
   }
 
@@ -66,20 +94,20 @@
     @apply xl:float-right xl:w-1/2 xl:ml-8;
   }
 
-  #toc > ul {
+  #toc>ul {
     @apply border-2 border-dark dark:border-light rounded-xl my-8 py-2 px-4 text-base md:text-xl;
   }
 
   #toc li {
     @apply my-2 mx-4 list-disc;
   }
-  
-  p > a,
-  li > a {
+
+  p>a,
+  li>a {
     @apply text-blue-700 dark:text-blue-400 hover:underline;
   }
 
-  p > code {
+  p>code {
     @apply dark:bg-blue-400 bg-blue-400 dark:text-light text-dark rounded-lg px-2 whitespace-nowrap;
   }
 }
@@ -97,6 +125,7 @@ html.is-animating .swuptransition-fade {
 
 
 @media (max-width: 768px) {
+
   /* CSS, der angezeigt werden soll, wenn die Breite gleich oder kleiner als 768px ist, geht hier hin */
   #whatsapplink {
     width: 250px;
@@ -105,6 +134,7 @@ html.is-animating .swuptransition-fade {
 }
 
 @media (max-width: 640px) {
+
   /* CSS, der angezeigt werden soll, wenn die Breite gleich oder kleiner als 640px ist, geht hier hin */
   #whatsapplink {
     width: 100px;
@@ -113,6 +143,7 @@ html.is-animating .swuptransition-fade {
 }
 
 @media (min-width: 768px) {
+
   /* CSS, der angezeigt werden soll, wenn die Breite größer als 768px ist, geht hier hin */
   #whatsapplink {
     width: 300px;
@@ -121,3 +152,48 @@ html.is-animating .swuptransition-fade {
 }
 
 
+/* CSS */
+body {
+  transition: background-color 0.75s ease;
+  /* Definiere den Übergang für die Hintergrundfarbe */
+}
+
+.dark-bg-light {
+  background-color: #1a202c;
+  /* Dunkler Hintergrund */
+}
+
+.bg-white {
+  background-color: #ffffff;
+  /* Weißer Hintergrund */
+}
+
+
+#footer {
+  @apply dark:bg-light mt-20;
+  bottom: 0;
+  right: 0;
+  transform: translateY(0%);
+  background-color: #0000005e;
+  width: 100%;
+  padding: 20px;
+  /* Beispielwert für zusätzlichen Innenabstand */
+
+}
+
+
+@media (max-width: 767px) {
+  #footer {
+    @apply mt-20 mb-20;
+    background-color: #00000000;
+  }
+}
+
+
+
+
+
+#specialfooter {
+  transform: translateY(-100%);
+  bottom: 0;
+}
