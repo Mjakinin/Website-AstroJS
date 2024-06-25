@@ -1,7 +1,6 @@
 
     //CODE EINGABE
     const inputElement = document.getElementById("userInput");
-
     const outputElement = document.getElementById("outputText");
     const submitButton = document.getElementById("submitButton");
     const input = document.getElementById("input");
@@ -44,7 +43,15 @@
 
             // Füge das iframe-Element zum body hinzu
             document.body.appendChild(iframe);
-        } else {
+        }
+        else if (inputValue === "tetris") {
+            inputElement.classList.add("hidden");
+            input.classList.add("hidden");
+            tetris.classList.remove("hidden");
+
+        }
+        else
+        {
             outputText = "Ungültiger Code!";
         }
 
@@ -362,3 +369,32 @@
     submitplayerButton.addEventListener("click", function () {
         handlePlayerInput();
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //TETRIS
+    const tetris = document.getElementById("tetris");
