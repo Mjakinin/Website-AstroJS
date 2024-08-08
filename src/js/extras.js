@@ -122,7 +122,7 @@
 
     function handlePlayerInput() {
         const playerName = playerNamesInput.value.trim(); // Spielername erfassen und Leerzeichen entfernen
-        if (leaderboardData.length < 4) {
+        if (leaderboardData.length < 5) {
             if (playerName.length > 0) {
                 // Neuen Spieler zum Leaderboard hinzufügen
                 addPlayerToLeaderboard(playerName);
@@ -155,7 +155,7 @@
         updateLeaderboard();
 
         // Platzhalter aktualisieren, wenn die maximale Spieleranzahl erreicht ist
-        if (leaderboardData.length === 4) {
+        if (leaderboardData.length === 5) {
             playerNamesInput.placeholder = "Max. Player Reached";
             playerNamesInput.disabled = true; // Eingabefeld deaktivieren
         }
@@ -353,8 +353,8 @@
     function deletePlayer(index) {
         leaderboardData.splice(index, 1);
         updateLeaderboard();
-        if (leaderboardData.length < 4) {
-            // Prüfen, ob weniger als 4 Spieler im Leaderboard sind
+        if (leaderboardData.length < 5) {
+            // Prüfen, ob weniger als 5 Spieler im Leaderboard sind
             playerNamesInput.placeholder = "Enter Player Name"; // Platzhalter zurücksetzen
             playerNamesInput.disabled = false; // Eingabefeld aktivieren
         }

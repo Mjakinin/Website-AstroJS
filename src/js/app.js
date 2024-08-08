@@ -47,11 +47,11 @@ class PageHandler {
 
     if (localStorage.getItem("theme") == "dark") {
       img2.innerHTML = `
-        <img src="/icons/fernsehturm.svg?a=${Math.random()}" alt="img2" class="-rotate-12 absolute hidden lg:block lg:w-48 lg:h-48 lg:left-20 lg:-bottom-28 xl:w-56 xl:h-56 xl:-bottom-32 xl:left-44 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
+        <img src="/icons/fernsehturm.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden lg:block lg:w-48 lg:h-48 lg:left-20 lg:-bottom-28 xl:w-56 xl:h-56 xl:-bottom-32 xl:left-44 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
       `;
     } else {
       img2.innerHTML = `
-        <img src="/icons/fernsehturm-dark.svg?a=${Math.random()}" alt="img2" class="-rotate-12 absolute hidden lg:block lg:w-48 lg:h-48 lg:left-20 lg:-bottom-28 xl:w-56 xl:h-56 xl:-bottom-32 xl:left-44 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
+        <img src="/icons/fernsehturm-dark.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden lg:block lg:w-48 lg:h-48 lg:left-20 lg:-bottom-28 xl:w-56 xl:h-56 xl:-bottom-32 xl:left-44 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
       `;
     }
 
@@ -60,11 +60,11 @@ class PageHandler {
 
     if (localStorage.getItem("theme") == "dark") {
       img.innerHTML = `
-        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-10" />
+        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-10" />
       `;
     } else {
       img.innerHTML = `
-        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img" class="rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-10" />
+        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-10" />
       `;
     }
   }
@@ -91,11 +91,11 @@ class PageHandler {
 
     if (localStorage.getItem("theme") == "dark") {
       logo.innerHTML = `
-        <img src="/images/DunkelLogo.png?a=${Math.random()}" alt="icon1"  />
+        <img src="/images/DunkelLogo.png?a=${Math.random()}" alt="logo2"/>
       `;
     } else {
       logo.innerHTML = `
-        <img src="/images/HellLogo.png?a=${Math.random()}" alt="logo1"  />
+        <img src="/images/HellLogo.png?a=${Math.random()}" alt="logo1"/>
       `;
     }
   }
@@ -250,13 +250,13 @@ class PageHandler {
         text = "Der Schritt in die Selbstständigkeit neben dem Studium";
       }
       if (div.id === "dynamic-text3") {
-        text = "Studium in Berlin und gleichzeitig selbständig in Naumburg?";
+        text = " Studium in Berlin und gleichzeitig selbständig in Naumburg?";
       }
       if (div.id === "dynamic-text4") {
         text = "Warum die Selbstständigkeit?";
       }
       if (div.id === "dynamic-text5") {
-        text = "Menschliche Verbindung im Fokus";
+        text = " Menschliche Verbindung im Fokus";
       }
       if (div.id === "dynamic-text6") {
         text = "Was biete ich an?";
@@ -266,6 +266,9 @@ class PageHandler {
       }
       if (div.id === "dynamic-text8") {
         text = "Was spricht für mich?";
+      }
+      if (div.id === "dynamic-text9") {
+        text = "Kontakt";
       }
 
       function textTypingEffect(element, text, i=0) {
@@ -302,9 +305,3 @@ const swup = new Swup({
 });
 
 swup.on("contentReplaced", init);
-
-
-
-
-
-

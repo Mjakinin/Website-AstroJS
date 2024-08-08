@@ -48,27 +48,6 @@
 
 
 
-  /* CSS-Stile für das Leaderboard */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   p {
     @apply my-4 leading-relaxed;
     text-align: justify;
@@ -83,7 +62,7 @@
   }
 
   #erste {
-    @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold font-mono dark:text-dark text-light md:container md:mx-auto w-full swuptransition-fade text-half-sm px-4 py-8 sm:text-xl md:text-2xl -mt-10;
+    @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold font-mono dark:text-dark text-light lg:container md:mx-auto w-full swuptransition-fade text-half-sm px-4 lg:px-20 py-8 sm:text-xl md:text-2xl -mt-10;
   }
 
   pre {
@@ -169,25 +148,50 @@ body {
 }
 
 
-#footer {
-  @apply dark:bg-light mt-20;
-  bottom: 0;
-  right: 0;
-  transform: translateY(0%);
-  background-color: #0000005e;
-  width: 100%;
-  padding: 20px;
-  /* Beispielwert für zusätzlichen Innenabstand */
 
+
+
+
+/* Footer Styles */
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0; /* Abstand oben und unten */
 }
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Weitere Anpassungen */
+.footer a {
+  margin: 0 5px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Hauptinhalt dehnt sich aus */
+}
+
 
 
 @media (max-width: 767px) {
   #footer {
     @apply mt-20 mb-20;
-    background-color: #00000000;
   }
 }
+
+
 
 
 
@@ -205,3 +209,95 @@ body {
   transform: translateY(-100%);
   bottom: 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+.wrap-input-8 .input {
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  background-color: 
+#f5f6fd;
+  border: 1px solid 
+#ccc; 
+  padding: 7px 14px 9px; 
+  transition: 0.4s;
+}
+
+.wrap-input-8 .input:focus {
+  outline: none;
+}
+
+.wrap-input-8 {
+  width: 30%;
+  margin: 40px 3%;
+  position: relative;
+}
+
+.wrap-input-8 .input ~ .focus-border:before,
+.wrap-input-8 .input ~ .focus-border:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: 
+#6c5dd3;
+  transition: 0.3s;
+}
+.wrap-input-8 .input ~ .focus-border:after {
+  top: auto;
+  bottom: 0;
+  left: auto;
+  right: 0;
+}
+.wrap-input-8 .input ~ .focus-border i:before,
+.wrap-input-8 .input ~ .focus-border i:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background-color: 
+#6c5dd3;
+  transition: 0.4s;
+}
+.wrap-input-8 .input ~ .focus-border i:after {
+  left: auto;
+  right: 0;
+  top: auto;
+  bottom: 0;
+}
+.wrap-input-8 .input:focus ~ .focus-border:before,
+.wrap-input-8 .input:focus ~ .focus-border:after {
+  width: 100%;
+  transition: 0.3s;
+}
+.wrap-input-8 .input:focus ~ .focus-border i:before,
+.wrap-input-8 .input:focus ~ .focus-border i:after {
+  height: 100%;
+  transition: 0.4s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

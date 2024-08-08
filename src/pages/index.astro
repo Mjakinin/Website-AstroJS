@@ -5,51 +5,50 @@ import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Maxim">
-  <div class="flex flex-col xl:flex-row justify-between items-center">
-    <div
-      class="w-full xl:w-1/2 flex flex-col justify-between items-center xl:items-start"
-    >
-      <div
-        class="text-4xl md:text-6xl text-center xl:text-start transition-transform duration-300 transform hover:scale-105 mb-12"
-      >
-        Hey, ich bin<br />
-        <span id="dynamic-header-text" class="dark:text-blue-500 text-blue-500"
-          >Maxim</span
-        ><br />
-      </div>
+ <div class="flex flex-col xl:flex-row justify-between items-center -mt-0">
 
-      <div
-        class="text-align: justify;text-centser xl:text-start leading-relaxed py-8 transition-transform duration-300 transform hover:scale-105 mb-0"
-      >
-        Ich bin derzeit Student in Berlin und studiere Computer Engineering.
-        Mein Bachelor-Abschluss steht kurz bevor, und ich habe ein starkes
-        Interesse an allem rund um Computer. Ich helfe gerne anderen, ihre
-        Computerprobleme zu lösen, da ich aus eigener Erfahrung die
-        Schwierigkeiten nachvollziehen kann.
-      </div>
+  <div class="w-full xl:w-1/2 flex flex-col justify-between items-center xl:items-start">
 
-      <div class="flex items-center">
-        <Button url="/Angebote" title="Angebote" external={true} />
-        <a
-          href="/Kontakt"
-          class="ml-10 font-medium dark:text-dark text-light underline transition-transform duration-300 transform hover:scale-105"
-          >Kontakt</a
-        >
-      </div>
+    <div class="text-4xl md:text-6xl text-center xl:text-start transition-transform duration-300 transform hover:scale-105 mb-12">
+      Hey, ich bin<br/>
+      <span id="dynamic-header-text" class="dark:text-blue-500 text-blue-500">Maxim</span><br/>
     </div>
 
-    <a
-      href="/Extras"
-      class="w-full xl:w-1/2 flex justify-center items-center transition-transform duration-300 transform hover:scale-105"
-    >
-      <div id="logoSwitch">
-        <img src="/images/HellLogo.png" class="w-auto h-auto" />
-      </div>
-    </a>
+    <div class="w-1/2 xl:hidden flex justify-center items-center -mt-10 -mb-10">
+      <a href="/Extras" class="transition-transform duration-300 transform hover:scale-105">
+        <div id="logoSwitch">
+          <img src="/images/HellLogo.png" class="xl:w-screen xl:h-screen"/>
+        </div>
+      </a>
+    </div>
+
+    <div class="text-align: justify;text-centser xl:text-start leading-relaxed py-8 transition-transform duration-300 transform hover:scale-105 mb-0">
+      Ich bin derzeit Student in Berlin und studiere Computer Engineering.
+      Mein Bachelor-Abschluss steht kurz bevor, und ich habe ein starkes
+      Interesse an allem rund um Computer. Ich helfe gerne anderen, ihre
+      Computerprobleme zu lösen, da ich aus eigener Erfahrung die
+      Schwierigkeiten nachvollziehen kann.
+    </div>
+
+    <div class="flex items-center mt-8 mb-0 md:mb-12 lg:mb-20 xl:mb-0">
+      <Button url="/Angebote" title="Angebote" external={true} />
+      <a href="/Kontakt" class="ml-10 font-medium dark:text-dark text-light underline transition-transform duration-300 transform hover:scale-105">Kontakt</a>
+    </div>
+
   </div>
+
+  <a href="/Extras" class="hidden xl:flex w-1/4 xl:w-1/2 justify-center items-center transition-transform duration-300 transform hover:scale-105">
+    <div id="logoSwitch">
+      <img src="/images/HellLogo.png" class="w-auto h-auto" />
+    </div>
+  </a>
+
+</div>
+
 
   <script src="../js/app.js"></script>
 </Layout>
+
 <div class="-mt-14">
   <Footer />
 </div>
