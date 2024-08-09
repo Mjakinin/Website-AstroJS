@@ -62,7 +62,7 @@
   }
 
   #erste {
-    @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold font-mono dark:text-dark text-light lg:container md:mx-auto w-full swuptransition-fade text-half-sm px-4 lg:px-20 py-8 sm:text-xl md:text-2xl -mt-10;
+    @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold font-mono dark:text-dark text-light lg:container md:mx-auto w-full swuptransition-fade text-half-sm px-4 lg:px-36 sm:text-xl md:text-2xl -mb-10;
   }
 
   pre {

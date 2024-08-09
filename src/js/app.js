@@ -20,6 +20,7 @@ class PageHandler {
       this.setThemeIcon();
       this.setIcon();
       this.setLogo();
+      this.setLogo1();
       this.setImg();
       this.setWhatsapp();
     });
@@ -47,11 +48,11 @@ class PageHandler {
 
     if (localStorage.getItem("theme") == "dark") {
       img2.innerHTML = `
-        <img src="/icons/fernsehturm.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden lg:block lg:w-48 lg:h-48 lg:left-20 lg:-bottom-28 xl:w-56 xl:h-56 xl:-bottom-32 xl:left-44 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
+        <img src="/icons/fernsehturm.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-32 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
       `;
     } else {
       img2.innerHTML = `
-        <img src="/icons/fernsehturm-dark.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden lg:block lg:w-48 lg:h-48 lg:left-20 lg:-bottom-28 xl:w-56 xl:h-56 xl:-bottom-32 xl:left-44 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
+        <img src="/icons/fernsehturm-dark.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-32 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
       `;
     }
 
@@ -60,11 +61,11 @@ class PageHandler {
 
     if (localStorage.getItem("theme") == "dark") {
       img.innerHTML = `
-        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-10" />
+        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:bottom-5 2xl:w-72 2xl:h-72 2xl:bottom-12" />
       `;
     } else {
       img.innerHTML = `
-        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-10" />
+        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:bottom-5 2xl:w-72 2xl:h-72 2xl:bottom-12" />
       `;
     }
   }
@@ -96,6 +97,21 @@ class PageHandler {
     } else {
       logo.innerHTML = `
         <img src="/images/HellLogo.png?a=${Math.random()}" alt="logo1"/>
+      `;
+    }
+  }
+
+  setLogo1() {
+    const logo = document.querySelector("#logoSwitch1");
+    if (logo === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      logo.innerHTML = `
+        <img src="/images/DunkelLogo.png?a=${Math.random()}" alt="logo3" class="ml-10"/>
+      `;
+    } else {
+      logo.innerHTML = `
+        <img src="/images/HellLogo.png?a=${Math.random()}" alt="logo4" class="ml-10"/>
       `;
     }
   }
@@ -293,6 +309,7 @@ const init = () => {
   pageHandler.applyTextEffects();
   pageHandler.setIcon(); // Set logo based on initial theme
   pageHandler.setLogo();
+  pageHandler.setLogo1();
   pageHandler.setImg();
   pageHandler.setWhatsapp();
 };

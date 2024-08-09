@@ -1,18 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 ---
-
+<Header />
 <Layout title="Maxim - About">
-  <div style={`position: relative; height: 830px;`}>
+  <div class="mb-20" style={`position: relative; height: 830px;`}>
     <div id="img">
       <img
         src={"/icons/brandenburger-tor-dark.svg"}
-        class="rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-10"
+        class="rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden lg:block lg:w-40 lg:h-40 lg:bottom-5 lg:right-20 xl:w-56 xl:h-56 xl:bottom-12 2xl:w-72 2xl:h-72 2xl:bottom-12"
       />
     </div>
 
     <h1 id="dynamic-text1" class="transition-transform duration-300 transform hover:scale-105"></h1>
+    <div class="">
     <p>
       Hi! Ich bin Maxim, 20 Jahre alt und studiere Computer Engineering an der
       Technischen Universität Berlin. Derzeit befinde ich mich im vierten
@@ -31,11 +33,12 @@ import Footer from "../components/Footer.astro";
       IT-Branche zu suchen.
     </p>
   </div>
+  </div>
 
   
   <h2 id="dynamic-text2" class="-mt-40 ssm:-mt-96 sm:-mt-14 md:mt-40 lg:mt-0 transition-transform duration-300 transform hover:scale-105">
   </h2>
-  <p class="mb-20 xl:mb-32">
+  <p class="mb-20">
     Nach drei sehr theoretischen Semestern meines Studiums in Berlin habe ich
     mich dazu entschlossen, in meiner Heimatstadt Naumburg einen
     Computer-Reparaturdienst anzubieten. Neben dem Studium möchte ich praktische
@@ -46,7 +49,7 @@ import Footer from "../components/Footer.astro";
     entwickeln.
   </p>
 
-  <div style={`position: relative; height: 400px;`}>
+  <div class="mb-20" style={`position: relative; height: 400px;`}>
     <div id="img2">
       <img
         src={"/icons/fernsehturm-dark.svg"}
@@ -55,7 +58,7 @@ import Footer from "../components/Footer.astro";
     </div>
 
     <h2 id="dynamic-text3" class="mt-40 ssm:-mt-0 sm:mt-32 md:mt-40 transition-transform duration-300 transform hover:scale-105"></h2>
-    <p class="2xl:mb-60">
+    <p class="">
       Ja, dank der Digitalisierung ist es mir möglich, von zuhause aus zu
       arbeiten und meine Aufgaben online zu erledigen. Somit habe ich als
       Student die Flexibilität, meine Zeit selbst zu managen und sowohl meinem
@@ -65,11 +68,11 @@ import Footer from "../components/Footer.astro";
   </div>
 
   <h2
-    id="dynamic-text4" class="mt-0 ssm:-mt-32 sm:-mt-10 md:mt-24 lg:text-right transition-transform duration-300 transform hover:scale-105"
+    id="dynamic-text4" class="mt-0 ssm:-mt-32 sm:-mt-10 md:mt-24 xl:text-right transition-transform duration-300 transform hover:scale-105"
   >
   </h2>
-  <p>
-    Anstatt bei einem Systemintegrator anzufangen, entschied ich mich für die
+  <p class="mb-20">
+    Anstatt bei einem Systemintegrator oder ähnlichen anzufangen, entschied ich mich für die
     Selbstständigkeit. Naumburg fehlt es an modernen Reparatur-Services, und die
     Selbstständigkeit ermöglicht es mir, mein eigener Arbeitsgeber zu sein und
     meine Arbeitsweise selbst zu bestimmen. Zudem schätze ich den direkten
@@ -78,7 +81,7 @@ import Footer from "../components/Footer.astro";
   </p>
 
   <h2 id="dynamic-text5" class="mt-40 ssm:mt-20 sm:mt-32 md:mt-40 transition-transform duration-300 transform hover:scale-105"></h2>
-  <p>
+  <p class="mb-20">
     Neben den technischen Aspekten ist mir der Umgang mit Menschen besonders
     wichtig. Neue Menschen kennenzulernen und ihnen bei ihren technischen
     Problemen zu helfen, bereitet mir Freude und erweitert meinen Horizont. Ich

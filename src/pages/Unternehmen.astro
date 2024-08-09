@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 ---
-
+<Header />
 <Layout title="Maxim - Unternehmen">
   <h1 id="dynamic-text7" class="transition-transform duration-300 transform hover:scale-105"></h1>
-  <p>
+  <p class="mb-16">
     Ich habe dieses Unternehmen am 01. April 2024 eröffnet und mache mich damit
     selbstständig neben meinem Studium. Mein Fokus liegt auf
     IT-Dienstleistungen, speziell einem Computer Reparatur Service in Naumburg.
@@ -19,7 +20,7 @@ import Footer from "../components/Footer.astro";
 </Layout>
 
 <div
-  class="font-mono dark:bg-black bg-light dark:bg-opacity-75 bg-opacity-100 dark:text-light text-dark p-4 text-center mb-10 swuptransition-fade px-4 py-8"
+  class="font-mono dark:bg-black bg-light dark:bg-opacity-75 bg-opacity-100 dark:text-light text-dark p-4 text-center mb-14 swuptransition-fade px-4 py-8"
 >
   <div class="lg:flex lg:justify-between mb-20">
     <div
@@ -72,7 +73,7 @@ import Footer from "../components/Footer.astro";
 
   <div class="lg:flex lg:justify-between mt-4">
     <div
-      class="lg:w-1/3 font-mono mb-24 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
+      class="lg:w-1/3 font-mono mb-0 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
     >
       <div id="icon4" class="flex justify-center items-center">
         <img src={"/icons/arrow.svg"} class="w-10 h-10" />
@@ -118,7 +119,7 @@ import Footer from "../components/Footer.astro";
   </div>
 </div>
 
-<p id="erste" style="line-height: 1.5">
+<p id="erste" style="line-height: 1.45; word-spacing: 0.4em;">
   In einer Ära, in der die Digitalisierung unaufhaltsam voranschreitet, wird
   deutlich, wie unverzichtbar IT-Dienstleistungen geworden sind. Ein
   funktionierender Computer oder Laptop ist heute essentiell, um effektiv
