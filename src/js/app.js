@@ -129,11 +129,11 @@ class PageHandler {
 
     if (localStorage.getItem("theme") == "dark") {
       img2.innerHTML = `
-        <img src="/icons/fernsehturm.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-32 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
+        <img src="/icons/fernsehturm.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-48 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-48 2xl:left-24"/>
       `;
     } else {
       img2.innerHTML = `
-        <img src="/icons/fernsehturm-dark.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-32 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-32 2xl:left-44" />
+        <img src="/icons/fernsehturm-dark.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-48 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-48 2xl:left-24"/>
       `;
     }
 
@@ -142,11 +142,11 @@ class PageHandler {
 
     if (localStorage.getItem("theme") == "dark") {
       img.innerHTML = `
-        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:bottom-5 2xl:w-72 2xl:h-72 2xl:bottom-12" />
+        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:-bottom-5 2xl:w-72 2xl:h-72 2xl:-bottom-5"/>
       `;
     } else {
       img.innerHTML = `
-        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute -right-0 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:bottom-5 2xl:w-72 2xl:h-72 2xl:bottom-12" />
+        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:-bottom-5 2xl:w-72 2xl:h-72 2xl:-bottom-5"/>
       `;
     }
   }
@@ -397,4 +397,9 @@ const init = () => {
 
 document.addEventListener("DOMContentLoaded", () => init());
 
+const swup = new Swup({
+  animationSelector: '[class*="swuptransition-"]',
+  plugins: [new SwupA11yPlugin(), new SwupHeadPlugin(), new SwupScrollPlugin()],
+});
 
+swup.on("contentReplaced", init);
