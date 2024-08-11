@@ -5,7 +5,20 @@ import Header from "../components/Header.astro";
 ---
 
 <Header />
+
 <Layout title="Maxim - Angebote">
+
+  <div class="progress-bar">
+    <div class="progress"></div>
+    <div class="checkpoints">
+      <div class="checkpoint" data-section="section1"><span></span></div>
+      <div class="checkpoint" data-section="section2"><span></span></div>
+      <div class="checkpoint" data-section="section3"><span></span></div>
+      <div class="checkpoint" data-section="section4"><span></span></div>
+      <div class="checkpoint" data-section="section5"><span></span></div>
+    </div>
+  </div>
+
   <h1 id="dynamic-text6" class="transition-transform duration-300 transform hover:scale-105"></h1>
   <p>
     <b>“Jeder verdient eine zweite Chance.”</b> Dies gilt auch für unsere Geräte.
@@ -26,11 +39,14 @@ import Header from "../components/Header.astro";
     Ihnen mit Fachwissen und Engagement zur Seite.
   </p>
 
+
+
+  <section id="section1">
   <div
     class="border-2 dark:border-dark border-light p-0 rounded-xl text-center mt-40 transition-transform duration-300 transform hover:scale-105"
   >
     <div
-      class="dark:bg-black bg-light dark:bg-opacity-75 bg-opacity-100 dark:text-light text-dark rounded-t-md py-2 rounded-b-none"
+      class="dark:bg-halfdark bg-light dark:bg-opacity-100 bg-opacity-100 dark:text-light text-dark rounded-t-md py-2 rounded-b-none"
     >
       <h2><strong>PC-Beratung</strong></h2>
       <details>
@@ -58,12 +74,16 @@ import Header from "../components/Header.astro";
       </p>
     </div>
   </div>
+</section>
 
+
+
+  <section id="section2">
   <div
     class="border-2 dark:border-dark border-light p-0 rounded-xl text-center mt-40 transition-transform duration-300 transform hover:scale-105"
   >
     <div
-      class="dark:bg-black bg-light dark:bg-opacity-75 bg-opacity-100t dark:text-light text-dark rounded-t-md py-2 rounded-b-none"
+      class="dark:bg-halfdark bg-light dark:bg-opacity-100 bg-opacity-100t dark:text-light text-dark rounded-t-md py-2 rounded-b-none"
     >
       <h2><strong>Rundum-sorglos-Paket</strong></h2>
       <ul>
@@ -87,12 +107,16 @@ import Header from "../components/Header.astro";
       </p>
     </div>
   </div>
+</section>
 
+
+
+  <section id="section3">
   <div
     class="border-2 dark:border-dark border-light p-0 rounded-xl text-center mt-40 transition-transform duration-300 transform hover:scale-105"
   >
     <div
-      class="dark:bg-black bg-light dark:bg-opacity-75 bg-opacity-100 dark:text-light text-dark rounded-t-md py-2 rounded-b-none"
+      class="dark:bg-halfdark bg-light dark:bg-opacity-100 bg-opacity-100 dark:text-light text-dark rounded-t-md py-2 rounded-b-none"
     >
       <h2><strong>Betriebssystem und Treiber</strong></h2>
       <details>
@@ -112,13 +136,13 @@ import Header from "../components/Header.astro";
     </div>
     <div class="py-4 text-left">
       <p>
-        <span class="task">Windows Installation</span><span
+        <span class="task">Windows Einrichtung</span><span
           style="float: right;">ab 40,00 €&nbsp;</span
         ><br />
-        <span class="task">Linux Installation</span><span
+        <span class="task">Linux Einrichtung</span><span
           style="float: right;">ab 40,00 €&nbsp;</span
         ><br />
-        <span class="task">Mac OS Installation</span><span
+        <span class="task">Mac OS Einrichtung</span><span
           style="float: right;">ab 40,00 €&nbsp;</span
         ><br />
         <span class="task">Treiber Installation</span><span
@@ -127,13 +151,18 @@ import Header from "../components/Header.astro";
       </p>
     </div>
   </div>
+  </section>
 
+
+
+  <section id="section4">
   <div
     class="border-2 dark:border-dark border-light p-0 rounded-xl text-center mt-40 transition-transform duration-300 transform hover:scale-105"
   >
     <div
-      class="dark:bg-black bg-light dark:bg-opacity-75 bg-opacity-100 dark:text-light text-dark rounded-t-md py-2 rounded-b-none"
+      class="dark:bg-halfdark bg-light dark:bg-opacity-100 bg-opacity-100 dark:text-light text-dark rounded-t-md py-2 rounded-b-none"
     >
+
       <h2><strong>Hardware-Reparaturen und Wartung</strong></h2>
       <details>
         <summary><u>Klicken Sie hier für weitere Informationen</u></summary>
@@ -163,12 +192,15 @@ import Header from "../components/Header.astro";
       </p>
     </div>
   </div>
+  </section>
 
+
+  <section id="section5">
   <div
     class="border-2 dark:border-dark border-light p-0 rounded-xl text-center mt-40 transition-transform duration-300 transform hover:scale-105"
   >
     <div
-      class="dark:bg-black bg-light dark:bg-opacity-75 bg-opacity-100 dark:text-light text-dark rounded-t-md py-2 rounded-b-none"
+      class="dark:bg-halfdark bg-light dark:bg-opacity-100 bg-opacity-100 dark:text-light text-dark rounded-t-md py-2 rounded-b-none"
     >
       <h2><strong>Virusentfernung und Datensicherung</strong></h2>
       <details>
@@ -217,7 +249,7 @@ import Header from "../components/Header.astro";
       </p>
     </div>
   </div>
-
+</section>
   <script src="../js/app.js"></script>
 </Layout>
-<Footer />
+<Footer id="footer"/>

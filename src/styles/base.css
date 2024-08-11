@@ -62,7 +62,11 @@
   }
 
   #erste {
-    @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold font-mono dark:text-dark text-light lg:container md:mx-auto w-full swuptransition-fade text-half-sm px-4 lg:px-36 sm:text-xl md:text-2xl -mb-10;
+    @apply first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold font-mono dark:text-dark text-light lg:container md:mx-auto w-full swuptransition-fade text-half-sm px-4 lg:px-36 sm:text-xl md:text-2xl mb-20;
+  }
+
+  #textkleiner{
+    @apply swuptransition-fade text-half-sm sm:text-xl md:text-2xl
   }
 
   pre {
@@ -293,11 +297,85 @@ main {
 
 
 
+.dark-mode-script {
+  display: none;
+}
+
+.dark .dark-mode-script {
+  display: block;
+}
+
+.dark .light-mode-script {
+  display: none;
+}
 
 
 
 
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
+.progress-bar {
+  position: fixed;
+  right: 20px;
+  top: 10%;
+  max-height: calc(100vh - 100px);
+  bottom: 10%; /* adjust the value to match your footer height */
+  width: 5px;
+  background-color: #ccc;
+  z-index: 100;
+  border-radius: 5px;
+  transition: opacity 0.3s; /* add transition for opacity */
+
+}
+
+.progress-bar.fading-out {
+  opacity: 0;
+}
+
+.progress {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  background-color: white;
+  border-radius: 5px;  /* Runde Kanten */
+}
+
+.checkpoints {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.checkpoint {
+  width: 10px;
+  height: 10px;
+  background-color: grey;
+  border-radius: 50%;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.checkpoint span {
+  position: absolute;
+  font-size: 20px;
+  left: -15px;
+  bottom: -11px;
+  color: white;
+  margin-right: 100px;
+}
+
+.checkpoint.active {
+  background-color: white;
+  transform: scale(1.5);
+}
 
 

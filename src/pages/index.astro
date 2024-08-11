@@ -6,7 +6,7 @@ import Header from "../components/Header.astro";
 ---
 <Header />
 <Layout title="Maxim">
- <div class="flex flex-col xl:flex-row justify-between items-center -mt-0">
+ <div class="flex flex-col xl:flex-row justify-between items-center mt-10">
 
   <div class="w-full xl:w-1/2 flex flex-col justify-between items-center xl:items-start">
 
@@ -40,16 +40,13 @@ import Header from "../components/Header.astro";
 
   <a href="/Extras" class="hidden xl:flex w-1/4 xl:w-1/2 justify-center items-center transition-transform duration-300 transform hover:scale-105">
     <div id="logoSwitch1">
-      <img src="/images/HellLogo.png" class="w-auto h-auto" />
+      <img src="/images/HellLogo.png" class="w-auto h-auto ml-20"/>
     </div>
   </a>
 
 </div>
 
-
-  <script src="../js/app.js"></script>
 </Layout>
 
-<div class="-mt-14">
-  <Footer />
-</div>
+<Footer />
+

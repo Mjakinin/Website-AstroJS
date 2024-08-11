@@ -1,11 +1,10 @@
 ---
 // Überprüft, ob die aktuelle Seite die Startseite ist
-const isIndex = Astro.url.pathname === "/";
+const isIndex = ["/", "/Impressum", "/Datenschutz"].includes(Astro.url.pathname);
 ---
 
 {isIndex ? (
-  // Nur das Impressum und Datenschutz anzeigen, wenn auf der Startseite
-  <footer id="footer" class="footer swuptransition-fade text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-20 dark:bg-white dark:bg-opacity-20">
+  <footer id="footer" class="footer swuptransition-fade text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-20">
     <div class="footer-content flex items-center text-white dark:text-black">
       <p>&lt;</p>
       <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
@@ -16,28 +15,51 @@ const isIndex = Astro.url.pathname === "/";
   </footer>
 ) : (
   <>
-  <footer id="footer" class="footer swuptransition-fade text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-20 dark:bg-white dark:bg-opacity-20 mt-40">
-    <div class="footer-top flex flex-col lg:flex-row justify-between text-white dark:text-black mb-32">
+  <footer id="footer" class="footer swuptransition-fade text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-20">
+
+    <div class="relative lg:container md:mx-auto w-full lg:px-60 mt-20 mb-32">
+      <h3 class="text-center transition-transform duration-300 transform hover:scale-105">Das sagen die Kunden:</h3>
+      
+    </div>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const isDarkMode = localStorage.getItem("theme") === "dark";
+      const scriptUrl = isDarkMode 
+        ? 'https://cdn.trustindex.io/loader.js?1a60658337913104ee867f3f954'
+        : 'https://cdn.trustindex.io/loader.js?b45ce4333ebd2989b176b97ee25';
+
+      const script = document.createElement('script');
+      script.defer = true;
+      script.async = true;
+      script.src = scriptUrl;
+
+      document.querySelector('div.relative').appendChild(script);
+    });
+  </script>
+
+
+    <div id="footer" class="footer-top flex flex-col lg:flex-row justify-between text-white dark:text-black mb-40">
       <div class="footer-block w-full lg:w-1/3 px-24 lg:px-20 mb-20 lg:mb-0">
         <h3 class="text-xl font-bold mb-2 text-center">Über mich</h3>
-        <p class="mb-4 text-lg text-justify">Hier erfahren Sie, wie ich zur Computerreparatur kam und welche Motivation mich dazu bewegt, meinen Service in Naumburg anzubieten. Entdecken Sie die Hintergründe und die Werte, die mich antreiben.</p>
-        <div class="text-left lg:text-center">
+        <p class="mb-4 align-baseline swuptransition-fade text-half-sm sm:text-lg md:text-xl">Hier erfahren Sie, wie ich zur Computerreparatur kam und welche Motivation mich dazu bewegt, meinen Service in Naumburg anzubieten. Entdecken Sie die Hintergründe und die Werte, die mich antreiben.</p>
+        <div class="text-left">
           <a href="/About" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-lg">Mehr lesen</a>
         </div>        
       </div>
 
       <div class="footer-block w-full lg:w-1/3 px-24 lg:px-20 mb-20 lg:mb-0">
         <h3 class="text-xl font-bold mb-2 text-center">Angebote</h3>
-        <p class="mb-4 text-lg text-justify">Entdecken Sie die maßgeschneiderten Angebote, die genau auf Ihre Bedürfnisse abgestimmt sind. Hier finden Sie eine Übersicht der aktuellen Services, die Ihnen helfen, Ihre technischen Herausforderungen zu meistern.</p>
-        <div class="text-left lg:text-center">
+        <p class="mb-4 swuptransition-fade text-half-sm sm:text-lg md:text-xl align-baseline">Entdecken Sie die maßgeschneiderten Angebote, die genau auf Ihre Bedürfnisse abgestimmt sind. Hier finden Sie eine Übersicht der aktuellen Services, die Ihnen helfen, Ihre technischen Herausforderungen zu meistern.</p>
+        <div class="text-left">
           <a href="/About" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-lg">Mehr lesen</a>
         </div>        
       </div>
 
       <div class="footer-block w-full lg:w-1/3 px-24 lg:px-20 mb-20 lg:mb-0">
         <h3 class="text-xl font-bold mb-2 text-center">Unternehmen</h3>
-        <p class="mb-4 text-lg text-justify">Hier erfahren Sie, was meine selbstständige Tätigkeit besonders macht. Entdecken Sie die Werte und Arbeitsweise, die meine Arbeit im Bereich der Computerreparatur und IT-Service definieren.</p>
-        <div class="text-left lg:text-center">
+        <p class="mb-4 swuptransition-fade text-half-sm sm:text-lg md:text-xl align-baseline">Hier erfahren Sie, was meine selbstständige Tätigkeit besonders macht. Entdecken Sie die Werte und Arbeitsweise, die meine Arbeit im Bereich der Computerreparatur und IT-Service definieren.</p>
+        <div class="text-left">
           <a href="/About" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-lg">Mehr lesen</a>
         </div>        
       </div>
