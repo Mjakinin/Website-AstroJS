@@ -98,7 +98,12 @@ class PageHandler {
       this.setLogo1();
       this.setImg();
       this.setWhatsapp();
-      location.reload();
+
+      const currentPath = window.location.pathname;
+      if (currentPath !== "/") {
+        location.reload();
+      }
+
     });
   }
 
