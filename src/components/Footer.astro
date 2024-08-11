@@ -1,6 +1,6 @@
 ---
 // Überprüft, ob die aktuelle Seite die Startseite ist
-const isIndex = ["/", "/impressum", "/datenschutz" , "/Impressum", "/Datenschutz"].includes(Astro.url.pathname);
+const isIndex = ["/", "/Impressum", "/impressum/", "/Datenschutz", "/datenschutz/"].includes(Astro.url.pathname);
 ---
 
 {isIndex ? (
