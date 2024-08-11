@@ -397,9 +397,4 @@ const init = () => {
 
 document.addEventListener("DOMContentLoaded", () => init());
 
-const swup = new Swup({
-  animationSelector: '[class*="swuptransition-"]',
-  plugins: [new SwupA11yPlugin(), new SwupHeadPlugin(), new SwupScrollPlugin()],
-});
 
-swup.on("contentReplaced", init);
