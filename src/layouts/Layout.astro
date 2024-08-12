@@ -16,10 +16,28 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   
+
+  
   <body class="font-mono dark:bg-light bg-dark dark:text-dark text-light">
     <main id="swup" class="relative lg:container md:mx-auto w-full swuptransition-fade text-half-sm">
       <article class="px-4 py-8 sm:text-xl md:text-2xl lg:px-44">
-        
+
+
+
+
+
+        <!-- Google tag (gtag.js) -->
+        <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-8KQPMT3NVB"></script>
+        <script type="text/partytown">
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'MEASUREMENT_ID');
+        </script>
+
+
+
         <div id="popup-overlay"></div>
           <div id="popup" class="popup">
             <div class="popup-content">
@@ -31,6 +49,10 @@ const { title, description } = Astro.props;
               </center>
             </div>
           </div>
+
+
+
+
 
         <slot />
       </article>
