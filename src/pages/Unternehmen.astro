@@ -3,135 +3,145 @@ import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 ---
-<Header />
+
 <Layout title="Maxim - Unternehmen">
-  <h1 id="dynamic-text7" class="transition-transform duration-300 transform hover:scale-105"></h1>
-  <p class="mb-16">
-    Ich habe dieses Unternehmen am 01. April 2024 eröffnet und mache mich damit
-    selbstständig neben meinem Studium. Mein Fokus liegt auf
-    IT-Dienstleistungen, speziell einem Computer Reparatur Service in Naumburg.
-    Mein Ziel ist es, Menschen in Naumburg und Umgebung unkompliziert und
-    effizient bei ihren Computerproblemen zu unterstützen. Darüber hinaus biete
-    ich Schulungen an, um ihnen zu helfen, zukünftige Probleme zu vermeiden und
-    ihre IT-Kenntnisse zu erweitern. Als Student der Computer Engineering an der
-    Technischen Universität in Berlin bringe ich mein Fachwissen und meine
-    Leidenschaft für Technologie in meine Arbeit ein.
-  </p>
-</Layout>
-
-<div
-  class="font-mono dark:bg-halfdark bg-light dark:bg-opacity-100 bg-opacity-100 dark:text-light text-dark p-4 text-center mb-14 swuptransition-fade px-4 py-8"
->
-  <div class="lg:flex lg:justify-between mb-20">
-    <div
-      class="lg:w-1/3 font-mono mb-24 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
+  <div class="layout">
+    <h1
+      id="dynamic-text7"
+      class="transition-transform duration-300 transform hover:scale-105"
     >
-      <div id="icon1" class="flex justify-center items-center">
-        <img src={"/icons/rocket.svg"} class="w-10 h-10" />
+    </h1>
+    <p class="mb-16">
+      Ich habe dieses Unternehmen am 01. April 2024 eröffnet und mache mich
+      damit selbstständig neben meinem Studium. Mein Fokus liegt auf
+      IT-Dienstleistungen, speziell einem Computer Reparatur Service in
+      Naumburg. Mein Ziel ist es, Menschen in Naumburg und Umgebung
+      unkompliziert und effizient bei ihren Computerproblemen zu unterstützen.
+      Darüber hinaus biete ich Schulungen an, um ihnen zu helfen, zukünftige
+      Probleme zu vermeiden und ihre IT-Kenntnisse zu erweitern. Als Student der
+      Computer Engineering an der Technischen Universität in Berlin bringe ich
+      mein Fachwissen und meine Leidenschaft für Technologie in meine Arbeit
+      ein.
+    </p>
+  </div>
+
+  <div
+    class="font-mono dark:bg-halfdark bg-light dark:bg-opacity-100 bg-opacity-100 dark:text-light text-dark p-4 text-center mb-14 swuptransition-fade px-4 py-8"
+  >
+    <div class="lg:flex lg:justify-between mb-20">
+      <div
+        class="lg:w-1/3 font-mono mb-24 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
+      >
+        <div id="icon1" class="flex justify-center items-center">
+          <img src={"/icons/rocket.svg"} class="w-10 h-10" />
+        </div>
+
+        <p id="eigenschaften" class="text-center">
+          <strong>Schnelle Lösungen</strong>
+        </p>
+        <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
+          Ziel ist es, schnellstmöglich Lösungen für Computerprobleme zu bieten
+        </p>
       </div>
 
-      <p id="eigenschaften" class="text-center">
-        <strong>Schnelle Lösungen</strong>
-      </p>
-      <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
-        Ziel ist es, schnellstmöglich Lösungen für Computerprobleme zu bieten
-      </p>
+      <div
+        class="lg:w-1/3 font-mono mb-24 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
+      >
+        <div id="icon2" class="flex justify-center items-center">
+          <img src={"/icons/money.svg"} class="w-10 h-10" />
+        </div>
+
+        <p id="eigenschaften" class="text-center">
+          <strong>Transparente Preisgestaltung</strong>
+        </p>
+        <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
+          Alle Preise und Angebote sind auf der Website einsehbar, damit Kunden
+          stets informiert sind
+        </p>
+      </div>
+
+      <div
+        class="lg:w-1/3 font-mono mb-24 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
+      >
+        <div id="icon3" class="flex justify-center items-center">
+          <img src={"/icons/tools.svg"} class="w-10 h-10" />
+        </div>
+
+        <p id="eigenschaften" class="text-center">
+          <strong>Flexibler Vor-Ort-Service</strong>
+        </p>
+        <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
+          Reparaturen und Beratung direkt beim Kunden zu Hause oder Abholung des
+          Geräts zur Reparatur
+        </p>
+      </div>
     </div>
 
-    <div
-      class="lg:w-1/3 font-mono mb-24 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
-    >
-      <div id="icon2" class="flex justify-center items-center">
-        <img src={"/icons/money.svg"} class="w-10 h-10" />
+    <div class="lg:flex lg:justify-between mt-4">
+      <div
+        class="lg:w-1/3 font-mono mb-24 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
+      >
+        <div id="icon4" class="flex justify-center items-center">
+          <img src={"/icons/arrow.svg"} class="w-10 h-10" />
+        </div>
+
+        <p id="eigenschaften" class="text-center">
+          <strong>Zuverlässiger Service</strong>
+        </p>
+        <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
+          Pünktlich, effizient und zuverlässig – Ihr Computer ist in guten
+          Händen
+        </p>
       </div>
 
-      <p id="eigenschaften" class="text-center">
-        <strong>Transparente Preisgestaltung</strong>
-      </p>
-      <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
-        Alle Preise und Angebote sind auf der Website einsehbar, damit Kunden
-        stets informiert sind
-      </p>
-    </div>
+      <div
+        class="lg:w-1/3 font-mono mb-24 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
+      >
+        <div id="icon5" class="flex justify-center items-center">
+          <img src={"/icons/person.svg"} class="w-10 h-10" />
+        </div>
 
-    <div
-      class="lg:w-1/3 font-mono mb-24 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
-    >
-      <div id="icon3" class="flex justify-center items-center">
-        <img src={"/icons/tools.svg"} class="w-10 h-10" />
+        <p id="eigenschaften" class="text-center">
+          <strong>Kundenzufriedenheit</strong>
+        </p>
+        <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
+          Die Zufriedenheit der Kunden steht an erster Stelle
+        </p>
       </div>
 
-      <p id="eigenschaften" class="text-center">
-        <strong>Flexibler Vor-Ort-Service</strong>
-      </p>
-      <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
-        Reparaturen und Beratung direkt beim Kunden zu Hause oder Abholung des
-        Geräts zur Reparatur
-      </p>
+      <div
+        class="lg:w-1/3 font-mono mb-0 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
+      >
+        <div id="icon6" class="flex justify-center items-center">
+          <img src={"/icons/pc.svg"} class="w-10 h-10" />
+        </div>
+
+        <p id="eigenschaften" class="text-center">
+          <strong>Professionelle Beratung</strong>
+        </p>
+        <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
+          Kompetente Beratung für alle Computeranliegen
+        </p>
+      </div>
     </div>
   </div>
 
-  <div class="lg:flex lg:justify-between mt-4">
-    <div
-      class="lg:w-1/3 font-mono mb-24 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
-    >
-      <div id="icon4" class="flex justify-center items-center">
-        <img src={"/icons/arrow.svg"} class="w-10 h-10" />
-      </div>
 
-      <p id="eigenschaften" class="text-center">
-        <strong>Zuverlässiger Service</strong>
-      </p>
-      <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
-        Pünktlich, effizient und zuverlässig – Ihr Computer ist in guten Händen
-      </p>
-    </div>
-
-    <div
-      class="lg:w-1/3 font-mono mb-24 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
-    >
-      <div id="icon5" class="flex justify-center items-center">
-        <img src={"/icons/person.svg"} class="w-10 h-10" />
-      </div>
-
-      <p id="eigenschaften" class="text-center">
-        <strong>Kundenzufriedenheit</strong>
-      </p>
-      <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
-        Die Zufriedenheit der Kunden steht an erster Stelle
-      </p>
-    </div>
-
-    <div
-      class="lg:w-1/3 font-mono mb-0 lg:mb-0 transition-transform duration-300 transform hover:scale-105"
-    >
-      <div id="icon6" class="flex justify-center items-center">
-        <img src={"/icons/pc.svg"} class="w-10 h-10" />
-      </div>
-
-      <p id="eigenschaften" class="text-center">
-        <strong>Professionelle Beratung</strong>
-      </p>
-      <p class="mr-20 ml-20 text-center text-half-sm sm:text-sm md:text-md">
-        Kompetente Beratung für alle Computeranliegen
-      </p>
-    </div>
+  
+  <div class="layout">
+    <p>
+      In einer Ära, in der die Digitalisierung unaufhaltsam voranschreitet, wird
+      deutlich, wie unverzichtbar IT-Dienstleistungen geworden sind. Ein
+      funktionierender Computer oder Laptop ist heute essentiell, um effektiv
+      arbeiten zu können. Besonders mit dem Trend der künstlichen Intelligenz,
+      mit dem früher oder später jeder interagieren wird, ist ein gut
+      funktionierendes Gerät die Grundlage für produktive Arbeit. Es ist ebenso
+      wichtig zu wissen, wie man mit diesen Geräten umgeht und sie effektiv
+      nutzt. Mit Wissen aus Berlin und langjähriger Erfahrung bin ich, Maxim
+      Mjakinin, Ihr Ansprechpartner für kosteneffiziente IT-Lösungen in Naumburg
+      und Umgebung.
+    </p>
   </div>
-</div>
 
-<Layout>
-<p>
-  In einer Ära, in der die Digitalisierung unaufhaltsam voranschreitet, wird
-  deutlich, wie unverzichtbar IT-Dienstleistungen geworden sind. Ein
-  funktionierender Computer oder Laptop ist heute essentiell, um effektiv
-  arbeiten zu können. Besonders mit dem Trend der künstlichen Intelligenz, mit
-  dem früher oder später jeder interagieren wird, ist ein gut funktionierendes
-  Gerät die Grundlage für produktive Arbeit. Es ist ebenso wichtig zu wissen,
-  wie man mit diesen Geräten umgeht und sie effektiv nutzt. Mit Wissen aus
-  Berlin und langjähriger Erfahrung bin ich, Maxim Mjakinin, Ihr Ansprechpartner
-  für kosteneffiziente IT-Lösungen in Naumburg und Umgebung.
-</p>
+  <script src="../js/app.js"></script>
 </Layout>
-
-<script src="../js/app.js"></script>
-<Footer />

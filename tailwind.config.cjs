@@ -25,7 +25,8 @@ module.exports = {
         halfdark: "#525252",
       },
       fontSize: {
-        'half-sm': '0.68rem', // Hier definieren Sie die Größe für die halbe sm-Größe
+        'half-sm': '0.68rem',
+        'half-md': '1.2rem', // Hier definieren Sie die Größe für die halbe sm-Größe
       }
     },
   },

@@ -1,110 +1,3 @@
-var showPopup = false; //URLAUB
-
-if (showPopup) {
-  // Show popup and overlay
-  window.onload = function() {
-    document.getElementById('popup').style.display = 'block';
-    document.getElementById('popup-overlay').style.display = 'block';
-  };
-
-  // Close popup and overlay
-  function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('popup-overlay').style.display = 'none';
-  }
-
-  // Add event listener to overlay
-  document.getElementById('popup-overlay').addEventListener('click', closePopup);
-
-  // Add event listener to close button
-  document.querySelector('.close-btn').addEventListener('click', closePopup);
-
-  // Add event listener to document body to detect clicks outside popup
-  document.body.addEventListener('click', function(event) {
-    if (!event.target.closest('.popup-content')) {
-      closePopup();
-    }
-  });
-}
-
-
-// Selektiere die benötigten Elemente
-const progressBar = document.querySelector('.progress-bar');
-const progress = document.querySelector('.progress');
-const checkpoints = document.querySelectorAll('.checkpoint');
-const sections = document.querySelectorAll('section');
-
-// Funktion, um die Positionen der Sections zu berechnen
-function calculateSectionPositions() {
-  const sectionPositions = Array.from(sections).map((section) => {
-    return section.offsetTop;
-  });
-  return sectionPositions;
-}
-
-// Funktion, um den Fortschritt der Scrollbar zu berechnen
-function calculateProgress() {
-  const scrollPosition = window.scrollY;
-  const sectionPositions = calculateSectionPositions();
-  const progressHeight = progressBar.offsetHeight;
-  const documentHeight = document.body.offsetHeight;
-  const windowHeight = window.innerHeight;
-
-  let progressValue = 0;
-  let currentCheckpoint = 0;
-
-  for (let i = 0; i < sectionPositions.length; i++) {
-    if (scrollPosition >= sectionPositions[i] - windowHeight / 2) {
-      currentCheckpoint = i;
-    }
-  }
-
-  const currentSectionHeight = sectionPositions[currentCheckpoint + 1] - sectionPositions[currentCheckpoint];
-  const progressInSection = (scrollPosition - (sectionPositions[currentCheckpoint] - windowHeight / 2)) / currentSectionHeight;
-  progressValue = (currentCheckpoint / (sectionPositions.length - 1)) * progressHeight + (progressInSection * (progressHeight / (sectionPositions.length - 1)));
-
-  progress.style.height = `${progressValue}px`;
-
-
-  const nearEnd = scrollPosition + windowHeight >= documentHeight - 1000; // adjust the value to your liking
-  if (nearEnd) {
-    progressBar.classList.add('fading-out');
-  } else {
-    progressBar.classList.remove('fading-out');
-  }
-
-}
-
-
-
-// Funktion, um die Checkpoints zu aktivieren
-function activateCheckpoints() {
-  const scrollPosition = window.scrollY;
-  const sectionPositions = calculateSectionPositions();
-
-  checkpoints.forEach((checkpoint, index) => {
-    const sectionPosition = sectionPositions[index];
-    if (scrollPosition >= sectionPosition - window.innerHeight / 2) {
-      checkpoint.classList.add('active');
-      checkpoint.querySelector('span').textContent = `${index + 1}`; // update the span text content
-    } else {
-      checkpoint.classList.remove('active');
-      checkpoint.querySelector('span').textContent = ''; // reset the span text content
-    }
-  });
-}
-
-
-// Event-Listener für das Scrollen
-window.addEventListener('scroll', () => {
-  calculateProgress();
-  activateCheckpoints();
-});
-
-
-
-
-
 class PageHandler {
   constructor() {
     if (localStorage.getItem("theme") == "dark") {
@@ -172,11 +65,11 @@ class PageHandler {
 
     if (localStorage.getItem("theme") == "dark") {
       img.innerHTML = `
-        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:-bottom-5 2xl:w-72 2xl:h-72 2xl:-bottom-5"/>
+        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-96 xl:translate-y-80 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-52 2xl:-translate-x-52"/>
       `;
     } else {
       img.innerHTML = `
-        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:-bottom-5 2xl:w-72 2xl:h-72 2xl:-bottom-5"/>
+        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-96 xl:translate-y-80 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-52 2xl:-translate-x-52"/>
       `;
     }
   }
@@ -424,12 +317,4 @@ const init = () => {
   pageHandler.setImg();
   pageHandler.setWhatsapp();
 };
-
 document.addEventListener("DOMContentLoaded", () => init());
-
-const swup = new Swup({
-  animationSelector: '[class*="swuptransition-"]',
-  plugins: [new SwupA11yPlugin(), new SwupHeadPlugin(), new SwupScrollPlugin()],
-});
-
-swup.on("contentReplaced", init);

@@ -1,82 +1,82 @@
 ---
+import NavigationSocial from "./NavigationSocial.astro";
+import NavigationSocialBar from "./NavigationSocialBar.astro";
+import NavigationSocialIcon from "./NavigationSocialIcon.astro";
+
 // Überprüft, ob die aktuelle Seite die Startseite ist
-const isIndex = ["/", "/Impressum", "/Impressum/", "/Datenschutz", "/Datenschutz/"].includes(Astro.url.pathname);
+const isIndex = ["/Impressum", "/Impressum/", "/Datenschutz", "/Datenschutz/", "/Extras", "/Extras/"].includes(Astro.url.pathname);
+const isIndex2 = ["/Extras", "/Extras/"].includes(Astro.url.pathname);
 ---
 
-{isIndex ? (
-  <footer id="footer" class="footer swuptransition-fade text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-0">
-    <div class="footer-content flex items-center text-white dark:text-black">
-      <p>&lt;</p>
-      <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
-      <p>/</p>
-      <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
-      <p>&gt;</p>
-    </div>
-  </footer>
-) : (
+{!isIndex2 && (
   <>
-  <footer id="footer" class="footer swuptransition-fade text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-20">
+    {isIndex ? (
+      <footer id="footer" class="footer text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-0">
+        <p class="text-half-sm text-halfdark text-center -mb-4">Copyright © 2024 Maxim Mjakinin. Alle Rechte vorbehalten.</p>
+        <div class="footer-content flex items-center text-white dark:text-black">
+          <p>&lt;</p>
+          <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
+          <p>/</p>
+          <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
+          <p>&gt;</p>
+        </div>
+      </footer>
+    ) : (
+      <footer id="footer" class="footer text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-20">
+        <div class="relative lg:container md:mx-auto w-full lg:px-60 mt-20 mb-32">
+          <h3 class="text-center transition-transform duration-300 transform hover:scale-105">Das sagen die Kunden:</h3>
+        </div>
+        
+        <div class="mb-48">
+          <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            const isDarkMode = localStorage.getItem("theme") === "dark";
+            const scriptUrl = isDarkMode 
+              ? 'https://cdn.trustindex.io/loader.js?1a60658337913104ee867f3f954'
+              : 'https://cdn.trustindex.io/loader.js?b45ce4333ebd2989b176b97ee25';
 
-    <div class="relative lg:container md:mx-auto w-full lg:px-60 mt-20 mb-32">
-      <h3 class="text-center transition-transform duration-300 transform hover:scale-105">Das sagen die Kunden:</h3>
-    </div>
-    
-    <div>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const isDarkMode = localStorage.getItem("theme") === "dark";
-      const scriptUrl = isDarkMode 
-        ? 'https://cdn.trustindex.io/loader.js?1a60658337913104ee867f3f954'
-        : 'https://cdn.trustindex.io/loader.js?b45ce4333ebd2989b176b97ee25';
+            const script = document.createElement('script');
+            script.defer = true;
+            script.async = true;
+            script.src = scriptUrl;
 
-      const script = document.createElement('script');
-      script.defer = true;
-      script.async = true;
-      script.src = scriptUrl;
+            document.querySelector('div.relative').appendChild(script);
+          });
+          </script>
+        </div>
 
-      document.querySelector('div.relative').appendChild(script);
-    });
-  </script>
-  </div>
+        <div class="flex justify-center my-4 -mt-10">
+          <div class="border-t-2 border-white w-1/2"></div> <!-- Länge der Linie hier anpassen -->
+        </div>
 
-      <div class="relative lg:container md:mx-auto w-full lg:px-60 mt-56 -mb-10">
-        <h3 class="text-center transition-transform duration-300 transform hover:scale-105">Weitere Informationen:</h3>
-      </div>
+        <div class="text-center text-half-md mb-40">
+          <div class="flex flex-col md:flex-row md:justify-center md:space-x-4">
+            <div class="flex justify-center space-x-4 mb-2 md:mb-0">
+              <a href="/" class="px-4 py-2 text-white rounded hover:text-blue-400 hover:underline transition">Start</a>
+              <a href="/About" class="px-4 py-2 text-white rounded hover:text-blue-400 hover:underline transition">About</a>
+              <a href="/Unternehmen" class="px-4 py-2 text-white rounded hover:text-blue-400 hover:underline transition">Unternehmen</a>
+            </div>
+            <div class="flex justify-center space-x-4">
+              <a href="/Angebote" class="px-4 py-2 text-white rounded hover:text-blue-400 hover:underline transition">Preise</a>
+              <a href="/Kontakt" class="px-4 py-2 text-white rounded hover:text-blue-400 hover:underline transition">Kontakt</a>
+            </div>
+          </div>
+        </div>
 
-      <div id="footer" class="footer-top flex flex-col lg:flex-row justify-between text-gray-300 dark:text-halfdark mb-40">
+        <nav class="flex items-center justify-center gap-x-5 -mt-32 mb-10">
+          <NavigationSocial />
+        </nav>
 
-      <div class="footer-block w-full lg:w-1/3 px-24 lg:px-20">
-        <h3 class="text-xl font-bold mb-2 text-center transition-transform duration-300 transform hover:scale-105 text-white dark:text-dark">Über mich</h3>
-        <p class="mb-4 align-baseline swuptransition-fade text-half-sm sm:text-lg md:text-xl transition-transform duration-300 transform hover:scale-105">Hier erfahren Sie, wie ich zur Computerreparatur kam und welche Motivation mich dazu bewegt, meinen Service in Naumburg anzubieten. Entdecken Sie die Hintergründe und die Werte, die mich antreiben.</p>
-        <div class="text-left transition-transform duration-300 transform hover:scale-105">
-          <a href="/About" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-half-sm sm:text-lg md:text-xl">Mehr lesen</a>
-        </div>        
-      </div>
+        <p class="text-half-sm text-halfdark text-center -mb-12">Copyright © 2024 Maxim Mjakinin. Alle Rechte vorbehalten.</p>
 
-      <div class="footer-block w-full lg:w-1/3 px-24 lg:px-20">
-        <h3 class="text-xl font-bold mb-2 text-center transition-transform duration-300 transform hover:scale-105 text-white dark:text-dark">Angebote</h3>
-        <p class="mb-4 swuptransition-fade text-half-sm sm:text-lg md:text-xl align-baseline transition-transform duration-300 transform hover:scale-105 text-gt">Entdecken Sie die maßgeschneiderten Angebote, die genau auf Ihre Bedürfnisse abgestimmt sind. Hier finden Sie eine Übersicht der aktuellen Services, die Ihnen helfen, Ihre technischen Herausforderungen zu meistern.</p>
-        <div class="text-left transition-transform duration-300 transform hover:scale-105">
-          <a href="/About" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-half-sm sm:text-lg md:text-xl">Mehr lesen</a>
-        </div>        
-      </div>
-
-      <div class="footer-block w-full lg:w-1/3 px-24 lg:px-20">
-        <h3 class="text-xl font-bold mb-2 text-center transition-transform duration-300 transform hover:scale-105 text-white dark:text-dark">Unternehmen</h3>
-        <p class="mb-4 swuptransition-fade text-half-sm sm:text-lg md:text-xl align-baseline transition-transform duration-300 transform hover:scale-105">Hier erfahren Sie, was meine selbstständige Tätigkeit besonders macht. Entdecken Sie die Werte und Arbeitsweise, die meine Arbeit im Bereich der Computerreparatur und IT-Service definieren.</p>
-        <div class="text-left transition-transform duration-300 transform hover:scale-105">
-          <a href="/About" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-half-sm sm:text-lg md:text-xl">Mehr lesen</a>
-        </div>        
-      </div>
-    </div>
-
-    <div class="footer-content flex items-center text-white dark:text-black mt-8">
-      <p>&lt;</p>
-      <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
-      <p>/</p>
-      <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
-      <p>&gt;</p>
-    </div>
-  </footer>
+        <div class="footer-content flex items-center text-white dark:text-black mt-8">
+          <p>&lt;</p>
+          <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
+          <p>/</p>
+          <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
+          <p>&gt;</p>
+        </div>
+      </footer>
+    )}
   </>
 )}
