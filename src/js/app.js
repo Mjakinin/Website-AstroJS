@@ -218,11 +218,11 @@ class PageHandler {
 
     if (localStorage.getItem("theme") == "dark") {
       logo.innerHTML = `
-        <img src="/images/DunkelLogo.png?a=${Math.random()}" alt="logo3" class="ml-20"/>
+        <img src="/images/DunkelLogo.png?a=${Math.random()}" alt="logo3"/>
       `;
     } else {
       logo.innerHTML = `
-        <img src="/images/HellLogo.png?a=${Math.random()}" alt="logo4" class="ml-20"/>
+        <img src="/images/HellLogo.png?a=${Math.random()}" alt="logo4"/>
       `;
     }
   }
