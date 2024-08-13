@@ -19,7 +19,7 @@ const { title, description } = Astro.props;
 
   
   <body class="font-mono dark:bg-light bg-dark dark:text-dark text-light">
-    <main class="swuptransition-fade text-half-sm sm:text-xl md:text-2xl">
+    <main id="swup" class="swuptransition-fade text-half-sm sm:text-xl md:text-2xl">
       <Header />
       <article class="">
 
@@ -36,6 +36,7 @@ const { title, description } = Astro.props;
 
           gtag('config', 'MEASUREMENT_ID');
         </script>
+
 
 
 
@@ -62,6 +63,7 @@ const { title, description } = Astro.props;
       <NavigationMobile />
     </main>
     <script src="../js/urlaub.js"></script>
+    <script src="../js/swup.js"></script>
   </body>
 </html>
 <style is:global>
