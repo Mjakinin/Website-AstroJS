@@ -1,4 +1,4 @@
-var showPopup = true; //URLAUB
+var showPopup = false; //URLAUB
 
 if (showPopup) {
   // Show popup and overlay

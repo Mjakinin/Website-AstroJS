@@ -1,8 +1,5 @@
-import Swup from "swup";
-import SwupScrollPlugin from "@swup/scroll-plugin";
+import Swup from 'swup';
+import SwupPreloadPlugin from '@swup/preload-plugin';
 const swup = new Swup({
-animationSelector: '[class*="swuptransition-"]',
-plugins: [new SwupScrollPlugin()],
+  plugins: [new SwupPreloadPlugin()]
 });
-
-swup.on("contentReplaced", init);

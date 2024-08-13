@@ -1,22 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 ---
+
+<div class="progress-bar hidden lg:block">
+  <div class="progress"></div>
+  <div class="checkpoints">
+    <div class="checkpoint" data-section="section1"><span></span></div>
+    <div class="checkpoint" data-section="section2"><span></span></div>
+    <div class="checkpoint" data-section="section3"><span></span></div>
+    <div class="checkpoint" data-section="section4"><span></span></div>
+    <div class="checkpoint" data-section="section5"><span></span></div>
+  </div>
+</div>
 
 <Layout title="Maxim - Angebote">
   <div class="layout">
     
-    <div class="progress-bar hidden lg:block">
-      <div class="progress"></div>
-      <div class="checkpoints">
-        <div class="checkpoint" data-section="section1"><span></span></div>
-        <div class="checkpoint" data-section="section2"><span></span></div>
-        <div class="checkpoint" data-section="section3"><span></span></div>
-        <div class="checkpoint" data-section="section4"><span></span></div>
-        <div class="checkpoint" data-section="section5"><span></span></div>
-      </div>
-    </div>
+
 
     <h1
       id="dynamic-text6"
@@ -259,7 +259,9 @@ import Header from "../components/Header.astro";
         </div>
       </div>
     </section>
-    <script src="../js/app.js"></script>
+
     <script src="../js/angebote.js"></script>
+    <script src="../js/app.js"></script>
+    
   </div>
 </Layout>
