@@ -3,8 +3,8 @@ import NavigationLinks from "../components/NavigationLinks.astro";
 import NavigationSocialBar from "../components/NavigationSocialBar.astro";
 
 const { title, description } = Astro.props;
-
 ---
+
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -15,15 +15,27 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
 
-<header class="flex items-center justify-end md:justify-between px-4 py-8 font-medium
-relative xl:container md:mx-auto w-full xl:px-44 mb-10">
-  <nav class="hidden md:flex items-center justify-center gap-x-8 xl:text-2xl">
-    <NavigationLinks />
-  </nav>
+  <header
+    class="flex items-center justify-end md:justify-between px-4 py-8 font-medium relative xl:container md:mx-auto w-full xl:px-44 mb-10"
+  >
+    <nav class="hidden md:flex items-center justify-center gap-x-8 xl:text-2xl">
+      <NavigationLinks />
+    </nav>
 
-  <div class="hidden lg:block">
-  <nav class="flex items-center justify-center gap-x-5 ">
-    <NavigationSocialBar />
-  </nav>
-</div>
-</header>
+    <div
+    id="colorSwitch1"
+    class="hover:cursor-pointer dark:bg-dark bg-light rounded-full p-1 block lg:hidden"
+  >
+    <img src="/icons/moon1.svg" alt="sun" class="w-6 h-6" />
+  </div>
+
+    <div class="hidden lg:block">
+      <nav class="flex items-center justify-center gap-x-5">
+        <NavigationSocialBar />
+      </nav>
+    </div>
+
+
+
+  </header>
+</html>

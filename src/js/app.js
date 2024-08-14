@@ -22,10 +22,8 @@ class PageHandler {
       this.setImg();
       this.setWhatsapp();
 
-      const currentPath = window.location.pathname;
-      if (currentPath !== "/") {
-        location.reload();
-      }
+      location.reload();
+      
 
     });
   }
@@ -316,5 +314,6 @@ const init = () => {
   pageHandler.setLogo1();
   pageHandler.setImg();
   pageHandler.setWhatsapp();
+  pageHandler.setThemeIcon();
 };
 document.addEventListener("DOMContentLoaded", () => init());

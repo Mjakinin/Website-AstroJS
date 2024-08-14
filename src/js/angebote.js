@@ -1,4 +1,4 @@
-
+/*
 //ANGEBOTE
 const progressBar = document.querySelector('.progress-bar');
 const progress = document.querySelector('.progress');
@@ -70,4 +70,4 @@ function activateCheckpoints() {
 window.addEventListener('scroll', () => {
   calculateProgress();
   activateCheckpoints();
-});
+});*/
