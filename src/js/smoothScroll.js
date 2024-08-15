@@ -42,7 +42,7 @@ function checkScrollEnd() {
 
 function initAutoScroll() {
     // Überprüfe die URL und Fenstergröße
-    if (window.location.pathname === '/' && window.innerWidth >= 1280) {
+    if (window.location.pathname === '/' && window.innerWidth >= 1536) {
         // Setze den Overflow-Stil auf hidden
         document.body.style.overflow = 'hidden';
         // Füge den Eventlistener hinzu, um das automatische Scrollen zu starten
