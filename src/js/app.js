@@ -21,6 +21,7 @@ class PageHandler {
       this.setLogo1();
       this.setImg();
       this.setWhatsapp();
+      this.setScrollIcon();
 
       location.reload();
       
@@ -63,11 +64,11 @@ class PageHandler {
 
     if (localStorage.getItem("theme") == "dark") {
       img.innerHTML = `
-        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-96 xl:translate-y-80 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-52 2xl:-translate-x-52"/>
+        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-112 xl:translate-y-96 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-60 2xl:-translate-x-52"/>
       `;
     } else {
       img.innerHTML = `
-        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-96 xl:translate-y-80 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-52 2xl:-translate-x-52"/>
+        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-112 xl:translate-y-96 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-60 2xl:-translate-x-52"/>
       `;
     }
   }
@@ -198,6 +199,35 @@ class PageHandler {
     }
   }
 
+  setScrollIcon() {
+    const icon7 = document.querySelector("#icon7");
+    if (icon7 === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      icon7.innerHTML = `
+        <img src="/icons/arrow-small.svg?a=${Math.random()}" alt="icon7" class="w-10 h-10" />
+      `;
+    } else {
+      icon7.innerHTML = `
+        <img src="/icons/arrow-small-dark.svg?a=${Math.random()}" alt="icon7" class="w-10 h-10" />
+      `;
+    }
+
+
+    const icon8 = document.querySelector("#icon8");
+    if (icon8 === null) return;
+
+    if (localStorage.getItem("theme") == "dark") {
+      icon8.innerHTML = `
+        <img src="/icons/arrow-small.svg?a=${Math.random()}" alt="icon7" class="w-10 h-10" />
+      `;
+    } else {
+      icon8.innerHTML = `
+        <img src="/icons/arrow-small-dark.svg?a=${Math.random()}" alt="icon7" class="w-10 h-10" />
+      `;
+    }
+  }
+
   
 
   // Es werden die Wörter aus dem Array "dynamicHeaderTextArray" nacheinander in das Element geschrieben.
@@ -315,5 +345,6 @@ const init = () => {
   pageHandler.setImg();
   pageHandler.setWhatsapp();
   pageHandler.setThemeIcon();
+  pageHandler.setScrollIcon();
 };
 document.addEventListener("DOMContentLoaded", () => init());

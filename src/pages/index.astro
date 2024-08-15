@@ -1,52 +1,93 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 ---
 
 <Layout title="Maxim">
+  <div
+    class="flex flex-col xl:flex-row justify-between px-4 sm:px-10 md:px-32 items-center -mt-20 md:-mt-0 2xl:mt-10 xl:mb-40 2xl:mb-60"
+  >
+    <div class="w-full xl:w-2/3 flex flex-row -mb-10 xl:mb-0 xl:flex-col justify-between items-center xl:items-start">
 
- <div class="flex flex-col xl:flex-row justify-between items-center px-4 sm:px-10 md:px-32 mt-36 mb-0 xl:mb-40 2xl:mb-60">
-  <div class="w-full xl:w-2/3 flex flex-col justify-between items-center xl:items-start">
-    <div class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-center xl:text-start transition-transform duration-300 transform hover:scale-105 -mt-40 md:mt-0">
-      Hey, ich bin<br/>
-      <span id="dynamic-header-text" class="dark:text-blue-500 text-blue-500">Maxim</span><br/>
+      <div
+        class="w-1/2 xl:w-full text-xl ssm:text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-center xl:text-start transition-transform duration-300 transform hover:scale-105 mt-16 xl:-mb-0"
+      >
+        Hey, ich bin<br />
+        <span id="dynamic-header-text" class="dark:text-blue-500 text-blue-500"
+          >Maxim</span
+        ><br />
+      </div>
+
+      <div
+        class="w-1/2 -mb-10 xl:w-full xl:mb-0 xl:hidden flex justify-center items-center"
+      >
+        <a
+          href="/Extras"
+          class="transition-transform duration-300 transform hover:scale-105"
+        >
+          <div id="logoSwitch">
+            <img src="/images/HellLogo.png" class="" />
+          </div>
+        </a>
+      </div>
+
+      <p
+        class=" hidden xl:block py-20 transition-transform duration-300 transform hover:scale-105 text-lg sm:text-xl md:text-2xl -mb-10" style="line-height: 2;">
+        Ich bin derzeit Student in Berlin und studiere Computer Engineering.
+        Mein Bachelor-Abschluss steht kurz bevor, und ich habe ein starkes
+        Interesse an allem rund um Computer. Ich helfe gerne anderen, ihre
+        Computerprobleme zu lösen, da ich aus eigener Erfahrung die
+        Schwierigkeiten nachvollziehen kann.
+      </p>
+
+      <div class="hidden xl:flex items-center mt-8 mb-0 md:mb-12 lg:mb-20 xl:mb-0">
+        <Button url="/Angebote" title="Angebote" external={true} />
+        <a
+          href="/Kontakt"
+          class="ml-10 font-medium dark:text-dark text-light underline transition-transform duration-300 transform hover:scale-105"
+          >Kontakt</a
+        >
+      </div>
     </div>
 
-    <div class="w-1/2 -mb-10 xl:w-full xl:mb-0 xl:hidden flex justify-center items-center">
-      <a href="/Extras" class="transition-transform duration-300 transform hover:scale-105">
-        <div id="logoSwitch">
-          <img src="/images/HellLogo.png" class=""/>
-        </div>
-      </a>
-    </div>
-
-    <div class="text-left xl:text-start leading-relaxed py-20 transition-transform duration-300 transform hover:scale-105 text-lg sm:text-xl md:text-2xl 2rem -mb-10" style="line-height: 1.625;">
+    <p
+      class="block xl:hidden py-20 transition-transform duration-300 transform hover:scale-105 text-lg sm:text-xl md:text-2xl -mb-10" style="line-height: 2;">
       Ich bin derzeit Student in Berlin und studiere Computer Engineering.
       Mein Bachelor-Abschluss steht kurz bevor, und ich habe ein starkes
       Interesse an allem rund um Computer. Ich helfe gerne anderen, ihre
       Computerprobleme zu lösen, da ich aus eigener Erfahrung die
       Schwierigkeiten nachvollziehen kann.
-    </div>
+    </p>
 
-    <div class="flex items-center mt-8 mb-0 md:mb-12 lg:mb-20 xl:mb-0">
+    <div class="flex xl:hidden items-center mt-8 mb-0 md:mb-12 lg:mb-20 xl:mb-0">
       <Button url="/Angebote" title="Angebote" external={true} />
-      <a href="/Kontakt" class="ml-10 font-medium dark:text-dark text-light underline transition-transform duration-300 transform hover:scale-105">Kontakt</a>
+      <a
+        href="/Kontakt"
+        class="ml-10 font-medium dark:text-dark text-light underline transition-transform duration-300 transform hover:scale-105"
+        >Kontakt</a
+      >
     </div>
 
+    <div
+      id="logoSwitch1"
+      class="hidden xl:flex w-1/4 xl:w-1/3 justify-center items-center transition-transform duration-300 transform hover:scale-110 ml-32"
+    >
+      <img src="/images/HellLogo.png" class="w-auto h-auto" />
+    </div>
   </div>
 
-  
-  <div id="logoSwitch1" class="hidden xl:flex w-1/4 xl:w-1/3 justify-center items-center transition-transform duration-300 transform hover:scale-105 ml-32">
-      <img src="/images/HellLogo.png" class="w-auto h-auto"/>
-  </div>
 
-</div>
-<script src="../js/app1.js"></script>
-<script src="../js/smoothScroll.js"></script>
-<script src="../js/app.js"></script>
+
+  <center>
+  <button id="auto-scroll-btn" class="hidden xl:block -translate-y-52 2xl:-translate-y-40 hover:cursor-pointer dark:bg-dark bg-light rounded-full p-1 transition-transform duration-300 transform hover:scale-110">
+    <div id="icon7">
+      <img src={"/icons/arrow-small.svg"} class="w-10 h-10" />
+    </div>
+  </button>
+</center>
+
+
+  <script src="../js/app1.js"></script>
+  <script src="../js/smoothScroll.js"></script>
+  <script src="../js/app.js"></script>
 </Layout>
-
-
-

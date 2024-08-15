@@ -48,7 +48,14 @@
   p {
     @apply my-4 leading-relaxed;
     text-align: justify;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    word-spacing: -0.12em; /* Adjust this value as needed */
+    line-height: 2;
   }
+
 
   u:hover {
     text-decoration: none;

@@ -27,7 +27,16 @@ module.exports = {
       fontSize: {
         'half-sm': '0.68rem',
         'half-md': '1.2rem', // Hier definieren Sie die Größe für die halbe sm-Größe
-      }
+      },
+      spacing: {
+        // Add custom spacing values here
+        '112': '27rem',
+        '120': '30rem',
+        '128': '32rem',
+        '144': '36rem',
+        '160': '40rem',
+        '192': '48rem',
+      },
     },
   },
   plugins: [],
