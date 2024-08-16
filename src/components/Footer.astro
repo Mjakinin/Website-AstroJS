@@ -2,7 +2,7 @@
 import NavigationSocial from "./NavigationSocial.astro";
 
 // Überprüft, ob die aktuelle Seite die Startseite oder andere definierte Seiten ist
-const isIndex = ["/Impressum", "/Impressum/", "/Datenschutz", "/Datenschutz/", "/Extras", "/Extras/"].includes(Astro.url.pathname);
+const isIndex = ["/Impressum", "/Impressum/", "/Datenschutz", "/Datenschutz/", "/Extras", "/Extras/", "/AGB" , "/AGB/" ].includes(Astro.url.pathname);
 const isIndex2 = ["/Extras", "/Extras/"].includes(Astro.url.pathname);
 const isIndex3 = ["/"].includes(Astro.url.pathname);
 ---
@@ -73,6 +73,8 @@ const isIndex3 = ["/"].includes(Astro.url.pathname);
           <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
           <p>/</p>
           <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
+          <p>/</p>
+          <a href="/AGB" class="dark:text-blue-400 text-blue-400 hover:underline">AGB</a>
           <p>&gt;</p>
         </div>
       </footer>
@@ -84,6 +86,8 @@ const isIndex3 = ["/"].includes(Astro.url.pathname);
           <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
           <p>/</p>
           <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
+          <p>/</p>
+          <a href="/AGB" class="dark:text-blue-400 text-blue-400 hover:underline">AGB</a>
           <p>&gt;</p>
         </div>
       </footer>
@@ -140,6 +144,8 @@ const isIndex3 = ["/"].includes(Astro.url.pathname);
           <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
           <p>/</p>
           <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
+          <p>/</p>
+          <a href="/AGB" class="dark:text-blue-400 text-blue-400 hover:underline">AGB</a>
           <p>&gt;</p>
         </div>
       </footer>
