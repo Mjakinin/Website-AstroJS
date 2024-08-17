@@ -22,10 +22,6 @@ class PageHandler {
       this.setImg();
       this.setWhatsapp();
       this.setScrollIcon();
-
-      location.reload();
-      
-
     });
   }
 
