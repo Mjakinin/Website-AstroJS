@@ -17,10 +17,6 @@ constructor() {
     }
 
     this.setThemeIcon1();
-
-    location.reload();
-
-
   });
 }
 
