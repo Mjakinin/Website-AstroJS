@@ -5,6 +5,7 @@ class PageHandler {
     }
 
     this.setThemeIcon();
+    this.setFarbenwechsel();
 
     document.querySelector("#colorSwitch").addEventListener("click", () => {
       document.documentElement.classList.toggle("dark");
@@ -15,6 +16,7 @@ class PageHandler {
         localStorage.setItem("theme", "dark");
       }
 
+      this.setFarbenwechsel();
       this.setThemeIcon();
       this.setIcon();
       this.setLogo();
@@ -36,6 +38,21 @@ class PageHandler {
     } else {
       colorSwitch.innerHTML = `
         <img src="/icons/sun.svg?a=${Math.random()}" alt="sun" class="w-6 h-6" />
+      `;
+    }
+  }
+
+  setFarbenwechsel() {
+    let colorSwitch1 = document.querySelector("#farbenwechsel");
+    if (colorSwitch1 === null) return;
+  
+    if (localStorage.getItem("theme") == "dark") {
+      colorSwitch1.innerHTML = `
+        <img src="/icons/moon1.svg?a=${Math.random()}" alt="moon1" class="w-6 h-6" />
+      `;
+    } else {
+      colorSwitch1.innerHTML = `
+        <img src="/icons/sun1.svg?a=${Math.random()}" alt="sun1" class="w-6 h-6" />
       `;
     }
   }
