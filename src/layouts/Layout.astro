@@ -20,6 +20,17 @@ const { title, description } = Astro.props;
     
   <body class="font-mono dark:bg-light bg-dark dark:text-dark text-light">
     <main id="" class="text-half-sm sm:text-xl md:text-2xl">
+
+
+      <div id="popup-overlay"></div>
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <span class="close-btn" onclick="closePopup()">&times;</span>
+          <h2>Urlaubsankündigung</h2>
+          <p style="text-align: left;">Ich bin derzeit im Urlaub und werde ab <b>01.09</b> zurück sein. In dringenden Fällen erreichen Sie mich unter <b>maxim.mjakinin@gmail.com</b> oder <b>WhatsApp</b><br />Vielen Dank für Ihr Verständnis.</p>
+        </div>
+      </div>
+
       <Header />
       <article class="page">
 
@@ -39,20 +50,6 @@ const { title, description } = Astro.props;
         </script>
 
 
-
-
-
-        <div id="popup-overlay"></div>
-          <div id="popup" class="popup">
-            <div class="popup-content">
-              <span class="close-btn" onclick="closePopup()">&times;</span>
-              <h2>Urlaubsankündigung</h2>
-              <p>Ich bin derzeit im Urlaub und werde ab <b>01.09</b> zurück sein. In dringenden Fällen erreichen Sie mich unter <b>maxim.mjakinin@gmail.com</b> oder <b>WhatsApp</b> Vielen Dank für Ihr Verständnis.</p>
-              <center>         
-                <iframe src="https://giphy.com/embed/LmTLzybHur3EYTYsqI" width="270" height="480" style="" frameborder="0" class="giphy-embed hidden" allowfullscreen></iframe><p class="text-center hidden"><a href="https://giphy.com/gifs/seeyoulater-seeyousoon-merightnow-LmTLzybHur3EYTYsqI">via GIPHY</a></p>
-              </center>
-            </div>
-          </div>
 
 
         <slot />
