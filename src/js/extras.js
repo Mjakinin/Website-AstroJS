@@ -155,7 +155,7 @@
         updateLeaderboard();
 
         // Platzhalter aktualisieren, wenn die maximale Spieleranzahl erreicht ist
-        if (leaderboardData.length === 5) {
+        if (leaderboardData.length === 4) {
             playerNamesInput.placeholder = "Max. Player Reached";
             playerNamesInput.disabled = true; // Eingabefeld deaktivieren
         }
@@ -174,7 +174,7 @@
             leaderboardElement.id = "leaderboard";
             leaderboardElement.classList.add("leaderboard");
             leaderboardElement.style.width = "60%"; // Breite auf die Hälfte der Seite setzen
-            leaderboardElement.style.top = "0"; // Leaderboard nach oben setzen
+            leaderboardElement.style.marginTop = "-75px"; // Abstand von oben
             leaderboardElement.style.marginLeft = "auto"; // Zentrierung
             leaderboardElement.style.marginRight = "auto"; // Zentrierung
 
@@ -238,53 +238,53 @@
             // Buttons zum Ändern der Punktzahl
             const buttonsContainer = document.createElement("div");
             buttonsContainer.classList.add("buttons-container");
-            buttonsContainer.style.display = "flex"; // Flexbox verwenden
-            buttonsContainer.style.flexDirection = "row"; // Flexbox-Ausrichtung auf Zeilen setzen
-            buttonsContainer.style.justifyContent = "flex-end"; // Elemente rechtsbündig ausrichten
+            buttonsContainer.style.display = "flex";
+            buttonsContainer.style.flexWrap = "wrap";
+            buttonsContainer.style.gap = "10px";
+            buttonsContainer.style.marginTop = "10px";
 
-            const deleteButton = createButton("❌", () => deletePlayer(index)); // X Symbol
-            deleteButton.style.width = "75px"; // Breite verdoppeln
-            deleteButton.style.borderRadius = "10%"; // Runde Ecken
+            // Funktion zur Erstellung runder farbiger Buttons
+            function createColoredButton(text, scoreChange, bgColor) {
+                const btn = document.createElement("button");
+                btn.textContent = text;
+                btn.onclick = () => {
+                    updateScoreWithAnimation(index, scoreChange);
+                    handleScoreChange();
+                };
+                btn.style.width = "50px";
+                btn.style.height = "50px";
+                btn.style.borderRadius = "50%";
+                btn.style.border = "1px solid black";
+                btn.style.backgroundColor = bgColor;
+                btn.style.color = "white";
+                btn.style.fontWeight = "bold";
+                btn.style.fontSize = "16px";
+                btn.style.cursor = "pointer";
+                return btn;
+            }
+
+            // ❌ Delete Button
+            const deleteButton = createButton("❌", () => deletePlayer(index));
+            deleteButton.style.width = "50px";
+            deleteButton.style.height = "50px";
+            deleteButton.style.borderRadius = "50%";
             buttonsContainer.appendChild(deleteButton);
 
-            // Buttons zum Ändern der Punktzahl
-            const decreaseButton = createButton("-1", () => {
-                updateScoreWithAnimation(index, -1);
-                handleScoreChange();
-            });
-            decreaseButton.style.width = "75px"; // Breite verdoppeln
-            decreaseButton.style.borderRadius = "10%"; // Runde Ecken
-            decreaseButton.style.fontSize = "24px"; // Schriftgröße erhöhen für -1
-            buttonsContainer.appendChild(decreaseButton);
+            // Strafen
+            buttonsContainer.appendChild(createColoredButton("-1", -1, "#666"));
+            buttonsContainer.appendChild(createColoredButton("-4", -4, "#555"));
 
-            const increaseButton = createButton("+1", () => {
-                updateScoreWithAnimation(index, 1);
-                handleScoreChange();
-            });
-            increaseButton.style.width = "75px"; // Breite verdoppeln
-            increaseButton.style.borderRadius = "10%"; // Runde Ecken
-            increaseButton.style.fontSize = "24px"; // Schriftgröße erhöhen für +1
-            buttonsContainer.appendChild(increaseButton);
-
-            const increaseButton5 = createButton("+5", () => {
-                updateScoreWithAnimation(index, 5);
-                handleScoreChange();
-            });
-            increaseButton5.style.width = "75px"; // Breite verdoppeln
-            increaseButton5.style.borderRadius = "10%"; // Runde Ecken
-            increaseButton5.style.fontSize = "24px"; // Schriftgröße erhöhen für +5
-            buttonsContainer.appendChild(increaseButton5);
-
-            const increaseButton10 = createButton("+10", () => {
-                updateScoreWithAnimation(index, 10);
-                handleScoreChange();
-            });
-            increaseButton10.style.width = "75px"; // Breite verdoppeln
-            increaseButton10.style.borderRadius = "10%"; // Runde Ecken
-            increaseButton10.style.fontSize = "24px"; // Schriftgröße erhöhen für +10
-            buttonsContainer.appendChild(increaseButton10);
+            // Farbenpunkte nach Snooker-Regeln
+            buttonsContainer.appendChild(createColoredButton("+1", 1, "red"));
+            buttonsContainer.appendChild(createColoredButton("+2", 2, "#e0c200")); // leicht dunkleres Gelb
+            buttonsContainer.appendChild(createColoredButton("+3", 3, "green"));
+            buttonsContainer.appendChild(createColoredButton("+4", 4, "brown"));
+            buttonsContainer.appendChild(createColoredButton("+5", 5, "blue"));
+            buttonsContainer.appendChild(createColoredButton("+6", 6, "purple"));
+            buttonsContainer.appendChild(createColoredButton("+7", 7, "black"));
 
             playerEntry.appendChild(buttonsContainer);
+
 
             // Spieler zum Leaderboard hinzufügen
             leaderboardElement.appendChild(playerEntry);
@@ -302,6 +302,20 @@
             const countdownInterval = 100; // Intervall für die Aktualisierung des Countdowns
 
             const countdownDisplay = document.createElement("div");
+            countdownDisplay.style.position = "fixed";
+            countdownDisplay.style.top = "20px";
+            countdownDisplay.style.right = "20px";
+            countdownDisplay.style.zIndex = "1000"; // damit es über allem liegt
+            
+            countdownDisplay.style.fontSize = "20px";
+            countdownDisplay.style.color = "white";
+            countdownDisplay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+            countdownDisplay.style.padding = "8px 14px";
+            countdownDisplay.style.borderRadius = "10px";
+            countdownDisplay.style.fontWeight = "bold";
+            countdownDisplay.style.boxShadow = "0 2px 8px rgba(0,0,0,0.5)";
+            
+
             leaderboardElement.appendChild(countdownDisplay);
 
             sortTimeout = setInterval(() => {

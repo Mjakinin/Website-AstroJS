@@ -28,26 +28,24 @@ import Header from "../components/Header.astro";
 
 
 
-    <div id="snooker" class="hidden -mt-10 -mb-20">
+    <div id="snooker" class="hidden mt-4 mb-6">
         <div class="flex flex-col items-start">
-            <div class="mt-10 mb-20 rounded-2xl overflow-hidden bg-white" style="background-color: rgba(255, 255, 255, 0.7);">
+            <div class="-mt-20 w-[350px] rounded-2xl overflow-hidden bg-white" style="background-color: rgba(255, 255, 255, 0.7);">
                 <h2 class="-mt-1 mb-2 text-dark" id="playernames">Gib die Spielernamen ein:</h2>
-                <div class="flex items-center">
+                <div class="flex flex-col items-center px-4">
                     <input
                         type="text"
                         id="playerNamesInput"
                         placeholder="Spielernamen eingeben"
-                        class="text-black mr-2 ml-4 border border-black"
+                        class="text-black border border-black px-2 py-1 w-full mb-2 text-sm"
                         maxlength="20"
-                        size="30"
-                        
                     />
                     <button
                         id="submitplayerButton"
-                        class="text-black border border-black rounded-full p-2 text-3xl h-12 w-12 flex justify-center items-center leading-none">
+                        class="text-black border border-black rounded-full text-2xl h-10 w-10 flex justify-center items-center leading-none">
                         +
                     </button>
-                </div>
+                </div>                
             </div>
         </div>
     </div>
