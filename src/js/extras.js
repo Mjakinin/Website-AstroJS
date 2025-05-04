@@ -174,11 +174,11 @@
             leaderboardElement.id = "leaderboard";
             leaderboardElement.classList.add("leaderboard");
             leaderboardElement.style.width = "60%"; // Breite auf die Hälfte der Seite setzen
-            leaderboardElement.style.marginTop = "-75px"; // Abstand von oben
+            leaderboardElement.style.marginTop = "-20px";
             leaderboardElement.style.marginLeft = "auto"; // Zentrierung
             leaderboardElement.style.marginRight = "auto"; // Zentrierung
 
-            document.body.appendChild(leaderboardElement);
+            snooker.appendChild(leaderboardElement);
         }
         // Leaderboard-Inhalt aktualisieren
         leaderboardElement.innerHTML = "";
@@ -188,8 +188,12 @@
             const playerEntry = document.createElement("div");
             playerEntry.classList.add("player-entry");
             playerEntry.style.marginBottom = "30px"; // Abstand zwischen den Spielern erhöhen
-            playerEntry.style.padding = "10px"; // Innenabstand erhöhen
-            playerEntry.style.flexDirection = "column"; // Flexbox-Ausrichtung auf Spalten setzen
+            playerEntry.style.minHeight = "120px"; // Einheitliche Höhe für alle
+            playerEntry.style.display = "flex"; // Flexbox-Ausrichtung
+            playerEntry.style.flexDirection = "column";
+            playerEntry.style.justifyContent = "center"; // Inhalte vertikal zentrieren
+            playerEntry.style.padding = "10px";
+
             playerEntry.style.backgroundColor = "rgba(255, 255, 255, 0.9)"; // Weißer Hintergrund mit 75% Deckkraft
 
             // Spielername
@@ -208,8 +212,8 @@
                 crownIcon.src = "/icons/crown.svg"; // Pfadeinstellung für das crown.svg-Bild
                 crownIcon.alt = "Crown Icon";
                 crownIcon.style.width = "40px"; // Breite des Kronenbildes
-                crownIcon.style.transform = "translate(-9px, 12px)"; // Verschiebung nach links und unten
-                crownIcon.style.marginTop = "-10px"; // Ein wenig nach unten verschieben
+                crownIcon.style.transform = "translate(-9px, 0px)"; // Verschiebung nach links und unten
+                crownIcon.style.marginTop = "0px"; // Ein wenig nach unten verschieben
                 crownIcon.style.verticalAlign = "middle"; // Vertikal zentriert
                 playerNameElement.insertBefore(
                     crownIcon,
@@ -356,12 +360,17 @@
         const button = document.createElement("button");
         button.textContent = text;
         button.addEventListener("click", onClick);
-        button.style.marginRight = "10px"; // Abstand zwischen den Buttons
-        button.style.border = "1px solid black"; // Schwarze runde Border
-        button.style.color = "black"; // Textfarbe setzen
-        button.style.height = "50px"; // Button-Höhe setzen
+        button.style.marginRight = "10px";
+        button.style.border = "1px solid black";
+        button.style.color = "black";
+        button.style.backgroundColor = "white";
+        button.style.height = "50px";
+        button.style.width = "50px";
+        button.style.borderRadius = "50%"; // Rund
+        button.style.cursor = "pointer";
         return button;
     }
+    
 
     // Funktion zum Löschen eines Spielers aus dem Leaderboard
     function deletePlayer(index) {
