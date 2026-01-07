@@ -113,285 +113,248 @@
 
 
 
-    //SNOOKER
-    const snooker = document.getElementById("snooker");
-    const playerNamesInput = document.getElementById(
-        "playerNamesInput"
-    );
-    const submitplayerButton = document.getElementById("submitplayerButton");
+    //SNOOKER - Erweiterte Version für mehr Spieler (bis 20)
+const snooker = document.getElementById("snooker");
+const playerNamesInput = document.getElementById("playerNamesInput");
+const submitplayerButton = document.getElementById("submitplayerButton");
 
-    function handlePlayerInput() {
-        const playerName = playerNamesInput.value.trim(); // Spielername erfassen und Leerzeichen entfernen
-        if (leaderboardData.length < 5) {
-            if (playerName.length > 0) {
-                // Neuen Spieler zum Leaderboard hinzufügen
-                addPlayerToLeaderboard(playerName);
-                // Eingabefeld zurücksetzen
-                playerNamesInput.value = "";
-            }
-        } else {
-            playerNamesInput.placeholder = "Max. Player Reached"; // Platzhalter aktualisieren
+// Konfiguration - Hier kannst du die maximale Anzahl Spieler anpassen
+const MAX_PLAYERS = 20; // Erhöht von 5 auf 20
+
+function handlePlayerInput() {
+    const playerName = playerNamesInput.value.trim();
+    if (leaderboardData.length < MAX_PLAYERS) {
+        if (playerName.length > 0) {
+            addPlayerToLeaderboard(playerName);
+            playerNamesInput.value = "";
         }
-        // Fokus wieder auf das Eingabefeld setzen
-        playerNamesInput.focus();
+    } else {
+        playerNamesInput.placeholder = `Max. ${MAX_PLAYERS} Players Reached`;
     }
-    // Leaderboard-Datenstruktur
-    let leaderboardData = [];
+    playerNamesInput.focus();
+}
 
-    // Funktion zum Hinzufügen eines Spielers zum Leaderboard
-    function addPlayerToLeaderboard(playerName) {
-        // Neuen Spieler erstellen
-        const newPlayer = {
-            name: playerName,
-            score: 0,
-        };
+// Leaderboard-Datenstruktur
+let leaderboardData = [];
 
-        // Spieler zum Leaderboard hinzufügen
-        leaderboardData.push(newPlayer);
+function addPlayerToLeaderboard(playerName) {
+    const newPlayer = {
+        name: playerName,
+        score: 0,
+    };
 
-        leaderboardData.sort((a, b) => a.name.localeCompare(b.name));
+    leaderboardData.push(newPlayer);
+    leaderboardData.sort((a, b) => a.name.localeCompare(b.name));
 
-        // Leaderboard aktualisieren
-        updateLeaderboard();
+    updateLeaderboard();
 
-        // Platzhalter aktualisieren, wenn die maximale Spieleranzahl erreicht ist
-        if (leaderboardData.length === 4) {
-            playerNamesInput.placeholder = "Max. Player Reached";
-            playerNamesInput.disabled = true; // Eingabefeld deaktivieren
-        }
+    if (leaderboardData.length === MAX_PLAYERS) {
+        playerNamesInput.placeholder = `Max. ${MAX_PLAYERS} Players Reached`;
+        playerNamesInput.disabled = true;
     }
+}
 
-    // Funktion zum Aktualisieren des Leaderboards
-    let sortTimeout; // Variable zum Speichern des Timer-Handles
+let sortTimeout;
 
-    function updateLeaderboard() {
-        // Leaderboard-Element auswählen oder erstellen
-        let leaderboardElement = document.querySelector(
-            "#leaderboard"
-        );
-        if (!leaderboardElement) {
-            leaderboardElement = document.createElement("div");
-            leaderboardElement.id = "leaderboard";
-            leaderboardElement.classList.add("leaderboard");
-            leaderboardElement.style.width = "60%"; // Breite auf die Hälfte der Seite setzen
-            leaderboardElement.style.marginTop = "-20px";
-            leaderboardElement.style.marginLeft = "auto"; // Zentrierung
-            leaderboardElement.style.marginRight = "auto"; // Zentrierung
+function updateLeaderboard() {
+    let leaderboardElement = document.querySelector("#leaderboard");
+    if (!leaderboardElement) {
+        leaderboardElement = document.createElement("div");
+        leaderboardElement.id = "leaderboard";
+        leaderboardElement.classList.add("leaderboard");
+        leaderboardElement.style.width = "80%"; // Breiter für mehr Spieler
+        leaderboardElement.style.marginTop = "-20px";
+        leaderboardElement.style.marginLeft = "auto";
+        leaderboardElement.style.marginRight = "auto";
+        leaderboardElement.style.maxHeight = "80vh"; // Scrollbar bei vielen Spielern
+        leaderboardElement.style.overflowY = "auto";
 
-            snooker.appendChild(leaderboardElement);
-        }
-        // Leaderboard-Inhalt aktualisieren
-        leaderboardElement.innerHTML = "";
-
-        // Für jeden Spieler im Leaderboard ein Eintrag erstellen
-        leaderboardData.forEach((player, index) => {
-            const playerEntry = document.createElement("div");
-            playerEntry.classList.add("player-entry");
-            playerEntry.style.marginBottom = "30px"; // Abstand zwischen den Spielern erhöhen
-            playerEntry.style.minHeight = "120px"; // Einheitliche Höhe für alle
-            playerEntry.style.display = "flex"; // Flexbox-Ausrichtung
-            playerEntry.style.flexDirection = "column";
-            playerEntry.style.justifyContent = "center"; // Inhalte vertikal zentrieren
-            playerEntry.style.padding = "10px";
-
-            playerEntry.style.backgroundColor = "rgba(255, 255, 255, 0.9)"; // Weißer Hintergrund mit 75% Deckkraft
-
-            // Spielername
-            const playerNameElement = document.createElement("span");
-            playerNameElement.innerHTML = `${index + 1}&nbsp;&nbsp;&nbsp;${
-                player.name
-            }`;
-            playerNameElement.style.fontSize = "40px"; // Textgröße erhöhen
-            playerNameElement.style.color = "black"; // Textfarbe setzen
-            playerNameElement.style.flex = "1"; // Spielername flexibel machen
-            playerNameElement.style.marginRight = "20px"; // Abstand zwischen Name und Punktzahl
-
-            // Crown SVG-Bild einfügen, wenn der erste Spieler im Leaderboard
-            if (index === 0) {
-                const crownIcon = document.createElement("img");
-                crownIcon.src = "/icons/crown.svg"; // Pfadeinstellung für das crown.svg-Bild
-                crownIcon.alt = "Crown Icon";
-                crownIcon.style.width = "40px"; // Breite des Kronenbildes
-                crownIcon.style.transform = "translate(-9px, 0px)"; // Verschiebung nach links und unten
-                crownIcon.style.marginTop = "0px"; // Ein wenig nach unten verschieben
-                crownIcon.style.verticalAlign = "middle"; // Vertikal zentriert
-                playerNameElement.insertBefore(
-                    crownIcon,
-                    playerNameElement.firstChild
-                );
-            }
-
-            // Punktzahl
-            const playerScoreElement = document.createElement("span");
-            playerScoreElement.textContent = `${player.score}`;
-            playerScoreElement.style.fontSize = "50px"; // Textgröße erhöhen
-            playerScoreElement.style.color = "black"; // Textfarbe setzen
-            playerScoreElement.style.textAlign = "right"; // Textausrichtung rechts
-            playerScoreElement.style.width = "100px"; // Breite festlegen für rechtsbündige Ausrichtung
-
-            // Container für Spielername und Punktzahl
-            const playerInfoContainer = document.createElement("div");
-            playerInfoContainer.style.display = "flex"; // Flexbox verwenden
-            playerInfoContainer.style.alignItems = "center"; // Vertikal zentriert
-            playerInfoContainer.style.marginBottom = "10px"; // Abstand zum nächsten Eintrag
-            playerInfoContainer.appendChild(playerNameElement);
-            playerInfoContainer.appendChild(playerScoreElement);
-
-            playerEntry.appendChild(playerInfoContainer);
-
-            // Buttons zum Ändern der Punktzahl
-            const buttonsContainer = document.createElement("div");
-            buttonsContainer.classList.add("buttons-container");
-            buttonsContainer.style.display = "flex";
-            buttonsContainer.style.flexWrap = "wrap";
-            buttonsContainer.style.gap = "10px";
-            buttonsContainer.style.marginTop = "10px";
-
-            // Funktion zur Erstellung runder farbiger Buttons
-            function createColoredButton(text, scoreChange, bgColor) {
-                const btn = document.createElement("button");
-                btn.textContent = text;
-                btn.onclick = () => {
-                    updateScoreWithAnimation(index, scoreChange);
-                    handleScoreChange();
-                };
-                btn.style.width = "50px";
-                btn.style.height = "50px";
-                btn.style.borderRadius = "50%";
-                btn.style.border = "1px solid black";
-                btn.style.backgroundColor = bgColor;
-                btn.style.color = "white";
-                btn.style.fontWeight = "bold";
-                btn.style.fontSize = "16px";
-                btn.style.cursor = "pointer";
-                return btn;
-            }
-
-            // ❌ Delete Button
-            const deleteButton = createButton("❌", () => deletePlayer(index));
-            deleteButton.style.width = "50px";
-            deleteButton.style.height = "50px";
-            deleteButton.style.borderRadius = "50%";
-            buttonsContainer.appendChild(deleteButton);
-
-            // Strafen
-            buttonsContainer.appendChild(createColoredButton("-1", -1, "#666"));
-            buttonsContainer.appendChild(createColoredButton("-4", -4, "#555"));
-
-            // Farbenpunkte nach Snooker-Regeln
-            buttonsContainer.appendChild(createColoredButton("+1", 1, "red"));
-            buttonsContainer.appendChild(createColoredButton("+2", 2, "#e0c200")); // leicht dunkleres Gelb
-            buttonsContainer.appendChild(createColoredButton("+3", 3, "green"));
-            buttonsContainer.appendChild(createColoredButton("+4", 4, "brown"));
-            buttonsContainer.appendChild(createColoredButton("+5", 5, "blue"));
-            buttonsContainer.appendChild(createColoredButton("+6", 6, "purple"));
-            buttonsContainer.appendChild(createColoredButton("+7", 7, "black"));
-
-            playerEntry.appendChild(buttonsContainer);
-
-
-            // Spieler zum Leaderboard hinzufügen
-            leaderboardElement.appendChild(playerEntry);
-        });
-
-        // Funktion zur Behandlung von Punkteänderungen
-        function handleScoreChange() {
-            // Timer zurücksetzen, falls vorhanden
-            if (sortTimeout) {
-                clearTimeout(sortTimeout);
-            }
-
-            // Timer neu setzen, aber nur wenn eine Änderung vorgenommen wurde
-            let countdown = 2000; // Startzeit des Timers in Millisekunden
-            const countdownInterval = 100; // Intervall für die Aktualisierung des Countdowns
-
-            const countdownDisplay = document.createElement("div");
-            countdownDisplay.style.position = "fixed";
-            countdownDisplay.style.top = "20px";
-            countdownDisplay.style.right = "20px";
-            countdownDisplay.style.zIndex = "1000"; // damit es über allem liegt
-            
-            countdownDisplay.style.fontSize = "20px";
-            countdownDisplay.style.color = "white";
-            countdownDisplay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-            countdownDisplay.style.padding = "8px 14px";
-            countdownDisplay.style.borderRadius = "10px";
-            countdownDisplay.style.fontWeight = "bold";
-            countdownDisplay.style.boxShadow = "0 2px 8px rgba(0,0,0,0.5)";
-            
-
-            leaderboardElement.appendChild(countdownDisplay);
-
-            sortTimeout = setInterval(() => {
-                countdown -= countdownInterval;
-                countdownDisplay.textContent = `Sorting in ${(
-                    countdown / 1000
-                ).toFixed(1)} seconds`; // Countdown aktualisieren
-
-                if (countdown <= 0) {
-                    clearInterval(sortTimeout); // Timer stoppen, wenn der Countdown abgelaufen ist
-                    leaderboardData.sort((a, b) => {
-                        // Zuerst nach Punktzahl sortieren
-                        if (a.score !== b.score) {
-                            return b.score - a.score;
-                        } else {
-                            // Wenn die Punktzahlen gleich sind, nach Namen sortieren
-                            return a.name.localeCompare(b.name);
-                        }
-                    });
-
-                    // Leaderboard neu rendern, um die sortierte Reihenfolge anzuzeigen
-                    updateLeaderboard();
-
-                    leaderboardElement.removeChild(countdownDisplay); // Countdown-Anzeige entfernen
-                }
-            }, countdownInterval);
-        }
-    }
-
-    // Funktion zum Aktualisieren der Punktzahl eines Spielers mit Animation
-    function updateScoreWithAnimation(index, change) {
-        leaderboardData[index].score += change;
-        updateLeaderboard();
-    }
-
-    // Funktion zum Erstellen eines Buttons
-    function createButton(text, onClick) {
-        const button = document.createElement("button");
-        button.textContent = text;
-        button.addEventListener("click", onClick);
-        button.style.marginRight = "10px";
-        button.style.border = "1px solid black";
-        button.style.color = "black";
-        button.style.backgroundColor = "white";
-        button.style.height = "50px";
-        button.style.width = "50px";
-        button.style.borderRadius = "50%"; // Rund
-        button.style.cursor = "pointer";
-        return button;
+        snooker.appendChild(leaderboardElement);
     }
     
+    leaderboardElement.innerHTML = "";
 
-    // Funktion zum Löschen eines Spielers aus dem Leaderboard
-    function deletePlayer(index) {
-        leaderboardData.splice(index, 1);
-        updateLeaderboard();
-        if (leaderboardData.length < 5) {
-            // Prüfen, ob weniger als 5 Spieler im Leaderboard sind
-            playerNamesInput.placeholder = "Enter Player Name"; // Platzhalter zurücksetzen
-            playerNamesInput.disabled = false; // Eingabefeld aktivieren
+    leaderboardData.forEach((player, index) => {
+        const playerEntry = document.createElement("div");
+        playerEntry.classList.add("player-entry");
+        playerEntry.style.marginBottom = "15px"; // Kleinerer Abstand für mehr Spieler
+        playerEntry.style.minHeight = "80px"; // Kompakter
+        playerEntry.style.display = "flex";
+        playerEntry.style.flexDirection = "column";
+        playerEntry.style.justifyContent = "center";
+        playerEntry.style.padding = "8px";
+        playerEntry.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+
+        // Spielername
+        const playerNameElement = document.createElement("span");
+        playerNameElement.innerHTML = `${index + 1}. ${player.name}`;
+        playerNameElement.style.fontSize = "28px"; // Etwas kleiner
+        playerNameElement.style.color = "black";
+        playerNameElement.style.flex = "1";
+        playerNameElement.style.marginRight = "10px";
+
+        // Crown nur für Platz 1
+        if (index === 0) {
+            const crownIcon = document.createElement("img");
+            crownIcon.src = "/icons/crown.svg";
+            crownIcon.alt = "Crown Icon";
+            crownIcon.style.width = "30px";
+            crownIcon.style.transform = "translate(-5px, 0px)";
+            crownIcon.style.verticalAlign = "middle";
+            playerNameElement.insertBefore(crownIcon, playerNameElement.firstChild);
         }
+
+        // Punktzahl
+        const playerScoreElement = document.createElement("span");
+        playerScoreElement.textContent = `${player.score}`;
+        playerScoreElement.style.fontSize = "36px";
+        playerScoreElement.style.color = "black";
+        playerScoreElement.style.textAlign = "right";
+        playerScoreElement.style.width = "80px";
+
+        const playerInfoContainer = document.createElement("div");
+        playerInfoContainer.style.display = "flex";
+        playerInfoContainer.style.alignItems = "center";
+        playerInfoContainer.style.marginBottom = "5px";
+        playerInfoContainer.appendChild(playerNameElement);
+        playerInfoContainer.appendChild(playerScoreElement);
+
+        playerEntry.appendChild(playerInfoContainer);
+
+        // Buttons
+        const buttonsContainer = document.createElement("div");
+        buttonsContainer.classList.add("buttons-container");
+        buttonsContainer.style.display = "flex";
+        buttonsContainer.style.flexWrap = "wrap";
+        buttonsContainer.style.gap = "5px"; // Kleinerer Gap
+        buttonsContainer.style.marginTop = "5px";
+
+        // Funktion für farbige Buttons
+        function createColoredButton(text, scoreChange, bgColor) {
+            const btn = document.createElement("button");
+            btn.textContent = text;
+            btn.onclick = () => {
+                updateScoreWithAnimation(index, scoreChange);
+                handleScoreChange();
+            };
+            btn.style.width = "40px"; // Kleiner
+            btn.style.height = "40px";
+            btn.style.borderRadius = "50%";
+            btn.style.border = "1px solid black";
+            btn.style.backgroundColor = bgColor;
+            btn.style.color = "white";
+            btn.style.fontWeight = "bold";
+            btn.style.fontSize = "14px";
+            btn.style.cursor = "pointer";
+            return btn;
+        }
+
+        // Delete Button
+        const deleteButton = createButton("❌", () => deletePlayer(index));
+        deleteButton.style.width = "40px";
+        deleteButton.style.height = "40px";
+        buttonsContainer.appendChild(deleteButton);
+
+        // Strafen
+        buttonsContainer.appendChild(createColoredButton("-1", -1, "#666"));
+        buttonsContainer.appendChild(createColoredButton("-4", -4, "#555"));
+
+        // Snooker-Punkte
+        buttonsContainer.appendChild(createColoredButton("+1", 1, "red"));
+        buttonsContainer.appendChild(createColoredButton("+2", 2, "#e0c200"));
+        buttonsContainer.appendChild(createColoredButton("+3", 3, "green"));
+        buttonsContainer.appendChild(createColoredButton("+4", 4, "brown"));
+        buttonsContainer.appendChild(createColoredButton("+5", 5, "blue"));
+        buttonsContainer.appendChild(createColoredButton("+6", 6, "purple"));
+        buttonsContainer.appendChild(createColoredButton("+7", 7, "black"));
+
+        playerEntry.appendChild(buttonsContainer);
+        leaderboardElement.appendChild(playerEntry);
+    });
+
+    // handleScoreChange als nested function (wie im Original)
+    function handleScoreChange() {
+        if (sortTimeout) {
+            clearTimeout(sortTimeout);
+        }
+
+        let countdown = 2000;
+        const countdownInterval = 100;
+
+        const countdownDisplay = document.createElement("div");
+        countdownDisplay.style.position = "fixed";
+        countdownDisplay.style.top = "20px";
+        countdownDisplay.style.right = "20px";
+        countdownDisplay.style.zIndex = "1000";
+        countdownDisplay.style.fontSize = "20px";
+        countdownDisplay.style.color = "white";
+        countdownDisplay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+        countdownDisplay.style.padding = "8px 14px";
+        countdownDisplay.style.borderRadius = "10px";
+        countdownDisplay.style.fontWeight = "bold";
+        countdownDisplay.style.boxShadow = "0 2px 8px rgba(0,0,0,0.5)";
+
+        leaderboardElement.appendChild(countdownDisplay);
+
+        sortTimeout = setInterval(() => {
+            countdown -= countdownInterval;
+            countdownDisplay.textContent = `Sorting in ${(countdown / 1000).toFixed(1)} seconds`;
+
+            if (countdown <= 0) {
+                clearInterval(sortTimeout);
+                leaderboardData.sort((a, b) => {
+                    if (a.score !== b.score) {
+                        return b.score - a.score;
+                    } else {
+                        return a.name.localeCompare(b.name);
+                    }
+                });
+                updateLeaderboard();
+                leaderboardElement.removeChild(countdownDisplay);
+            }
+        }, countdownInterval);
     }
-    // Handle player names input
-    playerNamesInput.addEventListener("keyup", function (event) {
-        if (event.key === "Enter") {
-            handlePlayerInput();
-        }
-    });
+}
 
-    submitplayerButton.addEventListener("click", function () {
+function updateScoreWithAnimation(index, change) {
+    leaderboardData[index].score += change;
+    updateLeaderboard();
+}
+
+function createButton(text, onClick) {
+    const button = document.createElement("button");
+    button.textContent = text;
+    button.addEventListener("click", onClick);
+    button.style.marginRight = "5px";
+    button.style.border = "1px solid black";
+    button.style.color = "black";
+    button.style.backgroundColor = "white";
+    button.style.height = "40px";
+    button.style.width = "40px";
+    button.style.borderRadius = "50%";
+    button.style.cursor = "pointer";
+    return button;
+}
+
+function deletePlayer(index) {
+    leaderboardData.splice(index, 1);
+    updateLeaderboard();
+    if (leaderboardData.length < MAX_PLAYERS) {
+        playerNamesInput.placeholder = "Enter Player Name";
+        playerNamesInput.disabled = false;
+    }
+}
+
+// Event Listeners
+playerNamesInput.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
         handlePlayerInput();
-    });
+    }
+});
+
+submitplayerButton.addEventListener("click", function () {
+    handlePlayerInput();
+});
 
 
 
