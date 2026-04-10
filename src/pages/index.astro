@@ -1,8 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const modelFiles = import.meta.glob("/public/models/*.glb");
-const models = Object.keys(modelFiles).map(p => p.replace("/public", ""));
+const models = [
+  "/models/autonomous_robot_sweeper.glb",
+  "/models/hw_details_01.glb",
+  "/models/industrial_robot_arm.glb",
+];
 ---
 
 <Layout title="Maxim" navMode="portfolio">
@@ -67,8 +70,8 @@ const models = Object.keys(modelFiles).map(p => p.replace("/public", ""));
       </a>
       <a href="/pc-service"
         class="px-5 py-2 rounded-lg font-medium border border-gray-500 text-gray-400 hover:border-gray-300 hover:text-gray-200 dark:border-gray-600 dark:text-gray-500 dark:hover:border-gray-400 dark:hover:text-gray-300 transition-all duration-300 transform hover:scale-105 text-base">
-          Former PC Service ↗
-        </a>
+        Former PC Service ↗
+      </a>
     </div>
 
     <!-- Desktop: 3D Robot -->
