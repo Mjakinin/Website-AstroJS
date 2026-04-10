@@ -18,74 +18,118 @@ import Layout from "../layouts/Layout.astro";
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 flex-1">
 
           <!-- Bachelor Thesis -->
-          <div class="sm:col-span-2 border border-blue-500 rounded-xl p-5 hover:scale-[1.02] transition-transform duration-300 dark:bg-gray-900 bg-white shadow-sm">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">Bachelor Thesis · TU Berlin</span>
+          <div class="sm:col-span-2 border border-blue-500/40 rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-300 dark:bg-[#0d1117] bg-white shadow-sm">
+            <div class="bg-blue-500/10 px-5 pt-4 pb-3 flex items-center justify-between border-b border-blue-500/20">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-blue-400" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8Z"/></svg>
+                <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">Bachelor Thesis · TU Berlin</span>
+              </div>
               <div class="flex gap-3">
                 <a href="https://doc.neuro.tu-berlin.de/bachelor/2025-BA-MaximMjakinin.pdf"
                    target="_blank" rel="noopener noreferrer"
                    class="text-xs font-medium text-blue-400 hover:text-blue-300 hover:underline transition-colors">PDF</a>
                 <a href="https://github.com/Mjakinin/bachelor-thesis-akari"
                    target="_blank" rel="noopener noreferrer"
-                   class="text-xs font-medium text-blue-400 hover:text-blue-300 hover:underline transition-colors">GitHub →</a>
+                   class="text-xs font-medium text-blue-400 hover:text-blue-300 hover:underline transition-colors flex items-center gap-1">
+                  <svg class="w-3 h-3" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+                  GitHub →
+                </a>
               </div>
             </div>
-            <p class="!my-1 text-lg sm:text-xl font-semibold !leading-snug dark:text-white text-gray-900">
-              Akari Puzzle Solver
-            </p>
-            <p class="!my-2 text-sm sm:text-base !leading-relaxed dark:text-gray-200 text-gray-700">
-              Systematic comparison of Ant Colony Optimization and Constraint Programming for solving Akari puzzles.
-              Explores combinatorial search and metaheuristics as a foundation for AI-based reasoning. Graded 1.7 at TU Berlin.
-            </p>
-            <div class="flex gap-2 mt-3 flex-wrap">
-              <span class="text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">Python</span>
-              <span class="text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">Optimization</span>
-              <span class="text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">AI</span>
+            <div class="p-5">
+              <p class="!my-1 text-lg sm:text-xl font-semibold !leading-snug dark:text-white text-gray-900">
+                Akari Puzzle Solver
+              </p>
+              <p class="!my-2 text-sm sm:text-base !leading-relaxed dark:text-gray-300 text-gray-700">
+                Systematic comparison of Ant Colony Optimization and Constraint Programming for solving Akari puzzles.
+                Explores combinatorial search and metaheuristics as a foundation for AI-based reasoning. Graded 1.7 at TU Berlin.
+              </p>
+              <div class="flex gap-2 mt-3 flex-wrap">
+                <span class="text-xs px-2 py-1 rounded-full dark:bg-[#1f2937] dark:text-blue-300 bg-blue-50 text-blue-700 font-medium border dark:border-blue-900 border-blue-200">Python</span>
+                <span class="text-xs px-2 py-1 rounded-full dark:bg-[#1f2937] dark:text-blue-300 bg-blue-50 text-blue-700 font-medium border dark:border-blue-900 border-blue-200">Optimization</span>
+                <span class="text-xs px-2 py-1 rounded-full dark:bg-[#1f2937] dark:text-blue-300 bg-blue-50 text-blue-700 font-medium border dark:border-blue-900 border-blue-200">AI</span>
+              </div>
             </div>
           </div>
 
           <!-- ROS2 -->
           <a href="https://github.com/Mjakinin/ros2-robotics-playground"
              target="_blank" rel="noopener noreferrer"
-             class="border dark:border-gray-700 border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
-            <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">ros2-robotics-playground</p>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
-              Hands-on experiments with ROS2 — writing nodes, handling topics/services, and building foundations for real robot software.
-            </p>
-            <span class="inline-block mt-2 text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">ROS2</span>
+             class="border dark:border-[#30363d] border-gray-200 rounded-xl overflow-hidden hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-[#0d1117] bg-white shadow-sm block group">
+            <div class="px-4 pt-4 pb-3">
+              <div class="flex items-center justify-between mb-2">
+                <svg class="w-4 h-4 dark:text-gray-500 text-gray-400 group-hover:text-blue-400 transition-colors" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+                <span class="text-xs px-2 py-0.5 rounded-full dark:bg-[#1f2937] dark:text-blue-300 bg-blue-50 text-blue-700 border dark:border-blue-900 border-blue-200 font-medium">ROS2</span>
+              </div>
+              <p class="!my-1 font-semibold text-base !leading-snug dark:text-white text-gray-900">ros2-robotics-playground</p>
+              <p class="!my-2 text-sm !leading-relaxed dark:text-gray-400 text-gray-600">
+                Hands-on experiments with ROS2 — writing nodes, handling topics/services, and building foundations for real robot software.
+              </p>
+            </div>
+            <div class="px-4 pb-3 border-t dark:border-[#21262d] border-gray-100 pt-2 flex items-center gap-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span>
+              <span class="text-xs dark:text-gray-400 text-gray-500">Python</span>
+            </div>
           </a>
 
           <!-- SimpleCNN -->
           <a href="https://github.com/Mjakinin/SimpleCNN-Ziffernerkennung"
              target="_blank" rel="noopener noreferrer"
-             class="border dark:border-gray-700 border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
-            <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">SimpleCNN Ziffernerkennung</p>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
-              Digit recognition using a CNN built from scratch — intro to computer vision pipelines, convolutions, and model training.
-            </p>
-            <span class="inline-block mt-2 text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">Python · CV</span>
+             class="border dark:border-[#30363d] border-gray-200 rounded-xl overflow-hidden hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-[#0d1117] bg-white shadow-sm block group">
+            <div class="px-4 pt-4 pb-3">
+              <div class="flex items-center justify-between mb-2">
+                <svg class="w-4 h-4 dark:text-gray-500 text-gray-400 group-hover:text-blue-400 transition-colors" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+                <span class="text-xs px-2 py-0.5 rounded-full dark:bg-[#1f2937] dark:text-blue-300 bg-blue-50 text-blue-700 border dark:border-blue-900 border-blue-200 font-medium">CV</span>
+              </div>
+              <p class="!my-1 font-semibold text-base !leading-snug dark:text-white text-gray-900">SimpleCNN Ziffernerkennung</p>
+              <p class="!my-2 text-sm !leading-relaxed dark:text-gray-400 text-gray-600">
+                Digit recognition using a CNN built from scratch — intro to computer vision pipelines, convolutions, and model training.
+              </p>
+            </div>
+            <div class="px-4 pb-3 border-t dark:border-[#21262d] border-gray-100 pt-2 flex items-center gap-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block"></span>
+              <span class="text-xs dark:text-gray-400 text-gray-500">Python</span>
+            </div>
           </a>
 
           <!-- Machine Learning 1 -->
           <a href="https://github.com/Mjakinin/Machine-Learning-1"
              target="_blank" rel="noopener noreferrer"
-             class="border dark:border-gray-700 border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
-            <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">Machine Learning 1</p>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
-              Coursework from ML studies at TU Berlin — regression, classification, clustering, and evaluation methods.
-            </p>
-            <span class="inline-block mt-2 text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">Python · ML</span>
+             class="border dark:border-[#30363d] border-gray-200 rounded-xl overflow-hidden hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-[#0d1117] bg-white shadow-sm block group">
+            <div class="px-4 pt-4 pb-3">
+              <div class="flex items-center justify-between mb-2">
+                <svg class="w-4 h-4 dark:text-gray-500 text-gray-400 group-hover:text-blue-400 transition-colors" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+                <span class="text-xs px-2 py-0.5 rounded-full dark:bg-[#1f2937] dark:text-blue-300 bg-blue-50 text-blue-700 border dark:border-blue-900 border-blue-200 font-medium">ML</span>
+              </div>
+              <p class="!my-1 font-semibold text-base !leading-snug dark:text-white text-gray-900">Machine Learning 1</p>
+              <p class="!my-2 text-sm !leading-relaxed dark:text-gray-400 text-gray-600">
+                Coursework from ML studies at TU Berlin — regression, classification, clustering, and evaluation methods.
+              </p>
+            </div>
+            <div class="px-4 pb-3 border-t dark:border-[#21262d] border-gray-100 pt-2 flex items-center gap-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block"></span>
+              <span class="text-xs dark:text-gray-400 text-gray-500">Python</span>
+            </div>
           </a>
 
           <!-- Deep Learning 1 -->
           <a href="https://github.com/Mjakinin/Deep-Learning-1"
              target="_blank" rel="noopener noreferrer"
-             class="border dark:border-gray-700 border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
-            <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">Deep Learning 1</p>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
-              Neural network architectures, backpropagation, CNNs and training pipelines from DL coursework at TU Berlin.
-            </p>
-            <span class="inline-block mt-2 text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">Python · DL</span>
+             class="border dark:border-[#30363d] border-gray-200 rounded-xl overflow-hidden hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-[#0d1117] bg-white shadow-sm block group">
+            <div class="px-4 pt-4 pb-3">
+              <div class="flex items-center justify-between mb-2">
+                <svg class="w-4 h-4 dark:text-gray-500 text-gray-400 group-hover:text-blue-400 transition-colors" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+                <span class="text-xs px-2 py-0.5 rounded-full dark:bg-[#1f2937] dark:text-blue-300 bg-blue-50 text-blue-700 border dark:border-blue-900 border-blue-200 font-medium">DL</span>
+              </div>
+              <p class="!my-1 font-semibold text-base !leading-snug dark:text-white text-gray-900">Deep Learning 1</p>
+              <p class="!my-2 text-sm !leading-relaxed dark:text-gray-400 text-gray-600">
+                Neural network architectures, backpropagation, CNNs and training pipelines from DL coursework at TU Berlin.
+              </p>
+            </div>
+            <div class="px-4 pb-3 border-t dark:border-[#21262d] border-gray-100 pt-2 flex items-center gap-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block"></span>
+              <span class="text-xs dark:text-gray-400 text-gray-500">Python</span>
+            </div>
           </a>
 
         </div>
@@ -96,54 +140,51 @@ import Layout from "../layouts/Layout.astro";
         <h2 class="!my-2 !text-xl md:!text-2xl">Current Courses</h2>
         <div class="grid grid-rows-3 gap-4 mt-4 flex-1">
 
-          <!-- IBM: CV -->
-          <div class="border dark:border-gray-700 border-gray-200 rounded-xl p-5 dark:bg-gray-900 bg-white shadow-sm h-full">
-            <div class="flex items-start justify-between gap-4 h-full">
+          <div class="border dark:border-[#30363d] border-gray-200 rounded-xl p-5 dark:bg-[#0d1117] bg-white shadow-sm h-full">
+            <div class="flex items-start justify-between gap-4">
               <div class="flex-1">
                 <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">Coursera · IBM</span>
                 <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">
                   Introduction to Computer Vision and Image Processing
                 </p>
-                <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
+                <p class="!my-2 text-sm !leading-relaxed dark:text-gray-400 text-gray-600">
                   Image processing fundamentals, OpenCV for pixel-level manipulation, and CNNs for visual perception tasks.
                   Directly relevant to robotics, object detection, and autonomous systems.
                 </p>
               </div>
-              <span class="shrink-0 text-xs mt-1 px-2 py-1 rounded-full bg-yellow-400 text-gray-900 font-semibold">In Progress</span>
+              <span class="shrink-0 text-xs mt-1 px-2 py-1 rounded-full bg-yellow-400/20 text-yellow-400 border border-yellow-400/30 font-semibold">In Progress</span>
             </div>
           </div>
 
-          <!-- Northwestern: Modern Robotics -->
-          <div class="border dark:border-gray-700 border-gray-200 rounded-xl p-5 dark:bg-gray-900 bg-white shadow-sm h-full">
-            <div class="flex items-start justify-between gap-4 h-full">
+          <div class="border dark:border-[#30363d] border-gray-200 rounded-xl p-5 dark:bg-[#0d1117] bg-white shadow-sm h-full">
+            <div class="flex items-start justify-between gap-4">
               <div class="flex-1">
                 <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">Coursera · Northwestern University</span>
                 <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">
                   Modern Robotics 1–6
                 </p>
-                <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
+                <p class="!my-2 text-sm !leading-relaxed dark:text-gray-400 text-gray-600">
                   Comprehensive 6-part series on robot kinematics, dynamics, trajectory planning, and control.
                   Core theoretical foundation for robotics engineering and manipulation.
                 </p>
               </div>
-              <span class="shrink-0 text-xs mt-1 px-2 py-1 rounded-full bg-yellow-400 text-gray-900 font-semibold">In Progress</span>
+              <span class="shrink-0 text-xs mt-1 px-2 py-1 rounded-full bg-yellow-400/20 text-yellow-400 border border-yellow-400/30 font-semibold">In Progress</span>
             </div>
           </div>
 
-          <!-- The Construct: ROS2 -->
-          <div class="border dark:border-gray-700 border-gray-200 rounded-xl p-5 dark:bg-gray-900 bg-white shadow-sm h-full">
-            <div class="flex items-start justify-between gap-4 h-full">
+          <div class="border dark:border-[#30363d] border-gray-200 rounded-xl p-5 dark:bg-[#0d1117] bg-white shadow-sm h-full">
+            <div class="flex items-start justify-between gap-4">
               <div class="flex-1">
                 <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">The Construct</span>
                 <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">
                   ROS2 Basics
                 </p>
-                <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
+                <p class="!my-2 text-sm !leading-relaxed dark:text-gray-400 text-gray-600">
                   Practical introduction to ROS2 — writing nodes, handling topics and services, and building
                   the foundation for real robot software development in Python and C++.
                 </p>
               </div>
-              <span class="shrink-0 text-xs mt-1 px-2 py-1 rounded-full bg-yellow-400 text-gray-900 font-semibold">In Progress</span>
+              <span class="shrink-0 text-xs mt-1 px-2 py-1 rounded-full bg-yellow-400/20 text-yellow-400 border border-yellow-400/30 font-semibold">In Progress</span>
             </div>
           </div>
 
@@ -151,27 +192,40 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
 
-    <!-- CERTIFICATES — full width grid -->
+    <!-- CERTIFICATES -->
     <div class="mt-12">
       <h2 class="!my-2 !text-xl md:!text-2xl">Certificates</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
 
         <a href="https://coursera.org/share/ba66e5f1ebaeae068d50571c0ab9b9b6"
            target="_blank" rel="noopener noreferrer"
-           class="border dark:border-gray-700 border-gray-200 rounded-xl p-5 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
-          <div class="flex items-start justify-between gap-3 mb-2">
-            <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">Coursera · Siemens</span>
-            <span class="shrink-0 text-xs px-2 py-1 rounded-full bg-blue-500 text-white font-semibold">Completed</span>
+           class="border dark:border-[#30363d] border-gray-200 rounded-xl overflow-hidden hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-[#0d1117] bg-white shadow-sm block group">
+          <!-- Certificate image strip -->
+          <div class="h-28 overflow-hidden relative">
+            <img
+              src="/cert/basicofrobotics.png"
+              alt="Basics of Robotics Certificate"
+              class="w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60"></div>
           </div>
-          <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">
-            Basics of Robotics
-          </p>
-          <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
-            Fundamentals of robotics systems, kinematics, sensors, and industrial automation workflows.
-          </p>
+          <!-- Info -->
+          <div class="p-4">
+            <div class="flex items-start justify-between gap-3 mb-1">
+              <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">Coursera · Siemens</span>
+              <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 font-semibold">Completed</span>
+            </div>
+            <p class="!my-1 font-semibold text-base !leading-snug dark:text-white text-gray-900">
+              Basics of Robotics
+            </p>
+            <p class="!my-1 text-sm !leading-relaxed dark:text-gray-400 text-gray-600">
+              Fundamentals of robotics systems, kinematics, sensors, and industrial automation workflows.
+            </p>
+          </div>
         </a>
 
-        <div class="border border-dashed dark:border-gray-600 border-gray-300 rounded-xl p-5 flex items-center justify-center opacity-50">
+        <div class="border border-dashed dark:border-[#30363d] border-gray-300 rounded-xl p-5 flex items-center justify-center opacity-40">
           <p class="!my-0 text-sm dark:text-gray-400 text-gray-500 text-center">More certificates coming soon</p>
         </div>
 
@@ -184,20 +238,20 @@ import Layout from "../layouts/Layout.astro";
     </h2>
 
     <div id="all-repos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 mb-16">
-      <div class="skeleton-card border dark:border-gray-700 border-gray-200 rounded-xl p-4 dark:bg-gray-900 bg-white animate-pulse">
-        <div class="h-4 dark:bg-gray-700 bg-gray-200 rounded w-3/4 mb-3"></div>
-        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-full mb-2"></div>
-        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-5/6"></div>
+      <div class="skeleton-card border dark:border-[#30363d] border-gray-200 rounded-xl p-4 dark:bg-[#0d1117] bg-white animate-pulse">
+        <div class="h-4 dark:bg-gray-800 bg-gray-200 rounded w-3/4 mb-3"></div>
+        <div class="h-3 dark:bg-gray-800 bg-gray-200 rounded w-full mb-2"></div>
+        <div class="h-3 dark:bg-gray-800 bg-gray-200 rounded w-5/6"></div>
       </div>
-      <div class="skeleton-card border dark:border-gray-700 border-gray-200 rounded-xl p-4 dark:bg-gray-900 bg-white animate-pulse">
-        <div class="h-4 dark:bg-gray-700 bg-gray-200 rounded w-2/3 mb-3"></div>
-        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-full mb-2"></div>
-        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-4/6"></div>
+      <div class="skeleton-card border dark:border-[#30363d] border-gray-200 rounded-xl p-4 dark:bg-[#0d1117] bg-white animate-pulse">
+        <div class="h-4 dark:bg-gray-800 bg-gray-200 rounded w-2/3 mb-3"></div>
+        <div class="h-3 dark:bg-gray-800 bg-gray-200 rounded w-full mb-2"></div>
+        <div class="h-3 dark:bg-gray-800 bg-gray-200 rounded w-4/6"></div>
       </div>
-      <div class="skeleton-card border dark:border-gray-700 border-gray-200 rounded-xl p-4 dark:bg-gray-900 bg-white animate-pulse">
-        <div class="h-4 dark:bg-gray-700 bg-gray-200 rounded w-4/5 mb-3"></div>
-        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-full mb-2"></div>
-        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-3/6"></div>
+      <div class="skeleton-card border dark:border-[#30363d] border-gray-200 rounded-xl p-4 dark:bg-[#0d1117] bg-white animate-pulse">
+        <div class="h-4 dark:bg-gray-800 bg-gray-200 rounded w-4/5 mb-3"></div>
+        <div class="h-3 dark:bg-gray-800 bg-gray-200 rounded w-full mb-2"></div>
+        <div class="h-3 dark:bg-gray-800 bg-gray-200 rounded w-3/6"></div>
       </div>
     </div>
 
@@ -213,6 +267,12 @@ import Layout from "../layouts/Layout.astro";
         "Deep-Learning-1",
       ];
 
+      const langColors = {
+        Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6",
+        C: "#555555", "C++": "#f34b7d", Rust: "#dea584",
+        Go: "#00ADD8", Java: "#b07219", HTML: "#e34c26", CSS: "#563d7c",
+      };
+
       fetch("https://api.github.com/users/Mjakinin/repos?sort=updated&per_page=100")
         .then(r => r.json())
         .then(repos => {
@@ -226,18 +286,30 @@ import Layout from "../layouts/Layout.astro";
           }
 
           rest.forEach(repo => {
+            const color = langColors[repo.language] || "#8b949e";
             const lang = repo.language
-              ? `<span class="text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">${repo.language}</span>`
+              ? `<div class="flex items-center gap-1.5"><span style="background:${color}" class="w-2.5 h-2.5 rounded-full inline-block"></span><span class="text-xs dark:text-gray-400 text-gray-500">${repo.language}</span></div>`
               : "";
             const desc = repo.description
-              ? `<p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">${repo.description}</p>`
-              : `<p class="!my-2 text-sm !leading-relaxed dark:text-gray-500 text-gray-400 italic">No description</p>`;
+              ? `<p class="!my-2 text-sm !leading-relaxed dark:text-gray-400 text-gray-600">${repo.description}</p>`
+              : `<p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400 italic">No description</p>`;
+            const stars = repo.stargazers_count > 0
+              ? `<div class="flex items-center gap-1 text-xs dark:text-gray-400 text-gray-500"><svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>${repo.stargazers_count}</div>`
+              : "";
             container.innerHTML += `
               <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
-                class="border dark:border-gray-700 border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
-                <p class="!my-1 font-semibold text-base !leading-snug dark:text-white text-gray-900">${repo.name}</p>
-                ${desc}
-                <div class="flex gap-2 mt-3 flex-wrap">${lang}</div>
+                class="border dark:border-[#30363d] border-gray-200 rounded-xl overflow-hidden hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-[#0d1117] bg-white shadow-sm block group">
+                <div class="p-4">
+                  <div class="flex items-center gap-2 mb-2">
+                    <svg class="w-4 h-4 dark:text-gray-500 text-gray-400 group-hover:text-blue-400 transition-colors shrink-0" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+                    <p class="font-semibold text-sm !leading-snug dark:text-white text-gray-900 !my-0">${repo.name}</p>
+                  </div>
+                  ${desc}
+                </div>
+                <div class="px-4 pb-3 border-t dark:border-[#21262d] border-gray-100 pt-2 flex items-center justify-between">
+                  ${lang}
+                  ${stars}
+                </div>
               </a>`;
           });
         })

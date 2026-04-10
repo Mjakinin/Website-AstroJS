@@ -11,23 +11,86 @@ import Layout from "../layouts/Layout.astro";
       <button
         id="lang-toggle"
         onclick="toggleLang()"
-        class="px-3 py-1 rounded-md text-sm font-medium border border-gray-500 text-gray-400 hover:border-blue-500 hover:text-blue-500 transition-all duration-300 shrink-0 ml-4"
+        class="px-3 py-1 rounded-md text-sm font-medium border dark:border-gray-900 border-white dark:text-gray-900 text-white hover:border-blue-500 hover:text-blue-500 transition-all duration-300 shrink-0 ml-4 font-mono tracking-widest"
       >
         DE
       </button>
     </div>
 
-    <p data-i18n="p1"></p>
-    <p data-i18n="p2"></p>
+    <!-- Intro paragraphs -->
+    <div class="mt-6 space-y-4">
+      <p data-i18n="p1" class="text-base dark:!text-gray-900 !text-white leading-relaxed max-w-2xl"></p>
+      <p data-i18n="p2" class="text-base dark:!text-gray-900 !text-white leading-relaxed max-w-2xl"></p>
+    </div>
 
-    <h2 data-i18n="h2" class="text-right transition-transform duration-300 transform hover:scale-105"></h2>
-    <p data-i18n="p3"></p>
+    <!-- Where I'm headed -->
+    <div class="mt-14 relative">
+      <div class="flex items-center gap-3 justify-end mb-4">
+        <h2 data-i18n="h2" class="text-right transition-transform duration-300 transform hover:scale-105 !my-0"></h2>
+        <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
+      </div>
 
-    <h2 data-i18n="h3" class="text-left transition-transform duration-300 transform hover:scale-105"></h2>
-    <p data-i18n="p4"></p>
+      <div class="dark:bg-[#0d1117] bg-white border dark:border-[#30363d] border-gray-200 rounded-xl p-6 shadow-sm relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/60 via-blue-400/30 to-transparent rounded-l-xl"></div>
+        <p data-i18n="p3" class="text-base dark:text-gray-100 text-gray-700 leading-relaxed !my-0"></p>
 
-    <h2 data-i18n="h4" class="text-right transition-transform duration-300 transform hover:scale-105"></h2>
-    <p data-i18n="p5"></p>
+        <div class="flex flex-wrap gap-2 mt-5">
+          <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-500/10 bg-blue-50 dark:text-blue-300 text-blue-700 border dark:border-blue-500/20 border-blue-200 font-medium">Robotics</span>
+          <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-500/10 bg-blue-50 dark:text-blue-300 text-blue-700 border dark:border-blue-500/20 border-blue-200 font-medium">Autonomous Systems</span>
+          <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-500/10 bg-blue-50 dark:text-blue-300 text-blue-700 border dark:border-blue-500/20 border-blue-200 font-medium">Computer Vision</span>
+          <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-500/10 bg-blue-50 dark:text-blue-300 text-blue-700 border dark:border-blue-500/20 border-blue-200 font-medium">Industry 4.0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- What I build -->
+    <div class="mt-10 relative">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
+        <h2 data-i18n="h3" class="text-left transition-transform duration-300 transform hover:scale-105 !my-0"></h2>
+      </div>
+
+      <div class="dark:bg-[#0d1117] bg-white border dark:border-[#30363d] border-gray-200 rounded-xl p-6 shadow-sm relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/60 via-blue-400/30 to-transparent rounded-l-xl"></div>
+        <p data-i18n="p4" class="text-base dark:text-gray-100 text-gray-700 leading-relaxed !my-0"></p>
+
+        <div class="flex flex-wrap gap-2 mt-5">
+          <span class="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full dark:bg-[#1f2937] bg-gray-100 dark:text-gray-200 text-gray-700 border dark:border-[#30363d] border-gray-200 font-medium">
+            <span class="w-2 h-2 rounded-full bg-[#3572A5] inline-block"></span>Python
+          </span>
+          <span class="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full dark:bg-[#1f2937] bg-gray-100 dark:text-gray-200 text-gray-700 border dark:border-[#30363d] border-gray-200 font-medium">
+            <span class="w-2 h-2 rounded-full bg-[#f34b7d] inline-block"></span>C++
+          </span>
+          <span class="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full dark:bg-[#1f2937] bg-gray-100 dark:text-gray-200 text-gray-700 border dark:border-[#30363d] border-gray-200 font-medium">
+            <span class="w-2 h-2 rounded-full bg-green-500 inline-block"></span>ROS2
+          </span>
+          <span class="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full dark:bg-[#1f2937] bg-gray-100 dark:text-gray-200 text-gray-700 border dark:border-[#30363d] border-gray-200 font-medium">
+            <span class="w-2 h-2 rounded-full bg-orange-400 inline-block"></span>Embedded
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Currently looking for -->
+    <div class="mt-10 relative mb-16">
+      <div class="flex items-center gap-3 justify-end mb-4">
+        <h2 data-i18n="h4" class="text-right transition-transform duration-300 transform hover:scale-105 !my-0"></h2>
+        <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
+      </div>
+
+      <div class="dark:bg-[#0d1117] bg-white border dark:border-[#30363d] border-gray-200 rounded-xl p-6 shadow-sm relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-blue-400/60 to-transparent rounded-l-xl"></div>
+        <p data-i18n="p5" class="text-base dark:text-gray-100 text-gray-700 leading-relaxed !my-0"></p>
+
+        <div class="mt-5 flex items-center gap-2">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          <span class="text-xs dark:text-green-400 text-green-600 font-medium" data-i18n="status"></span>
+        </div>
+      </div>
+    </div>
 
     <script src="../js/themeHandler.js"></script>
     <script src="../js/pageHandler.js"></script>
@@ -44,6 +107,7 @@ import Layout from "../layouts/Layout.astro";
           p4: `Outside of university, I enjoy diving into projects hands-on. My GitHub reflects that curiosity — ranging from puzzle solvers and AI experiments to systems-level work. I'm comfortable working across Python, C++, and embedded environments, and I like picking up new tools when a problem calls for it.`,
           h4: "Currently looking for",
           p5: `I'm based in Berlin. I'm currently looking for a working student position or internship in robotics, computer vision, or intelligent systems — ideally somewhere where research meets real engineering.`,
+          status: "Open to opportunities · Berlin",
         },
         de: {
           h1: "Wer ich bin",
@@ -55,7 +119,9 @@ import Layout from "../layouts/Layout.astro";
           p4: `Neben dem Studium tauche ich gerne praktisch in Projekte ein. Mein GitHub spiegelt diese Neugier wider — von Puzzle-Solvern und KI-Experimenten bis hin zu systemnaher Arbeit. Ich bin vertraut mit Python, C++ und eingebetteten Systemen und arbeite gerne mit neuen Tools, wenn ein Problem es erfordert.`,
           h4: "Aktuell auf der Suche nach",
           p5: `Ich lebe in Berlin. Ich suche aktuell eine Werkstudentenstelle oder ein Praktikum in den Bereichen Robotik, Computer Vision oder intelligente Systeme — idealerweise dort, wo Forschung auf echtes Engineering trifft.`,
-        },      };
+          status: "Offen für Angebote · Berlin",
+        },
+      };
 
       let currentLang = "en";
 
