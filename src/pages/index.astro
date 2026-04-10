@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const modelFiles = import.meta.glob("/public/models/*.glb");
+const models = Object.keys(modelFiles).map(p => p.replace("/public", ""));
 ---
 
 <Layout title="Maxim" navMode="portfolio">
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <div class="flex flex-col xl:flex-row justify-between px-4 sm:px-10 md:px-32 items-center -mt-20 md:-mt-0 2xl:mt-10 xl:mb-40 2xl:mb-60">
 
     <div class="w-full xl:w-2/3 flex flex-row -mb-10 xl:mb-0 xl:flex-col justify-between items-center xl:items-start">
@@ -14,11 +20,15 @@ import Layout from "../layouts/Layout.astro";
         </span><br />
       </div>
 
-      <!-- Mobile Bild -->
-      <div class="w-1/2 -mb-10 xl:w-full xl:mb-0 xl:hidden flex justify-center items-center transition-transform duration-300 transform hover:scale-105">
-        <div id="profilePicMobile">
-          <img src="/images/profile.jpg" class="rounded-full w-40 h-40 object-cover" />
-        </div>
+      <!-- Mobile: 3D Robot -->
+      <div class="w-1/2 -mb-10 xl:hidden flex justify-center items-center">
+        <model-viewer
+          id="robot-mobile"
+          auto-rotate
+          camera-controls
+          shadow-intensity="0"
+          style="width: 220px; height: 220px; background: transparent;"
+        ></model-viewer>
       </div>
 
       <p class="hidden xl:block py-20 transition-transform duration-300 transform hover:scale-105 text-lg sm:text-xl md:text-2xl -mb-10" style="line-height: 2;">
@@ -57,14 +67,27 @@ import Layout from "../layouts/Layout.astro";
       </a>
       <a href="/pc-service"
         class="px-5 py-2 rounded-lg font-medium border border-gray-500 text-gray-400 hover:border-gray-300 hover:text-gray-200 dark:border-gray-600 dark:text-gray-500 dark:hover:border-gray-400 dark:hover:text-gray-300 transition-all duration-300 transform hover:scale-105 text-base">
-        Former PC Service ↗
-      </a>
+          Former PC Service ↗
+        </a>
     </div>
 
-<!-- Desktop Bild -->
-<div id="profilePicDesktop" class="hidden xl:flex w-1/4 xl:w-1/3 justify-center items-start transition-transform duration-300 transform hover:scale-110 ml-32 mt-8">
-  <img src="/images/profile.jpg" class="rounded-full w-80 h-80 object-cover shadow-2xl" />
-</div>
+    <!-- Desktop: 3D Robot -->
+    <div class="hidden xl:flex w-1/4 xl:w-1/3 justify-center items-start ml-32 mt-8">
+      <model-viewer
+        id="robot-desktop"
+        auto-rotate
+        camera-controls
+        shadow-intensity="0"
+        style="width: 500px; height: 500px; background: transparent;"
+      ></model-viewer>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ models }}>
+    const chosen = models[Math.floor(Math.random() * models.length)];
+    document.getElementById("robot-desktop").setAttribute("src", chosen);
+    document.getElementById("robot-mobile").setAttribute("src", chosen);
+  </script>
 
   <script src="../js/themeHandler.js"></script>
   <script src="../js/pageHandler.js"></script>
