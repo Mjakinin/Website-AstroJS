@@ -4,7 +4,7 @@ import Footer from "../components/Footer.astro";
 import NavigationMobile from "../components/NavigationMobile.astro";
 import { GoogleTagmanager, GoogleTagmanagerNoscript } from '@digi4care/astro-google-tagmanager';
 
-const { title, description } = Astro.props;
+const { title, description, navMode } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -21,7 +21,6 @@ const { title, description } = Astro.props;
   <body class="font-mono dark:bg-light bg-dark dark:text-dark text-light">
     <main id="" class="text-half-sm sm:text-xl md:text-2xl">
 
-
       <div id="popup-overlay"></div>
       <div id="popup" class="popup">
         <div class="popup-content">
@@ -31,13 +30,10 @@ const { title, description } = Astro.props;
         </div>
       </div>
 
-      <Header />
+      <Header navMode={navMode} />
       <article class="page">
 
-
-
         <GoogleTagmanagerNoscript id="G-8KQPMT3NVB"/>
-
 
         <!-- Google tag (gtag.js) -->
         <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-8KQPMT3NVB"></script>
@@ -45,17 +41,13 @@ const { title, description } = Astro.props;
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'G-8KQPMT3NVB');
         </script>
-
-
-
 
         <slot />
       </article>
       <Footer />
-      <NavigationMobile />
+      <NavigationMobile navMode={navMode} />
     </main>
      <script src="../js/pagetransition.js"></script>
     <script src="../js/urlaub.js"></script>

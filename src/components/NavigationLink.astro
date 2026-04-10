@@ -1,11 +1,12 @@
 ---
 const { title, url, currentpath } = Astro.props;
+const isActive = currentpath === url || currentpath === url + "/";
 ---
 
 <a href={"/" + url} class="relative group">
   {title}
   {
-    currentpath === url ? (
+    isActive ? (
       <span class="inline-block w-full h-[1px] dark:bg-dark bg-light absolute left-1/2 transform -translate-x-1/2 -bottom-1">
         &nbsp;
       </span>
@@ -16,4 +17,3 @@ const { title, url, currentpath } = Astro.props;
     )
   }
 </a>
-

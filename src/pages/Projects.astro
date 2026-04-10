@@ -1,0 +1,252 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Maxim - Projects">
+  <div class="layout">
+
+    <h1 class="transition-transform duration-300 transform hover:scale-105 -mt-20 md:mt-0">
+      Projects
+    </h1>
+
+    <!-- TOP GRID: Featured Repos (left) + Current Courses (right) -->
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 mt-4 xl:items-stretch">
+
+      <!-- LEFT: Featured Repos -->
+      <div class="flex flex-col">
+        <h2 class="!my-2 !text-xl md:!text-2xl">Featured Repositories</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 flex-1">
+
+          <!-- Bachelor Thesis -->
+          <div class="sm:col-span-2 border border-blue-500 rounded-xl p-5 hover:scale-[1.02] transition-transform duration-300 dark:bg-gray-900 bg-white shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">Bachelor Thesis · TU Berlin</span>
+              <div class="flex gap-3">
+                <a href="https://doc.neuro.tu-berlin.de/bachelor/2025-BA-MaximMjakinin.pdf"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-xs font-medium text-blue-400 hover:text-blue-300 hover:underline transition-colors">PDF</a>
+                <a href="https://github.com/Mjakinin/bachelor-thesis-akari"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-xs font-medium text-blue-400 hover:text-blue-300 hover:underline transition-colors">GitHub →</a>
+              </div>
+            </div>
+            <p class="!my-1 text-lg sm:text-xl font-semibold !leading-snug dark:text-white text-gray-900">
+              Akari Puzzle Solver
+            </p>
+            <p class="!my-2 text-sm sm:text-base !leading-relaxed dark:text-gray-200 text-gray-700">
+              Systematic comparison of Ant Colony Optimization and Constraint Programming for solving Akari puzzles.
+              Explores combinatorial search and metaheuristics as a foundation for AI-based reasoning. Graded 1.7 at TU Berlin.
+            </p>
+            <div class="flex gap-2 mt-3 flex-wrap">
+              <span class="text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">Python</span>
+              <span class="text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">Optimization</span>
+              <span class="text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">AI</span>
+            </div>
+          </div>
+
+          <!-- ROS2 -->
+          <a href="https://github.com/Mjakinin/ros2-robotics-playground"
+             target="_blank" rel="noopener noreferrer"
+             class="border dark:border-gray-700 border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
+            <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">ros2-robotics-playground</p>
+            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
+              Hands-on experiments with ROS2 — writing nodes, handling topics/services, and building foundations for real robot software.
+            </p>
+            <span class="inline-block mt-2 text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">ROS2</span>
+          </a>
+
+          <!-- SimpleCNN -->
+          <a href="https://github.com/Mjakinin/SimpleCNN-Ziffernerkennung"
+             target="_blank" rel="noopener noreferrer"
+             class="border dark:border-gray-700 border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
+            <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">SimpleCNN Ziffernerkennung</p>
+            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
+              Digit recognition using a CNN built from scratch — intro to computer vision pipelines, convolutions, and model training.
+            </p>
+            <span class="inline-block mt-2 text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">Python · CV</span>
+          </a>
+
+          <!-- Machine Learning 1 -->
+          <a href="https://github.com/Mjakinin/Machine-Learning-1"
+             target="_blank" rel="noopener noreferrer"
+             class="border dark:border-gray-700 border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
+            <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">Machine Learning 1</p>
+            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
+              Coursework from ML studies at TU Berlin — regression, classification, clustering, and evaluation methods.
+            </p>
+            <span class="inline-block mt-2 text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">Python · ML</span>
+          </a>
+
+          <!-- Deep Learning 1 -->
+          <a href="https://github.com/Mjakinin/Deep-Learning-1"
+             target="_blank" rel="noopener noreferrer"
+             class="border dark:border-gray-700 border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
+            <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">Deep Learning 1</p>
+            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
+              Neural network architectures, backpropagation, CNNs and training pipelines from DL coursework at TU Berlin.
+            </p>
+            <span class="inline-block mt-2 text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">Python · DL</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: Current Courses -->
+      <div class="flex flex-col">
+        <h2 class="!my-2 !text-xl md:!text-2xl">Current Courses</h2>
+        <div class="grid grid-rows-3 gap-4 mt-4 flex-1">
+
+          <!-- IBM: CV -->
+          <div class="border dark:border-gray-700 border-gray-200 rounded-xl p-5 dark:bg-gray-900 bg-white shadow-sm h-full">
+            <div class="flex items-start justify-between gap-4 h-full">
+              <div class="flex-1">
+                <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">Coursera · IBM</span>
+                <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">
+                  Introduction to Computer Vision and Image Processing
+                </p>
+                <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
+                  Image processing fundamentals, OpenCV for pixel-level manipulation, and CNNs for visual perception tasks.
+                  Directly relevant to robotics, object detection, and autonomous systems.
+                </p>
+              </div>
+              <span class="shrink-0 text-xs mt-1 px-2 py-1 rounded-full bg-yellow-400 text-gray-900 font-semibold">In Progress</span>
+            </div>
+          </div>
+
+          <!-- Northwestern: Modern Robotics -->
+          <div class="border dark:border-gray-700 border-gray-200 rounded-xl p-5 dark:bg-gray-900 bg-white shadow-sm h-full">
+            <div class="flex items-start justify-between gap-4 h-full">
+              <div class="flex-1">
+                <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">Coursera · Northwestern University</span>
+                <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">
+                  Modern Robotics 1–6
+                </p>
+                <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
+                  Comprehensive 6-part series on robot kinematics, dynamics, trajectory planning, and control.
+                  Core theoretical foundation for robotics engineering and manipulation.
+                </p>
+              </div>
+              <span class="shrink-0 text-xs mt-1 px-2 py-1 rounded-full bg-yellow-400 text-gray-900 font-semibold">In Progress</span>
+            </div>
+          </div>
+
+          <!-- The Construct: ROS2 -->
+          <div class="border dark:border-gray-700 border-gray-200 rounded-xl p-5 dark:bg-gray-900 bg-white shadow-sm h-full">
+            <div class="flex items-start justify-between gap-4 h-full">
+              <div class="flex-1">
+                <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">The Construct</span>
+                <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">
+                  ROS2 Basics
+                </p>
+                <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
+                  Practical introduction to ROS2 — writing nodes, handling topics and services, and building
+                  the foundation for real robot software development in Python and C++.
+                </p>
+              </div>
+              <span class="shrink-0 text-xs mt-1 px-2 py-1 rounded-full bg-yellow-400 text-gray-900 font-semibold">In Progress</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATES — full width grid -->
+    <div class="mt-12">
+      <h2 class="!my-2 !text-xl md:!text-2xl">Certificates</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+
+        <a href="https://coursera.org/share/ba66e5f1ebaeae068d50571c0ab9b9b6"
+           target="_blank" rel="noopener noreferrer"
+           class="border dark:border-gray-700 border-gray-200 rounded-xl p-5 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
+          <div class="flex items-start justify-between gap-3 mb-2">
+            <span class="text-xs font-mono text-blue-400 uppercase tracking-widest">Coursera · Siemens</span>
+            <span class="shrink-0 text-xs px-2 py-1 rounded-full bg-blue-500 text-white font-semibold">Completed</span>
+          </div>
+          <p class="!my-1 font-semibold text-base sm:text-lg !leading-snug dark:text-white text-gray-900">
+            Basics of Robotics
+          </p>
+          <p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">
+            Fundamentals of robotics systems, kinematics, sensors, and industrial automation workflows.
+          </p>
+        </a>
+
+        <div class="border border-dashed dark:border-gray-600 border-gray-300 rounded-xl p-5 flex items-center justify-center opacity-50">
+          <p class="!my-0 text-sm dark:text-gray-400 text-gray-500 text-center">More certificates coming soon</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ALL REPOSITORIES -->
+    <h2 class="text-left transition-transform duration-300 transform hover:scale-105 mt-16">
+      All Repositories
+    </h2>
+
+    <div id="all-repos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 mb-16">
+      <div class="skeleton-card border dark:border-gray-700 border-gray-200 rounded-xl p-4 dark:bg-gray-900 bg-white animate-pulse">
+        <div class="h-4 dark:bg-gray-700 bg-gray-200 rounded w-3/4 mb-3"></div>
+        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-full mb-2"></div>
+        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-5/6"></div>
+      </div>
+      <div class="skeleton-card border dark:border-gray-700 border-gray-200 rounded-xl p-4 dark:bg-gray-900 bg-white animate-pulse">
+        <div class="h-4 dark:bg-gray-700 bg-gray-200 rounded w-2/3 mb-3"></div>
+        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-full mb-2"></div>
+        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-4/6"></div>
+      </div>
+      <div class="skeleton-card border dark:border-gray-700 border-gray-200 rounded-xl p-4 dark:bg-gray-900 bg-white animate-pulse">
+        <div class="h-4 dark:bg-gray-700 bg-gray-200 rounded w-4/5 mb-3"></div>
+        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-full mb-2"></div>
+        <div class="h-3 dark:bg-gray-700 bg-gray-200 rounded w-3/6"></div>
+      </div>
+    </div>
+
+    <script src="../js/themeHandler.js"></script>
+    <script src="../js/pageHandler.js"></script>
+
+    <script is:inline>
+      const featured = [
+        "bachelor-thesis-akari",
+        "ros2-robotics-playground",
+        "SimpleCNN-Ziffernerkennung",
+        "Machine-Learning-1",
+        "Deep-Learning-1",
+      ];
+
+      fetch("https://api.github.com/users/Mjakinin/repos?sort=updated&per_page=100")
+        .then(r => r.json())
+        .then(repos => {
+          const container = document.getElementById("all-repos");
+          container.querySelectorAll(".skeleton-card").forEach(el => el.remove());
+          const rest = repos.filter(r => !featured.includes(r.name) && !r.fork);
+
+          if (rest.length === 0) {
+            container.innerHTML = `<p class="text-sm dark:text-gray-400 text-gray-500 col-span-3">No additional repositories found.</p>`;
+            return;
+          }
+
+          rest.forEach(repo => {
+            const lang = repo.language
+              ? `<span class="text-xs px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-100 bg-gray-100 text-gray-800 font-medium">${repo.language}</span>`
+              : "";
+            const desc = repo.description
+              ? `<p class="!my-2 text-sm !leading-relaxed dark:text-gray-200 text-gray-700">${repo.description}</p>`
+              : `<p class="!my-2 text-sm !leading-relaxed dark:text-gray-500 text-gray-400 italic">No description</p>`;
+            container.innerHTML += `
+              <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
+                class="border dark:border-gray-700 border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 dark:bg-gray-900 bg-white shadow-sm block">
+                <p class="!my-1 font-semibold text-base !leading-snug dark:text-white text-gray-900">${repo.name}</p>
+                ${desc}
+                <div class="flex gap-2 mt-3 flex-wrap">${lang}</div>
+              </a>`;
+          });
+        })
+        .catch(() => {
+          const container = document.getElementById("all-repos");
+          container.querySelectorAll(".skeleton-card").forEach(el => el.remove());
+          container.innerHTML = `<p class="text-sm dark:text-gray-400 text-gray-500 col-span-3">Could not load repositories.</p>`;
+        });
+    </script>
+
+  </div>
+</Layout>

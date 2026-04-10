@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Maxim - Kontakt (Archiv)" navMode="service">
+  <div class="layout">
+
+    <a href="/" class="block border dark:border-yellow-700 border-yellow-400 bg-yellow-50 dark:bg-yellow-900 hover:bg-yellow-100 dark:hover:bg-yellow-900 rounded-xl p-4 mb-10 text-sm transition-colors duration-200">
+      <p class="font-mono text-yellow-600 dark:text-yellow-500 text-xs">
+        ⚠️ Dieser Service wird aktuell nicht mehr angeboten. Kehre hier zurück →
+      </p>
+      <p class="font-mono text-yellow-600 dark:text-yellow-500 text-xs">
+        ⚠️ This service is currently no longer offered. Return here →
+      </p>
+    </a>
+
+    <h1 id="dynamic-text9" class="transition-transform duration-300 transform hover:scale-105"></h1>
+    <p>
+      Für eine unkomplizierte und einfache Kontaktaufnahme stehe ich Ihnen gerne zur Verfügung.
+      Sie können mich auf dem Weg kontaktieren, der für Sie am besten passt, sei es per E-Mail
+      oder über soziale Medien.
+    </p>
+    <br />
+
+    <div class="flex flex-col xl:flex-row mt-5 lg:mb-20">
+      <div class="w-full xl:w-1/2 mt-10 xl:-mt-10">
+        <h2 class="transition-transform duration-300 transform hover:scale-105">Kontaktformular</h2>
+        <form action="https://formspree.io/f/xnqegnaq" method="POST" class="rounded-lg">
+          <label for="name" class="block">Name:</label>
+          <input type="text" id="name" name="name" required placeholder=" Vor- und Nachname" class="text-dark rounded-lg w-full" /><br />
+          <label for="email" class="block">E-Mail:</label>
+          <input type="email" id="email" name="_replyto" placeholder=" Ihre E-Mail Adresse" required class="text-dark rounded-lg w-full" /><br />
+          <label for="message" class="block">Nachricht:</label>
+          <textarea id="message" name="message" rows="4" placeholder=" Beschreiben Sie hier Ihr Anliegen" required class="text-dark rounded-lg w-full"></textarea><br />
+          <br />
+          <input type="submit" value="Senden" class="bg-blue-400 text-white rounded-lg w-full block mx-auto transition-transform duration-300 transform hover:scale-105 underline hover:no-underline" />
+        </form>
+      </div>
+
+      <div class="w-full xl:w-9/12 2xl:w-1/2 mt-20 xl:-mt-10 mb-0 sm:mb-10 md:mb-0">
+        <h2 class="xl:ml-20 transition-transform duration-300 transform hover:scale-105">Alternativ</h2>
+        <p class="xl:ml-20 xl:mt-20">
+          <span style="font-weight:bold; float: left;">Email:</span>
+          <u><span class="ml-20"><a href="mailto:maxim.mjakinin@gmail.com" target="_blank">maxim.mjakinin@gmail.com</a></span></u>
+        </p>
+      </div>
+    </div>
+
+    <script src="../../js/themeHandler.js"></script>
+    <script src="../../js/pageHandler.js"></script>
+  </div>
+</Layout>

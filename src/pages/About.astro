@@ -5,103 +5,76 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Maxim - About">
   <div class="layout">
 
-
-    <a href="/Extras">
-      <div class="mb-0">
-        <div id="img">
-          <img
-            src={"/icons/brandenburger-tor-dark.svg"}
-            class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-96 xl:translate-y-80 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-52 2xl:-translate-x-52"/>
-        </div>
-      </div>
-    </a>
-    
-      <h1
-        id="dynamic-text1"
-        class="transition-transform duration-300 transform hover:scale-105 -mt-20 md:mt-0"
+    <!-- H1 + Toggle -->
+    <div class="flex items-baseline justify-between -mt-20 md:mt-0">
+      <h1 id="h1" class="transition-transform duration-300 transform hover:scale-105"></h1>
+      <button
+        id="lang-toggle"
+        onclick="toggleLang()"
+        class="px-3 py-1 rounded-md text-sm font-medium border border-gray-500 text-gray-400 hover:border-blue-500 hover:text-blue-500 transition-all duration-300 shrink-0 ml-4"
       >
-      </h1>
-
-      <p>
-Hi! Ich bin Maxim, 21 Jahre alt und studiere Computer Engineering an der Technischen Universität Berlin. Nach meinem Bachelorabschluss befinde ich mich nun im Masterstudium und vertiefe meine Kenntnisse rund um Hard- und Software. Schon seit meiner Jugend beschäftige ich mich intensiv mit Technologie, insbesondere mit Computern. Das Zusammenstellen und Aufrüsten von PCs für Freunde, Bekannte und mich selbst hat mir viele praktische Erfahrungen ermöglicht. Diese Leidenschaft für Technik hat mich schließlich dazu motiviert, mein Hobby zum Beruf zu machen.
-      </p>
-      <p>
-        Was mich an der Informatik fasziniert, ist ihre kontinuierliche
-        Weiterentwicklung und ihre Vielfältigkeit. Informatik ist nie
-        langweilig, da es immer etwas Neues zu entdecken gibt. Diese Breite des
-        Fachgebietes führte mich dazu, Computer Engineering zu studieren und
-        meinen Weg in die IT-Branche zu suchen.
-      </p>
-
-    <h2
-      id="dynamic-text2"
-      class="mt-20 ssm:mt-20 sm:mt-40 md:mt-40 lg:mt-60 xl:mt-80 transition-transform duration-300 transform hover:scale-105"
-    >
-    </h2>
-    <p class="mb-20">
-      Nach drei sehr theoretischen Semestern meines Studiums in Berlin habe ich
-      mich dazu entschlossen, in meiner Heimatstadt Naumburg einen
-      Computer-Reparaturdienst anzubieten. Neben dem Studium möchte ich
-      praktische Erfahrungen sammeln, die mir sowohl beruflich als auch
-      persönlich weiterhelfen. Mein Schwerpunkt im Studium liegt neben
-      Informatik auch auf Elektrotechnik. Diese Kombination ermöglicht es mir,
-      mein theoretisches Wissen direkt in der Praxis anzuwenden und meine
-      Fähigkeiten weiter zu entwickeln.
-    </p>
-
-    <div class="mb-20" style={`position: relative; height: 400px;`}>
-      <div id="img2">
-        <img
-          src={"/icons/fernsehturm-dark.svg"}
-          class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-48 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-48 2xl:left-24"
-        />
-      </div>
-
-      <h2
-        id="dynamic-text3"
-        class="mt-32 ssm:mt-20 sm:mt-40 md:mt-52 lg:mt-60 xl:mt-40 transition-transform duration-300 transform hover:scale-105"
-      >
-      </h2>
-      <p class="">
-        Ja, dank der Digitalisierung ist es mir möglich, von zuhause aus zu
-        arbeiten und meine Aufgaben online zu erledigen. Somit habe ich als
-        Student die Flexibilität, meine Zeit selbst zu managen und sowohl meinem
-        Studium in Berlin als auch meinem Computer-Service in Naumburg gerecht
-        zu werden.
-      </p>
+        DE
+      </button>
     </div>
 
-    <h2
-      id="dynamic-text4"
-      class="-mt-36 ssm:-mt-48 sm:-mt-10 md:mt-40 lg:mt-60 xl:mt-40 xl:text-right transition-transform duration-300 transform hover:scale-105"
-    >
-    </h2>
-    <p class="mb-20">
-      Anstatt bei einem Systemintegrator oder ähnlichen anzufangen, entschied
-      ich mich für die Selbstständigkeit. Naumburg fehlt es an modernen
-      Reparatur-Services, und die Selbstständigkeit ermöglicht es mir, mein
-      eigener Arbeitsgeber zu sein und meine Arbeitsweise selbst zu bestimmen.
-      Zudem schätze ich den direkten Kontakt mit Kunden und die
-      Herausforderungen, die jeder Fall mit sich bringt.
-    </p>
+    <p data-i18n="p1"></p>
+    <p data-i18n="p2"></p>
 
-    <h2
-      id="dynamic-text5"
-      class="mt-36 ssm:mt-0 sm:mt-36 md:mt-40 lg:mt-60 xl:mt-40 transition-transform duration-300 transform hover:scale-105"
-    >
-    </h2>
-    <p class="-mb-10 sm:mb-10">
-      Neben den technischen Aspekten ist mir der Umgang mit Menschen besonders
-      wichtig. Neue Menschen kennenzulernen und ihnen bei ihren technischen
-      Problemen zu helfen, bereitet mir Freude und erweitert meinen Horizont.
-      Ich freue mich darauf, egal ob Privatpersonen oder kleines Unternehmen,
-      meinen Kunden in Naumburg und Umgebung bei ihren Computerproblemen zu
-      unterstützen.
-    </p>
+    <h2 data-i18n="h2" class="text-right transition-transform duration-300 transform hover:scale-105"></h2>
+    <p data-i18n="p3"></p>
+
+    <h2 data-i18n="h3" class="text-left transition-transform duration-300 transform hover:scale-105"></h2>
+    <p data-i18n="p4"></p>
+
+    <h2 data-i18n="h4" class="text-right transition-transform duration-300 transform hover:scale-105"></h2>
+    <p data-i18n="p5"></p>
 
     <script src="../js/themeHandler.js"></script>
     <script src="../js/pageHandler.js"></script>
 
+    <script is:inline>
+      const translations = {
+        en: {
+          h1: "Who I am",
+          p1: `I'm Maxim, 22 years old, currently pursuing a Master's degree in Computer Engineering at TU Berlin. I completed my Bachelor's in Technical Computer Science — also at TU Berlin — with a thesis on optimization algorithms as a precursor to AI systems, graded 1.7.`,
+          p2: `My Bachelor's covered a broad foundation: computer architecture, systems programming, electrical engineering fundamentals, algorithms, AI, and IT security. That breadth was intentional — I've always been drawn to understanding how things work across the full stack, from circuits to software.`,
+          h2: "Where I'm headed",
+          p3: `In my Master's, I'm now deliberately narrowing that focus. My interests center around robotics, autonomous systems, computer vision, and Industry 4.0. I want to work on systems that perceive, decide, and act in the real world — whether that's an industrial robot, a vision pipeline, or an autonomous vehicle component.`,
+          h3: "What I build",
+          p4: `Outside of university, I enjoy diving into projects hands-on. My GitHub reflects that curiosity — ranging from puzzle solvers and AI experiments to systems-level work. I'm comfortable working across Python, C++, and embedded environments, and I like picking up new tools when a problem calls for it.`,
+          h4: "Currently looking for",
+          p5: `I'm based in Berlin. I'm currently looking for a working student position or internship in robotics, computer vision, or intelligent systems — ideally somewhere where research meets real engineering.`,
+        },
+        de: {
+          h1: "Wer ich bin",
+          p1: `Ich bin Maxim, 22 Jahre alt, und studiere Computer Engineering im Master an der TU Berlin. Meinen Bachelor in Technischer Informatik habe ich ebenfalls an der TU Berlin abgeschlossen — mit einer Arbeit über Optimierungsalgorithmen als Vorstufe zu KI-Systemen, bewertet mit 1,7.`,
+          p2: `Mein Bachelorstudium umfasste ein breites Fundament: Rechnerorganisation, Systemprogrammierung, Grundlagen der Elektrotechnik, Algorithmen, KI und IT-Sicherheit. Diese Breite war bewusst — mich hat schon immer interessiert, wie Dinge auf allen Ebenen funktionieren, von der Schaltung bis zur Software.`,
+          h2: "Wohin es geht",
+          p3: `Im Master fokussiere ich mich nun gezielt. Meine Interessen liegen in Robotik, autonomen Systemen, Computer Vision und Industrie 4.0. Ich möchte an Systemen arbeiten, die die reale Welt wahrnehmen, Entscheidungen treffen und handeln — sei es ein Industrieroboter, eine Vision-Pipeline oder eine Komponente für autonomes Fahren.`,
+          h3: "Was ich baue",
+          p4: `Neben dem Studium tauche ich gerne praktisch in Projekte ein. Mein GitHub spiegelt diese Neugier wider — von Puzzle-Solvern und KI-Experimenten bis hin zu systemnaher Arbeit. Ich bin vertraut mit Python, C++ und eingebetteten Systemen und arbeite gerne mit neuen Tools, wenn ein Problem es erfordert.`,
+          h4: "Aktuell auf der Suche nach",
+          p5: `Ich lebe in Berlin. Ich suche aktuell eine Werkstudentenstelle oder ein Praktikum in den Bereichen Robotik, Computer Vision oder intelligente Systeme — idealerweise dort, wo Forschung auf echtes Engineering trifft.`,
+        },      };
 
+      let currentLang = "en";
+
+      function applyLang(lang) {
+        const t = translations[lang];
+        document.getElementById("h1").innerHTML = t.h1;
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (t[key]) el.innerHTML = t[key];
+        });
+        document.getElementById("lang-toggle").textContent = lang === "en" ? "DE" : "EN";
+      }
+
+      function toggleLang() {
+        currentLang = currentLang === "en" ? "de" : "en";
+        applyLang(currentLang);
+      }
+
+      applyLang(currentLang);
+    </script>
   </div>
 </Layout>

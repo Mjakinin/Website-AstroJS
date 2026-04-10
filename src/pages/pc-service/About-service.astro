@@ -1,0 +1,104 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Maxim - About (Archiv)" navMode="service">
+  <div class="layout">
+
+    <a href="/" class="block border dark:border-yellow-700 border-yellow-400 bg-yellow-50 dark:bg-yellow-900 hover:bg-yellow-100 dark:hover:bg-yellow-900 rounded-xl p-4 mb-10 text-sm transition-colors duration-200">
+      <p class="font-mono text-yellow-600 dark:text-yellow-500 text-xs">
+        ⚠️ Dieser Service wird aktuell nicht mehr angeboten. Kehre hier zurück →
+      </p>
+      <p class="font-mono text-yellow-600 dark:text-yellow-500 text-xs">
+        ⚠️ This service is currently no longer offered. Return here →
+      </p>
+    </a>
+
+    <!-- Brandenburger Tor — wird von themeHandler.js befüllt -->
+    <a href="/Extras">
+      <div class="mb-0">
+        <div id="img">
+          <img
+            src="/icons/brandenburger-tor-dark.svg"
+            class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-96 xl:translate-y-100 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-52 2xl:-translate-x-52"
+          />
+        </div>
+      </div>
+    </a>
+
+    <h1
+      id="dynamic-text1"
+      class="transition-transform duration-300 transform hover:scale-105"
+    >
+    </h1>
+
+    <p>
+      Hi! Ich bin Maxim, studiere Computer Engineering an der Technischen Universität Berlin.
+      Nach meinem Bachelorabschluss befinde ich mich nun im Masterstudium und vertiefe meine
+      Kenntnisse rund um Hard- und Software. Schon seit meiner Jugend beschäftige ich mich
+      intensiv mit Technologie, insbesondere mit Computern. Das Zusammenstellen und Aufrüsten
+      von PCs für Freunde, Bekannte und mich selbst hat mir viele praktische Erfahrungen ermöglicht.
+      Diese Leidenschaft für Technik hat mich schließlich dazu motiviert, mein Hobby zum Beruf zu machen.
+    </p>
+    <p>
+      Was mich an der Informatik fasziniert, ist ihre kontinuierliche Weiterentwicklung und ihre
+      Vielfältigkeit. Informatik ist nie langweilig, da es immer etwas Neues zu entdecken gibt.
+    </p>
+
+    <h2
+      id="dynamic-text2"
+      class="mt-20 ssm:mt-20 sm:mt-40 md:mt-40 lg:mt-60 xl:mt-80 transition-transform duration-300 transform hover:scale-105"
+    ></h2>
+    <p class="mb-20">
+      Nach drei sehr theoretischen Semestern meines Studiums in Berlin habe ich mich dazu entschlossen,
+      in meiner Heimatstadt Naumburg einen Computer-Reparaturdienst anzubieten. Mein Schwerpunkt im
+      Studium liegt neben Informatik auch auf Elektrotechnik. Diese Kombination ermöglicht es mir,
+      mein theoretisches Wissen direkt in der Praxis anzuwenden.
+    </p>
+
+    <!-- Fernsehturm — wird von themeHandler.js befüllt -->
+    <div class="mb-20" style="position: relative; height: 400px;">
+      <div id="img2">
+        <img
+          src="/icons/fernsehturm-dark.svg"
+          class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-48 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-48 2xl:left-24"
+        />
+      </div>
+
+      <h2
+        id="dynamic-text3"
+        class="mt-32 ssm:mt-20 sm:mt-40 md:mt-52 lg:mt-60 xl:mt-40 transition-transform duration-300 transform hover:scale-105"
+      ></h2>
+      <p>
+        Ja, dank der Digitalisierung ist es mir möglich, von zuhause aus zu arbeiten und meine Aufgaben
+        online zu erledigen. Somit habe ich als Student die Flexibilität, meine Zeit selbst zu managen
+        und sowohl meinem Studium in Berlin als auch meinem Computer-Service in Naumburg gerecht zu werden.
+      </p>
+    </div>
+
+    <h2
+      id="dynamic-text4"
+      class="-mt-36 ssm:-mt-48 sm:-mt-10 md:mt-40 lg:mt-60 xl:mt-40 xl:text-right transition-transform duration-300 transform hover:scale-105"
+    ></h2>
+    <p class="mb-20">
+      Anstatt bei einem Systemintegrator oder ähnlichen anzufangen, entschied ich mich für die
+      Selbstständigkeit. Naumburg fehlt es an modernen Reparatur-Services, und die Selbstständigkeit
+      ermöglicht es mir, mein eigener Arbeitgeber zu sein und meine Arbeitsweise selbst zu bestimmen.
+      Zudem schätze ich den direkten Kontakt mit Kunden und die Herausforderungen, die jeder Fall
+      mit sich bringt.
+    </p>
+
+    <h2
+      id="dynamic-text5"
+      class="mt-36 ssm:mt-0 sm:mt-36 md:mt-40 lg:mt-60 xl:mt-40 transition-transform duration-300 transform hover:scale-105"
+    ></h2>
+    <p class="-mb-10 sm:mb-10">
+      Neben den technischen Aspekten ist mir der Umgang mit Menschen besonders wichtig.
+      Neue Menschen kennenzulernen und ihnen bei ihren technischen Problemen zu helfen,
+      bereitet mir Freude und erweitert meinen Horizont.
+    </p>
+
+    <script src="/js/themeHandler.js"></script>
+    <script src="/js/pageHandler.js"></script>
+  </div>
+</Layout>

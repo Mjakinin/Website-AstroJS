@@ -41,19 +41,15 @@ function checkScrollEnd() {
 }
 
 function initAutoScroll() {
-    // Überprüfe die URL und Fenstergröße
-    if (window.location.pathname === '/' && window.innerWidth >= 1536) {
-        // Setze den Overflow-Stil auf hidden
-        document.body.style.overflow = 'hidden';
-        // Füge den Eventlistener hinzu, um das automatische Scrollen zu starten
-        window.addEventListener('wheel', startAutoScroll);
+    const validPaths = ['/', '/pc-service', '/pc-service/'];
+    if (validPaths.includes(window.location.pathname) && window.innerWidth >= 1536) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('wheel', startAutoScroll);
     } else {
-        // Stelle den ursprünglichen Overflow-Stil wieder her
-        document.body.style.overflow = originalOverflow;
-        // Entferne den Eventlistener, wenn die URL nicht "/" ist oder die Fenstergröße kleiner als 1280px
-        window.removeEventListener('wheel', startAutoScroll);
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('wheel', startAutoScroll);
     }
-}
+  }
 
 // Speichere den ursprünglichen Overflow-Stil
 originalOverflow = document.body.style.overflow;

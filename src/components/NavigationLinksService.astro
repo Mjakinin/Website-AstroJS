@@ -1,0 +1,12 @@
+---
+import NavigationLink from "./NavigationLink.astro";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.replace("/pc-service", "").replace(/^\//, "") || "";
+---
+
+<NavigationLink title="Home"        url="pc-service"                  currentpath={pathname.replace("/", "")} />
+<NavigationLink title="About"       url="pc-service/About-service"    currentpath={pathname.replace("/", "")} />
+<NavigationLink title="Unternehmen" url="pc-service/Unternehmen-service" currentpath={pathname.replace("/", "")} />
+<NavigationLink title="Angebote"    url="pc-service/Angebote-service" currentpath={pathname.replace("/", "")} />
+<NavigationLink title="Kontakt"     url="pc-service/Kontakt-service"  currentpath={pathname.replace("/", "")} />

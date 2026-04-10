@@ -1,41 +1,28 @@
 ---
 import NavigationLinks from "../components/NavigationLinks.astro";
+import NavigationLinksService from "../components/NavigationLinksService.astro";
 import NavigationSocialBar from "../components/NavigationSocialBar.astro";
 
-const { title, description } = Astro.props;
+const { navMode } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon1.svg" />
-    <title>{title}</title>
-  </head>
+<header
+  class="flex items-center justify-end md:justify-between px-4 py-8 font-medium relative xl:container md:mx-auto w-full xl:px-44 mb-10"
+>
+<nav class="hidden md:flex items-center justify-center gap-x-8 xl:text-2xl">
+  {navMode === "service" ? <NavigationLinksService /> : <NavigationLinks />}
+</nav>
 
-  <header
-    class="flex items-center justify-end md:justify-between px-4 py-8 font-medium relative xl:container md:mx-auto w-full xl:px-44 mb-10"
-  >
-    <nav class="hidden md:flex items-center justify-center gap-x-8 xl:text-2xl">
-      <NavigationLinks />
-    </nav>
-
-    <div
+  <div
     id="farbenwechsel"
     class="hover:cursor-pointer dark:bg-dark bg-light rounded-full p-1 block lg:hidden"
   >
     <img src="/icons/moon1.svg" alt="sun" class="w-6 h-6" />
   </div>
 
-    <div class="hidden lg:block">
-      <nav class="flex items-center justify-center gap-x-5">
-        <NavigationSocialBar />
-      </nav>
-    </div>
-
-
-
-  </header>
-</html>
+  <div class="hidden lg:block">
+    <nav class="flex items-center justify-center gap-x-5">
+      <NavigationSocialBar />
+    </nav>
+  </div>
+</header>
