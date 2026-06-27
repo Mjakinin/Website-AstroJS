@@ -1,0 +1,124 @@
+---
+import FocusLayout from '../../layouts/FocusLayout.astro';
+---
+
+<FocusLayout title='Focus Privacy Policy'>
+  <div class='min-h-screen bg-gradient-to-b from-red-950/40 via-black to-black'>
+    <div class='max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6 md:pt-16 md:pb-10'>
+      <div class='flex flex-col items-center text-center'>
+        <div class='inline-flex items-center gap-3 rounded-full border border-red-500/30 bg-red-500/10 px-4 py-2 text-xs sm:text-sm text-red-300 mb-6'>
+          <span class='h-2 w-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]'></span>
+          Focus Privacy Policy
+        </div>
+        <h1 class='text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight'>Privacy Policy</h1>
+        <p class='text-zinc-400 text-sm md:text-base leading-relaxed max-w-2xl'>
+          This policy explains what data Focus processes, which permissions are used, and how your information is stored.
+        </p>
+        <div class='mt-6'>
+          <a href='mailto:maxim.mjakinin@gmail.com?subject=Focus%20Privacy%20Inquiry' class='inline-flex items-center gap-2 rounded-full bg-red-600 hover:bg-red-500 text-black font-semibold px-5 py-2.5 text-sm transition-colors duration-200 shadow-[0_0_18px_rgba(220,38,38,0.35)]'>maxim.mjakinin@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class='max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-20'>
+      <div class='space-y-4'>
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>1. Data Controller</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed'>
+            Maxim Mjakinin<br />Grochlitzer Straße 41<br />06618 Naumburg (Saale)<br />Germany<br />
+            <a href='mailto:maxim.mjakinin@gmail.com' class='text-red-400 hover:text-red-300 underline'>maxim.mjakinin@gmail.com</a>
+          </p>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>2. Purpose of the App</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed'>Focus helps you open selected apps more consciously. Before a target app opens, Focus shows a short intervention screen with a configurable countdown. The app stores local settings and basic usage statistics on your device.</p>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>3. What Focus Collects</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed mb-2'>Focus stores the following information locally on your device using Android DataStore:</p>
+          <ul class='text-zinc-300 text-sm list-disc list-inside space-y-1'>
+            <li>Selected target apps (package names and app labels)</li>
+            <li>Intervention settings (countdown duration, reactivation rules, Always-on flag)</li>
+            <li>Local basic statistics (e.g., interventions shown, opened anyway, stopped)</li>
+            <li>Premium / test status for local app functionality</li>
+          </ul>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>4. What Focus Does Not Collect</h2>
+          <ul class='text-zinc-300 text-sm list-disc list-inside space-y-1'>
+            <li>No content from Instagram, TikTok, YouTube or other target apps</li>
+            <li>No messages, passwords, browser history, or typed input</li>
+            <li>No keyboard data</li>
+            <li>No social media content or personal files</li>
+            <li>No contacts, photos, or cloud data</li>
+          </ul>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>5. Permissions</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed mb-2'>Focus may use the following Android permissions:</p>
+          <ul class='text-zinc-300 text-sm list-disc list-inside space-y-1'>
+            <li><span class='text-red-400 font-medium'>Accessibility Service:</span> Detects app switches and shows the intervention screen. Focus sets <code class='bg-zinc-900 px-1.5 py-0.5 rounded text-xs text-red-300'>canRetrieveWindowContent=false</code> and does not read content, text, or input from other apps. It is used solely to identify that a configured target app was opened, and to bring the intervention screen to the foreground.</li>
+            <li><span class='text-red-400 font-medium'>Usage Access (Optional):</span> Provides usage context and statistics. Optional and can be toggled in app settings.</li>
+            <li><span class='text-red-400 font-medium'>QUERY_ALL_PACKAGES:</span> Allows Focus to list installed apps so you can select target apps in a single picker.</li>
+          </ul>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>6. Third-Party Services / SDKs</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed'>Focus does not use third-party analytics, advertising, marketing, or tracking SDKs. In-app purchases are processed through Google Play Billing. Payment data is handled by Google and governed by Google's Privacy Policy. Focus does not store credit card numbers, account passwords, or billing details. Purchase status may be stored locally to unlock premium features.</p>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>7. Local Storage</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed'>Most app data is stored locally on your device using Android DataStore. Focus is designed as a local, offline-first tool. No personal data is synced to external servers by default.</p>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>8. Security & Data Breach</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed'>Focus runs locally and does not transmit personal data to remote servers. Standard Android security mechanisms apply. There are no backend servers processing user content. Because focused data is stored locally and not centrally processed, there is no remote database breach risk. Should this change, users will be informed via app updates and this privacy policy.</p>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>9. Data Retention</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed'>Data remains on your device until you clear app data, uninstall the app, or manually reset statistics. There is no automatic deletion, remote wipe, or fixed retention period controlled by the developer.</p>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>10. Cross-Border Data Transfer</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed'>Focus does not operate central servers and does not intentionally transfer personal data across international borders. Google Play Billing data is processed by Google and may be subject to cross-border processing under Google's applicable terms.</p>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>11. Children's Privacy</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed'>Focus is not directed to children under the age of 13. Focus does not knowingly collect personal information from children. If you become aware that a child has provided data without parental consent, contact us so the information can be removed.</p>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>12. Your Rights</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed mb-2'>Depending on your jurisdiction (e.g., GDPR, CCPA), you may have the right to:</p>
+          <ul class='text-zinc-300 text-sm list-disc list-inside space-y-1'>
+            <li>Request access to your locally stored data</li>
+            <li>Request deletion of your data (by clearing app data or uninstalling)</li>
+            <li>Object to or restrict processing (by revoking permissions in Android settings)</li>
+            <li>Lodge a complaint with a supervisory authority</li>
+          </ul>
+          <p class='text-zinc-300 text-sm leading-relaxed mt-2'>For privacy questions or requests, contact us at <a href='mailto:maxim.mjakinin@gmail.com' class='text-red-400 hover:text-red-300 underline'>maxim.mjakinin@gmail.com</a></p>
+        </div>
+
+        <div class='rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 md:p-6'>
+          <h2 class='text-white font-semibold mb-2'>13. Changes to This Policy</h2>
+          <p class='text-zinc-300 text-sm leading-relaxed'>This privacy policy may be updated to reflect changes in the app, legal requirements, or data processing practices. The latest version will always be available at this URL. Continued use of the app after changes are published constitutes acceptance of the updated policy.</p>
+        </div>
+
+        <div class='mt-6 rounded-xl border border-red-500/20 bg-gradient-to-r from-red-900/20 to-transparent p-4 text-center'>
+          <p class='text-zinc-400 text-sm mb-2'>Questions about this policy?</p>
+          <a href='mailto:maxim.mjakinin@gmail.com?subject=Focus%20Privacy%20Inquiry' class='inline-flex items-center gap-2 text-red-400 hover:text-red-300 font-semibold text-sm transition-colors'>maxim.mjakinin@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</FocusLayout>
