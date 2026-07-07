@@ -4,8 +4,6 @@ import { defineConfig } from "astro/config";
 // Tailwind CSS importieren
 import tailwind from "@astrojs/tailwind";
 
-import image from "@astrojs/image";
-import mdx from "@astrojs/mdx";
 import partytown from '@astrojs/partytown'
 
 
@@ -24,8 +22,6 @@ export default defineConfig({
         applyBaseStyles: false,
       },
     }),
-    image(),
-    mdx(),
     partytown({
       config: {
         forward: ["dataLayer.push"],

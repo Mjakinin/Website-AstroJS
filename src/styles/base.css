@@ -192,120 +192,13 @@ body {
 
 main {
   flex: 1;
-  /* Hauptinhalt dehnt sich aus */
 }
-
-
 
 @media (max-width: 767px) {
   #footer {
     @apply mt-20 mb-20;
   }
 }
-
-
-
-
-
-#tetrisCanvas {
-  margin-top: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #f0f0f0;
-  border: 2px solid #000;
-}
-
-
-#specialfooter {
-  transform: translateY(-100%);
-  bottom: 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-.wrap-input-8 .input {
-  width: 100%;
-  box-sizing: border-box;
-  letter-spacing: 1px;
-  background-color:
-    #f5f6fd;
-  border: 1px solid #ccc;
-  padding: 7px 14px 9px;
-  transition: 0.4s;
-}
-
-.wrap-input-8 .input:focus {
-  outline: none;
-}
-
-.wrap-input-8 {
-  width: 30%;
-  margin: 40px 3%;
-  position: relative;
-}
-
-.wrap-input-8 .input~.focus-border:before,
-.wrap-input-8 .input~.focus-border:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color:
-    #6c5dd3;
-  transition: 0.3s;
-}
-
-.wrap-input-8 .input~.focus-border:after {
-  top: auto;
-  bottom: 0;
-  left: auto;
-  right: 0;
-}
-
-.wrap-input-8 .input~.focus-border i:before,
-.wrap-input-8 .input~.focus-border i:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2px;
-  height: 0;
-  background-color:
-    #6c5dd3;
-  transition: 0.4s;
-}
-
-.wrap-input-8 .input~.focus-border i:after {
-  left: auto;
-  right: 0;
-  top: auto;
-  bottom: 0;
-}
-
-.wrap-input-8 .input:focus~.focus-border:before,
-.wrap-input-8 .input:focus~.focus-border:after {
-  width: 100%;
-  transition: 0.3s;
-}
-
-.wrap-input-8 .input:focus~.focus-border i:before,
-.wrap-input-8 .input:focus~.focus-border i:after {
-  height: 100%;
-  transition: 0.4s;
-}
-
-
 
 
 
