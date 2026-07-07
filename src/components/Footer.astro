@@ -1,15 +1,12 @@
 ---
 import NavigationSocial from "./NavigationSocial.astro";
 
-const isIndex = ["/Impressum", "/Impressum/", "/Datenschutz", "/Datenschutz/", "/Extras", "/Extras/", "/AGB", "/AGB/"].includes(Astro.url.pathname);
-const isIndex2 = ["/Extras", "/Extras/"].includes(Astro.url.pathname);
+const isIndex = ["/Impressum", "/Impressum/", "/Datenschutz", "/Datenschutz/", "/AGB", "/AGB/"].includes(Astro.url.pathname);
 const isIndex3 = ["/"].includes(Astro.url.pathname);
 const isService = Astro.url.pathname.startsWith("/pc-service");
 ---
 
-{!isIndex2 && (
-  <>
-    {isService ? (
+{isService ? (
       <footer id="footer" class="footer text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-20">
 
         <div class="relative lg:container md:mx-auto w-full lg:px-60 mt-20 mb-0">
@@ -129,5 +126,3 @@ const isService = Astro.url.pathname.startsWith("/pc-service");
         </div>
       </footer>
     )}
-  </>
-)}
