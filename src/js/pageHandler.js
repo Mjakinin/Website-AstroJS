@@ -350,10 +350,15 @@ class PageHandler {
 // Diese Funktion erstellt eine neue Instanz der Klasse PageHandler.
 const init = () => {
   const pageHandler = new PageHandler();
-  pageHandler.typeWriterManager('dynamic-header-text', ["Maxim",   "Computer Engineer",
-    "Robotics Enthusiast", 
-    "Computer Vision Explorer",
-    "Master's @ TU Berlin"]);
+  pageHandler.typeWriterManager('dynamic-header-text', [
+    "Maxim",
+    "Automation & Robotics",
+    "M.Sc. Student @ TU Munich (TUM)",
+    "Robotics Engineer",
+    "Computer Engineer",
+    "Autonomous Systems & Control",
+    "Computer Vision Explorer"
+  ]);
   pageHandler.applyTextEffects();
   pageHandler.setIcon(); // Set logo based on initial theme
   pageHandler.setLogo();

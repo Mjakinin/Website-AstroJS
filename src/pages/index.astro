@@ -34,42 +34,89 @@ const models = [
         ></model-viewer>
       </div>
 
-      <p class="hidden xl:block py-20 transition-transform duration-300 transform hover:scale-105 text-lg sm:text-xl md:text-2xl -mb-10" style="line-height: 2;">
-        I'm a Master's student in Computer Engineering at TU Berlin.
-        My interests lie in Robotics, Computer Vision, autonomous systems,
-        and Industry 4.0. Here I share projects and insights
-        from my studies and technical work.
+      <p class="hidden xl:block py-12 transition-transform duration-300 transform hover:scale-[1.01] text-lg sm:text-xl md:text-2xl -mb-6" style="line-height: 1.8;">
+        I'm a Master's student in Electrical and Computer Engineering (EI) at the <strong>Technical University of Munich (TUM)</strong> specializing in <strong>Automation & Robotics</strong>, having previously earned my Bachelor's degree in Computer Engineering at <strong>TU Berlin</strong> (Thesis graded 1.7).
+        My focus centers on <strong>Robotics, Autonomous Systems, Robot Kinematics & Dynamics, Nonlinear Control, and Computer Vision</strong>.
       </p>
 
+      <!-- Key Highlights / Badges -->
+      <div class="hidden xl:flex flex-wrap gap-2.5 mb-8">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+          <img src="/icons/tum.svg" alt="TUM" class="w-4 h-auto object-contain" />
+          TUM · M.Sc. Automation & Robotics
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20">
+          <img src="/icons/tu-berlin-short.svg" alt="TU Berlin" class="w-3.5 h-auto object-contain" />
+          TU Berlin · B.Sc. (1.7)
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">
+          <img src="/icons/northwestern.svg" alt="Northwestern" class="w-2.5 h-3.5 object-contain" />
+          Modern Robotics Specialization
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+          ROS 2 · Python · C++
+        </span>
+      </div>
+
       <!-- Desktop Buttons -->
-      <div class="hidden xl:flex items-center gap-4 mt-8 mb-0 md:mb-12 lg:mb-20 xl:mb-0">
+      <div class="hidden xl:flex flex-wrap items-center gap-3 mt-4 mb-0 md:mb-12 lg:mb-20 xl:mb-0">
         <a href="/Projects"
-          class="px-5 py-2 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
-          Projects →
+          class="px-5 py-2.5 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
+          Projects & Code →
+        </a>
+        <a href="/About"
+          class="px-5 py-2.5 rounded-lg font-medium border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-all duration-300 transform hover:scale-105">
+          About Me
+        </a>
+        <a href="https://www.linkedin.com/in/maximmjakin/" target="_blank" rel="noopener noreferrer"
+          class="px-4 py-2.5 rounded-lg font-medium border border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white transition-all duration-300 transform hover:scale-105 text-sm flex items-center gap-1.5">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
         </a>
         <a href="/pc-service"
-          class="px-5 py-2 rounded-lg font-medium border border-gray-500 text-gray-400 hover:border-gray-300 hover:text-gray-200 dark:border-gray-600 dark:text-gray-500 dark:hover:border-gray-400 dark:hover:text-gray-300 transition-all duration-300 transform hover:scale-105 text-base">
+          class="px-4 py-2.5 rounded-lg font-medium border border-gray-700 text-gray-500 hover:border-gray-500 hover:text-gray-300 transition-all duration-300 transform hover:scale-105 text-xs">
           Former PC Service ↗
         </a>
       </div>
     </div>
 
     <!-- Mobile Text -->
-    <p class="block xl:hidden py-20 transition-transform duration-300 transform hover:scale-105 text-lg sm:text-xl md:text-2xl -mb-10" style="line-height: 2;">
-      I'm a Master's student in Computer Engineering at TU Berlin.
-      My interests lie in Robotics, Computer Vision, autonomous systems,
-      and Industry 4.0. Here I share projects and insights
-      from my studies and technical work.
+    <p class="block xl:hidden py-10 transition-transform duration-300 transform hover:scale-[1.01] text-lg sm:text-xl md:text-2xl -mb-6" style="line-height: 1.8;">
+      I'm a Master's student in Electrical and Computer Engineering (EI) at the <strong>Technical University of Munich (TUM)</strong> specializing in <strong>Automation & Robotics</strong>, having previously earned my Bachelor's degree in Computer Engineering at <strong>TU Berlin</strong> (Thesis graded 1.7).
+      My focus centers on <strong>Robotics, Autonomous Systems, Robot Kinematics & Dynamics, Nonlinear Control, and Computer Vision</strong>.
     </p>
 
+    <!-- Mobile Highlights -->
+    <div class="flex xl:hidden flex-wrap gap-2 mb-6">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+        <img src="/icons/tum.svg" alt="TUM" class="w-3.5 h-auto object-contain" />
+        TUM · M.Sc. Automation & Robotics
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20">
+        <img src="/icons/tu-berlin-short.svg" alt="TU Berlin" class="w-3 h-auto object-contain" />
+        TU Berlin · B.Sc. (1.7)
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+        ROS 2 · Modern Robotics
+      </span>
+    </div>
+
     <!-- Mobile Buttons -->
-    <div class="flex xl:hidden items-center gap-4 mt-8 mb-0 md:mb-12 lg:mb-20 xl:mb-0">
+    <div class="flex xl:hidden flex-wrap items-center gap-3 mt-4 mb-0 md:mb-12 lg:mb-20 xl:mb-0">
       <a href="/Projects"
-        class="px-5 py-2 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
-        Projects →
+        class="px-5 py-2.5 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
+        Projects & Code →
+      </a>
+      <a href="/About"
+        class="px-5 py-2.5 rounded-lg font-medium border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-all duration-300 transform hover:scale-105">
+        About Me
+      </a>
+      <a href="https://www.linkedin.com/in/maximmjakin/" target="_blank" rel="noopener noreferrer"
+        class="px-4 py-2.5 rounded-lg font-medium border border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white transition-all duration-300 transform hover:scale-105 text-sm flex items-center gap-1.5">
+        LinkedIn
       </a>
       <a href="/pc-service"
-        class="px-5 py-2 rounded-lg font-medium border border-gray-500 text-gray-400 hover:border-gray-300 hover:text-gray-200 dark:border-gray-600 dark:text-gray-500 dark:hover:border-gray-400 dark:hover:text-gray-300 transition-all duration-300 transform hover:scale-105 text-base">
+        class="px-4 py-2.5 rounded-lg font-medium border border-gray-700 text-gray-500 hover:border-gray-500 hover:text-gray-300 transition-all duration-300 transform hover:scale-105 text-xs">
         Former PC Service ↗
       </a>
     </div>
