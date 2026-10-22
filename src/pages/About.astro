@@ -44,8 +44,8 @@ import Layout from "../layouts/Layout.astro";
 
     <!-- CLEAN HERO NARRATIVE (FULL WIDTH, NO CLUTTERED SIDEBAR) -->
     <div class="mt-8 max-w-4xl space-y-4">
-      <p data-i18n="p1" class="text-base sm:text-lg dark:text-gray-800 text-gray-200 leading-relaxed font-sans !my-0" style="line-height: 1.8; text-align: left; -webkit-hyphens: none; hyphens: none;"></p>
-      <p data-i18n="p2" class="text-base sm:text-lg dark:text-gray-700 text-gray-300 leading-relaxed font-sans !my-0" style="line-height: 1.8; text-align: left; -webkit-hyphens: none; hyphens: none;"></p>
+      <p data-i18n="p1" class="text-base sm:text-lg dark:text-gray-800 text-gray-200 leading-relaxed font-sans !my-0" style="line-height: 1.8; text-align: left; -webkit-hyphens: none; hyphens: none; word-spacing: normal;"></p>
+      <p data-i18n="p2" class="text-base sm:text-lg dark:text-gray-700 text-gray-300 leading-relaxed font-sans !my-0" style="line-height: 1.8; text-align: left; -webkit-hyphens: none; hyphens: none; word-spacing: normal;"></p>
 
       <div class="pt-4 flex flex-wrap items-center gap-3">
         <a
@@ -634,6 +634,12 @@ import Layout from "../layouts/Layout.astro";
 
 <!-- Scoped styles to strictly override base.css pseudo-elements and first-letter bugs -->
 <style>
+  .about-container p {
+    word-spacing: normal !important;
+    text-align: left !important;
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+  }
   .about-container h1::before,
   .about-container h2::before,
   .about-container h3::before,
