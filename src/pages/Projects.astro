@@ -137,7 +137,7 @@ import Layout from "../layouts/Layout.astro";
                 ros2-robotics-playground
               </h3>
               <p class="text-xs sm:text-sm dark:text-gray-600 text-gray-400 mt-2.5 leading-relaxed font-sans">
-                Hands-on robotics packages in ROS 2 on Ubuntu 24.04: custom controllers (<code class="text-xs font-mono bg-black/40 px-1 py-0.5 rounded">auto_turtle</code>), pub/sub topologies, and actions.
+                Hands-on robotics packages in ROS 2 on Ubuntu 24.04: custom controllers (<code class="text-xs font-mono font-semibold px-2 py-0.5 rounded-md dark:bg-emerald-100 dark:text-emerald-800 bg-emerald-500/20 text-emerald-300 border dark:border-emerald-300 border-emerald-500/40">auto_turtle</code>), pub/sub topologies, and actions.
               </p>
             </div>
           </div>
@@ -580,5 +580,10 @@ import Layout from "../layouts/Layout.astro";
     content: none !important;
     display: none !important;
     margin-right: 0 !important;
+  }
+  .projects-container code {
+    background-color: rgba(16, 185, 129, 0.18) !important;
+    color: #6ee7b7 !important;
+    border: 1px solid rgba(16, 185, 129, 0.35) !important;
   }
 </style>
