@@ -377,31 +377,54 @@ import Layout from "../layouts/Layout.astro";
 
         <p data-i18n="p3" class="text-base sm:text-lg dark:text-gray-800 text-gray-200 leading-relaxed !my-0 font-sans" style="line-height: 1.8;"></p>
 
-        <!-- Visual Core Concepts Chips -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5 mt-6 pt-6 border-t dark:border-gray-100 border-[#21262d]">
-          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
-            <span class="block font-mono text-[11px] text-blue-400 uppercase font-semibold">Kinematics</span>
-            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Screw Theory & PoE</span>
+        <!-- Visual Core Concepts Chips (Ordered by Canonical Robotics Pipeline: Sense → Plan → Control → Act) -->
+        <div class="mt-6 pt-6 border-t dark:border-gray-100 border-[#21262d]">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-mono text-xs uppercase tracking-wider text-cyan-400 font-semibold flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span data-i18n="pipelineTitle">Autonomous Robotics Pipeline</span>
+            </span>
+            <span data-i18n="pipelineSub" class="hidden md:inline font-mono text-[11px] dark:text-gray-500 text-gray-400">
+              Sense (Perception & Vision) ➔ Plan (Planning & Kinematics) ➔ Act (Control & Execution)
+            </span>
           </div>
-          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
-            <span class="block font-mono text-[11px] text-cyan-400 uppercase font-semibold">Control</span>
-            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Nonlinear & Lyapunov</span>
-          </div>
-          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
-            <span class="block font-mono text-[11px] text-emerald-400 uppercase font-semibold">Middleware</span>
-            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">ROS 2 Architecture</span>
-          </div>
-          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
-            <span class="block font-mono text-[11px] text-purple-400 uppercase font-semibold">Vision</span>
-            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Rig Calibration</span>
-          </div>
-          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
-            <span class="block font-mono text-[11px] text-amber-400 uppercase font-semibold">Planning</span>
-            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Optimal MPC</span>
-          </div>
-          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
-            <span class="block font-mono text-[11px] text-pink-400 uppercase font-semibold">Perception</span>
-            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Sensor Fusion</span>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5">
+            <!-- 1. PERCEPTION -->
+            <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+              <span class="block font-mono text-[11px] text-pink-400 uppercase font-semibold">Perception</span>
+              <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Sensor Fusion</span>
+            </div>
+
+            <!-- 2. VISION -->
+            <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+              <span class="block font-mono text-[11px] text-purple-400 uppercase font-semibold">Vision</span>
+              <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Rig Calibration</span>
+            </div>
+
+            <!-- 3. PLANNING -->
+            <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+              <span class="block font-mono text-[11px] text-amber-400 uppercase font-semibold">Planning</span>
+              <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Optimal MPC</span>
+            </div>
+
+            <!-- 4. KINEMATICS -->
+            <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+              <span class="block font-mono text-[11px] text-blue-400 uppercase font-semibold">Kinematics</span>
+              <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Screw Theory & PoE</span>
+            </div>
+
+            <!-- 5. CONTROL -->
+            <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+              <span class="block font-mono text-[11px] text-cyan-400 uppercase font-semibold">Control</span>
+              <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Nonlinear & Lyapunov</span>
+            </div>
+
+            <!-- 6. ACTION & MIDDLEWARE -->
+            <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+              <span class="block font-mono text-[11px] text-emerald-400 uppercase font-semibold">Action</span>
+              <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">ROS 2 Architecture</span>
+            </div>
           </div>
         </div>
       </div>
@@ -554,6 +577,8 @@ import Layout from "../layouts/Layout.astro";
           nwDesc: `Intensive study of modern geometric robotics based on <strong>screw theory and Lie groups (SO(3), SE(3))</strong>. Implemented complete Python solutions for forward and numerical inverse kinematics (Newton-Raphson), open/closed chain dynamics (Euler-Lagrange and recursive Newton-Euler algorithms), collision-free trajectory generation, and mobile manipulator feedback control.`,
           tubDesc: `Comprehensive engineering foundation across systems programming, computer architecture, digital logic, operating systems, and discrete mathematics. <strong>Bachelor Thesis:</strong> Comparative evaluation of deductive search, Ant Colony Optimization (ACO), and SAT-based solvers for the NP-complete Akari puzzle (graded <strong>1.7</strong>, supervised by Prof. Dr. Benjamin Blankertz). Highlights: Hardwarepraktikum (1.7), Symbolic Artificial Intelligence Project (1.0), and electronic systems.`,
           h2: "Robotics Philosophy & Embodied AI",
+          pipelineTitle: "Autonomous Robotics Pipeline",
+          pipelineSub: "Sense (Perception & Vision) ➔ Plan (Planning & Kinematics) ➔ Act (Control & Execution)",
           p3: `In my Master's at TUM, I deliberately focus on <strong>Automation & Robotics, Autonomous Systems, Control Theory, and Computer Vision</strong>. I am fascinated by embodied intelligence — systems that perceive dynamic real-world environments, calculate optimal trajectories, and act with mechanical precision — whether that's industrial manipulators, multi-camera calibration rigs, or autonomous mobile robots.`,
           h3: "Hands-On Engineering & Tech Stack",
           p4: `Alongside university coursework, I actively build open-source robotics projects. I completed Northwestern University's rigorous 6-course <em>Modern Robotics: Mechanics, Planning, and Control</em> Specialization, implementing complete Python solutions for screw theory, forward/inverse kinematics, dynamics, and simulation. My GitHub projects range from camera rig calibration pipelines (<code>rigcal</code>) and ROS 2 controllers to handwritten digit CNNs and combinatorial optimization solvers.`,
@@ -571,6 +596,8 @@ import Layout from "../layouts/Layout.astro";
           nwDesc: `Fundierte Spezialisierung in moderner geometrischer Robotik basierend auf <strong>Schraubentheorie und Lie-Gruppen (SO(3), SE(3))</strong>. Vollständige Python-Implementierung von Vorwärts- und numerischer Inverser Kinematik (Newton-Raphson), offener/geschlossener Kettendynamik (Euler-Lagrange & rekursives Newton-Euler-Verfahren), kollisionsfreier Trajektoriengenerierung und Regelung mobiler Manipulatoren.`,
           tubDesc: `Fundierte Ingenieurausbildung in Systemprogrammierung, Rechnerarchitektur, digitaler Schaltungslogik, Betriebssystemen und diskreter Mathematik. <strong>Bachelorarbeit:</strong> Vergleichende Analyse von deduktiven Heuristiken, Ant Colony Optimization (ACO) und SAT-Solvern für das NP-vollständige Akari-Rätsel (Erstprüfer: Prof. Dr. Benjamin Blankertz, Note <strong>1,7</strong>). Highlights: Hardwarepraktikum (1,7), Projekt Symbolische KI (1,0) und Elektronik.`,
           h2: "Fokus Robotik & Autonome Systeme",
+          pipelineTitle: "Autonome Robotik-Pipeline",
+          pipelineSub: "Wahrnehmen (Perception & Vision) ➔ Planen (Planning & Kinematik) ➔ Handeln (Regelung & Aktion)",
           p3: `Im Master an der TUM konzentriere ich mich gezielt auf <strong>Automation & Robotics, autonome Systeme, Regelungstechnik und Computer Vision</strong>. Mein Ziel ist es, an Systemen zu arbeiten, die die reale Welt erfassen, optimale Entscheidungen treffen und mechanisch präzise handeln — seien es Robotermanipulatoren, Kamerasysteme oder autonome Fahrzeuge.`,
           h3: "Praktische Projekte & Tech Stack",
           p4: `Neben dem Studium setze ich mein Wissen in praktischen Projekten um. Ich habe die 6-teilige <em>Modern Robotics</em>-Spezialisierung der Northwestern University abgeschlossen und vollständige Python-Lösungen für Schraubentheorie, Kinematik, Dynamik und Regelung entwickelt. Auf GitHub entwickle ich u.a. Multi-Kamera-Kalibrierungstools (<code>rigcal</code>), ROS 2-Nodes, CNNs für Computer Vision und Algorithmen.`,
