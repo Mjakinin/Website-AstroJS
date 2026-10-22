@@ -3,11 +3,16 @@ import NavigationSocial from "./NavigationSocial.astro";
 import NavigationSocialIcon from "./NavigationSocialIcon.astro";
 ---
 <NavigationSocial />
-<div
+<button
   id="colorSwitch"
-  class="hover:cursor-pointer dark:bg-gray-100 bg-white/10 hover:bg-white/20 dark:hover:bg-gray-200 rounded-full p-2 transition-all duration-300 flex items-center justify-center shadow-sm"
+  type="button"
+  class="relative group top-0 hover:-top-1 transition-[top] ease duration-300 flex items-center justify-center focus:outline-none cursor-pointer text-white hover:text-amber-400 dark:text-gray-800 dark:hover:text-blue-600 bg-transparent border-0 p-0"
   title="Toggle light/dark mode"
   aria-label="Toggle light/dark mode"
 >
-  <img src="/icons/sun.svg" alt="theme" class="w-5 h-5" />
-</div>
+  <span class="w-[30px] h-[30px] flex items-center justify-center text-inherit">
+    <svg class="w-[26px] h-[26px] fill-current" viewBox="0 0 24 24">
+      <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 18a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm9-9a1 1 0 0 1 0 2h-2a1 1 0 1 1 0-2h2zM5 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zm13.364-7.364a1 1 0 0 1 0 1.414l-1.414 1.414a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zM7.05 16.95a1 1 0 0 1 0 1.414l-1.414 1.414a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zm11.314 11.314a1 1 0 0 1-1.414 0l-1.414-1.414a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zM7.05 7.05a1 1 0 0 1-1.414 0L4.222 5.636a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414z"/>
+    </svg>
+  </span>
+</button>

@@ -150,7 +150,73 @@ import Layout from "../layouts/Layout.astro";
           </div>
         </div>
 
-        <!-- ================= STATION 2: TU BERLIN (MASTER STUDIES & ML/CV) ================= -->
+        <!-- ================= STATION 2: NORTHWESTERN SPECIALIZATION ================= -->
+        <div class="relative group">
+          <!-- Timeline Glowing Node -->
+          <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-purple-500 border-4 dark:border-white border-[#0d1117] shadow-[0_0_14px_rgba(168,85,247,0.8)]"></div>
+
+          <div class="dark:bg-white bg-[#0d1117] border border-purple-500/40 rounded-2xl p-6 sm:p-8 shadow-sm hover:border-purple-400 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300 relative overflow-hidden">
+            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-purple-500"></div>
+
+            <!-- Station Metadata Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-purple-500/15 text-purple-400 border border-purple-500/30">
+                  2026
+                </span>
+                <span class="text-xs font-mono dark:text-gray-500 text-gray-400">Coursera · Prof. Kevin Lynch</span>
+              </div>
+              <a
+                href="https://coursera.org/share/965d45eb7ea0ef149ed67ba07228e0fb"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 font-semibold hover:underline flex items-center gap-1"
+              >
+                <span>Verify Credential ↗</span>
+              </a>
+            </div>
+
+            <!-- Institution Identity -->
+            <div class="flex items-center gap-3.5 mb-3">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 p-2 flex items-center justify-center shrink-0">
+                <img src="/icons/northwestern.svg" alt="Northwestern University" class="w-full h-auto object-contain" />
+              </div>
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0">
+                  Northwestern University
+                </h3>
+                <p class="text-xs font-mono text-purple-400 uppercase tracking-wider font-medium !my-0">
+                  Center for Robotics and Biosystems
+                </p>
+              </div>
+            </div>
+
+            <!-- Specialization Title (Tightly bound together) -->
+            <div class="mt-4 pt-4 border-t dark:border-gray-100 border-[#21262d] space-y-1">
+              <div class="text-lg font-bold dark:text-purple-600 text-purple-400">
+                Modern Robotics: Mechanics, Planning, and Control Specialization
+              </div>
+              <div class="text-sm font-mono text-purple-300 font-semibold uppercase tracking-wide">
+                Rigorous 6-Course Program Completed (2026)
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p data-i18n="nwDesc" class="mt-3 text-sm sm:text-base dark:text-gray-700 text-gray-300 leading-relaxed font-sans" style="line-height: 1.75;">
+              Intensive study of modern geometric robotics based on <strong>screw theory and Lie groups (SO(3), SE(3))</strong>. Implemented complete Python solutions for forward and numerical inverse kinematics (Newton-Raphson), open/closed chain dynamics (Euler-Lagrange and recursive Newton-Euler algorithms), collision-free trajectory generation, and mobile manipulator feedback control.
+            </p>
+
+            <!-- Station Tags -->
+            <div class="mt-5 pt-4 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Screw Theory (PoE)</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Manipulator Dynamics</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Trajectory Generation</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Python Codebase</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= STATION 3: TU BERLIN (MASTER STUDIES & ML/CV) ================= -->
         <div class="relative group">
           <!-- Timeline Glowing Node -->
           <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-cyan-500 border-4 dark:border-white border-[#0d1117] shadow-[0_0_14px_rgba(6,182,212,0.8)]"></div>
@@ -225,72 +291,6 @@ import Layout from "../layouts/Layout.astro";
               <span class="px-2.5 py-1 rounded-md dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Machine Learning 1 & 2</span>
               <span class="px-2.5 py-1 rounded-md dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Computer Vision (rigcal)</span>
               <span class="px-2.5 py-1 rounded-md dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">TU Berlin</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ================= STATION 3: NORTHWESTERN SPECIALIZATION ================= -->
-        <div class="relative group">
-          <!-- Timeline Glowing Node -->
-          <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-purple-500 border-4 dark:border-white border-[#0d1117] shadow-[0_0_14px_rgba(168,85,247,0.8)]"></div>
-
-          <div class="dark:bg-white bg-[#0d1117] border border-purple-500/40 rounded-2xl p-6 sm:p-8 shadow-sm hover:border-purple-400 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300 relative overflow-hidden">
-            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-purple-500"></div>
-
-            <!-- Station Metadata Bar -->
-            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
-              <div class="flex items-center gap-2">
-                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-purple-500/15 text-purple-400 border border-purple-500/30">
-                  2024
-                </span>
-                <span class="text-xs font-mono dark:text-gray-500 text-gray-400">Coursera · Prof. Kevin Lynch</span>
-              </div>
-              <a
-                href="https://coursera.org/share/965d45eb7ea0ef149ed67ba07228e0fb"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 font-semibold hover:underline flex items-center gap-1"
-              >
-                <span>Verify Credential ↗</span>
-              </a>
-            </div>
-
-            <!-- Institution Identity -->
-            <div class="flex items-center gap-3.5 mb-3">
-              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 p-2 flex items-center justify-center shrink-0">
-                <img src="/icons/northwestern.svg" alt="Northwestern University" class="w-full h-auto object-contain" />
-              </div>
-              <div>
-                <h3 class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0">
-                  Northwestern University
-                </h3>
-                <p class="text-xs font-mono text-purple-400 uppercase tracking-wider font-medium !my-0">
-                  Center for Robotics and Biosystems
-                </p>
-              </div>
-            </div>
-
-            <!-- Specialization Title (Tightly bound together) -->
-            <div class="mt-4 pt-4 border-t dark:border-gray-100 border-[#21262d] space-y-1">
-              <div class="text-lg font-bold dark:text-purple-600 text-purple-400">
-                Modern Robotics: Mechanics, Planning, and Control Specialization
-              </div>
-              <div class="text-sm font-mono text-purple-300 font-semibold uppercase tracking-wide">
-                Rigorous 6-Course Program Completed
-              </div>
-            </div>
-
-            <!-- Description -->
-            <p data-i18n="nwDesc" class="mt-3 text-sm sm:text-base dark:text-gray-700 text-gray-300 leading-relaxed font-sans" style="line-height: 1.75;">
-              Intensive study of modern geometric robotics based on <strong>screw theory and Lie groups (SO(3), SE(3))</strong>. Implemented complete Python solutions for forward and numerical inverse kinematics (Newton-Raphson), open/closed chain dynamics (Euler-Lagrange and recursive Newton-Euler algorithms), collision-free trajectory generation, and mobile manipulator feedback control.
-            </p>
-
-            <!-- Station Tags -->
-            <div class="mt-5 pt-4 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-2 text-xs font-mono">
-              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Screw Theory (PoE)</span>
-              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Manipulator Dynamics</span>
-              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Trajectory Generation</span>
-              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Python Codebase</span>
             </div>
           </div>
         </div>

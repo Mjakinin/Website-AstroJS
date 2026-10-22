@@ -29,14 +29,17 @@ const { navMode } = Astro.props;
         </nav>
       </div>
 
-      <div
+      <button
         id="farbenwechsel"
-        class="hover:cursor-pointer dark:bg-gray-100 bg-white/10 hover:bg-white/20 dark:hover:bg-gray-200 rounded-full p-2 block lg:hidden transition-all duration-300"
+        type="button"
+        class="cursor-pointer text-white hover:text-amber-400 dark:text-gray-800 dark:hover:text-blue-600 block lg:hidden transition-all duration-300 p-2 focus:outline-none bg-white/10 dark:bg-gray-100 hover:bg-white/20 dark:hover:bg-gray-200 rounded-full"
         title="Toggle light/dark mode"
         aria-label="Toggle light/dark mode"
       >
-        <img src="/icons/sun.svg" alt="theme" class="w-5 h-5" />
-      </div>
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 18a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm9-9a1 1 0 0 1 0 2h-2a1 1 0 1 1 0-2h2zM5 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zm13.364-7.364a1 1 0 0 1 0 1.414l-1.414 1.414a1 1 0 1 1-1.414 1.414l1.414-1.414a1 1 0 0 1 1.414 0zM7.05 16.95a1 1 0 0 1 0 1.414l-1.414 1.414a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zm11.314 11.314a1 1 0 0 1-1.414 0l-1.414-1.414a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zM7.05 7.05a1 1 0 0 1-1.414 0L4.222 5.636a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414z"/>
+        </svg>
+      </button>
     </div>
 
   </div>
