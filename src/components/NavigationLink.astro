@@ -1,19 +1,17 @@
 ---
 const { title, url, currentpath } = Astro.props;
-const isActive = currentpath === url || currentpath === url + "/";
+const isActive =
+  (currentpath === url) ||
+  (url === "" && (currentpath === "" || currentpath === undefined));
 ---
 
-<a href={"/" + url} class="relative group">
+<a
+  href={"/" + url}
+  class={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+    isActive
+      ? "dark:bg-white dark:text-blue-600 bg-blue-500/15 text-blue-400 font-semibold shadow-sm"
+      : "dark:text-gray-600 text-gray-300 hover:text-white dark:hover:text-black hover:bg-white/5 dark:hover:bg-black/5"
+  }`}
+>
   {title}
-  {
-    isActive ? (
-      <span class="inline-block w-full h-[1px] dark:bg-dark bg-light absolute left-1/2 transform -translate-x-1/2 -bottom-1">
-        &nbsp;
-      </span>
-    ) : (
-      <span class="inline-block w-0 h-[1px] dark:bg-dark bg-light absolute left-1/2 transform -translate-x-1/2 -bottom-1 group-hover:w-full transition-[width] ease duration-300">
-        &nbsp;
-      </span>
-    )
-  }
 </a>

@@ -1,144 +1,190 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const models = [
-  "/models/autonomous_robot_sweeper.glb",
-  "/models/hw_details_01.glb",
-  "/models/industrial_robot_arm.glb",
-];
+import RobotArmSimulator from "../components/RobotArmSimulator.astro";
 ---
 
-<Layout title="Maxim" navMode="portfolio">
+<Layout
+  title="Maxim Mjakinin — Robotics & Autonomous Systems"
+  description="Maxim Mjakinin — M.Sc. in Automation & Robotics at TU Munich (TUM). Research in robot kinematics, nonlinear control, ROS 2, and autonomous systems."
+>
+  <div class="layout">
 
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <div class="flex flex-col xl:flex-row items-center justify-between gap-10 lg:gap-14 pt-4 pb-16 min-h-[calc(100vh-220px)]">
 
-  <div class="flex flex-col xl:flex-row justify-between px-4 sm:px-10 md:px-32 items-center -mt-20 md:-mt-0 2xl:mt-10 xl:mb-40 2xl:mb-60">
+      <!-- LEFT COLUMN: Hero Text, Typewriter & Actions -->
+      <div class="w-full xl:w-7/12 flex flex-col justify-center items-start">
 
-    <div class="w-full xl:w-2/3 flex flex-row -mb-10 xl:mb-0 xl:flex-col justify-between items-center xl:items-start">
+        <!-- Hero Headline -->
+        <h1 class="hero-title text-4xl ssm:text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white dark:text-gray-900 !leading-tight !my-0 !before:content-none">
+          Hey, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-sky-400">Maxim</span>
+        </h1>
 
-      <div class="w-1/2 xl:w-full text-xl ssm:text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-center xl:text-start transition-transform duration-300 transform hover:scale-105 mt-16 xl:-mb-0">
-        Hey, I'm<br />
-        <span id="dynamic-header-text" class="dark:text-blue-500 text-blue-500">
-          Computer Engineer
-        </span><br />
+        <!-- High-Tech Typewriter Role Subtitle (Single-line, non-clipping, crisp) -->
+        <div class="mt-3 sm:mt-4 flex items-center gap-2.5 min-h-[40px] sm:min-h-[48px]">
+          <span class="font-mono text-cyan-400 font-bold text-xl sm:text-2xl select-none">&gt;</span>
+          <span
+            id="hero-typewriter"
+            class="font-mono font-semibold text-lg sm:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 tracking-tight"
+          >
+            Automation & Robotics
+          </span>
+          <span
+            id="hero-cursor"
+            class="w-2 sm:w-2.5 h-6 sm:h-7 bg-cyan-400 inline-block rounded-sm animate-pulse"
+          ></span>
+        </div>
+
+        <!-- Description Paragraph (Natural left-aligned reading) -->
+        <p
+          class="py-4 text-base sm:text-lg md:text-xl dark:text-gray-700 text-gray-300 leading-relaxed max-w-2xl font-sans text-left !my-2"
+          style="text-align: left; -webkit-hyphens: none; hyphens: none; word-spacing: normal; line-height: 1.75;"
+        >
+          I am a Master's student in Electrical and Computer Engineering at the <strong>Technical University of Munich (TUM)</strong>, majoring in <strong>Automation & Robotics</strong>. 
+          Prior to TUM, I completed my Bachelor's degree in Computer Engineering at <strong>TU Berlin</strong> (Thesis graded 1.7). 
+          My focus centers on <strong>Spatial Kinematics & Dynamics, Nonlinear Control, ROS 2, and Autonomous Perception</strong>.
+        </p>
+
+        <!-- Highlights & Academic Badges -->
+        <div class="flex flex-wrap gap-2.5 my-3">
+          <a
+            href="/About"
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 border dark:border-blue-200 border-blue-500/20 hover:scale-105 transition-transform"
+          >
+            <img src="/icons/tum.svg" alt="TUM" class="w-4 h-auto object-contain" />
+            TUM · M.Sc. Automation & Robotics
+          </a>
+          <a
+            href="/About"
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium dark:bg-red-50 dark:text-red-700 bg-red-500/10 text-red-300 border dark:border-red-200 border-red-500/20 hover:scale-105 transition-transform"
+          >
+            <img src="/icons/tu-berlin-short.svg" alt="TU Berlin" class="w-3.5 h-auto object-contain" />
+            TU Berlin · B.Sc. (1.7)
+          </a>
+          <a
+            href="/Projects"
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border dark:border-purple-200 border-purple-500/20 hover:scale-105 transition-transform"
+          >
+            <img src="/icons/northwestern.svg" alt="Northwestern" class="w-2.5 h-3.5 object-contain" />
+            Modern Robotics Specialization
+          </a>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-300 border dark:border-cyan-200 border-cyan-500/20">
+            ROS 2 · Python · C++
+          </span>
+        </div>
+
+        <!-- Action CTA Buttons -->
+        <div class="flex flex-wrap items-center gap-3.5 mt-5">
+          <a
+            href="/Projects"
+            class="px-6 py-3 rounded-xl font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 text-sm sm:text-base flex items-center gap-2 shadow-md"
+          >
+            <span>Explore Robotics Projects</span>
+            <span class="text-lg leading-none">→</span>
+          </a>
+          <a
+            href="/About"
+            class="px-5 py-3 rounded-xl font-medium border dark:border-gray-300 border-gray-700 dark:text-gray-800 text-gray-200 dark:hover:border-blue-600 dark:hover:text-blue-600 hover:border-blue-400 hover:text-blue-400 hover:bg-blue-500/5 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
+          >
+            About Me
+          </a>
+          <a
+            href="https://www.linkedin.com/in/maximmjakin/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-3 rounded-xl font-medium border dark:border-gray-300 border-gray-700 dark:text-gray-700 text-gray-300 hover:border-gray-400 hover:text-white transition-all duration-300 transform hover:scale-105 text-sm flex items-center gap-1.5"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            LinkedIn
+          </a>
+          <a
+            href="/pc-service"
+            class="px-3.5 py-3 rounded-xl font-medium border border-transparent dark:text-gray-400 text-gray-500 hover:dark:text-gray-700 hover:text-gray-300 transition-all duration-300 text-xs"
+          >
+            Former PC Service ↗
+          </a>
+        </div>
+
       </div>
 
-      <!-- Mobile: 3D Robot -->
-      <div class="w-1/2 -mb-10 xl:hidden flex justify-center items-center">
-        <model-viewer
-          id="robot-mobile"
-          auto-rotate
-          camera-controls
-          shadow-intensity="0"
-          style="width: 220px; height: 220px; background: transparent;"
-        ></model-viewer>
+      <!-- RIGHT COLUMN: Single Responsive Robot Arm Simulator -->
+      <div class="w-full xl:w-5/12 flex justify-center items-center mt-6 xl:mt-0">
+        <RobotArmSimulator />
       </div>
 
-      <p class="hidden xl:block py-12 transition-transform duration-300 transform hover:scale-[1.01] text-lg sm:text-xl md:text-2xl -mb-6" style="line-height: 1.8;">
-        I'm a Master's student in Electrical and Computer Engineering (EI) at the <strong>Technical University of Munich (TUM)</strong> specializing in <strong>Automation & Robotics</strong>, having previously earned my Bachelor's degree in Computer Engineering at <strong>TU Berlin</strong> (Thesis graded 1.7).
-        My focus centers on <strong>Robotics, Autonomous Systems, Robot Kinematics & Dynamics, Nonlinear Control, and Computer Vision</strong>.
-      </p>
-
-      <!-- Key Highlights / Badges -->
-      <div class="hidden xl:flex flex-wrap gap-2.5 mb-8">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
-          <img src="/icons/tum.svg" alt="TUM" class="w-4 h-auto object-contain" />
-          TUM · M.Sc. Automation & Robotics
-        </span>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20">
-          <img src="/icons/tu-berlin-short.svg" alt="TU Berlin" class="w-3.5 h-auto object-contain" />
-          TU Berlin · B.Sc. (1.7)
-        </span>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">
-          <img src="/icons/northwestern.svg" alt="Northwestern" class="w-2.5 h-3.5 object-contain" />
-          Modern Robotics Specialization
-        </span>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
-          ROS 2 · Python · C++
-        </span>
-      </div>
-
-      <!-- Desktop Buttons -->
-      <div class="hidden xl:flex flex-wrap items-center gap-3 mt-4 mb-0 md:mb-12 lg:mb-20 xl:mb-0">
-        <a href="/Projects"
-          class="px-5 py-2.5 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
-          Projects & Code →
-        </a>
-        <a href="/About"
-          class="px-5 py-2.5 rounded-lg font-medium border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-all duration-300 transform hover:scale-105">
-          About Me
-        </a>
-        <a href="https://www.linkedin.com/in/maximmjakin/" target="_blank" rel="noopener noreferrer"
-          class="px-4 py-2.5 rounded-lg font-medium border border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white transition-all duration-300 transform hover:scale-105 text-sm flex items-center gap-1.5">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-          LinkedIn
-        </a>
-        <a href="/pc-service"
-          class="px-4 py-2.5 rounded-lg font-medium border border-gray-700 text-gray-500 hover:border-gray-500 hover:text-gray-300 transition-all duration-300 transform hover:scale-105 text-xs">
-          Former PC Service ↗
-        </a>
-      </div>
     </div>
 
-    <!-- Mobile Text -->
-    <p class="block xl:hidden py-10 transition-transform duration-300 transform hover:scale-[1.01] text-lg sm:text-xl md:text-2xl -mb-6" style="line-height: 1.8;">
-      I'm a Master's student in Electrical and Computer Engineering (EI) at the <strong>Technical University of Munich (TUM)</strong> specializing in <strong>Automation & Robotics</strong>, having previously earned my Bachelor's degree in Computer Engineering at <strong>TU Berlin</strong> (Thesis graded 1.7).
-      My focus centers on <strong>Robotics, Autonomous Systems, Robot Kinematics & Dynamics, Nonlinear Control, and Computer Vision</strong>.
-    </p>
+    <!-- Smooth Non-Clipping Typewriter Script -->
+    <script is:inline>
+      (() => {
+        const roles = [
+          "Automation & Robotics",
+          "Spatial Kinematics & Control",
+          "Autonomous Systems & Perception",
+          "Robotics Software & ROS 2",
+        ];
 
-    <!-- Mobile Highlights -->
-    <div class="flex xl:hidden flex-wrap gap-2 mb-6">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
-        <img src="/icons/tum.svg" alt="TUM" class="w-3.5 h-auto object-contain" />
-        TUM · M.Sc. Automation & Robotics
-      </span>
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20">
-        <img src="/icons/tu-berlin-short.svg" alt="TU Berlin" class="w-3 h-auto object-contain" />
-        TU Berlin · B.Sc. (1.7)
-      </span>
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
-        ROS 2 · Modern Robotics
-      </span>
-    </div>
+        let roleIndex = 0;
+        let charIndex = roles[0].length;
+        let isDeleting = true;
+        let typewriterTimeout = null;
 
-    <!-- Mobile Buttons -->
-    <div class="flex xl:hidden flex-wrap items-center gap-3 mt-4 mb-0 md:mb-12 lg:mb-20 xl:mb-0">
-      <a href="/Projects"
-        class="px-5 py-2.5 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
-        Projects & Code →
-      </a>
-      <a href="/About"
-        class="px-5 py-2.5 rounded-lg font-medium border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-all duration-300 transform hover:scale-105">
-        About Me
-      </a>
-      <a href="https://www.linkedin.com/in/maximmjakin/" target="_blank" rel="noopener noreferrer"
-        class="px-4 py-2.5 rounded-lg font-medium border border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white transition-all duration-300 transform hover:scale-105 text-sm flex items-center gap-1.5">
-        LinkedIn
-      </a>
-      <a href="/pc-service"
-        class="px-4 py-2.5 rounded-lg font-medium border border-gray-700 text-gray-500 hover:border-gray-500 hover:text-gray-300 transition-all duration-300 transform hover:scale-105 text-xs">
-        Former PC Service ↗
-      </a>
-    </div>
+        function updateTypewriter() {
+          const el = document.getElementById("hero-typewriter");
+          if (!el) return;
 
-    <!-- Desktop: 3D Robot -->
-    <div class="hidden xl:flex w-1/4 xl:w-1/3 justify-center items-start ml-32 mt-8">
-      <model-viewer
-        id="robot-desktop"
-        auto-rotate
-        camera-controls
-        shadow-intensity="0"
-        style="width: 500px; height: 500px; background: transparent;"
-      ></model-viewer>
-    </div>
+          const currentRole = roles[roleIndex];
+
+          if (isDeleting) {
+            charIndex--;
+            el.textContent = currentRole.substring(0, charIndex);
+
+            if (charIndex <= 0) {
+              isDeleting = false;
+              roleIndex = (roleIndex + 1) % roles.length;
+              typewriterTimeout = setTimeout(updateTypewriter, 400);
+              return;
+            }
+            typewriterTimeout = setTimeout(updateTypewriter, 35);
+          } else {
+            charIndex++;
+            el.textContent = currentRole.substring(0, charIndex);
+
+            if (charIndex === currentRole.length) {
+              isDeleting = true;
+              typewriterTimeout = setTimeout(updateTypewriter, 2600); // Read time
+              return;
+            }
+            typewriterTimeout = setTimeout(updateTypewriter, 65);
+          }
+        }
+
+        // Initialize typewriter
+        function startTypewriter() {
+          if (typewriterTimeout) clearTimeout(typewriterTimeout);
+          const el = document.getElementById("hero-typewriter");
+          if (el) {
+            el.textContent = roles[0];
+            charIndex = roles[0].length;
+            isDeleting = true;
+            typewriterTimeout = setTimeout(updateTypewriter, 2600);
+          }
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", startTypewriter);
+        } else {
+          startTypewriter();
+        }
+        document.addEventListener("astro:page-load", startTypewriter);
+      })();
+    </script>
+
   </div>
-
-  <script is:inline define:vars={{ models }}>
-    const chosen = models[Math.floor(Math.random() * models.length)];
-    document.getElementById("robot-desktop").setAttribute("src", chosen);
-    document.getElementById("robot-mobile").setAttribute("src", chosen);
-  </script>
-
-  <script src="../js/themeHandler.js"></script>
-  <script src="../js/pageHandler.js"></script>
 </Layout>
+
+<style>
+  .hero-title::before {
+    content: none !important;
+    display: none !important;
+  }
+</style>

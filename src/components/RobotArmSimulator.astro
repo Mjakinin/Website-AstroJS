@@ -1,0 +1,638 @@
+---
+// High-Visibility Interactive 3-DOF Robot Kinematics Simulator (Canvas + Inverse Kinematics)
+---
+
+<div class="robot-sim-wrapper relative w-full max-w-[540px] aspect-square rounded-2xl overflow-hidden border dark:border-gray-300 border-cyan-500/30 dark:bg-slate-50 bg-[#090d16] backdrop-blur-md shadow-[0_0_40px_rgba(56,189,248,0.18)] flex flex-col justify-between select-none">
+  
+  <!-- Subtle Grid Background -->
+  <div class="absolute inset-0 bg-[radial-gradient(#38bdf8_1.2px,transparent_1.2px)] [background-size:24px_24px] opacity-20 pointer-events-none"></div>
+
+  <!-- Telemetry HUD Overlay (Top) -->
+  <div class="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
+    <div class="flex items-center gap-2 px-2.5 py-1 rounded-lg dark:bg-white/90 bg-black/70 border dark:border-gray-300 border-white/10 backdrop-blur-md text-[10px] sm:text-xs font-mono shadow-sm">
+      <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+      <span class="text-cyan-400 font-semibold tracking-wider">IK SOLVER: ACTIVE</span>
+      <span class="dark:text-gray-500 text-gray-400 hidden sm:inline">| 3-DOF PLANAR</span>
+    </div>
+
+    <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg dark:bg-white/90 bg-black/70 border dark:border-gray-300 border-white/10 backdrop-blur-md text-[10px] sm:text-xs font-mono dark:text-gray-800 text-gray-200 shadow-sm">
+      <span id="telemetry-coords">X: +0mm Y: +0mm</span>
+    </div>
+  </div>
+
+  <!-- Interactive Canvas -->
+  <canvas
+    id="robot-kinematics-canvas"
+    class="w-full h-full cursor-crosshair block relative z-0"
+  ></canvas>
+
+  <!-- Interactive Controls & Joint Readout (Bottom) -->
+  <div class="absolute bottom-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2 z-10 text-[10px] sm:text-xs font-mono">
+    <div class="flex items-center gap-2 pointer-events-none">
+      <span id="joint-angles" class="px-2.5 py-1 rounded-lg dark:bg-white/90 bg-black/80 border dark:border-gray-300 border-white/10 dark:text-gray-800 text-cyan-300 shadow-sm">
+        θ₁: 0.0° · θ₂: 0.0° · θ₃: 0.0°
+      </span>
+    </div>
+
+    <!-- Quick Mode Buttons -->
+    <div class="flex items-center gap-1.5 pointer-events-auto">
+      <button
+        id="btn-arm-demo"
+        type="button"
+        class="px-2 py-0.5 rounded dark:bg-blue-50 dark:hover:bg-blue-100 dark:text-blue-700 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 border dark:border-blue-200 border-blue-500/30 transition-all hover:scale-105 active:scale-95 text-[11px]"
+        title="Trigger Autonomous Scan Pattern"
+      >
+        Auto Demo
+      </button>
+      <button
+        id="btn-arm-home"
+        type="button"
+        class="px-2 py-0.5 rounded dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-700 bg-white/10 hover:bg-white/20 text-gray-300 border dark:border-gray-300 border-white/10 transition-all hover:scale-105 active:scale-95 text-[11px]"
+        title="Return to Home Rest Position"
+      >
+        Home
+      </button>
+      <button
+        id="btn-arm-grip"
+        type="button"
+        class="px-2 py-0.5 rounded dark:bg-cyan-50 dark:hover:bg-cyan-100 dark:text-cyan-700 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border dark:border-cyan-200 border-cyan-500/30 transition-all hover:scale-105 active:scale-95 text-[11px]"
+        title="Grip / Pinch End Effector"
+      >
+        Grip
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let activeAnimationId: number | null = null;
+  let activeResizeObserver: ResizeObserver | null = null;
+
+  function initRobotSimulator() {
+    // Cancel any previous loop if re-running (e.g. after Astro page transition)
+    if (activeAnimationId !== null) {
+      cancelAnimationFrame(activeAnimationId);
+      activeAnimationId = null;
+    }
+    if (activeResizeObserver !== null) {
+      activeResizeObserver.disconnect();
+      activeResizeObserver = null;
+    }
+
+    const canvas = document.getElementById("robot-kinematics-canvas") as HTMLCanvasElement | null;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const coordsEl = document.getElementById("telemetry-coords");
+    const anglesEl = document.getElementById("joint-angles");
+    const btnDemo = document.getElementById("btn-arm-demo");
+    const btnHome = document.getElementById("btn-arm-home");
+    const btnGrip = document.getElementById("btn-arm-grip");
+
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+
+    // Robot state
+    const base = { x: 0, y: 0 };
+    let target = { x: 0, y: 0 };
+    let currentEE = { x: 0, y: 0 };
+
+    // Standard Home Angles (radians)
+    const HOME_THETA1 = -Math.PI / 3;
+    const HOME_THETA2 = Math.PI * 0.55;
+    const HOME_THETA3 = -Math.PI * 0.22;
+
+    let theta1 = HOME_THETA1;
+    let theta2 = HOME_THETA2;
+    let theta3 = HOME_THETA3;
+
+    let targetTheta1 = theta1;
+    let targetTheta2 = theta2;
+    let targetTheta3 = theta3;
+
+    // Autonomous / Idle state
+    let isTrackingMouse = false;
+    let lastUserInteraction = Date.now();
+    let idleT = 0;
+    let gripPinch = 0; // 0 (open) to 1 (fully pinched)
+
+    // Trail and Ripples
+    const trail: Array<{ x: number; y: number; alpha: number }> = [];
+    const ripples: Array<{ x: number; y: number; r: number; alpha: number }> = [];
+
+    // Link length functions based on current canvas dimension
+    const getL1 = () => width * 0.30;
+    const getL2 = () => width * 0.24;
+    const getL3 = () => width * 0.12; // Gripper wrist
+
+    // Resize handler with robust setTransform
+    function resize() {
+      const rect = canvas!.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return;
+
+      width = rect.width;
+      height = rect.height;
+      dpr = window.devicePixelRatio || 1;
+
+      canvas!.width = Math.round(width * dpr);
+      canvas!.height = Math.round(height * dpr);
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      // Base placed at bottom center
+      base.x = width * 0.5;
+      base.y = height * 0.86;
+
+      // If target not set yet, set to home reachable point
+      if (target.x === 0 && target.y === 0) {
+        target.x = base.x + width * 0.22;
+        target.y = base.y - height * 0.42;
+      }
+    }
+
+    resize();
+
+    // Use ResizeObserver for responsive layout changes
+    activeResizeObserver = new ResizeObserver(() => {
+      resize();
+    });
+    activeResizeObserver.observe(canvas);
+
+    // Mouse / Touch event handlers
+    const setTargetFromClient = (clientX: number, clientY: number) => {
+      const rect = canvas.getBoundingClientRect();
+      target.x = clientX - rect.left;
+      target.y = clientY - rect.top;
+      isTrackingMouse = true;
+      lastUserInteraction = Date.now();
+    };
+
+    canvas.addEventListener("mousemove", (e) => {
+      setTargetFromClient(e.clientX, e.clientY);
+    });
+
+    canvas.addEventListener("mouseleave", () => {
+      isTrackingMouse = false;
+    });
+
+    canvas.addEventListener("touchstart", (e) => {
+      if (e.touches.length > 0) {
+        setTargetFromClient(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    canvas.addEventListener("touchmove", (e) => {
+      if (e.touches.length > 0) {
+        setTargetFromClient(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    canvas.addEventListener("click", (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+      ripples.push({ x: clickX, y: clickY, r: 6, alpha: 1.0 });
+      gripPinch = 1.0; // trigger pinch
+    });
+
+    // Control Buttons
+    if (btnDemo) {
+      btnDemo.onclick = (e) => {
+        e.stopPropagation();
+        isTrackingMouse = false;
+        lastUserInteraction = 0; // force autonomous scan
+        idleT = 0;
+      };
+    }
+
+    if (btnHome) {
+      btnHome.onclick = (e) => {
+        e.stopPropagation();
+        isTrackingMouse = false;
+        lastUserInteraction = Date.now() + 5000; // hold home for 5 seconds
+        targetTheta1 = HOME_THETA1;
+        targetTheta2 = HOME_THETA2;
+        targetTheta3 = HOME_THETA3;
+      };
+    }
+
+    if (btnGrip) {
+      btnGrip.onclick = (e) => {
+        e.stopPropagation();
+        gripPinch = 1.0;
+        ripples.push({ x: currentEE.x, y: currentEE.y, r: 4, alpha: 1.0 });
+      };
+    }
+
+    // Analytic 2-Link Inverse Kinematics + Orientation
+    function solveIK(tx: number, ty: number) {
+      const L1 = getL1();
+      const L2 = getL2();
+
+      const dx = tx - base.x;
+      const dy = ty - base.y;
+      let dist = Math.sqrt(dx * dx + dy * dy);
+
+      // Workspace limit clamps
+      const maxReach = L1 + L2 - 3;
+      const minReach = Math.abs(L1 - L2) + 12;
+
+      if (dist > maxReach) {
+        dist = maxReach;
+      } else if (dist < minReach) {
+        dist = minReach;
+      }
+
+      const clampedX = base.x + (dx / (Math.sqrt(dx * dx + dy * dy) || 1)) * dist;
+      const clampedY = base.y + (dy / (Math.sqrt(dx * dx + dy * dy) || 1)) * dist;
+
+      const cosTheta2 = (dist * dist - L1 * L1 - L2 * L2) / (2 * L1 * L2);
+      const safeCos = Math.max(-1, Math.min(1, cosTheta2));
+
+      // Elbow-up solution
+      const t2 = -Math.acos(safeCos);
+
+      const alpha = Math.atan2(clampedY - base.y, clampedX - base.x);
+      const beta = Math.atan2(L2 * Math.sin(t2), L1 + L2 * Math.cos(t2));
+      const t1 = alpha - beta;
+
+      // Tool points towards target
+      const t3 = alpha - (t1 + t2);
+
+      return { t1, t2, t3, clampedX, clampedY };
+    }
+
+    // Main Render Loop
+    function loop() {
+      if (width === 0 || height === 0) {
+        resize();
+      }
+
+      const now = Date.now();
+
+      // Autonomous demonstration mode if idle for > 1.2 seconds
+      if (!isTrackingMouse && now - lastUserInteraction > 1200) {
+        idleT += 0.022;
+        const R = width * 0.32;
+        // Lissajous 8-curve for dynamic scanning
+        target.x = base.x + Math.sin(idleT) * R * 0.85;
+        target.y = base.y - height * 0.46 + Math.sin(idleT * 2) * (R * 0.28);
+
+        // Periodic autonomous grip pinch
+        if (Math.sin(idleT * 2) > 0.98 && gripPinch <= 0.05) {
+          gripPinch = 0.85;
+        }
+      }
+
+      // Solve IK
+      const sol = solveIK(target.x, target.y);
+      targetTheta1 = sol.t1;
+      targetTheta2 = sol.t2;
+      targetTheta3 = sol.t3;
+
+      // Smooth joint interpolation (exponential damping)
+      const smoothing = 0.14;
+      theta1 += (targetTheta1 - theta1) * smoothing;
+      theta2 += (targetTheta2 - theta2) * smoothing;
+      theta3 += (targetTheta3 - theta3) * smoothing;
+
+      // Decay grip pinch smoothly
+      if (gripPinch > 0) {
+        gripPinch = Math.max(0, gripPinch - 0.04);
+      }
+
+      // Forward Kinematics (FK)
+      const L1 = getL1();
+      const L2 = getL2();
+      const L3 = getL3();
+
+      const j1 = { x: base.x, y: base.y };
+      const j2 = {
+        x: j1.x + L1 * Math.cos(theta1),
+        y: j1.y + L1 * Math.sin(theta1),
+      };
+      const j3 = {
+        x: j2.x + L2 * Math.cos(theta1 + theta2),
+        y: j2.y + L2 * Math.sin(theta1 + theta2),
+      };
+      const ee = {
+        x: j3.x + L3 * Math.cos(theta1 + theta2 + theta3),
+        y: j3.y + L3 * Math.sin(theta1 + theta2 + theta3),
+      };
+      currentEE = ee;
+
+      // Update motion trail
+      trail.push({ x: ee.x, y: ee.y, alpha: 0.9 });
+      if (trail.length > 28) trail.shift();
+
+      // Clear Canvas
+      ctx.clearRect(0, 0, width, height);
+
+      // Check current website theme
+      // Remember: by default (no 'dark' class on html), theme is dark.
+      const isDark = !document.documentElement.classList.contains("dark");
+
+      // Dynamic High-Contrast Color Palette
+      const colors = isDark
+        ? {
+            bgGlow: "rgba(56, 189, 248, 0.06)",
+            workspaceDash: "rgba(56, 189, 248, 0.16)",
+            axisLine: "rgba(148, 163, 184, 0.12)",
+            trail: "rgba(56, 189, 248, 0.7)",
+            linkBody: "#1e293b",
+            linkBorder: "#475569",
+            linkCore: "#38bdf8",
+            linkHighlight: "#bae6fd",
+            jointOuter: "#334155",
+            jointInner: "#0284c7",
+            jointLed: "#38bdf8",
+            gripper: "#38bdf8",
+            targetReticle: "#38bdf8",
+            basePlate: "#0f172a",
+            baseBorder: "#38bdf8",
+          }
+        : {
+            bgGlow: "rgba(2, 132, 199, 0.04)",
+            workspaceDash: "rgba(2, 132, 199, 0.18)",
+            axisLine: "rgba(100, 116, 139, 0.15)",
+            trail: "rgba(2, 132, 199, 0.7)",
+            linkBody: "#334155",
+            linkBorder: "#64748b",
+            linkCore: "#0284c7",
+            linkHighlight: "#e0f2fe",
+            jointOuter: "#cbd5e1",
+            jointInner: "#0284c7",
+            jointLed: "#0369a1",
+            gripper: "#0284c7",
+            targetReticle: "#0284c7",
+            basePlate: "#cbd5e1",
+            baseBorder: "#0284c7",
+          };
+
+      // 1. Draw Workspace Boundary & Grid Coordinate Lines
+      // Cartesian Axes passing through base
+      ctx.beginPath();
+      ctx.moveTo(0, base.y);
+      ctx.lineTo(width, base.y);
+      ctx.moveTo(base.x, 0);
+      ctx.lineTo(base.x, height);
+      ctx.strokeStyle = colors.axisLine;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // Maximum reach circle
+      ctx.beginPath();
+      ctx.arc(base.x, base.y, L1 + L2, 0, Math.PI * 2);
+      ctx.strokeStyle = colors.workspaceDash;
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([5, 5]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // 2. Draw Target Ping Ripples
+      for (let i = ripples.length - 1; i >= 0; i--) {
+        const r = ripples[i];
+        r.r += 2.0;
+        r.alpha -= 0.035;
+        if (r.alpha <= 0) {
+          ripples.splice(i, 1);
+          continue;
+        }
+        ctx.beginPath();
+        ctx.arc(r.x, r.y, r.r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(56, 189, 248, ${r.alpha})`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+
+      // 3. Draw End-Effector Motion Trail (Smooth Glowing Polyline)
+      if (trail.length > 1) {
+        ctx.beginPath();
+        ctx.moveTo(trail[0].x, trail[0].y);
+        for (let i = 1; i < trail.length; i++) {
+          ctx.lineTo(trail[i].x, trail[i].y);
+          trail[i].alpha *= 0.94;
+        }
+        ctx.strokeStyle = colors.trail;
+        ctx.lineWidth = 2.5;
+        ctx.lineCap = "round";
+        ctx.stroke();
+      }
+
+      // 4. Draw Industrial Turntable Base Platform
+      // Ground Shadow
+      ctx.beginPath();
+      ctx.ellipse(base.x, base.y + 14, 52, 14, 0, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(0, 0, 0, 0.45)";
+      ctx.fill();
+
+      // Lower Turntable Ring
+      ctx.beginPath();
+      ctx.ellipse(base.x, base.y + 10, 44, 12, 0, 0, Math.PI * 2);
+      ctx.fillStyle = colors.basePlate;
+      ctx.fill();
+      ctx.strokeStyle = colors.baseBorder;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Upper Pedestal Mounting Block
+      ctx.beginPath();
+      ctx.moveTo(base.x - 26, base.y + 10);
+      ctx.lineTo(base.x - 16, base.y);
+      ctx.lineTo(base.x + 16, base.y);
+      ctx.lineTo(base.x + 26, base.y + 10);
+      ctx.closePath();
+      ctx.fillStyle = colors.linkBody;
+      ctx.fill();
+      ctx.strokeStyle = colors.linkBorder;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Base Mounting Screws
+      const drawBolt = (bx: number, by: number) => {
+        ctx.beginPath();
+        ctx.arc(bx, by, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = colors.linkHighlight;
+        ctx.fill();
+      };
+      drawBolt(base.x - 30, base.y + 10);
+      drawBolt(base.x + 30, base.y + 10);
+      drawBolt(base.x - 12, base.y + 12);
+      drawBolt(base.x + 12, base.y + 12);
+
+      // 5. High-Visibility Multi-Pass Link Rendering
+      const drawArmLink = (
+        p1: { x: number; y: number },
+        p2: { x: number; y: number },
+        thickness: number
+      ) => {
+        // Outer dark metallic chassis
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = colors.linkBorder;
+        ctx.lineWidth = thickness + 3;
+        ctx.lineCap = "round";
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = colors.linkBody;
+        ctx.lineWidth = thickness;
+        ctx.lineCap = "round";
+        ctx.stroke();
+
+        // Vibrant glowing cyan conduit
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = colors.linkCore;
+        ctx.lineWidth = Math.max(3, thickness * 0.38);
+        ctx.lineCap = "round";
+        ctx.stroke();
+
+        // White metallic center specular reflection
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = colors.linkHighlight;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      };
+
+      // Draw 3 Kinematic Links (Shoulder, Forearm, Wrist)
+      drawArmLink(j1, j2, 18);
+      drawArmLink(j2, j3, 14);
+      drawArmLink(j3, ee, 9);
+
+      // 6. Draw Concentric Joint Bearings
+      const drawJoint = (
+        p: { x: number; y: number },
+        radius: number,
+        label: string
+      ) => {
+        // Outer Bearing Housing
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = colors.jointOuter;
+        ctx.fill();
+        ctx.strokeStyle = colors.linkBorder;
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        // Glowing Cyan Halo
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, radius * 0.65, 0, Math.PI * 2);
+        ctx.fillStyle = colors.jointInner;
+        ctx.fill();
+        ctx.strokeStyle = colors.jointLed;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Center Pin LED
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, radius * 0.28, 0, Math.PI * 2);
+        ctx.fillStyle = colors.linkHighlight;
+        ctx.fill();
+      };
+
+      drawJoint(j1, 13, "J1");
+      drawJoint(j2, 10.5, "J2");
+      drawJoint(j3, 8, "J3");
+
+      // 7. Draw Industrial Gripper / End-Effector
+      const toolAngle = theta1 + theta2 + theta3;
+      const fingerLen = 14;
+      // Grip closes as gripPinch approaches 1
+      const baseSpread = 10 - gripPinch * 5;
+
+      const perpX = -Math.sin(toolAngle);
+      const perpY = Math.cos(toolAngle);
+      const parX = Math.cos(toolAngle);
+      const parY = Math.sin(toolAngle);
+
+      // Gripper mounting crossbar
+      const bar1 = { x: ee.x + perpX * baseSpread, y: ee.y + perpY * baseSpread };
+      const bar2 = { x: ee.x - perpX * baseSpread, y: ee.y - perpY * baseSpread };
+
+      ctx.beginPath();
+      ctx.moveTo(bar1.x, bar1.y);
+      ctx.lineTo(bar2.x, bar2.y);
+      ctx.strokeStyle = colors.linkBorder;
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      // Parallel gripper fingers
+      const f1Tip = { x: bar1.x + parX * fingerLen, y: bar1.y + parY * fingerLen };
+      const f2Tip = { x: bar2.x + parX * fingerLen, y: bar2.y + parY * fingerLen };
+
+      ctx.beginPath();
+      ctx.moveTo(bar1.x, bar1.y);
+      ctx.lineTo(f1Tip.x, f1Tip.y);
+      ctx.moveTo(bar2.x, bar2.y);
+      ctx.lineTo(f2Tip.x, f2Tip.y);
+      ctx.strokeStyle = colors.gripper;
+      ctx.lineWidth = 3.5;
+      ctx.lineCap = "round";
+      ctx.stroke();
+
+      // Gripper pads (rubber contact tips)
+      ctx.beginPath();
+      ctx.arc(f1Tip.x, f1Tip.y, 2.5, 0, Math.PI * 2);
+      ctx.arc(f2Tip.x, f2Tip.y, 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = colors.linkHighlight;
+      ctx.fill();
+
+      // 8. Target Crosshair / Reticle
+      ctx.beginPath();
+      ctx.arc(target.x, target.y, 5, 0, Math.PI * 2);
+      ctx.strokeStyle = colors.targetReticle;
+      ctx.lineWidth = 1.8;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(target.x - 9, target.y);
+      ctx.lineTo(target.x - 6, target.y);
+      ctx.moveTo(target.x + 6, target.y);
+      ctx.lineTo(target.x + 9, target.y);
+      ctx.moveTo(target.x, target.y - 9);
+      ctx.lineTo(target.x, target.y - 6);
+      ctx.moveTo(target.x, target.y + 6);
+      ctx.lineTo(target.x, target.y + 9);
+      ctx.strokeStyle = colors.targetReticle;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // 9. Update Live Telemetry HUD Elements
+      if (coordsEl) {
+        // Cartesian coordinates relative to base (scaled to mm)
+        const cartX = Math.round(((ee.x - base.x) / width) * 500);
+        const cartY = Math.round(((base.y - ee.y) / height) * 500);
+        const signX = cartX >= 0 ? "+" : "";
+        const signY = cartY >= 0 ? "+" : "";
+        coordsEl.textContent = `X: ${signX}${cartX}mm Y: ${signY}${cartY}mm`;
+      }
+
+      if (anglesEl) {
+        const deg1 = ((theta1 * 180) / Math.PI).toFixed(1);
+        const deg2 = ((theta2 * 180) / Math.PI).toFixed(1);
+        const deg3 = ((theta3 * 180) / Math.PI).toFixed(1);
+        anglesEl.textContent = `θ₁: ${deg1}° · θ₂: ${deg2}° · θ₃: ${deg3}°`;
+      }
+
+      activeAnimationId = requestAnimationFrame(loop);
+    }
+
+    activeAnimationId = requestAnimationFrame(loop);
+  }
+
+  // Lifecycle listeners
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initRobotSimulator);
+  } else {
+    initRobotSimulator();
+  }
+  document.addEventListener("astro:page-load", initRobotSimulator);
+</script>

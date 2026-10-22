@@ -1,128 +1,100 @@
 ---
 import NavigationSocial from "./NavigationSocial.astro";
 
-const isIndex = ["/Impressum", "/Impressum/", "/Datenschutz", "/Datenschutz/", "/AGB", "/AGB/"].includes(Astro.url.pathname);
-const isIndex3 = ["/"].includes(Astro.url.pathname);
 const isService = Astro.url.pathname.startsWith("/pc-service");
 ---
 
 {isService ? (
-      <footer id="footer" class="footer text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-20">
+  <footer id="footer" class="footer text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-20">
 
-        <div class="relative lg:container md:mx-auto w-full lg:px-60 mt-20 mb-0">
-          <h3 class="text-center transition-transform duration-300 transform hover:scale-105">Das sagen die Kunden:</h3>
+    <div class="relative lg:container md:mx-auto w-full lg:px-60 mt-20 mb-0">
+      <h3 class="text-center transition-transform duration-300 transform hover:scale-105">Das sagen die Kunden:</h3>
+    </div>
+
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <div class="elfsight-app-8e6df141-0b0a-4bb6-8e2d-78acc961e846 mb-20 xl:mb-32 px-0 md:px-4 lg:px-40" data-elfsight-app-lazy></div>
+
+    <center>
+      <button id="autoscroll" class="hidden 2xl:block rotate-180 hover:cursor-pointer dark:bg-dark bg-light rounded-full p-1 transition-transform duration-300 transform hover:scale-110 -translate-y-20">
+        <div id="icon8">
+          <img src="/icons/arrow-small-dark.svg" class="w-10 h-10" />
         </div>
+      </button>
+    </center>
 
-        <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-        <div class="elfsight-app-8e6df141-0b0a-4bb6-8e2d-78acc961e846 mb-20 xl:mb-32 px-0 md:px-4 lg:px-40" data-elfsight-app-lazy></div>
+    <div class="flex justify-center my-4 -mt-10">
+      <div class="border-t-2 border-white dark:border-dark w-1/2"></div>
+    </div>
 
-        <center>
-          <button id="autoscroll" class="hidden 2xl:block rotate-180 hover:cursor-pointer dark:bg-dark bg-light rounded-full p-1 transition-transform duration-300 transform hover:scale-110 -translate-y-20">
-            <div id="icon8">
-              <img src="/icons/arrow-small-dark.svg" class="w-10 h-10" />
-            </div>
-          </button>
-        </center>
-
-        <div class="flex justify-center my-4 -mt-10">
-          <div class="border-t-2 border-white dark:border-dark w-1/2"></div>
+    <div class="text-center text-half-md mb-44 md:mb-40">
+      <div class="flex flex-col md:flex-row md:justify-center md:space-x-4">
+        <div class="flex justify-center space-x-4 mb-2 md:mb-0">
+          <a href="/pc-service" class="px-4 py-2 text-white dark:text-dark rounded hover:text-blue-400 dark:hover:text-blue-400 transition-transform duration-300 transform hover:scale-105">Start</a>
+          <a href="/pc-service/About-service" class="px-4 py-2 text-white dark:text-dark rounded hover:text-blue-400 dark:hover:text-blue-400 transition-transform duration-300 transform hover:scale-105">About</a>
+          <a href="/pc-service/Angebote-service" class="px-4 py-2 text-white dark:text-dark rounded hover:text-blue-400 dark:hover:text-blue-400 transition-transform duration-300 transform hover:scale-105">Preise</a>
+          <a href="/pc-service/Kontakt-service" class="px-4 py-2 text-white dark:text-dark rounded hover:text-blue-400 dark:hover:text-blue-400 transition-transform duration-300 transform hover:scale-105">Kontakt</a>
         </div>
+      </div>
+    </div>
 
-        <div class="text-center text-half-md mb-44 md:mb-40">
-          <div class="flex flex-col md:flex-row md:justify-center md:space-x-4">
-            <div class="flex justify-center space-x-4 mb-2 md:mb-0">
-              <a href="/pc-service" class="px-4 py-2 text-white dark:text-dark rounded hover:text-blue-400 dark:hover:text-blue-400 transition-transform duration-300 transform hover:scale-105">Start</a>
-              <a href="/pc-service/About-service" class="px-4 py-2 text-white dark:text-dark rounded hover:text-blue-400 dark:hover:text-blue-400 transition-transform duration-300 transform hover:scale-105">About</a>
-              <a href="/pc-service/Angebote-service" class="px-4 py-2 text-white dark:text-dark rounded hover:text-blue-400 dark:hover:text-blue-400 transition-transform duration-300 transform hover:scale-105">Preise</a>
-              <a href="/pc-service/Kontakt-service" class="px-4 py-2 text-white dark:text-dark rounded hover:text-blue-400 dark:hover:text-blue-400 transition-transform duration-300 transform hover:scale-105">Kontakt</a>
-            </div>
+    <nav class="flex items-center justify-center gap-x-5 -mt-32 mb-10">
+      <NavigationSocial />
+    </nav>
+
+    <p class="text-half-sm text-halfdark text-center -mb-12">Copyright © {new Date().getFullYear()} Maxim Mjakinin. Alle Rechte vorbehalten.</p>
+
+    <div class="footer-content flex items-center text-white dark:text-black mt-8">
+      <p>&lt;</p>
+      <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
+      <p>/</p>
+      <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
+      <p>&gt;</p>
+    </div>
+  </footer>
+
+) : (
+
+  <footer class="mt-20 border-t dark:border-gray-200 border-white/10 dark:bg-gray-50/50 bg-[#070b12]/50 backdrop-blur-sm">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b dark:border-gray-200 border-white/5">
+        
+        <!-- Left: Branding & University -->
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            <span class="font-bold text-base dark:text-gray-900 text-white">Maxim Mjakinin</span>
           </div>
+          <p class="text-xs sm:text-sm font-mono dark:text-gray-600 text-gray-400 !my-0">
+            M.Sc. in Automation & Robotics · Technical University of Munich (TUM)
+          </p>
         </div>
 
-        <nav class="flex items-center justify-center gap-x-5 -mt-32 mb-10">
-          <NavigationSocial />
-        </nav>
-
-        <p class="text-half-sm text-halfdark text-center -mb-12">Copyright © {new Date().getFullYear()} Maxim Mjakinin. Alle Rechte vorbehalten.</p>
-
-        <div class="footer-content flex items-center text-white dark:text-black mt-8">
-          <p>&lt;</p>
-          <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
-          <p>/</p>
-          <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
-          <p>&gt;</p>
-        </div>
-      </footer>
-
-    ) : isIndex3 ? (
-      <footer id="footer" class="footer text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-10 sm:mt-4 md:-mt-8 lg:-mt-16 xl:-mt-24 2xl:-mt-48">
-
-        <div class="flex justify-center my-4 mt-10">
-          <div class="border-t-2 border-white dark:border-dark w-1/2"></div>
+        <!-- Center: Quick Nav Links -->
+        <div class="flex items-center gap-6 text-sm font-medium">
+          <a href="/" class="dark:text-gray-600 text-gray-400 hover:text-blue-400 dark:hover:text-blue-600 transition-colors">Home</a>
+          <a href="/About" class="dark:text-gray-600 text-gray-400 hover:text-blue-400 dark:hover:text-blue-600 transition-colors">About</a>
+          <a href="/Projects" class="dark:text-gray-600 text-gray-400 hover:text-blue-400 dark:hover:text-blue-600 transition-colors">Projects</a>
+          <a href="https://github.com/Mjakinin" target="_blank" rel="noopener noreferrer" class="dark:text-gray-600 text-gray-400 hover:text-blue-400 dark:hover:text-blue-600 transition-colors">GitHub</a>
+          <a href="https://www.linkedin.com/in/maximmjakin/" target="_blank" rel="noopener noreferrer" class="dark:text-gray-600 text-gray-400 hover:text-blue-400 dark:hover:text-blue-600 transition-colors">LinkedIn</a>
         </div>
 
-        <div class="text-center text-half-md mb-20 md:mb-20">
-          <div class="flex flex-col md:flex-row md:justify-center md:space-x-4">
-          </div>
+      </div>
+
+      <!-- Bottom: Copyright & Legal -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono dark:text-gray-500 text-gray-400">
+        <p class="!my-0">
+          © {new Date().getFullYear()} Maxim Mjakinin · All rights reserved.
+        </p>
+
+        <div class="flex items-center gap-4">
+          <a href="/Impressum" class="hover:text-blue-400 dark:hover:text-blue-600 transition-colors">Impressum</a>
+          <span>·</span>
+          <a href="/Datenschutz" class="hover:text-blue-400 dark:hover:text-blue-600 transition-colors">Datenschutz</a>
+          <span>·</span>
+          <a href="/AGB" class="hover:text-blue-400 dark:hover:text-blue-600 transition-colors">AGB</a>
         </div>
+      </div>
+    </div>
+  </footer>
 
-        <nav class="flex items-center justify-center gap-x-5 -mt-32 mb-10">
-        </nav>
-
-        <p class="text-half-sm text-halfdark text-center -mb-12">Copyright © 2024 Maxim Mjakinin. All rights reserved.</p>
-
-        <div class="footer-content flex items-center text-white dark:text-black mt-8">
-          <p>&lt;</p>
-          <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
-          <p>/</p>
-          <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
-          <p>&gt;</p>
-        </div>
-      </footer>
-
-    ) : isIndex ? (
-      <footer id="footer" class="footer text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-0">
-        <p class="text-half-sm text-halfdark text-center -mb-4">Copyright © 2024 Maxim Mjakinin. All rights reserved.</p>
-        <div class="footer-content flex items-center text-white dark:text-black">
-          <p>&lt;</p>
-          <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
-          <p>/</p>
-          <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
-          <p>&gt;</p>
-        </div>
-      </footer>
-
-    ) : (
-      <footer id="footer" class="footer text-half-sm sm:text-xl md:text-2xl bg-black bg-opacity-30 dark:bg-white dark:bg-opacity-20 mt-20">
-
-        <div class="flex justify-center my-4 mt-10">
-          <div class="border-t-2 border-white dark:border-dark w-1/2"></div>
-        </div>
-
-        <div class="text-center text-half-md mb-44 md:mb-40">
-          <div class="flex flex-col md:flex-row md:justify-center md:space-x-4">
-            <div class="flex justify-center space-x-4 mb-2 md:mb-0">
-              <a href="/" class="px-4 py-2 text-white dark:text-dark rounded hover:text-blue-400 dark:hover:text-blue-400 transition">Start</a>
-              <a href="/About" class="px-4 py-2 text-white dark:text-dark rounded hover:text-blue-400 dark:hover:text-blue-400 transition">About</a>
-            </div>
-            <div class="flex justify-center space-x-4">
-              <a href="/Projects" class="px-4 py-2 text-white dark:text-dark rounded hover:text-blue-400 dark:hover:text-blue-400 transition">Projects</a>
-            </div>
-          </div>
-        </div>
-
-        <nav class="flex items-center justify-center gap-x-5 -mt-32 mb-10">
-          <NavigationSocial />
-        </nav>
-
-        <p class="text-half-sm text-halfdark text-center -mb-12">Copyright © {new Date().getFullYear()} Maxim Mjakinin. All rights reserved.</p>
-
-        <div class="footer-content flex items-center text-white dark:text-black mt-8">
-          <p>&lt;</p>
-          <a href="/Impressum" class="dark:text-blue-400 text-blue-400 hover:underline">Impressum</a>
-          <p>/</p>
-          <a href="/Datenschutz" class="dark:text-blue-400 text-blue-400 hover:underline">Datenschutz</a>
-          <p>&gt;</p>
-        </div>
-      </footer>
-    )}
+)}

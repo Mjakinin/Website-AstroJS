@@ -6,23 +6,36 @@ import NavigationSocialBar from "../components/NavigationSocialBar.astro";
 const { navMode } = Astro.props;
 ---
 
-<header
-  class="flex items-center justify-end md:justify-between px-4 py-8 font-medium relative xl:container md:mx-auto w-full xl:px-44 mb-10"
->
-<nav class="hidden md:flex items-center justify-center gap-x-8 xl:text-2xl">
-  {navMode === "service" ? <NavigationLinksService /> : <NavigationLinks />}
-</nav>
+<header class="sticky top-3 z-50 px-4 mb-6 w-full max-w-5xl mx-auto">
+  <div class="backdrop-blur-xl dark:bg-white/80 bg-[#0d1117]/80 border dark:border-gray-200 border-white/10 rounded-2xl px-5 py-3 shadow-lg flex items-center justify-between transition-all duration-300">
+    
+    <!-- Left: Clean Domain Brand -->
+    <a href="/" class="flex items-center group">
+      <span class="font-bold text-base sm:text-lg dark:text-gray-900 text-white tracking-tight group-hover:text-blue-400 transition-colors font-mono">
+        maxim<span class="text-blue-500">.tk</span>
+      </span>
+    </a>
 
-  <div
-    id="farbenwechsel"
-    class="hover:cursor-pointer dark:bg-dark bg-light rounded-full p-1 block lg:hidden"
-  >
-    <img src="/icons/moon1.svg" alt="sun" class="w-6 h-6" />
-  </div>
-
-  <div class="hidden lg:block">
-    <nav class="flex items-center justify-center gap-x-5">
-      <NavigationSocialBar />
+    <!-- Center: Navigation Links -->
+    <nav class="hidden md:flex items-center gap-1 dark:bg-gray-100/80 bg-white/5 p-1 rounded-full border dark:border-gray-200 border-white/5">
+      {navMode === "service" ? <NavigationLinksService /> : <NavigationLinks />}
     </nav>
+
+    <!-- Right: Theme Switch + Social Icons -->
+    <div class="flex items-center gap-3">
+      <div class="hidden lg:block">
+        <nav class="flex items-center justify-center gap-x-4">
+          <NavigationSocialBar />
+        </nav>
+      </div>
+
+      <div
+        id="farbenwechsel"
+        class="hover:cursor-pointer dark:bg-gray-100 bg-white/10 hover:bg-white/20 dark:hover:bg-gray-200 rounded-full p-2 block lg:hidden transition-all duration-300"
+      >
+        <img src="/icons/moon1.svg" alt="theme" class="w-5 h-5" />
+      </div>
+    </div>
+
   </div>
 </header>

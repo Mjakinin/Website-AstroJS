@@ -2,286 +2,300 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Maxim - Projects & Robotics" description="Robotics projects, academic research, certificates, and GitHub repositories by Maxim Mjakinin (TUM M.Sc. Automation & Robotics).">
-  <div class="layout">
+<Layout
+  title="Projects & Robotics — Maxim Mjakinin"
+  description="Robotics projects, spatial kinematics, ROS 2 pipelines, academic coursework, and GitHub repositories by Maxim Mjakinin (TUM M.Sc. Automation & Robotics)."
+>
+  <div class="layout projects-container max-w-5xl mx-auto pb-20">
 
-    <!-- HEADER -->
-    <div class="flex flex-col md:flex-row md:items-baseline justify-between -mt-20 md:mt-0 mb-4">
+    <!-- PAGE HERO & INTRO -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pt-2 pb-8 border-b dark:border-gray-200 border-[#21262d]">
       <div>
-        <h1 class="transition-transform duration-300 transform hover:scale-[1.01] !mb-2">
-          Projects & Robotics
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-400 border dark:border-blue-200 border-blue-500/20 mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+          <span>Open-Source Robotics & Research</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white dark:text-gray-900 !my-0 !before:content-none">
+          Projects & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-sky-400">Robotics</span>
         </h1>
-        <p class="text-sm sm:text-base dark:text-gray-700 text-gray-300 font-mono">
+        <p class="text-sm sm:text-base dark:text-gray-600 text-gray-400 font-mono mt-2">
           M.Sc. Automation & Robotics · Technical University of Munich (TUM)
         </p>
       </div>
-      <a href="https://github.com/Mjakinin?tab=repositories" target="_blank" rel="noopener noreferrer"
-         class="text-xs sm:text-sm font-semibold text-blue-400 hover:text-blue-300 hover:underline transition-colors flex items-center gap-1.5 mt-2 md:mt-0">
-        <svg class="w-4 h-4" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
-        GitHub Profile ↗
-      </a>
+
+      <div class="flex items-center gap-3">
+        <a
+          href="https://github.com/Mjakinin?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border dark:border-gray-300 border-white/10 dark:bg-white bg-[#161b22] dark:text-gray-800 text-white hover:border-blue-500 hover:text-blue-400 dark:hover:border-blue-600 dark:hover:text-blue-600 transition-all duration-300 shadow-sm"
+        >
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+          <span>GitHub Profile ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- QUICK SECTION JUMP TABS -->
+    <div class="flex items-center gap-2 overflow-x-auto py-4 scrollbar-none border-b dark:border-gray-100 border-[#21262d] text-xs font-mono">
+      <span class="dark:text-gray-400 text-gray-500 whitespace-nowrap">Jump to:</span>
+      <a href="#featured" class="px-3 py-1 rounded-full dark:bg-gray-100 dark:text-gray-800 bg-[#161b22] text-gray-300 hover:text-blue-400 border dark:border-gray-200 border-[#21262d] whitespace-nowrap transition-colors">Featured Projects</a>
+      <a href="#certificates" class="px-3 py-1 rounded-full dark:bg-gray-100 dark:text-gray-800 bg-[#161b22] text-gray-300 hover:text-blue-400 border dark:border-gray-200 border-[#21262d] whitespace-nowrap transition-colors">Certificates</a>
+      <a href="#coursework" class="px-3 py-1 rounded-full dark:bg-gray-100 dark:text-gray-800 bg-[#161b22] text-gray-300 hover:text-blue-400 border dark:border-gray-200 border-[#21262d] whitespace-nowrap transition-colors">TUM Coursework</a>
+      <a href="#all-repos" class="px-3 py-1 rounded-full dark:bg-gray-100 dark:text-gray-800 bg-[#161b22] text-gray-300 hover:text-blue-400 border dark:border-gray-200 border-[#21262d] whitespace-nowrap transition-colors">All Repositories</a>
     </div>
 
     <!-- FEATURED ROBOTICS REPOSITORIES -->
-    <div class="mt-8">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
-        <h2 class="!my-0 !text-xl md:!text-2xl font-bold">
-          Featured Robotics & AI Repositories
-        </h2>
+    <div id="featured" class="mt-10 scroll-mt-24">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
+          <h2 class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0 !before:content-none">
+            Featured Robotics & AI Repositories
+          </h2>
+        </div>
+        <span class="text-xs font-mono dark:text-gray-500 text-gray-400 hidden sm:inline">5 Key Implementations</span>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
+      <!-- 1. HERO PROJECT: Modern Robotics Solutions (Full Width Flagship) -->
+      <div class="rounded-2xl border border-blue-500/50 overflow-hidden dark:bg-white bg-[#0d1117] shadow-xl relative group hover:border-blue-400 transition-all duration-300">
+        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-blue-500 via-cyan-400 to-indigo-500"></div>
 
-        <!-- 1. Modern Robotics Solutions (HERO PROJECT) -->
-        <div class="md:col-span-2 lg:col-span-2 border border-blue-500/50 rounded-xl overflow-hidden hover:scale-[1.01] transition-transform duration-300 dark:bg-white bg-[#0d1117] dark:border-blue-400 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="bg-blue-500/10 px-5 pt-4 pb-3 flex items-center justify-between border-b border-blue-500/20">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
-                <span class="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">Specialization Implementation · Northwestern University</span>
-              </div>
-              <a href="https://github.com/Mjakinin/modern-robotics-solution"
-                 target="_blank" rel="noopener noreferrer"
-                 class="text-xs font-semibold text-blue-400 hover:text-blue-300 hover:underline transition-colors flex items-center gap-1">
-                <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
-                GitHub Code →
-              </a>
-            </div>
-            <div class="p-5">
-              <p class="!my-1 text-xl font-bold !leading-snug dark:text-gray-900 text-white">
-                Modern Robotics Programming Solutions
-              </p>
-              <p class="!my-2 text-sm sm:text-base !leading-relaxed dark:text-gray-700 text-gray-300">
-                Complete Python solutions for Northwestern University's <em>Modern Robotics: Mechanics, Planning, and Control</em>. Covers spatial motion, screw theory, Product of Exponentials (PoE) formula, Newton-Raphson numerical inverse kinematics, open/closed chain dynamics (Euler-Lagrange & recursive Newton-Euler), trajectory generation, and manipulator feedback control.
-              </p>
-            </div>
+        <!-- Top Banner Header -->
+        <div class="bg-blue-500/10 px-6 py-4 flex flex-wrap items-center justify-between gap-3 border-b border-blue-500/20">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse"></span>
+            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-blue-400">Flagship Robotics Implementation</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-mono hidden sm:inline">Northwestern University</span>
           </div>
-          <div class="px-5 pb-4">
-            <div class="flex gap-2 flex-wrap pt-2 border-t dark:border-gray-200 border-[#21262d]">
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-[#1f2937] text-blue-300 font-medium border dark:border-blue-200 border-blue-900">Python</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-[#1f2937] text-blue-300 font-medium border dark:border-blue-200 border-blue-900">Screw Theory & PoE</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-[#1f2937] text-blue-300 font-medium border dark:border-blue-200 border-blue-900">Inverse Kinematics</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-[#1f2937] text-blue-300 font-medium border dark:border-blue-200 border-blue-900">Robot Dynamics</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-[#1f2937] text-blue-300 font-medium border dark:border-blue-200 border-blue-900">Trajectory Planning</span>
-            </div>
-          </div>
+          <a
+            href="https://github.com/Mjakinin/modern-robotics-solution"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-400 hover:text-blue-300 hover:underline transition-colors"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+            <span>View Repository →</span>
+          </a>
         </div>
 
+        <!-- Content Body without redundant matrix box -->
+        <div class="p-6 sm:p-8">
+          <h3 class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0 !before:content-none group-hover:text-blue-400 transition-colors">
+            Modern Robotics: Mechanics, Planning, and Control Solutions
+          </h3>
+          <p class="text-sm sm:text-base dark:text-gray-700 text-gray-300 mt-3 leading-relaxed font-sans max-w-4xl" style="line-height: 1.8;">
+            Complete Python implementation of modern spatial robotics foundations accompanying Northwestern University's curriculum. Features <strong>screw theory representations, Product of Exponentials (PoE)</strong> for open chains, numerical Newton-Raphson inverse kinematics, open/closed chain dynamics (Euler-Lagrange and recursive Newton-Euler algorithms), collision-free trajectory generation, and feedback control for industrial manipulators.
+          </p>
+
+          <!-- Tech Badges -->
+          <div class="flex flex-wrap gap-2 mt-6 pt-5 border-t dark:border-gray-100 border-[#21262d]">
+            <span class="text-xs px-3 py-1 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 font-medium border border-blue-500/20 font-mono">Python 3</span>
+            <span class="text-xs px-3 py-1 rounded-full dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-300 font-medium border border-cyan-500/20 font-mono">Screw Theory (se(3))</span>
+            <span class="text-xs px-3 py-1 rounded-full dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 font-medium border border-purple-500/20 font-mono">Inverse Kinematics</span>
+            <span class="text-xs px-3 py-1 rounded-full dark:bg-emerald-50 dark:text-emerald-700 bg-emerald-500/10 text-emerald-300 font-medium border border-emerald-500/20 font-mono">Manipulator Dynamics</span>
+            <span class="text-xs px-3 py-1 rounded-full dark:bg-amber-50 dark:text-amber-700 bg-amber-500/10 text-amber-300 font-medium border border-amber-500/20 font-mono">Trajectory Optimization</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-COLUMN BALANCED GRID (4 NEBENEINANDER AUF DESKTOP) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6">
+
         <!-- 2. Camera Rig Calibration (rigcal) -->
-        <div class="border dark:border-gray-200 border-[#30363d] rounded-xl overflow-hidden hover:border-blue-500 hover:scale-[1.01] transition-all duration-300 dark:bg-white bg-[#0d1117] shadow-sm flex flex-col justify-between">
+        <div class="rounded-2xl border dark:border-gray-200 border-[#30363d] overflow-hidden dark:bg-white bg-[#0d1117] shadow-sm flex flex-col justify-between hover:border-cyan-500 hover:shadow-lg hover:shadow-cyan-500/10 hover:scale-[1.01] transition-all duration-300 group">
           <div>
             <div class="px-5 pt-4 pb-3 flex items-center justify-between border-b dark:border-gray-100 border-[#21262d]">
-              <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest font-semibold">Computer Vision · RViz</span>
-              <a href="https://github.com/Mjakinin/camera-rig-calibration"
-                 target="_blank" rel="noopener noreferrer"
-                 class="text-xs font-medium text-blue-400 hover:text-blue-300 hover:underline transition-colors flex items-center gap-1">
-                GitHub →
-              </a>
+              <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider font-semibold">Computer Vision</span>
+              <a href="https://github.com/Mjakinin/camera-rig-calibration" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-blue-400 hover:underline flex items-center gap-1">GitHub →</a>
             </div>
             <div class="p-5">
-              <p class="!my-1 text-lg font-bold !leading-snug dark:text-gray-900 text-white">
+              <h3 class="text-base sm:text-lg font-bold dark:text-gray-900 text-white !my-0 !before:content-none group-hover:text-cyan-400 transition-colors">
                 rigcal — Camera Rig Calibration
-              </p>
-              <p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400">
-                Extrinsic calibration system for distributed static camera rigs using a single moving calibration camera. Features reproducible simulation and real-world workflows, reprojection error minimization, and interactive 3D inspection in RViz.
+              </h3>
+              <p class="text-xs sm:text-sm dark:text-gray-600 text-gray-400 mt-2.5 leading-relaxed font-sans">
+                Extrinsic calibration for distributed static camera rigs with a single moving camera. Simulation workflows and RViz inspection.
               </p>
             </div>
           </div>
-          <div class="px-5 pb-4">
-            <div class="flex gap-2 flex-wrap pt-2 border-t dark:border-gray-200 border-[#21262d]">
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-cyan-50 dark:text-cyan-700 bg-[#1f2937] text-cyan-300 font-medium border dark:border-cyan-200 border-cyan-900">Python</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-cyan-50 dark:text-cyan-700 bg-[#1f2937] text-cyan-300 font-medium border dark:border-cyan-200 border-cyan-900">ROS / RViz</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-cyan-50 dark:text-cyan-700 bg-[#1f2937] text-cyan-300 font-medium border dark:border-cyan-200 border-cyan-900">Multi-Camera</span>
-            </div>
+          <div class="px-5 pb-4 pt-2 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Python</span>
+            <span class="px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">ROS 2</span>
+            <span class="px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">RViz</span>
           </div>
         </div>
 
         <!-- 3. ROS2 Robotics Playground -->
-        <div class="border dark:border-gray-200 border-[#30363d] rounded-xl overflow-hidden hover:border-blue-500 hover:scale-[1.01] transition-all duration-300 dark:bg-white bg-[#0d1117] shadow-sm flex flex-col justify-between">
+        <div class="rounded-2xl border dark:border-gray-200 border-[#30363d] overflow-hidden dark:bg-white bg-[#0d1117] shadow-sm flex flex-col justify-between hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 hover:scale-[1.01] transition-all duration-300 group">
           <div>
             <div class="px-5 pt-4 pb-3 flex items-center justify-between border-b dark:border-gray-100 border-[#21262d]">
-              <span class="text-xs font-mono text-green-400 uppercase tracking-widest font-semibold">ROS 2 Middleware</span>
-              <a href="https://github.com/Mjakinin/ros2-robotics-playground"
-                 target="_blank" rel="noopener noreferrer"
-                 class="text-xs font-medium text-blue-400 hover:text-blue-300 hover:underline transition-colors flex items-center gap-1">
-                GitHub →
-              </a>
+              <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider font-semibold">ROS 2 Middleware</span>
+              <a href="https://github.com/Mjakinin/ros2-robotics-playground" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-blue-400 hover:underline flex items-center gap-1">GitHub →</a>
             </div>
             <div class="p-5">
-              <p class="!my-1 text-lg font-bold !leading-snug dark:text-gray-900 text-white">
+              <h3 class="text-base sm:text-lg font-bold dark:text-gray-900 text-white !my-0 !before:content-none group-hover:text-emerald-400 transition-colors">
                 ros2-robotics-playground
-              </p>
-              <p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400">
-                Practical robotics development in ROS 2 on Ubuntu 24.04. Custom packages including autonomous controllers (<code class="text-xs font-mono">auto_turtle</code>), pub/sub communications, service clients, and modular launch architecture.
+              </h3>
+              <p class="text-xs sm:text-sm dark:text-gray-600 text-gray-400 mt-2.5 leading-relaxed font-sans">
+                Hands-on robotics packages in ROS 2 on Ubuntu 24.04: custom controllers (<code class="text-xs font-mono bg-black/40 px-1 py-0.5 rounded">auto_turtle</code>), pub/sub topologies, and actions.
               </p>
             </div>
           </div>
-          <div class="px-5 pb-4">
-            <div class="flex gap-2 flex-wrap pt-2 border-t dark:border-gray-200 border-[#21262d]">
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-green-50 dark:text-green-700 bg-[#1f2937] text-green-300 font-medium border dark:border-green-200 border-green-900">ROS 2</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-green-50 dark:text-green-700 bg-[#1f2937] text-green-300 font-medium border dark:border-green-200 border-green-900">Python</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-green-50 dark:text-green-700 bg-[#1f2937] text-green-300 font-medium border dark:border-green-200 border-green-900">Navigation</span>
-            </div>
+          <div class="px-5 pb-4 pt-2 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">ROS 2</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Python</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Control Nodes</span>
           </div>
         </div>
 
-        <!-- 4. Bachelor Thesis: Akari Solver -->
-        <div class="border border-blue-500/40 rounded-xl overflow-hidden hover:border-blue-400 hover:scale-[1.01] transition-all duration-300 dark:bg-white bg-[#0d1117] shadow-sm flex flex-col justify-between">
+        <!-- 4. Bachelor Thesis: Akari Solver (BA 1.7) -->
+        <div class="rounded-2xl border border-blue-500/40 overflow-hidden dark:bg-white bg-[#0d1117] shadow-sm flex flex-col justify-between hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 hover:scale-[1.01] transition-all duration-300 group">
           <div>
             <div class="bg-blue-500/10 px-5 pt-4 pb-3 flex items-center justify-between border-b border-blue-500/20">
-              <span class="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">Bachelor Thesis · TU Berlin (1.7)</span>
+              <span class="text-xs font-mono text-blue-400 uppercase tracking-wider font-semibold">Thesis · 1.7</span>
               <div class="flex items-center gap-2">
-                <a href="https://doc.neuro.tu-berlin.de/bachelor/2025-BA-MaximMjakinin.pdf"
-                   target="_blank" rel="noopener noreferrer"
-                   class="text-xs font-medium text-blue-400 hover:text-blue-300 hover:underline transition-colors">PDF</a>
-                <a href="https://github.com/Mjakinin/bachelor-thesis-akari"
-                   target="_blank" rel="noopener noreferrer"
-                   class="text-xs font-medium text-blue-400 hover:text-blue-300 hover:underline transition-colors flex items-center gap-1">
-                  GitHub →
-                </a>
+                <a href="https://doc.neuro.tu-berlin.de/bachelor/2025-BA-MaximMjakinin.pdf" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-blue-400 hover:underline">PDF ↗</a>
+                <a href="https://github.com/Mjakinin/bachelor-thesis-akari" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-blue-400 hover:underline">GitHub →</a>
               </div>
             </div>
             <div class="p-5">
-              <p class="!my-1 text-lg font-bold !leading-snug dark:text-gray-900 text-white">
+              <h3 class="text-base sm:text-lg font-bold dark:text-gray-900 text-white !my-0 !before:content-none group-hover:text-blue-400 transition-colors">
                 Akari Combinatorial Solver
-              </p>
-              <p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400">
-                Comparative research on deductive search, Ant Colony Optimization (ACO), and SAT-based solvers for the NP-complete Akari puzzle. Analyzed combinatorial search spaces and metaheuristics for autonomous problem-solving.
+              </h3>
+              <p class="text-xs sm:text-sm dark:text-gray-600 text-gray-400 mt-2.5 leading-relaxed font-sans">
+                Comparative research on deductive search heuristics, Ant Colony Optimization (ACO), and SAT solvers for the NP-complete Akari puzzle.
               </p>
             </div>
           </div>
-          <div class="px-5 pb-4">
-            <div class="flex gap-2 flex-wrap pt-2 border-t dark:border-gray-200 border-[#21262d]">
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-[#1f2937] text-blue-300 font-medium border dark:border-blue-200 border-blue-900">C++</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-[#1f2937] text-blue-300 font-medium border dark:border-blue-200 border-blue-900">Optimization</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-[#1f2937] text-blue-300 font-medium border dark:border-blue-200 border-blue-900">SAT Solving</span>
-            </div>
+          <div class="px-5 pb-4 pt-2 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">C++</span>
+            <span class="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">ACO</span>
+            <span class="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">SAT Solving</span>
           </div>
         </div>
 
         <!-- 5. SimpleCNN Ziffernerkennung -->
-        <div class="border dark:border-gray-200 border-[#30363d] rounded-xl overflow-hidden hover:border-blue-500 hover:scale-[1.01] transition-all duration-300 dark:bg-white bg-[#0d1117] shadow-sm flex flex-col justify-between">
+        <div class="rounded-2xl border dark:border-gray-200 border-[#30363d] overflow-hidden dark:bg-white bg-[#0d1117] shadow-sm flex flex-col justify-between hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10 hover:scale-[1.01] transition-all duration-300 group">
           <div>
             <div class="px-5 pt-4 pb-3 flex items-center justify-between border-b dark:border-gray-100 border-[#21262d]">
-              <span class="text-xs font-mono text-purple-400 uppercase tracking-widest font-semibold">Deep Learning & Vision</span>
-              <a href="https://github.com/Mjakinin/SimpleCNN-Ziffernerkennung"
-                 target="_blank" rel="noopener noreferrer"
-                 class="text-xs font-medium text-blue-400 hover:text-blue-300 hover:underline transition-colors flex items-center gap-1">
-                GitHub →
-              </a>
+              <span class="text-xs font-mono text-purple-400 uppercase tracking-wider font-semibold">Deep Learning</span>
+              <a href="https://github.com/Mjakinin/SimpleCNN-Ziffernerkennung" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-blue-400 hover:underline flex items-center gap-1">GitHub →</a>
             </div>
             <div class="p-5">
-              <p class="!my-1 text-lg font-bold !leading-snug dark:text-gray-900 text-white">
+              <h3 class="text-base sm:text-lg font-bold dark:text-gray-900 text-white !my-0 !before:content-none group-hover:text-purple-400 transition-colors">
                 SimpleCNN Ziffernerkennung
-              </p>
-              <p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400">
-                Convolutional Neural Network built from scratch for visual digit recognition. Implements 2D convolution kernels, activation functions, pooling, and backpropagation for visual perception.
+              </h3>
+              <p class="text-xs sm:text-sm dark:text-gray-600 text-gray-400 mt-2.5 leading-relaxed font-sans">
+                Convolutional Neural Network from scratch for handwritten digit perception: 2D convolution kernels, pooling, and backpropagation.
               </p>
             </div>
           </div>
-          <div class="px-5 pb-4">
-            <div class="flex gap-2 flex-wrap pt-2 border-t dark:border-gray-200 border-[#21262d]">
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-purple-50 dark:text-purple-700 bg-[#1f2937] text-purple-300 font-medium border dark:border-purple-200 border-purple-900">Python</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-purple-50 dark:text-purple-700 bg-[#1f2937] text-purple-300 font-medium border dark:border-purple-200 border-purple-900">CNN</span>
-              <span class="text-xs px-2.5 py-1 rounded-full dark:bg-purple-50 dark:text-purple-700 bg-[#1f2937] text-purple-300 font-medium border dark:border-purple-200 border-purple-900">Computer Vision</span>
-            </div>
+          <div class="px-5 pb-4 pt-2 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Python</span>
+            <span class="px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">CNNs</span>
+            <span class="px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Vision</span>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- CERTIFICATES SECTION -->
-    <div class="mt-16">
+    <!-- CERTIFICATES & SPECIALIZATIONS -->
+    <div id="certificates" class="mt-20 scroll-mt-24">
       <div class="flex items-center gap-3 mb-6">
         <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
-        <h2 class="!my-0 !text-xl md:!text-2xl font-bold">Verified Certificates & Specializations</h2>
+        <h2 class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0 !before:content-none">
+          Verified Certificates & Specializations
+        </h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- Modern Robotics Specialization -->
-        <a href="https://coursera.org/share/965d45eb7ea0ef149ed67ba07228e0fb"
-           target="_blank" rel="noopener noreferrer"
-           class="border border-blue-500/40 rounded-xl overflow-hidden hover:border-blue-400 hover:scale-[1.01] transition-all duration-300 dark:bg-white bg-[#0d1117] shadow-sm block group relative">
-          <div class="h-48 overflow-hidden relative bg-black/40">
+        <!-- Modern Robotics Specialization (Northwestern University) -->
+        <a
+          href="https://coursera.org/share/965d45eb7ea0ef149ed67ba07228e0fb"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border border-blue-500/40 rounded-2xl overflow-hidden hover:border-blue-400 hover:shadow-xl hover:shadow-blue-500/10 hover:scale-[1.01] transition-all duration-300 dark:bg-white bg-[#0d1117] shadow-sm block group relative"
+        >
+          <div class="h-52 overflow-hidden relative bg-black/40">
             <img
               src="/cert/mr1.png"
               alt="Modern Robotics Specialization Certificate"
               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-            <div class="absolute top-3 left-3 flex items-center gap-2 bg-black/60 backdrop-blur-md rounded-lg px-2.5 py-1.5 border border-white/10">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+            <div class="absolute top-3 left-3 flex items-center gap-2 bg-black/70 backdrop-blur-md rounded-lg px-2.5 py-1.5 border border-white/10">
               <img src="/icons/northwestern.svg" alt="Northwestern University" class="w-4 h-5 object-contain" />
               <span class="text-xs text-white font-medium">Northwestern University</span>
             </div>
             <div class="absolute top-3 right-3">
-              <span class="text-xs px-2.5 py-1 rounded-full bg-blue-600 text-white font-semibold shadow-md flex items-center gap-1">
+              <span class="text-xs px-2.5 py-1 rounded-full bg-blue-600 text-white font-semibold shadow-md flex items-center gap-1 font-mono">
                 <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                Specialization Completed
+                Verified Specialization
               </span>
             </div>
           </div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">Coursera · Prof. Kevin Lynch</span>
+              <span class="text-xs font-mono text-blue-400 uppercase tracking-wider font-semibold">Coursera · Prof. Kevin Lynch</span>
               <span class="text-xs text-blue-400 group-hover:underline font-mono">Verify Credential ↗</span>
             </div>
-            <h3 class="!my-1 text-lg sm:text-xl font-bold dark:text-gray-900 text-white group-hover:text-blue-400 transition-colors">
+            <h3 class="text-lg sm:text-xl font-bold dark:text-gray-900 text-white group-hover:text-blue-400 transition-colors !my-0 !before:content-none">
               Modern Robotics: Mechanics, Planning, and Control Specialization
             </h3>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-700 text-gray-300">
-              Rigorous 6-course specialization covering spatial motion representations, modern screw theory, the Product of Exponentials (PoE) formula, forward & numerical inverse kinematics, open/closed chain dynamics (Euler-Lagrange and Newton-Euler algorithms), motion planning, and mobile manipulation control.
+            <p class="text-sm dark:text-gray-700 text-gray-300 mt-2.5 leading-relaxed font-sans">
+              Rigorous 6-course specialization covering spatial motion representations, modern screw theory, the Product of Exponentials (PoE) formula, forward & numerical inverse kinematics, manipulator dynamics, and mobile manipulation control.
             </p>
-            <div class="mt-4 pt-3 border-t dark:border-gray-200 border-[#21262d] flex flex-wrap gap-2">
-              <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-400 font-medium">Kinematics & Dynamics</span>
-              <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-400 font-medium">Screw Theory (PoE)</span>
-              <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-400 font-medium">Motion Planning & Control</span>
-              <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-400 font-medium">6 Courses</span>
+            <div class="mt-4 pt-3 border-t dark:border-gray-200 border-[#21262d] flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-2.5 py-0.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-400 font-medium">Kinematics & Dynamics</span>
+              <span class="px-2.5 py-0.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-400 font-medium">Screw Theory (PoE)</span>
+              <span class="px-2.5 py-0.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-400 font-medium">6 Courses Completed</span>
             </div>
           </div>
         </a>
 
         <!-- Siemens Basics of Robotics -->
-        <a href="https://www.coursera.org/account/accomplishments/records/V1ZU9ZULG1ER"
-           target="_blank" rel="noopener noreferrer"
-           class="border dark:border-gray-200 border-[#30363d] rounded-xl overflow-hidden hover:border-blue-500 hover:scale-[1.01] transition-all duration-300 dark:bg-white bg-[#0d1117] shadow-sm block group relative">
-          <div class="h-48 overflow-hidden relative bg-black/40">
+        <a
+          href="https://www.coursera.org/account/accomplishments/records/V1ZU9ZULG1ER"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border dark:border-gray-200 border-[#30363d] rounded-2xl overflow-hidden hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 hover:scale-[1.01] transition-all duration-300 dark:bg-white bg-[#0d1117] shadow-sm block group relative"
+        >
+          <div class="h-52 overflow-hidden relative bg-black/40">
             <img
               src="/cert/basicofrobotics.png"
               alt="Siemens Basics of Robotics Certificate"
               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-            <div class="absolute top-3 left-3 flex items-center gap-2 bg-white/90 backdrop-blur-md rounded-lg px-2.5 py-1.5 border border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+            <div class="absolute top-3 left-3 flex items-center gap-2 bg-white/95 backdrop-blur-md rounded-lg px-2.5 py-1.5 border border-white/20">
               <img src="/icons/siemens.svg" alt="Siemens" class="h-4 w-auto object-contain" />
             </div>
             <div class="absolute top-3 right-3">
-              <span class="text-xs px-2.5 py-1 rounded-full bg-blue-600 text-white font-semibold shadow-md flex items-center gap-1">
-                <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-blue-600 text-white font-semibold shadow-md flex items-center gap-1 font-mono">
+                <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 Course Completed
               </span>
             </div>
           </div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest font-semibold">Coursera · Siemens</span>
+              <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider font-semibold">Coursera · Siemens</span>
               <span class="text-xs text-blue-400 group-hover:underline font-mono">Verify Credential ↗</span>
             </div>
-            <h3 class="!my-1 text-lg sm:text-xl font-bold dark:text-gray-900 text-white group-hover:text-blue-400 transition-colors">
+            <h3 class="text-lg sm:text-xl font-bold dark:text-gray-900 text-white group-hover:text-blue-400 transition-colors !my-0 !before:content-none">
               Basics of Robotics
             </h3>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-700 text-gray-300">
-              Comprehensive overview of industrial robotics, mechanical and electrical robot components, kinematics, motion interpolation (PTP, CP, CIRC), drive systems, end effectors, human-robot collaboration (HRC), and safety compliance under ISO 10218 and the EU Machinery Directive.
+            <p class="text-sm dark:text-gray-700 text-gray-300 mt-2.5 leading-relaxed font-sans">
+              Industrial robotics components, kinematics, motion interpolation (PTP, CP, CIRC), drive systems, end effectors, human-robot collaboration (HRC), and safety compliance under ISO 10218 and the EU Machinery Directive.
             </p>
-            <div class="mt-4 pt-3 border-t dark:border-gray-200 border-[#21262d] flex flex-wrap gap-2">
-              <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-400 font-medium">Industrial Robotics</span>
-              <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-400 font-medium">Motion Strategies (PTP/CP)</span>
-              <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-400 font-medium">ISO 10218 Safety</span>
-              <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-400 font-medium">Automation</span>
+            <div class="mt-4 pt-3 border-t dark:border-gray-200 border-[#21262d] flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-2.5 py-0.5 rounded-full dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-400 font-medium">Industrial Robotics</span>
+              <span class="px-2.5 py-0.5 rounded-full dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-400 font-medium">Motion Strategies (PTP/CP)</span>
+              <span class="px-2.5 py-0.5 rounded-full dark:bg-cyan-50 dark:text-cyan-700 bg-cyan-500/10 text-cyan-400 font-medium">ISO 10218 Safety</span>
             </div>
           </div>
         </a>
@@ -290,39 +304,39 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <!-- CURRENT STUDIES & COURSEWORK (TU MUNICH - TUM EI) -->
-    <div class="mt-16">
+    <div id="coursework" class="mt-20 scroll-mt-24">
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-3">
           <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
-          <h2 class="!my-0 !text-xl md:!text-2xl font-bold flex items-center gap-2">
+          <h2 class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0 !before:content-none">
             Academic Focus & Coursework · TU Munich (TUM)
           </h2>
         </div>
         <div class="hidden sm:flex items-center gap-2 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
-          <img src="/icons/tum.svg" alt="TUM" class="w-5 h-auto object-contain" />
+          <img src="/icons/tum.svg" alt="TUM" class="w-4 h-auto object-contain" />
           <span class="text-xs font-mono text-blue-400 font-semibold">TUM Department of EI</span>
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-        <!-- 1. Technik autonomer Systeme (lowercase 'a') -->
+        <!-- 1. Technik autonomer Systeme -->
         <div class="border dark:border-gray-200 border-[#30363d] rounded-xl p-5 dark:bg-white bg-[#0d1117] shadow-sm flex flex-col justify-between hover:border-blue-500 transition-colors">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">TUM · Module</span>
               <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold">Active</span>
             </div>
-            <p class="!my-1 font-bold text-base sm:text-lg !leading-snug dark:text-gray-900 text-white">
+            <p class="font-bold text-base sm:text-lg dark:text-gray-900 text-white !my-1">
               Technik autonomer Systeme
             </p>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400">
+            <p class="text-sm dark:text-gray-600 text-gray-400 mt-2 leading-relaxed">
               System architecture, sensor fusion, localization, state estimation, path planning algorithms, and decision-making pipelines for autonomous mobile systems.
             </p>
           </div>
-          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5">
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Sensor Fusion</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Path Planning</span>
+          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Sensor Fusion</span>
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Path Planning</span>
           </div>
         </div>
 
@@ -333,16 +347,16 @@ import Layout from "../layouts/Layout.astro";
               <span class="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">TUM · Core Robotics</span>
               <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold">Active</span>
             </div>
-            <p class="!my-1 font-bold text-base sm:text-lg !leading-snug dark:text-gray-900 text-white">
+            <p class="font-bold text-base sm:text-lg dark:text-gray-900 text-white !my-1">
               Foundations of Modern Robotics
             </p>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400">
+            <p class="text-sm dark:text-gray-600 text-gray-400 mt-2 leading-relaxed">
               Spatial kinematics, screw theory, Product of Exponentials (PoE), numerical inverse kinematics, manipulator dynamics, and motion control.
             </p>
           </div>
-          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5">
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Screw Theory</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Kinematics & Dynamics</span>
+          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Screw Theory</span>
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Kinematics & Dynamics</span>
           </div>
         </div>
 
@@ -353,16 +367,16 @@ import Layout from "../layouts/Layout.astro";
               <span class="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">TUM · Automation</span>
               <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold">Active</span>
             </div>
-            <p class="!my-1 font-bold text-base sm:text-lg !leading-snug dark:text-gray-900 text-white">
+            <p class="font-bold text-base sm:text-lg dark:text-gray-900 text-white !my-1">
               Automatisierungstechnik 1
             </p>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400">
+            <p class="text-sm dark:text-gray-600 text-gray-400 mt-2 leading-relaxed">
               Control loops, discrete-event systems, PLC/SPS architectures, sensor/actuator integration, and industrial process automation.
             </p>
           </div>
-          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5">
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Control Loops</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Automation Systems</span>
+          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Control Loops</span>
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Process Automation</span>
           </div>
         </div>
 
@@ -373,16 +387,16 @@ import Layout from "../layouts/Layout.astro";
               <span class="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">TUM · Control Theory</span>
               <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold">Active</span>
             </div>
-            <p class="!my-1 font-bold text-base sm:text-lg !leading-snug dark:text-gray-900 text-white">
+            <p class="font-bold text-base sm:text-lg dark:text-gray-900 text-white !my-1">
               Nichtlineare Regelungssysteme
             </p>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400">
+            <p class="text-sm dark:text-gray-600 text-gray-400 mt-2 leading-relaxed">
               Phase plane analysis, Lyapunov stability theory, feedback linearization, sliding-mode control, and nonlinear system dynamics modeling.
             </p>
           </div>
-          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5">
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Lyapunov Stability</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Linearization</span>
+          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Lyapunov Stability</span>
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Linearization</span>
           </div>
         </div>
 
@@ -393,16 +407,16 @@ import Layout from "../layouts/Layout.astro";
               <span class="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">TUM · Optimization</span>
               <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold">Active</span>
             </div>
-            <p class="!my-1 font-bold text-base sm:text-lg !leading-snug dark:text-gray-900 text-white">
+            <p class="font-bold text-base sm:text-lg dark:text-gray-900 text-white !my-1">
               Optimal Control & Decision Making
             </p>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400">
+            <p class="text-sm dark:text-gray-600 text-gray-400 mt-2 leading-relaxed">
               Dynamic programming, Pontryagin's maximum principle, LQR formulation, Model Predictive Control (MPC), and numerical trajectory optimization.
             </p>
           </div>
-          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5">
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">MPC</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Trajectory Optimization</span>
+          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">MPC</span>
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Trajectory Opt</span>
           </div>
         </div>
 
@@ -413,16 +427,16 @@ import Layout from "../layouts/Layout.astro";
               <span class="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">TUM · AI & Math</span>
               <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold">Active</span>
             </div>
-            <p class="!my-1 font-bold text-base sm:text-lg !leading-snug dark:text-gray-900 text-white">
+            <p class="font-bold text-base sm:text-lg dark:text-gray-900 text-white !my-1">
               Machine Learning & Optimization
             </p>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400">
+            <p class="text-sm dark:text-gray-600 text-gray-400 mt-2 leading-relaxed">
               Convex optimization formulations, gradient descent methods, loss function topography, and deep neural network training pipelines.
             </p>
           </div>
-          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5">
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Optimization</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Deep Learning</span>
+          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Optimization</span>
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Deep Learning</span>
           </div>
         </div>
 
@@ -433,16 +447,16 @@ import Layout from "../layouts/Layout.astro";
               <span class="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">Robotics Institute Germany</span>
               <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold">Seminar</span>
             </div>
-            <p class="!my-1 font-bold text-base sm:text-lg !leading-snug dark:text-gray-900 text-white">
+            <p class="font-bold text-base sm:text-lg dark:text-gray-900 text-white !my-1">
               RIG Research Lecture Series
             </p>
-            <p class="!my-2 text-sm !leading-relaxed dark:text-gray-600 text-gray-400">
+            <p class="text-sm dark:text-gray-600 text-gray-400 mt-2 leading-relaxed">
               Frontier research presentations across German robotics excellence: humanoid robots, embodied AI, foundation models for robotics, and industrial manipulation.
             </p>
           </div>
-          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5">
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Embodied AI</span>
-            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Humanoids</span>
+          <div class="pt-3 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Embodied AI</span>
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Humanoids</span>
           </div>
         </div>
 
@@ -450,18 +464,22 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <!-- ALL REPOSITORIES (CLEAN CARDS WITHOUT DESCRIPTIONS) -->
-    <div class="mt-16 mb-16">
-      <div class="flex items-center justify-between mb-4">
+    <div id="all-repos" class="mt-20 scroll-mt-24 mb-16">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         <div class="flex items-center gap-3">
           <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
-          <h2 class="!my-0 !text-xl md:!text-2xl font-bold">
+          <h2 class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0 !before:content-none">
             All Repositories
           </h2>
         </div>
-        <span class="text-xs text-gray-400 font-mono">Live via GitHub API</span>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-xs text-gray-400 font-mono">Live via GitHub API · Clean View</span>
+        </div>
       </div>
 
-      <div id="all-repos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 mt-4">
+      <div id="repos-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 mt-4">
+        <!-- Skeleton Loaders -->
         <div class="skeleton-card border dark:border-gray-200 border-[#30363d] rounded-xl p-4 dark:bg-white bg-[#0d1117] animate-pulse">
           <div class="h-4 dark:bg-gray-200 bg-gray-800 rounded w-3/4 mb-3"></div>
           <div class="h-3 dark:bg-gray-200 bg-gray-800 rounded w-1/2"></div>
@@ -481,46 +499,54 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
 
-    <script src="../js/themeHandler.js"></script>
-    <script src="../js/pageHandler.js"></script>
-
+    <!-- SCRIPT: FETCH GITHUB REPOSITORIES -->
     <script is:inline>
       const featured = [
         "modern-robotics-solution",
         "camera-rig-calibration",
         "ros2-robotics-playground",
         "bachelor-thesis-akari",
-        "SimpleCNN-Ziffernerkennung",
-        "Mjakinin"
+        "SimpleCNN-Ziffernerkennung"
       ];
 
       const langColors = {
-        Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6",
-        C: "#555555", "C++": "#f34b7d", Rust: "#dea584",
-        Go: "#00ADD8", Java: "#b07219", HTML: "#e34c26", CSS: "#563d7c",
-        VHDL: "#adb2b8", Assembly: "#6E4C13", Haskell: "#5e5086"
+        Python: "#3572A5",
+        "C++": "#f34b7d",
+        C: "#555555",
+        TypeScript: "#3178c6",
+        JavaScript: "#f1e05a",
+        Go: "#00ADD8",
+        Java: "#b07219",
+        HTML: "#e34c26",
+        CSS: "#563d7c",
+        VHDL: "#adb2b8",
+        Assembly: "#6E4C13",
+        Haskell: "#5e5086"
       };
 
       fetch("https://api.github.com/users/Mjakinin/repos?sort=updated&per_page=100")
-        .then(r => r.json())
-        .then(repos => {
-          const container = document.getElementById("all-repos");
-          container.querySelectorAll(".skeleton-card").forEach(el => el.remove());
-          const rest = repos.filter(r => !featured.includes(r.name) && !r.fork);
+        .then((r) => r.json())
+        .then((repos) => {
+          const container = document.getElementById("repos-container");
+          if (!container) return;
+          container.querySelectorAll(".skeleton-card").forEach((el) => el.remove());
+          const rest = repos.filter((r) => !featured.includes(r.name) && !r.fork);
 
           if (rest.length === 0) {
             container.innerHTML = `<p class="text-sm dark:text-gray-400 text-gray-500 col-span-4">No additional repositories found.</p>`;
             return;
           }
 
-          rest.forEach(repo => {
+          rest.forEach((repo) => {
             const color = langColors[repo.language] || "#8b949e";
             const lang = repo.language
-              ? `<div class="flex items-center gap-1.5"><span style="background:${color}" class="w-2.5 h-2.5 rounded-full inline-block"></span><span class="text-xs dark:text-gray-600 text-gray-400 font-mono">${repo.language}</span></div>`
+              ? `<div class="flex items-center gap-1.5"><span style="background:${color}" class="w-2 h-2 rounded-full inline-block"></span><span class="text-xs dark:text-gray-600 text-gray-400 font-mono">${repo.language}</span></div>`
               : `<span class="text-xs text-gray-500 font-mono italic">Code</span>`;
-            const stars = repo.stargazers_count > 0
-              ? `<div class="flex items-center gap-1 text-xs dark:text-gray-600 text-gray-400"><svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>${repo.stargazers_count}</div>`
-              : "";
+            const stars =
+              repo.stargazers_count > 0
+                ? `<div class="flex items-center gap-1 text-xs dark:text-gray-600 text-gray-400 font-mono"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>${repo.stargazers_count}</div>`
+                : "";
+
             container.innerHTML += `
               <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
                 class="border dark:border-gray-200 border-[#30363d] rounded-xl p-3.5 dark:bg-white bg-[#0d1117] hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 shadow-sm flex flex-col justify-between group">
@@ -536,11 +562,23 @@ import Layout from "../layouts/Layout.astro";
           });
         })
         .catch(() => {
-          const container = document.getElementById("all-repos");
-          container.querySelectorAll(".skeleton-card").forEach(el => el.remove());
-          container.innerHTML = `<p class="text-sm dark:text-gray-400 text-gray-500 col-span-4">Could not load repositories.</p>`;
+          const container = document.getElementById("repos-container");
+          if (container) {
+            container.querySelectorAll(".skeleton-card").forEach((el) => el.remove());
+            container.innerHTML = `<p class="text-sm dark:text-gray-400 text-gray-500 col-span-4">Failed to fetch repositories.</p>`;
+          }
         });
     </script>
-
   </div>
 </Layout>
+
+<style>
+  .projects-container h1::before,
+  .projects-container h2::before,
+  .projects-container h3::before,
+  .projects-container h4::before {
+    content: none !important;
+    display: none !important;
+    margin-right: 0 !important;
+  }
+</style>

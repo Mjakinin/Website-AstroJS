@@ -2,287 +2,545 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Maxim - About Me" description="About Maxim Mjakinin — M.Sc. in Automation & Robotics at TU Munich (TUM), B.Sc. in Computer Engineering from TU Berlin.">
-  <div class="layout">
+<Layout
+  title="About Maxim Mjakinin — Automation & Robotics"
+  description="About Maxim Mjakinin — M.Sc. in Automation & Robotics at TU Munich (TUM), B.Sc. in Computer Engineering from TU Berlin. Focus on spatial kinematics, ROS 2, and autonomous systems."
+>
+  <div class="layout about-container max-w-5xl mx-auto pb-20">
 
-    <!-- HEADER & LANG TOGGLE -->
-    <div class="flex items-baseline justify-between -mt-20 md:mt-0 mb-4">
+    <!-- PAGE HERO & LANGUAGE TOGGLE -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 pb-8 border-b dark:border-gray-200 border-[#21262d]">
       <div>
-        <h1 id="h1" class="transition-transform duration-300 transform hover:scale-[1.01] !mb-1">
-          About Me
-        </h1>
-        <p class="text-sm sm:text-base dark:text-gray-600 text-gray-400 font-mono">
-          Robotics · Autonomous Systems · Control Theory
-        </p>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-400 border dark:border-blue-200 border-blue-500/20 mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+          <span>Munich, Germany · TU Munich (TUM)</span>
+        </div>
+
+        <!-- Clean Title without CSS '#' injection -->
+        <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white dark:text-gray-900 !my-0" id="h1">
+          About <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-sky-400">Maxim Mjakinin</span>
+        </div>
+
+        <!-- Clean Subtitle without CSS 'first-letter' drop-cap bug -->
+        <div class="text-sm sm:text-base dark:text-gray-400 text-gray-400 font-mono mt-2" id="hero-sub">
+          M.Sc. Student in Automation & Robotics · Robotics Software & Control
+        </div>
       </div>
-      <button
-        id="lang-toggle"
-        onclick="toggleLang()"
-        class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold border dark:border-gray-300 border-gray-700 dark:text-gray-800 text-gray-200 hover:border-blue-500 hover:text-blue-400 dark:hover:border-blue-600 dark:hover:text-blue-600 transition-all duration-300 shrink-0 ml-4 shadow-sm"
-      >
-        DE
-      </button>
+
+      <!-- Language Switcher Pill -->
+      <div class="flex items-center gap-2 self-start sm:self-center">
+        <span class="text-xs font-mono dark:text-gray-500 text-gray-400">Language:</span>
+        <button
+          id="lang-toggle"
+          onclick="toggleLang()"
+          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold border dark:border-gray-300 border-white/10 dark:bg-white bg-[#161b22] dark:text-gray-800 text-white hover:border-blue-500 hover:text-blue-400 dark:hover:border-blue-600 dark:hover:text-blue-600 transition-all duration-300 shadow-sm"
+          title="Switch between English and Deutsch"
+        >
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="lang-label">DE</span>
+        </button>
+      </div>
     </div>
 
-    <!-- INTRO PARAGRAPHS -->
-    <div class="mt-6 space-y-4">
-      <p data-i18n="p1" class="text-base sm:text-lg dark:text-gray-800 text-gray-200 leading-relaxed max-w-3xl"></p>
-      <p data-i18n="p2" class="text-base sm:text-lg dark:text-gray-700 text-gray-300 leading-relaxed max-w-3xl"></p>
+    <!-- 2-COLUMN INTRO & CORE FOCUS -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-10">
+
+      <!-- Left Column: Biography Narrative -->
+      <div class="lg:col-span-7 flex flex-col justify-between space-y-4">
+        <div class="space-y-4">
+          <p data-i18n="p1" class="text-base sm:text-lg dark:text-gray-800 text-gray-200 leading-relaxed font-sans !my-0" style="line-height: 1.8; text-align: left; -webkit-hyphens: none; hyphens: none;"></p>
+          <p data-i18n="p2" class="text-base sm:text-lg dark:text-gray-700 text-gray-300 leading-relaxed font-sans !my-0" style="line-height: 1.8; text-align: left; -webkit-hyphens: none; hyphens: none;"></p>
+        </div>
+
+        <div class="pt-4 flex flex-wrap items-center gap-3">
+          <a
+            href="https://www.linkedin.com/in/maximmjakin/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 transform hover:scale-105 flex items-center gap-2 shadow-md shadow-blue-500/20"
+          >
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <span>LinkedIn Profile</span>
+          </a>
+          <a
+            href="https://github.com/Mjakinin"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border dark:border-gray-300 border-white/10 dark:text-gray-800 text-gray-200 hover:border-gray-400 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+          >
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+            <span>GitHub Repos</span>
+          </a>
+          <a
+            href="mailto:maxim.mjakinin@gmail.com"
+            class="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+          >
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>Email Me</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Engineering Focus Matrix (No redundant degrees) -->
+      <div class="lg:col-span-5">
+        <div class="p-6 rounded-2xl border dark:border-gray-200 border-blue-500/20 dark:bg-white bg-[#0d1117] shadow-lg relative overflow-hidden backdrop-blur-md">
+          <div class="absolute -right-12 -top-12 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="flex items-center justify-between pb-4 border-b dark:border-gray-100 border-[#21262d]">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span class="font-mono text-xs uppercase tracking-wider text-cyan-400 font-semibold">Specialization Areas</span>
+            </div>
+            <span class="text-xs font-mono dark:text-gray-500 text-gray-400">Munich, DE</span>
+          </div>
+
+          <div class="space-y-4 mt-5 text-sm">
+            <div>
+              <p class="font-mono text-xs text-blue-400 uppercase tracking-wide font-medium">Kinematics & Dynamics</p>
+              <p class="font-bold text-white dark:text-gray-900 mt-0.5">Spatial Screw Theory & PoE</p>
+              <p class="text-xs text-gray-400 dark:text-gray-600">Euler-Lagrange & Newton-Euler dynamics, numerical IK</p>
+            </div>
+
+            <div>
+              <p class="font-mono text-xs text-cyan-400 uppercase tracking-wide font-medium">Control Theory</p>
+              <p class="font-bold text-white dark:text-gray-900 mt-0.5">Nonlinear & Optimal Control</p>
+              <p class="text-xs text-gray-400 dark:text-gray-600">Lyapunov stability, Model Predictive Control (MPC)</p>
+            </div>
+
+            <div>
+              <p class="font-mono text-xs text-emerald-400 uppercase tracking-wide font-medium">Robotics Middleware</p>
+              <p class="font-bold text-white dark:text-gray-900 mt-0.5">ROS 2 Ecosystem</p>
+              <p class="text-xs text-gray-400 dark:text-gray-600">rclpy/rclcpp, action servers, RViz2, distributed nodes</p>
+            </div>
+
+            <div>
+              <p class="font-mono text-xs text-purple-400 uppercase tracking-wide font-medium">Perception & Vision</p>
+              <p class="font-bold text-white dark:text-gray-900 mt-0.5">Multi-Camera Calibration & CNNs</p>
+              <p class="text-xs text-gray-400 dark:text-gray-600">OpenCV, rigcal pipelines, sensor fusion, PyTorch</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- EDUCATION SECTION (WITH OFFICIAL TUM & TU BERLIN LOGOS) -->
-    <div class="mt-14">
-      <div class="flex items-center gap-3 mb-6">
+    <!-- ACADEMIC & ENGINEERING JOURNEY (TIMELINE / VERLAUF) -->
+    <div class="mt-20">
+      <div class="flex items-center gap-3 mb-10">
         <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
-        <h2 data-i18n="hEducation" class="text-left transition-transform duration-300 transform hover:scale-[1.01] !my-0">
-          Education & Academic Background
+        <h2 data-i18n="hEducation" class="text-2xl sm:text-3xl font-bold dark:text-gray-900 text-white !my-0">
+          Academic Journey & Milestones (Werdegang)
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Vertical Continuous Timeline with Generous Station Spacing -->
+      <div class="relative pl-6 sm:pl-10 border-l-2 dark:border-blue-200 border-blue-500/30 space-y-12">
 
-        <!-- 1. Technical University of Munich (TUM) -->
-        <div class="dark:bg-white bg-[#0d1117] border border-blue-500/40 rounded-2xl p-6 shadow-sm relative overflow-hidden flex flex-col justify-between hover:border-blue-400 hover:scale-[1.01] transition-all duration-300 group">
-          <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-500 rounded-l-2xl"></div>
-          <div>
-            <div class="flex items-start justify-between gap-4 mb-4">
-              <div class="flex items-center gap-3.5">
-                <div class="w-14 h-14 rounded-xl bg-blue-500/10 border border-blue-500/20 p-2.5 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <img src="/icons/tum.svg" alt="TUM Logo" class="w-full h-auto object-contain" />
-                </div>
-                <div>
-                  <h3 class="!my-0 text-lg sm:text-xl font-bold dark:text-gray-900 text-white">
-                    Technical University of Munich
-                  </h3>
-                  <p class="!my-0 text-xs font-mono text-blue-400 font-semibold tracking-wider uppercase">TUM · School of CIT / EI</p>
-                </div>
+        <!-- ================= STATION 1: TU MUNICH (CURRENT) ================= -->
+        <div class="relative group">
+          <!-- Timeline Glowing Node -->
+          <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border-4 dark:border-white border-[#0d1117] shadow-[0_0_14px_rgba(59,130,246,0.8)]"></div>
+
+          <div class="dark:bg-white bg-[#0d1117] border border-blue-500/40 rounded-2xl p-6 sm:p-8 shadow-sm hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 relative overflow-hidden">
+            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-500"></div>
+
+            <!-- Station Metadata Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/30">
+                  2024 – Present
+                </span>
+                <span class="text-xs font-mono dark:text-gray-500 text-gray-400">Munich, Germany</span>
               </div>
-              <span class="text-xs px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold shrink-0">
-                Current
+              <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold">
+                Active Master's Studies
               </span>
             </div>
 
-            <div class="mt-2">
-              <p class="!my-0 text-base font-semibold dark:text-blue-600 text-blue-400">
+            <!-- University Logo & Identity -->
+            <div class="flex items-center gap-3.5 mb-3">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 p-2 flex items-center justify-center shrink-0">
+                <img src="/icons/tum.svg" alt="TUM Logo" class="w-full h-auto object-contain" />
+              </div>
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0">
+                  Technical University of Munich (TUM)
+                </h3>
+                <p class="text-xs font-mono text-blue-400 uppercase tracking-wider font-medium !my-0">
+                  School of Computation, Information and Technology (CIT) · Dept. of EI
+                </p>
+              </div>
+            </div>
+
+            <!-- Degree & Specialization (Tightly bound together) -->
+            <div class="mt-4 pt-4 border-t dark:border-gray-100 border-[#21262d] space-y-1">
+              <div class="text-lg font-bold dark:text-blue-600 text-blue-400">
                 M.Sc. Electrical and Computer Engineering (EI)
-              </p>
-              <p class="!my-1 text-xs font-mono text-gray-400 uppercase tracking-wide">
-                Major in Automation & Robotics
-              </p>
-              <p data-i18n="tumDesc" class="!my-3 text-sm dark:text-gray-700 text-gray-300 leading-relaxed">
-                Specializing in Automation & Robotics, Autonomous Systems, Nonlinear Control, Optimal Decision Making, and Computer Vision.
-              </p>
+              </div>
+              <div class="text-sm font-mono text-cyan-300 font-semibold uppercase tracking-wide">
+                Specialization: Automation & Robotics
+              </div>
             </div>
-          </div>
 
-          <div class="pt-4 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-2">
-            <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-gray-100 dark:text-gray-700 bg-[#1f2937] text-gray-300 font-mono">Munich, Germany</span>
-            <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-400 font-medium">Master of Science</span>
-            <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-gray-100 dark:text-gray-700 bg-[#1f2937] text-gray-300 font-medium">Active</span>
+            <!-- Description -->
+            <p data-i18n="tumDesc" class="mt-3 text-sm sm:text-base dark:text-gray-700 text-gray-300 leading-relaxed font-sans" style="line-height: 1.75;">
+              Advanced graduate studies focused on <strong>spatial kinematics & dynamics (Screw Theory, PoE)</strong>, autonomous mobile systems, nonlinear control theory, Lyapunov stability, model predictive control (MPC), optimal decision making, and computer vision.
+            </p>
+
+            <!-- Station Tags -->
+            <div class="mt-5 pt-4 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-2.5 py-1 rounded-md dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 border border-blue-500/20">Automation & Robotics</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 border border-blue-500/20">Spatial Kinematics</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 border border-blue-500/20">Nonlinear Control</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 border border-blue-500/20">ROS 2</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-gray-100 dark:text-gray-700 bg-[#1f2937] text-gray-300">Munich</span>
+            </div>
           </div>
         </div>
 
-        <!-- 2. TU Berlin -->
-        <div class="dark:bg-white bg-[#0d1117] border dark:border-gray-200 border-[#30363d] rounded-2xl p-6 shadow-sm relative overflow-hidden flex flex-col justify-between hover:border-red-400 hover:scale-[1.01] transition-all duration-300 group">
-          <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#C50E1F] rounded-l-2xl"></div>
-          <div>
-            <div class="flex items-start justify-between gap-4 mb-4">
-              <div class="flex items-center gap-3.5">
-                <div class="w-14 h-14 rounded-xl bg-red-500/10 border border-red-500/20 p-2.5 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <img src="/icons/tu-berlin-short.svg" alt="TU Berlin Logo" class="w-full h-auto object-contain" />
-                </div>
-                <div>
-                  <h3 class="!my-0 text-lg sm:text-xl font-bold dark:text-gray-900 text-white">
-                    TU Berlin
-                  </h3>
-                  <p class="!my-0 text-xs font-mono text-red-400 font-semibold tracking-wider uppercase">Technische Universität Berlin</p>
-                </div>
+        <!-- ================= STATION 2: NORTHWESTERN SPECIALIZATION ================= -->
+        <div class="relative group">
+          <!-- Timeline Glowing Node -->
+          <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-purple-500 border-4 dark:border-white border-[#0d1117] shadow-[0_0_14px_rgba(168,85,247,0.8)]"></div>
+
+          <div class="dark:bg-white bg-[#0d1117] border border-purple-500/40 rounded-2xl p-6 sm:p-8 shadow-sm hover:border-purple-400 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300 relative overflow-hidden">
+            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-purple-500"></div>
+
+            <!-- Station Metadata Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-purple-500/15 text-purple-400 border border-purple-500/30">
+                  2024
+                </span>
+                <span class="text-xs font-mono dark:text-gray-500 text-gray-400">Coursera · Prof. Kevin Lynch</span>
               </div>
-              <span class="text-xs px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 font-semibold shrink-0">
-                Grade 1.7 Thesis
+              <a
+                href="https://coursera.org/share/965d45eb7ea0ef149ed67ba07228e0fb"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 font-semibold hover:underline flex items-center gap-1"
+              >
+                <span>Verify Credential ↗</span>
+              </a>
+            </div>
+
+            <!-- Institution Identity -->
+            <div class="flex items-center gap-3.5 mb-3">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 p-2 flex items-center justify-center shrink-0">
+                <img src="/icons/northwestern.svg" alt="Northwestern University" class="w-full h-auto object-contain" />
+              </div>
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0">
+                  Northwestern University
+                </h3>
+                <p class="text-xs font-mono text-purple-400 uppercase tracking-wider font-medium !my-0">
+                  Center for Robotics and Biosystems
+                </p>
+              </div>
+            </div>
+
+            <!-- Specialization Title (Tightly bound together) -->
+            <div class="mt-4 pt-4 border-t dark:border-gray-100 border-[#21262d] space-y-1">
+              <div class="text-lg font-bold dark:text-purple-600 text-purple-400">
+                Modern Robotics: Mechanics, Planning, and Control Specialization
+              </div>
+              <div class="text-sm font-mono text-purple-300 font-semibold uppercase tracking-wide">
+                Rigorous 6-Course Program Completed
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p data-i18n="nwDesc" class="mt-3 text-sm sm:text-base dark:text-gray-700 text-gray-300 leading-relaxed font-sans" style="line-height: 1.75;">
+              Intensive study of modern geometric robotics based on <strong>screw theory and Lie groups (SO(3), SE(3))</strong>. Implemented complete Python solutions for forward and numerical inverse kinematics (Newton-Raphson), open/closed chain dynamics (Euler-Lagrange and recursive Newton-Euler algorithms), collision-free trajectory generation, and mobile manipulator feedback control.
+            </p>
+
+            <!-- Station Tags -->
+            <div class="mt-5 pt-4 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Screw Theory (PoE)</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Manipulator Dynamics</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Trajectory Generation</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-purple-50 dark:text-purple-700 bg-purple-500/10 text-purple-300 border border-purple-500/20">Python Codebase</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= STATION 3: TU BERLIN (BACHELOR) ================= -->
+        <div class="relative group">
+          <!-- Timeline Glowing Node -->
+          <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-red-500 border-4 dark:border-white border-[#0d1117] shadow-[0_0_14px_rgba(239,68,68,0.8)]"></div>
+
+          <div class="dark:bg-white bg-[#0d1117] border border-red-500/40 rounded-2xl p-6 sm:p-8 shadow-sm hover:border-red-400 hover:shadow-lg hover:shadow-red-500/10 transition-all duration-300 relative overflow-hidden">
+            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#C50E1F]"></div>
+
+            <!-- Station Metadata Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-red-500/15 text-red-400 border border-red-500/30">
+                  2020 – 2024
+                </span>
+                <span class="text-xs font-mono dark:text-gray-500 text-gray-400">Berlin, Germany</span>
+              </div>
+              <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 font-semibold">
+                Bachelor's Degree Completed
               </span>
             </div>
 
-            <div class="mt-2">
-              <p class="!my-0 text-base font-semibold dark:text-red-600 text-red-400">
+            <!-- University Logo & Identity -->
+            <div class="flex items-center gap-3.5 mb-3">
+              <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 p-2 flex items-center justify-center shrink-0">
+                <img src="/icons/tu-berlin-short.svg" alt="TU Berlin Logo" class="w-full h-auto object-contain" />
+              </div>
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0">
+                  Technische Universität Berlin (TU Berlin)
+                </h3>
+                <p class="text-xs font-mono text-red-400 uppercase tracking-wider font-medium !my-0">
+                  Fakultät IV · Elektrotechnik und Informatik
+                </p>
+              </div>
+            </div>
+
+            <!-- Degree & Specialization (TIGHTLY GROUPED) -->
+            <div class="mt-4 pt-4 border-t dark:border-gray-100 border-[#21262d] space-y-1">
+              <div class="text-lg font-bold dark:text-red-600 text-red-400">
                 B.Sc. Computer Engineering (Technische Informatik)
-              </p>
-              <p class="!my-1 text-xs font-mono text-gray-400 uppercase tracking-wide">
-                Hardware & Software Full Stack
-              </p>
-              <p data-i18n="tubDesc" class="!my-3 text-sm dark:text-gray-700 text-gray-300 leading-relaxed">
-                Broad foundation across systems programming, computer architecture, algorithms, and AI. Thesis: Ant Colony Optimization, Constraint Programming, and SAT for Akari puzzle solving.
-              </p>
+              </div>
+              <div class="text-sm font-mono text-red-300 font-semibold uppercase tracking-wide">
+                Bachelor Thesis Graded 1.7
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p data-i18n="tubDesc" class="mt-3 text-sm sm:text-base dark:text-gray-700 text-gray-300 leading-relaxed font-sans" style="line-height: 1.75;">
+              Comprehensive engineering foundation across systems programming, computer architecture, digital logic, operating systems, and discrete mathematics. 
+              <strong>Bachelor Thesis:</strong> Comparative evaluation of deductive search, Ant Colony Optimization (ACO), and SAT-based solvers for the NP-complete Akari puzzle (graded <strong>1.7</strong>).
+            </p>
+
+            <!-- Station Tags -->
+            <div class="mt-5 pt-4 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-2.5 py-1 rounded-md dark:bg-red-50 dark:text-red-700 bg-red-500/10 text-red-300 border border-red-500/20">Computer Engineering</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-red-50 dark:text-red-700 bg-red-500/10 text-red-300 border border-red-500/20">Thesis Grade 1.7</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-red-50 dark:text-red-700 bg-red-500/10 text-red-300 border border-red-500/20">C++ / Optimization</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-red-50 dark:text-red-700 bg-red-500/10 text-red-300 border border-red-500/20">SAT Solving</span>
+              <span class="px-2.5 py-1 rounded-md dark:bg-gray-100 dark:text-gray-700 bg-[#1f2937] text-gray-300">Berlin</span>
             </div>
           </div>
+        </div>
 
-          <div class="pt-4 border-t dark:border-gray-100 border-[#21262d] flex flex-wrap gap-2">
-            <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-gray-100 dark:text-gray-700 bg-[#1f2937] text-gray-300 font-mono">Berlin, Germany</span>
-            <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-red-50 dark:text-red-700 bg-red-500/10 text-red-400 font-medium">Bachelor of Science</span>
-            <span class="text-xs px-2.5 py-0.5 rounded-full dark:bg-gray-100 dark:text-gray-700 bg-[#1f2937] text-gray-300 font-medium">Completed</span>
+      </div>
+    </div>
+
+    <!-- ROBOTICS PHILOSOPHY & EMBODIED AI -->
+    <div class="mt-20">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
+        <h2 data-i18n="h2" class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0">
+          Robotics Philosophy & Embodied AI
+        </h2>
+      </div>
+
+      <div class="dark:bg-white bg-[#0d1117] border dark:border-gray-200 border-[#30363d] rounded-2xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-blue-500 via-cyan-400 to-indigo-500 rounded-l-2xl"></div>
+
+        <p data-i18n="p3" class="text-base sm:text-lg dark:text-gray-800 text-gray-200 leading-relaxed !my-0 font-sans" style="line-height: 1.8;"></p>
+
+        <!-- Visual Core Concepts Chips -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5 mt-6 pt-6 border-t dark:border-gray-100 border-[#21262d]">
+          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+            <span class="block font-mono text-[11px] text-blue-400 uppercase font-semibold">Kinematics</span>
+            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Screw Theory & PoE</span>
+          </div>
+          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+            <span class="block font-mono text-[11px] text-cyan-400 uppercase font-semibold">Control</span>
+            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Nonlinear & Lyapunov</span>
+          </div>
+          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+            <span class="block font-mono text-[11px] text-emerald-400 uppercase font-semibold">Middleware</span>
+            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">ROS 2 Architecture</span>
+          </div>
+          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+            <span class="block font-mono text-[11px] text-purple-400 uppercase font-semibold">Vision</span>
+            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Rig Calibration</span>
+          </div>
+          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+            <span class="block font-mono text-[11px] text-amber-400 uppercase font-semibold">Planning</span>
+            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Optimal MPC</span>
+          </div>
+          <div class="p-2.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] text-center">
+            <span class="block font-mono text-[11px] text-pink-400 uppercase font-semibold">Perception</span>
+            <span class="text-xs font-medium dark:text-gray-800 text-gray-200 mt-1 block">Sensor Fusion</span>
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- WHERE I'M HEADED / ROBOTICS FOCUS -->
-    <div class="mt-14 relative">
-      <div class="flex items-center gap-3 justify-end mb-4">
-        <h2 data-i18n="h2" class="text-right transition-transform duration-300 transform hover:scale-[1.01] !my-0"></h2>
+    <!-- ENGINEERING STACK & SKILL MATRIX -->
+    <div class="mt-20">
+      <div class="flex items-center gap-3 mb-6">
         <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
+        <h2 data-i18n="h3" class="text-xl sm:text-2xl font-bold dark:text-gray-900 text-white !my-0">
+          Hands-On Engineering & Tech Stack
+        </h2>
       </div>
 
-      <div class="dark:bg-white bg-[#0d1117] border dark:border-gray-200 border-[#30363d] rounded-2xl p-6 md:p-8 shadow-sm relative overflow-hidden">
-        <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-blue-400 to-transparent rounded-l-2xl"></div>
-        <p data-i18n="p3" class="text-base sm:text-lg dark:text-gray-800 text-gray-200 leading-relaxed !my-0"></p>
-
-        <div class="flex flex-wrap gap-2 mt-6">
-          <span class="text-xs px-3 py-1.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 border dark:border-blue-200 border-blue-500/20 font-medium">Spatial Kinematics & Dynamics</span>
-          <span class="text-xs px-3 py-1.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 border dark:border-blue-200 border-blue-500/20 font-medium">Screw Theory & PoE</span>
-          <span class="text-xs px-3 py-1.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 border dark:border-blue-200 border-blue-500/20 font-medium">Nonlinear Control & Lyapunov</span>
-          <span class="text-xs px-3 py-1.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 border dark:border-blue-200 border-blue-500/20 font-medium">Autonomous Systems</span>
-          <span class="text-xs px-3 py-1.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 border dark:border-blue-200 border-blue-500/20 font-medium">Computer Vision & Calibration</span>
-          <span class="text-xs px-3 py-1.5 rounded-full dark:bg-blue-50 dark:text-blue-700 bg-blue-500/10 text-blue-300 border dark:border-blue-200 border-blue-500/20 font-medium">Optimal Decision Making (MPC)</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- WHAT I BUILD & ENGINEERING STACK -->
-    <div class="mt-12 relative">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
-        <h2 data-i18n="h3" class="text-left transition-transform duration-300 transform hover:scale-[1.01] !my-0"></h2>
-      </div>
-
-      <div class="dark:bg-white bg-[#0d1117] border dark:border-gray-200 border-[#30363d] rounded-2xl p-6 md:p-8 shadow-sm relative overflow-hidden">
-        <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-green-500 via-blue-400 to-transparent rounded-l-2xl"></div>
-        <p data-i18n="p4" class="text-base sm:text-lg dark:text-gray-800 text-gray-200 leading-relaxed !my-0"></p>
+      <div class="dark:bg-white bg-[#0d1117] border dark:border-gray-200 border-[#30363d] rounded-2xl p-6 sm:p-8 shadow-sm">
+        <p data-i18n="p4" class="text-base sm:text-lg dark:text-gray-800 text-gray-200 leading-relaxed !my-0 font-sans" style="line-height: 1.8;"></p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-          <!-- Robotics -->
-          <div class="p-3.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d]">
-            <p class="!my-0 text-xs font-mono uppercase text-green-400 font-bold mb-2">Robotics & Control</p>
-            <div class="flex flex-wrap gap-1.5">
-              <span class="text-xs px-2 py-0.5 rounded bg-green-500/10 text-green-400 font-medium">ROS 2</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Modern Robotics</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 font-medium">Screw Theory</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-gray-500/10 text-gray-300 font-medium">RViz</span>
+
+          <!-- 1. Robotics & Middleware -->
+          <div class="p-4 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <p class="!my-0 text-xs font-mono uppercase text-emerald-400 font-bold tracking-wider">Robotics & ROS</p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-300 font-medium border border-emerald-500/20">ROS 2</span>
+                <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-300 font-medium border border-blue-500/20">Modern Robotics</span>
+                <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 font-medium border border-cyan-500/20">Screw Theory / PoE</span>
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 font-medium border border-purple-500/20">Inverse Kinematics</span>
+                <span class="px-2.5 py-1 rounded-md bg-gray-500/10 text-gray-300 font-medium border border-gray-500/20">RViz2 / URDF</span>
+              </div>
             </div>
           </div>
 
-          <!-- Languages -->
-          <div class="p-3.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d]">
-            <p class="!my-0 text-xs font-mono uppercase text-blue-400 font-bold mb-2">Languages & Core</p>
-            <div class="flex flex-wrap gap-1.5">
-              <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">Python</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-pink-500/10 text-pink-400 font-medium">C++</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-400 font-medium">C</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-gray-500/10 text-gray-300 font-medium">Linux / Bash</span>
+          <!-- 2. Languages & Core -->
+          <div class="p-4 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
+                <p class="!my-0 text-xs font-mono uppercase text-blue-400 font-bold tracking-wider">Languages & Core</p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-300 font-medium border border-blue-500/20">Python 3 (NumPy)</span>
+                <span class="px-2.5 py-1 rounded-md bg-pink-500/10 text-pink-300 font-medium border border-pink-500/20">C++ (C++17/20)</span>
+                <span class="px-2.5 py-1 rounded-md bg-yellow-500/10 text-yellow-300 font-medium border border-yellow-500/20">C</span>
+                <span class="px-2.5 py-1 rounded-md bg-gray-500/10 text-gray-300 font-medium border border-gray-500/20">Linux / Bash</span>
+                <span class="px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 font-medium border border-indigo-500/20">Git / GitHub CI</span>
+              </div>
             </div>
           </div>
 
-          <!-- Perception -->
-          <div class="p-3.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d]">
-            <p class="!my-0 text-xs font-mono uppercase text-cyan-400 font-bold mb-2">Vision & Perception</p>
-            <div class="flex flex-wrap gap-1.5">
-              <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-medium">OpenCV</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-medium">rigcal (Rig Calibration)</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 font-medium">CNNs</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-medium">PyTorch</span>
+          <!-- 3. Vision & Perception -->
+          <div class="p-4 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+                <p class="!my-0 text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider">Vision & Calibration</p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 font-medium border border-cyan-500/20">OpenCV</span>
+                <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 font-medium border border-cyan-500/20">rigcal (Rig Calibration)</span>
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 font-medium border border-purple-500/20">PyTorch</span>
+                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 font-medium border border-purple-500/20">CNNs</span>
+                <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-300 font-medium border border-blue-500/20">Extrinsics</span>
+              </div>
             </div>
           </div>
 
-          <!-- Systems & Embedded -->
-          <div class="p-3.5 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d]">
-            <p class="!my-0 text-xs font-mono uppercase text-orange-400 font-bold mb-2">Hardware & Embedded</p>
-            <div class="flex flex-wrap gap-1.5">
-              <span class="text-xs px-2 py-0.5 rounded bg-orange-500/10 text-orange-400 font-medium">Embedded Systems</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-orange-500/10 text-orange-400 font-medium">Circuits & Logic</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-gray-500/10 text-gray-300 font-medium">VHDL / Arch</span>
+          <!-- 4. Control & Embedded -->
+          <div class="p-4 rounded-xl dark:bg-gray-50 bg-[#161b22] border dark:border-gray-200 border-[#21262d] flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                <p class="!my-0 text-xs font-mono uppercase text-amber-400 font-bold tracking-wider">Control & Hardware</p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-300 font-medium border border-amber-500/20">Nonlinear Control</span>
+                <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-300 font-medium border border-amber-500/20">Lyapunov Analysis</span>
+                <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-300 font-medium border border-amber-500/20">PLC / SPS / Sensoric</span>
+                <span class="px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-300 font-medium border border-orange-500/20">Architecture</span>
+                <span class="px-2.5 py-1 rounded-md bg-gray-500/10 text-gray-300 font-medium border border-gray-500/20">VHDL / Digital Logic</span>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
 
-    <!-- CURRENTLY LOOKING FOR / INVITING CONTACT -->
-    <div class="mt-12 relative mb-16">
-      <div class="flex items-center gap-3 justify-end mb-4">
-        <h2 data-i18n="h4" class="text-right transition-transform duration-300 transform hover:scale-[1.01] !my-0"></h2>
-        <span class="w-8 h-px dark:bg-blue-500 bg-blue-400 shrink-0"></span>
-      </div>
+    <!-- CURRENT STATUS & COLLABORATION CALL -->
+    <div class="mt-20">
+      <div class="dark:bg-white bg-[#0d1117] border border-blue-500/40 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden backdrop-blur-md">
+        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-blue-500 via-emerald-400 to-cyan-400 rounded-l-2xl"></div>
 
-      <div class="dark:bg-white bg-[#0d1117] border border-blue-500/40 rounded-2xl p-6 md:p-8 shadow-sm relative overflow-hidden">
-        <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-green-400 to-transparent rounded-l-2xl"></div>
-
-        <div class="flex items-center justify-between mb-4">
-          <div class="flex items-center gap-2">
-            <span class="relative flex h-2.5 w-2.5">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div class="flex items-center gap-2.5">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
             </span>
-            <span class="text-xs sm:text-sm font-semibold dark:text-green-600 text-green-400" data-i18n="status"></span>
+            <span class="text-sm font-semibold dark:text-emerald-600 text-emerald-400" data-i18n="status">
+              Open to Opportunities · Munich / Hybrid
+            </span>
           </div>
           <span class="text-xs font-mono dark:text-gray-500 text-gray-400">Munich, Bavaria</span>
         </div>
 
-        <p data-i18n="p5" class="text-base sm:text-lg dark:text-gray-800 text-gray-200 leading-relaxed !my-0"></p>
+        <p data-i18n="p5" class="text-base sm:text-lg dark:text-gray-800 text-gray-200 leading-relaxed !my-0 font-sans" style="line-height: 1.8;"></p>
 
-        <!-- Inviting Action Buttons -->
-        <div class="mt-6 flex flex-wrap items-center gap-3 pt-4 border-t dark:border-gray-100 border-[#21262d]">
-          <a href="https://www.linkedin.com/in/maximmjakin/" target="_blank" rel="noopener noreferrer"
-             class="px-4 py-2.5 rounded-xl font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 text-sm flex items-center gap-2">
+        <div class="mt-6 flex flex-wrap items-center gap-3 pt-5 border-t dark:border-gray-100 border-[#21262d]">
+          <a
+            href="https://www.linkedin.com/in/maximmjakin/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-3 rounded-xl font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 text-sm flex items-center gap-2 shadow-md"
+          >
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-            LinkedIn Profile ↗
+            <span>Connect on LinkedIn</span>
           </a>
-          <a href="mailto:maxim.mjakinin@gmail.com"
-             class="px-4 py-2.5 rounded-xl font-medium border border-blue-500/40 text-blue-400 hover:bg-blue-500/10 transition-all duration-300 transform hover:scale-105 text-sm flex items-center gap-2">
+          <a
+            href="mailto:maxim.mjakinin@gmail.com"
+            class="px-5 py-3 rounded-xl font-medium border border-blue-500/40 text-blue-400 hover:bg-blue-500/10 transition-all duration-300 transform hover:scale-105 text-sm flex items-center gap-2"
+          >
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Email Me
+            <span>maxim.mjakinin@gmail.com</span>
           </a>
-          <a href="/Projects"
-             class="px-4 py-2.5 rounded-xl font-medium border dark:border-gray-200 border-gray-700 dark:text-gray-700 text-gray-300 hover:border-gray-400 transition-all duration-300 transform hover:scale-105 text-sm">
-            View Projects & Repos →
+          <a
+            href="/Projects"
+            class="px-5 py-3 rounded-xl font-medium border dark:border-gray-200 border-gray-700 dark:text-gray-700 text-gray-300 hover:border-gray-400 hover:text-white transition-all duration-300 transform hover:scale-105 text-sm"
+          >
+            Explore Projects & Repos →
           </a>
         </div>
       </div>
     </div>
 
-    <script src="../js/themeHandler.js"></script>
-    <script src="../js/pageHandler.js"></script>
-
+    <!-- SCRIPT: BILINGUAL TRANSLATION HANDLER -->
     <script is:inline>
       const translations = {
         en: {
-          h1: "About Me",
+          h1: `About <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-sky-400">Maxim Mjakinin</span>`,
+          heroSub: `M.Sc. Student in Automation & Robotics · Robotics Software & Control`,
           p1: `I'm Maxim, currently pursuing my Master of Science in Electrical and Computer Engineering (EI) with a major in <strong>Automation & Robotics</strong> at the <strong>Technical University of Munich (TUM)</strong>. Prior to TUM, I completed my Bachelor of Science in Computer Engineering at <strong>TU Berlin</strong>, where my bachelor's thesis on combinatorial optimization and metaheuristic solvers for the NP-complete Akari puzzle was graded 1.7.`,
           p2: `My academic and engineering background spans the complete stack: from computer architecture, systems programming, and electronic circuit fundamentals to optimization algorithms, machine learning, and control theory. This interdisciplinary foundation allows me to approach robotics challenges with an understanding of both physical hardware constraints and mathematical algorithms.`,
-          hEducation: "Education & Academic Background",
-          tumDesc: `Specializing in Automation & Robotics, Autonomous Systems, Nonlinear Control, Optimal Decision Making, and Computer Vision.`,
-          tubDesc: `Broad foundation across systems programming, computer architecture, algorithms, and AI. Thesis: Ant Colony Optimization, Constraint Programming, and SAT for Akari puzzle solving (graded 1.7).`,
-          h2: "Robotics & Specialization",
+          hEducation: "Academic Journey & Milestones (Werdegang)",
+          tumDesc: `Advanced graduate studies focused on <strong>spatial kinematics & dynamics (Screw Theory, PoE)</strong>, autonomous mobile systems, nonlinear control theory, Lyapunov stability, model predictive control (MPC), optimal decision making, and computer vision.`,
+          nwDesc: `Intensive study of modern geometric robotics based on <strong>screw theory and Lie groups (SO(3), SE(3))</strong>. Implemented complete Python solutions for forward and numerical inverse kinematics (Newton-Raphson), open/closed chain dynamics (Euler-Lagrange and recursive Newton-Euler algorithms), collision-free trajectory generation, and mobile manipulator feedback control.`,
+          tubDesc: `Comprehensive engineering foundation across systems programming, computer architecture, digital logic, operating systems, and discrete mathematics. <strong>Bachelor Thesis:</strong> Comparative evaluation of deductive search, Ant Colony Optimization (ACO), and SAT-based solvers for the NP-complete Akari puzzle (graded <strong>1.7</strong>).`,
+          h2: "Robotics Philosophy & Embodied AI",
           p3: `In my Master's at TUM, I deliberately focus on <strong>Automation & Robotics, Autonomous Systems, Control Theory, and Computer Vision</strong>. I am fascinated by embodied intelligence — systems that perceive dynamic real-world environments, calculate optimal trajectories, and act with mechanical precision — whether that's industrial manipulators, multi-camera calibration rigs, or autonomous mobile robots.`,
-          h3: "Hands-On Engineering & Stack",
+          h3: "Hands-On Engineering & Tech Stack",
           p4: `Alongside university coursework, I actively build open-source robotics projects. I completed Northwestern University's rigorous 6-course <em>Modern Robotics: Mechanics, Planning, and Control</em> Specialization, implementing complete Python solutions for screw theory, forward/inverse kinematics, dynamics, and simulation. My GitHub projects range from camera rig calibration pipelines (<code>rigcal</code>) and ROS 2 controllers to handwritten digit CNNs and combinatorial optimization solvers.`,
-          h4: "Current Status & Opportunities",
-          p5: `I am currently based in Munich, Germany. I am open to working student positions (Werkstudent), robotics internships, and thesis collaborations in robotics, autonomous systems, computer vision, and intelligent control engineering.`,
-          status: "Open to opportunities · Munich / Hybrid",
+          status: "Open to Opportunities · Munich / Hybrid",
+          p5: `I am currently based in Munich, Germany. I am open to working student positions (Werkstudent), robotics internships, and master thesis collaborations in robotics, autonomous systems, computer vision, and intelligent control engineering.`,
         },
         de: {
-          h1: "Über mich",
-          p1: `Ich bin Maxim und studiere Elektro- und Informationstechnik (EI) mit dem Schwerpunkt <strong>Automation & Robotics</strong> im Master an der <strong>Technischen Universität München (TUM)</strong>. Meinen Bachelor in Technischer Informatik habe ich an der <strong>TU Berlin</strong> abgeschlossen — mit einer Bachelorarbeit über kombinatorische Optimierungsalgorithmen und Metaheuristiken für das Akari-Rätsel, bewertet mit 1,7.`,
+          h1: `Über <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-sky-400">Maxim Mjakinin</span>`,
+          heroSub: `Master-Student in Automation & Robotics · Robotik Software & Regelung`,
+          p1: `Ich bin Maxim und studiere Elektro- und Informationstechnik (EI) mit dem Schwerpunkt <strong>Automation & Robotics</strong> im Master an der <strong>Technischen Universität München (TUM)</strong>. Meinen Bachelor in Technischer Informatik habe ich an der <strong>TU Berlin</strong> abgeschlossen — mit einer Bachelorarbeit über kombinatorische Optimierungsalgorithmen und Metaheuristiken für das NP-vollständige Akari-Rätsel, bewertet mit 1,7.`,
           p2: `Mein Hintergrund verbindet Hardware und Software: von Rechnerarchitektur, Systemprogrammierung und Grundlagen der Elektrotechnik bis hin zu Algorithmen, maschinellem Lernen und Regelungstechnik. Diese Breite ermöglicht es mir, komplexe Robotik-Herausforderungen sowohl von der physikalischen als auch von der algorithmischen Seite zu verstehen.`,
-          hEducation: "Ausbildung & Werdegang",
-          tumDesc: `Schwerpunkte in Automation & Robotics, autonomen Systemen, nichtlinearer Regelung, optimaler Entscheidungsfindung und Computer Vision.`,
-          tubDesc: `Fundierte Ausbildung in Systemprogrammierung, Rechnerorganisation, Algorithmen und KI. Bachelorarbeit: Ant Colony Optimization, Constraint Programming und SAT (Note 1,7).`,
-          h2: "Fokus Robotik & Automation",
+          hEducation: "Akademischer Werdegang & Meilensteine",
+          tumDesc: `Master-Studium mit Schwerpunkt auf <strong>räumlicher Kinematik & Dynamik (Schraubentheorie, PoE)</strong>, autonomen mobilen Systemen, nichtlinearer Regelungstheorie, Lyapunov-Stabilität, modellprädiktiver Regelung (MPC), optimaler Entscheidungsfindung und Computer Vision.`,
+          nwDesc: `Fundierte Spezialisierung in moderner geometrischer Robotik basierend auf <strong>Schraubentheorie und Lie-Gruppen (SO(3), SE(3))</strong>. Vollständige Python-Implementierung von Vorwärts- und numerischer Inverser Kinematik (Newton-Raphson), offener/geschlossener Kettendynamik (Euler-Lagrange & rekursives Newton-Euler-Verfahren), kollisionsfreier Trajektoriengenerierung und Regelung mobiler Manipulatoren.`,
+          tubDesc: `Fundierte Ingenieurausbildung in Systemprogrammierung, Rechnerarchitektur, digitaler Schaltungslogik, Betriebssystemen und diskreter Mathematik. <strong>Bachelorarbeit:</strong> Vergleichende Analyse von deduktiven Heuristiken, Ant Colony Optimization (ACO) und SAT-Solvern für das NP-vollständige Akari-Rätsel (Note <strong>1,7</strong>).`,
+          h2: "Fokus Robotik & Autonome Systeme",
           p3: `Im Master an der TUM konzentriere ich mich gezielt auf <strong>Automation & Robotics, autonome Systeme, Regelungstechnik und Computer Vision</strong>. Mein Ziel ist es, an Systemen zu arbeiten, die die reale Welt erfassen, optimale Entscheidungen treffen und mechanisch präzise handeln — seien es Robotermanipulatoren, Kamerasysteme oder autonome Fahrzeuge.`,
           h3: "Praktische Projekte & Tech Stack",
           p4: `Neben dem Studium setze ich mein Wissen in praktischen Projekten um. Ich habe die 6-teilige <em>Modern Robotics</em>-Spezialisierung der Northwestern University abgeschlossen und vollständige Python-Lösungen für Schraubentheorie, Kinematik, Dynamik und Regelung entwickelt. Auf GitHub entwickle ich u.a. Multi-Kamera-Kalibrierungstools (<code>rigcal</code>), ROS 2-Nodes, CNNs für Computer Vision und Algorithmen.`,
-          h4: "Aktuell auf der Suche nach",
-          p5: `Ich lebe in München. Ich bin offen für Werkstudentenstellen, Praktika und Projektarbeiten in den Bereichen Robotik, autonome Systeme, Computer Vision und Regelungstechnik.`,
           status: "Offen für Angebote · München / Hybrid",
+          p5: `Ich lebe in München. Ich bin offen für Werkstudentenstellen, Praktika und Masterarbeiten in den Bereichen Robotik, autonome Systeme, Computer Vision und Regelungstechnik.`,
         },
       };
 
@@ -290,12 +548,16 @@ import Layout from "../layouts/Layout.astro";
 
       function applyLang(lang) {
         const t = translations[lang];
-        document.getElementById("h1").innerHTML = t.h1;
+        const h1El = document.getElementById("h1");
+        if (h1El) h1El.innerHTML = t.h1;
+        const subEl = document.getElementById("hero-sub");
+        if (subEl) subEl.textContent = t.heroSub;
         document.querySelectorAll("[data-i18n]").forEach((el) => {
           const key = el.getAttribute("data-i18n");
           if (t[key]) el.innerHTML = t[key];
         });
-        document.getElementById("lang-toggle").textContent = lang === "en" ? "DE" : "EN";
+        const labelEl = document.getElementById("lang-label");
+        if (labelEl) labelEl.textContent = lang === "en" ? "DE" : "EN";
       }
 
       function toggleLang() {
@@ -307,3 +569,15 @@ import Layout from "../layouts/Layout.astro";
     </script>
   </div>
 </Layout>
+
+<!-- Scoped styles to strictly override base.css pseudo-elements and first-letter bugs -->
+<style>
+  .about-container h1::before,
+  .about-container h2::before,
+  .about-container h3::before,
+  .about-container h4::before {
+    content: none !important;
+    display: none !important;
+    margin-right: 0 !important;
+  }
+</style>
