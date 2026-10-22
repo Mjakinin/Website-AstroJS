@@ -28,6 +28,14 @@ const metaDesc = description || defaultDesc;
     <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512.png" />
     <link rel="manifest" href="/manifest.json" />
 
+    <script is:inline>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+
     <title>{title}</title>
     <GoogleTagmanager id="G-8KQPMT3NVB" partytown={false} />
   </head>
@@ -65,6 +73,7 @@ const metaDesc = description || defaultDesc;
     </main>
      <script src="../js/pagetransition.js"></script>
     <script src="../js/urlaub.js"></script>
+    <script src="../js/themeHandler.js"></script>
     <script is:inline>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {

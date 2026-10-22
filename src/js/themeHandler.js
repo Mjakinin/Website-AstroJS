@@ -1,257 +1,168 @@
 class PageHandler1 {
   constructor() {
-    if (localStorage.getItem("theme") == "dark") {
+    window.__themeHandlerActive = true;
+
+    if (localStorage.getItem("theme") === "dark") {
       document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
 
-    this.setThemeIcon();
-    this.setFarbenwechsel();
+    this.updateAll();
+    this.bindEvents();
+  }
 
-    document.querySelector("#farbenwechsel").addEventListener("click", () => {
+  bindEvents() {
+    const toggle = (e) => {
+      if (e) e.preventDefault();
       document.documentElement.classList.toggle("dark");
 
-      if (localStorage.getItem("theme") == "dark") {
-        localStorage.setItem("theme", "");
-      } else {
+      if (document.documentElement.classList.contains("dark")) {
         localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "");
       }
 
-      this.setFarbenwechsel();
-      this.setThemeIcon();
-      this.setIcon();
-      this.setLogo();
-      this.setLogo1();
-      this.setImg();
-      this.setWhatsapp();
-      this.setScrollIcon();
-    });
+      this.updateAll();
+      window.dispatchEvent(new CustomEvent("themechange"));
+    };
+
+    const colorSwitch = document.querySelector("#colorSwitch");
+    if (colorSwitch && !colorSwitch.dataset.themeBound) {
+      colorSwitch.dataset.themeBound = "true";
+      colorSwitch.addEventListener("click", toggle);
+    }
+
+    const farbenwechsel = document.querySelector("#farbenwechsel");
+    if (farbenwechsel && !farbenwechsel.dataset.themeBound) {
+      farbenwechsel.dataset.themeBound = "true";
+      farbenwechsel.addEventListener("click", toggle);
+    }
+  }
+
+  updateAll() {
+    this.setThemeIcon();
+    this.setFarbenwechsel();
+    this.setIcon();
+    this.setLogo();
+    this.setLogo1();
+    this.setImg();
+    this.setWhatsapp();
+    this.setScrollIcon();
   }
 
   setThemeIcon() {
-    let colorSwitch = document.querySelector("#colorSwitch");
-    if (colorSwitch === null) return;
+    const colorSwitch = document.querySelector("#colorSwitch");
+    if (!colorSwitch) return;
 
-    if (localStorage.getItem("theme") == "dark") {
-      colorSwitch.innerHTML = `
-        <img src="/icons/moon.svg?a=${Math.random()}" alt="moon" class="w-6 h-6" />
-      `;
+    if (document.documentElement.classList.contains("dark")) {
+      colorSwitch.innerHTML = `<img src="/icons/moon.svg" alt="moon" class="w-5 h-5" />`;
     } else {
-      colorSwitch.innerHTML = `
-        <img src="/icons/sun.svg?a=${Math.random()}" alt="sun" class="w-6 h-6" />
-      `;
+      colorSwitch.innerHTML = `<img src="/icons/sun.svg" alt="sun" class="w-5 h-5" />`;
     }
   }
 
   setFarbenwechsel() {
-    let colorSwitch1 = document.querySelector("#farbenwechsel");
-    if (colorSwitch1 === null) return;
-  
-    if (localStorage.getItem("theme") == "dark") {
-      colorSwitch1.innerHTML = `
-        <img src="/icons/moon1.svg?a=${Math.random()}" alt="moon1" class="w-6 h-6" />
-      `;
+    const colorSwitch1 = document.querySelector("#farbenwechsel");
+    if (!colorSwitch1) return;
+
+    if (document.documentElement.classList.contains("dark")) {
+      colorSwitch1.innerHTML = `<img src="/icons/moon.svg" alt="moon" class="w-5 h-5" />`;
     } else {
-      colorSwitch1.innerHTML = `
-        <img src="/icons/sun1.svg?a=${Math.random()}" alt="sun1" class="w-6 h-6" />
-      `;
+      colorSwitch1.innerHTML = `<img src="/icons/sun.svg" alt="sun" class="w-5 h-5" />`;
     }
   }
 
-  setImg()
-  {
+  setImg() {
+    const isLight = document.documentElement.classList.contains("dark");
     const img2 = document.querySelector("#img2");
-    if (img2 === null) return;
-
-    if (localStorage.getItem("theme") == "dark") {
-      img2.innerHTML = `
-        <img src="/icons/fernsehturm.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-48 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-48 2xl:left-24"/>
-      `;
-    } else {
-      img2.innerHTML = `
-        <img src="/icons/fernsehturm-dark.svg?a=${Math.random()}" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-48 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-48 2xl:left-24"/>
-      `;
+    if (img2) {
+      if (isLight) {
+        img2.innerHTML = `<img src="/icons/fernsehturm.svg" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-48 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-48 2xl:left-24"/>`;
+      } else {
+        img2.innerHTML = `<img src="/icons/fernsehturm-dark.svg" alt="img2" class="transition-transform duration-300 transform hover:scale-105 -rotate-12 absolute hidden xl:block xl:w-52 xl:h-52 xl:-bottom-48 xl:left-42 2xl:w-72 2xl:h-72 2xl:-bottom-48 2xl:left-24"/>`;
+      }
     }
 
     const img = document.querySelector("#img");
-    if (img === null) return;
-
-    if (localStorage.getItem("theme") == "dark") {
-      img.innerHTML = `
-        <img src="/icons/brandenburger-tor.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-112 xl:translate-y-96 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-[355px] 2xl:-translate-x-52"/>
-      `;
-    } else {
-      img.innerHTML = `
-        <img src="/icons/brandenburger-tor-dark.svg?a=${Math.random()}" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-112 xl:translate-y-96 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-[355px] 2xl:-translate-x-52"/>
-      `;
+    if (img) {
+      if (isLight) {
+        img.innerHTML = `<img src="/icons/brandenburger-tor.svg" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-112 xl:translate-y-96 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-[355px] 2xl:-translate-x-52"/>`;
+      } else {
+        img.innerHTML = `<img src="/icons/brandenburger-tor-dark.svg" alt="img" class="transition-transform duration-300 transform hover:scale-105 rotate-12 absolute right-10 bottom-0 w-20 h-20 hidden xl:block xl:w-52 xl:h-52 xl:top-112 xl:translate-y-96 xl:-translate-x-52 2xl:w-72 2xl:h-72 2xl:top-96 2xl:translate-y-[355px] 2xl:-translate-x-52"/>`;
+      }
     }
   }
 
-  setWhatsapp()
-  {
+  setWhatsapp() {
     const logo = document.querySelector("#whatsapplink");
-    if (logo === null) return;
+    if (!logo) return;
 
-    if (localStorage.getItem("theme") == "dark") {
-      logo.innerHTML = `
-        <img src="/images/whatsappdark.png?a=${Math.random()}" alt="icon1" class="" />
-      `;
+    if (document.documentElement.classList.contains("dark")) {
+      logo.innerHTML = `<img src="/images/whatsappdark.png" alt="icon1" class="" />`;
     } else {
-      logo.innerHTML = `
-        <img src="/images/whatsapplight.png?a=${Math.random()}" alt="logo1" class="" />
-      `;
+      logo.innerHTML = `<img src="/images/whatsapplight.png" alt="logo1" class="" />`;
     }
   }
 
   setLogo() {
     const logo = document.querySelector("#logoSwitch");
-    if (logo === null) return;
+    if (!logo) return;
 
-    if (localStorage.getItem("theme") == "dark") {
-      logo.innerHTML = `
-        <img src="/images/DunkelLogo.png?a=${Math.random()}" alt="logo2"/>
-      `;
+    if (document.documentElement.classList.contains("dark")) {
+      logo.innerHTML = `<img src="/images/DunkelLogo.png" alt="logo2"/>`;
     } else {
-      logo.innerHTML = `
-        <img src="/images/HellLogo.png?a=${Math.random()}" alt="logo1"/>
-      `;
+      logo.innerHTML = `<img src="/images/HellLogo.png" alt="logo1"/>`;
     }
   }
 
   setLogo1() {
     const logo = document.querySelector("#logoSwitch1");
-    if (logo === null) return;
+    if (!logo) return;
 
-    if (localStorage.getItem("theme") == "dark") {
-      logo.innerHTML = `
-        <img src="/images/DunkelLogo.png?a=${Math.random()}" alt="logo3"/>
-      `;
+    if (document.documentElement.classList.contains("dark")) {
+      logo.innerHTML = `<img src="/images/DunkelLogo.png" alt="logo3"/>`;
     } else {
-      logo.innerHTML = `
-        <img src="/images/HellLogo.png?a=${Math.random()}" alt="logo4"/>
-      `;
+      logo.innerHTML = `<img src="/images/HellLogo.png" alt="logo4"/>`;
     }
   }
 
   setIcon() {
-    const icon1 = document.querySelector("#icon1");
-    if (icon1 === null) return;
+    const isLight = document.documentElement.classList.contains("dark");
+    const icons = [
+      { id: "#icon1", dark: "/icons/rocket-dark.svg", light: "/icons/rocket.svg" },
+      { id: "#icon2", dark: "/icons/money-dark.svg", light: "/icons/money.svg" },
+      { id: "#icon3", dark: "/icons/tools-dark.svg", light: "/icons/tools.svg" },
+      { id: "#icon4", dark: "/icons/arrow-dark.svg", light: "/icons/arrow.svg" },
+      { id: "#icon5", dark: "/icons/person-dark.svg", light: "/icons/person.svg" },
+      { id: "#icon6", dark: "/icons/pc-dark.svg", light: "/icons/pc.svg" },
+    ];
 
-    if (localStorage.getItem("theme") == "dark") {
-      icon1.innerHTML = `
-        <img src="/icons/rocket-dark.svg?a=${Math.random()}" alt="icon1" class="w-10 h-10" />
-      `;
-    } else {
-      icon1.innerHTML = `
-        <img src="/icons/rocket.svg?a=${Math.random()}" alt="icon1" class="w-10 h-10" />
-      `;
-    }
-
-    const icon2 = document.querySelector("#icon2");
-    if (icon2 === null) return;
-
-    if (localStorage.getItem("theme") == "dark") {
-      icon2.innerHTML = `
-        <img src="/icons/money-dark.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
-      `;
-    } else {
-      icon2.innerHTML = `
-        <img src="/icons/money.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
-      `;
-    }
-
-    const icon3 = document.querySelector("#icon3");
-    if (icon3 === null) return;
-
-    if (localStorage.getItem("theme") == "dark") {
-      icon3.innerHTML = `
-        <img src="/icons/tools-dark.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
-      `;
-    } else {
-      icon3.innerHTML = `
-        <img src="/icons/tools.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
-      `;
-    }
-
-    const icon4 = document.querySelector("#icon4");
-    if (icon4 === null) return;
-
-    if (localStorage.getItem("theme") == "dark") {
-      icon4.innerHTML = `
-        <img src="/icons/arrow-dark.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
-      `;
-    } else {
-      icon4.innerHTML = `
-        <img src="/icons/arrow.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
-      `;
-    }
-
-    const icon5 = document.querySelector("#icon5");
-    if (icon5 === null) return;
-
-    if (localStorage.getItem("theme") == "dark") {
-      icon5.innerHTML = `
-        <img src="/icons/person-dark.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
-      `;
-    } else {
-      icon5.innerHTML = `
-        <img src="/icons/person.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
-      `;
-    }
-
-    const icon6 = document.querySelector("#icon6");
-    if (icon6 === null) return;
-
-    if (localStorage.getItem("theme") == "dark") {
-      icon6.innerHTML = `
-        <img src="/icons/pc-dark.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
-      `;
-    } else {
-      icon6.innerHTML = `
-        <img src="/icons/pc.svg?a=${Math.random()}" alt="logo" class="w-10 h-10" />
-      `;
-    }
+    icons.forEach(({ id, dark, light }) => {
+      const el = document.querySelector(id);
+      if (el) {
+        el.innerHTML = `<img src="${isLight ? dark : light}" alt="${id}" class="w-10 h-10" />`;
+      }
+    });
   }
 
   setScrollIcon() {
-    const icon7 = document.querySelector("#icon7");
-    if (icon7 === null) return;
-
-    if (localStorage.getItem("theme") == "dark") {
-      icon7.innerHTML = `
-        <img src="/icons/arrow-small.svg?a=${Math.random()}" alt="icon7" class="w-10 h-10" />
-      `;
-    } else {
-      icon7.innerHTML = `
-        <img src="/icons/arrow-small-dark.svg?a=${Math.random()}" alt="icon7" class="w-10 h-10" />
-      `;
-    }
-
-
-    const icon8 = document.querySelector("#icon8");
-    if (icon8 === null) return;
-
-    if (localStorage.getItem("theme") == "dark") {
-      icon8.innerHTML = `
-        <img src="/icons/arrow-small.svg?a=${Math.random()}" alt="icon7" class="w-10 h-10" />
-      `;
-    } else {
-      icon8.innerHTML = `
-        <img src="/icons/arrow-small-dark.svg?a=${Math.random()}" alt="icon7" class="w-10 h-10" />
-      `;
-    }
+    const isLight = document.documentElement.classList.contains("dark");
+    ["#icon7", "#icon8"].forEach((id) => {
+      const el = document.querySelector(id);
+      if (el) {
+        el.innerHTML = `<img src="${isLight ? "/icons/arrow-small.svg" : "/icons/arrow-small-dark.svg"}" alt="scroll" class="w-10 h-10" />`;
+      }
+    });
   }
 }
-  
-  
-  const init = () => {
-    const pageHandler1 = new PageHandler1();
-    pageHandler1.setIcon(); // Set logo based on initial theme
-    pageHandler1.setLogo();
-    pageHandler1.setLogo1();
-    pageHandler1.setImg();
-    pageHandler1.setWhatsapp();
-    pageHandler1.setThemeIcon();
-    pageHandler1.setScrollIcon();
-    pageHandler1.setFarbenwechsel();
-  };
-  document.addEventListener("DOMContentLoaded", () => init());
+
+const initTheme = () => {
+  window.__pageHandler1 = new PageHandler1();
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initTheme);
+} else {
+  initTheme();
+}

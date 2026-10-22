@@ -7,24 +7,28 @@ class PageHandler {
     this.setThemeIcon();
     this.setFarbenwechsel();
 
-    document.querySelector("#colorSwitch").addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
+    const colorSwitch = document.querySelector("#colorSwitch");
+    if (colorSwitch && !window.__themeHandlerActive && !colorSwitch.dataset.pageHandlerBound) {
+      colorSwitch.dataset.pageHandlerBound = "true";
+      colorSwitch.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
 
-      if (localStorage.getItem("theme") == "dark") {
-        localStorage.setItem("theme", "");
-      } else {
-        localStorage.setItem("theme", "dark");
-      }
+        if (localStorage.getItem("theme") == "dark") {
+          localStorage.setItem("theme", "");
+        } else {
+          localStorage.setItem("theme", "dark");
+        }
 
-      this.setFarbenwechsel();
-      this.setThemeIcon();
-      this.setIcon();
-      this.setLogo();
-      this.setLogo1();
-      this.setImg();
-      this.setWhatsapp();
-      this.setScrollIcon();
-    });
+        this.setFarbenwechsel();
+        this.setThemeIcon();
+        this.setIcon();
+        this.setLogo();
+        this.setLogo1();
+        this.setImg();
+        this.setWhatsapp();
+        this.setScrollIcon();
+      });
+    }
   }
 
   setThemeIcon() {

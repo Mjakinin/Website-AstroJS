@@ -32,8 +32,10 @@ const { navMode } = Astro.props;
       <div
         id="farbenwechsel"
         class="hover:cursor-pointer dark:bg-gray-100 bg-white/10 hover:bg-white/20 dark:hover:bg-gray-200 rounded-full p-2 block lg:hidden transition-all duration-300"
+        title="Toggle light/dark mode"
+        aria-label="Toggle light/dark mode"
       >
-        <img src="/icons/moon1.svg" alt="theme" class="w-5 h-5" />
+        <img src="/icons/sun.svg" alt="theme" class="w-5 h-5" />
       </div>
     </div>
 
