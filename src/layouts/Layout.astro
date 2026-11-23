@@ -43,14 +43,6 @@ const metaDesc = description || defaultDesc;
   <body class="font-mono dark:bg-light bg-dark dark:text-dark text-light">
     <main id="" class="text-half-sm sm:text-xl md:text-2xl">
 
-      <div id="popup-overlay"></div>
-      <div id="popup" class="popup">
-        <div class="popup-content">
-          <span class="close-btn" onclick="closePopup()">&times;</span>
-          <h2>Urlaubsankündigung</h2>
-          <p style="text-align: left;">Ich bin derzeit im Urlaub und werde ab <b>01.09</b> zurück sein. In dringenden Fällen erreichen Sie mich unter <b>maxim.mjakinin@gmail.com</b> oder <b>WhatsApp</b><br />Vielen Dank für Ihr Verständnis.</p>
-        </div>
-      </div>
 
       <Header navMode={navMode} />
       <article class="page">
@@ -72,7 +64,6 @@ const metaDesc = description || defaultDesc;
       <NavigationMobile navMode={navMode} />
     </main>
      <script src="../js/pagetransition.js"></script>
-    <script src="../js/urlaub.js"></script>
     <script src="../js/themeHandler.js"></script>
     <script is:inline>
       if ('serviceWorker' in navigator) {
